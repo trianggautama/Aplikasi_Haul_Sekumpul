@@ -1,0 +1,1 @@
+<a href="{{Route('adminIndex')}}">Halaman Admin</a>
