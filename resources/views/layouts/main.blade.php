@@ -315,6 +315,7 @@
 		<script src="{{asset('admin/vendor/datatables/extras/TableTools/JSZip-2.5.0/jszip.min.js')}}"></script>
 		<script src="{{asset('admin/vendor/datatables/extras/TableTools/pdfmake-0.1.32/pdfmake.min.js')}}"></script>
 		<script src="{{asset('admin/vendor/datatables/extras/TableTools/pdfmake-0.1.32/vfs_fonts.js')}}"></script>
+		
 		<!-- Theme Base, Components and Settings -->
 		<script src="{{asset('admin/js/theme.js')}}"></script>
 		
