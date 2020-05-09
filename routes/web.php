@@ -22,3 +22,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/adminIndex', 'adminController@index')->name('adminIndex');
 Route::get('/userIndex', 'adminController@userIndex')->name('userIndex');
+Route::get('/haulIndex', 'adminController@haulIndex')->name('haulIndex');
+Route::get('/poskoIndex', 'adminController@poskoIndex')->name('poskoIndex');
+Route::get('/poskoDetail', 'adminController@poskoDetail')->name('poskoDetail');

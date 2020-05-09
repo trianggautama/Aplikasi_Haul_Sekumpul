@@ -15,4 +15,19 @@ class adminController extends Controller
     
         return view('admin.user.index');
     }
+
+    public function haulIndex(){
+    
+        return view('admin.haul.index');
+    }
+
+    public function poskoIndex(){
+    
+        return view('admin.posko.index');
+    }
+
+    public function poskoDetail(){
+    
+        return view('admin.posko.detail');
+    }
 }

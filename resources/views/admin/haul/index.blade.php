@@ -3,7 +3,7 @@
 @section('content')
     <section role="main" class="content-body">
 		<header class="page-header">
-			<h2>Beranda Admin</h2>
+			<h2>Halaman Haul</h2>
 				<div class="right-wrapper text-right">
 					<ol class="breadcrumbs">
 						<li>
@@ -11,8 +11,7 @@
 								<i class="fas fa-home"></i>
 							</a>
 						</li>
-						<li><span>Layouts</span></li>
-						<li><span>Sidebar Size SM</span></li>
+						<li><span>Data haul</span></li>
 					</ol>
 				<a class="sidebar-right-toggle" ><i class="fas fa-chevron-left"></i></a>
 			</div>
@@ -27,37 +26,42 @@
                         </div>
                     </div>
                     <div class="card-body">
-                    <table class="table table-bordered table-striped mb-0" id="datatable-default">
+                        <div class="table-responsive">
+                        <table class="table table-bordered table-striped mb-0" id="datatable-default">
 						<thead>
 							<tr>
                                 <th>No</th>
-								<th>Nama</th>
-								<th>Username</th>
+								<th>info</th>
+                                <th>Tanggal mulai</th>
+                                <th>Tanggal Selesai</th>
+                                <th>Ketua Panitia</th>
 								<th>Aksi</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
                                 <td>1</td>
-								<td>Trident</td>
-								<td>Internet
-									Explorer 4.0
-								</td>
+								<td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ducimus amet delectus repudiandae neque tempore ...</td>
+								<td>12 Maret 2020 </td>
+                                <td>13 Maret 2020 </td>
+                                <td>Jane Dhoe</td>
 								<td> 
-                                    <button class="btn btn-sm btn-primary"> <i class="fa fa-edit"></i></button> 
-                                    <button class="btn btn-sm btn-danger"> <i class="fa fa-trash"></i></button> 
+                                    <button class="btn btn-sm btn-warning m-1 "> <i class="fa fa-file"></i></button> 
+                                    <button class="btn btn-sm btn-primary m-1 "> <i class="fa fa-edit"></i></button> 
+                                    <button class="btn btn-sm btn-danger m-1 "> <i class="fa fa-trash"></i></button> 
                                 </td>
 							</tr>
 						</tbody>
 					</table>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     
-    <div class="modal fade" id="modal" tabindex="-1" role="dialog">
-	    <div class="modal-dialog" role="document">
+    <div class="modal fade bd-example-modal-lg" id="modal" tabindex="-1" role="dialog">
+	    <div class="modal-dialog modal-lg" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
 					<h5 class="modal-title">Are you sure?</h5>
@@ -68,17 +72,21 @@
 			<div class="modal-body">
 				<form action="">
                     <div class="form-group">
-                        <label for="">Nama</label>
-                        <input type="text"class="form-control" name="nama" id="nama" placeholder="Nama">
+                        <label for="">Informasi</label>
+                        <textarea id="summernote" name="editordata"></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="">Username</label>
+                        <label for="">Tanggal Mulai</label>
+                        <input type="date"class="form-control" name="username" id="username"  placeholder="username">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Tanggal Selesai</label>
+                        <input type="date"class="form-control" name="password" id="password">
+                    </div>
+                    <div class="form-group ">
+                        <label class="">Katua Panitia</label>
                         <input type="text"class="form-control" name="username" id="username"  placeholder="username">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Password</label>
-                        <input type="password"class="form-control" name="password" id="password">
-                    </div>
+					</div>
                 </form>
 			</div>
 			<div class="modal-footer">
@@ -96,6 +104,10 @@
         $("#tambah").click(function(){
             $('#status').text('Tambah Data');
             $('#modal').modal('show');
+        });
+
+        $(document).ready(function() {
+            $('#summernote').summernote();
         });
     </script>
 @endsection

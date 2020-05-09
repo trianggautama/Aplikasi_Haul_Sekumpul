@@ -35,11 +35,12 @@
 
 		<!-- Skin CSS -->
 		<link rel="stylesheet" href="{{asset('admin/css/skins/default.css')}}" />
-
 	
 		<!-- Head Libs -->
 		<script src="{{asset('admin/vendor/modernizr/modernizr.js')}}"></script>
 
+		<!-- Summernote -->
+		<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote.min.css" rel="stylesheet">
 	</head>
 	<body>
 		<section class="body">
@@ -188,7 +189,7 @@
 				                                </a>
 				                            </li>
 				                            <li>
-				                                <a class="nav-link" href="layouts-light-sidebar.html">
+				                                <a class="nav-link" href="{{route('haulIndex')}}">
 				                                    Acara Haul
 				                                </a>
 				                            </li>
@@ -201,7 +202,7 @@
 				                        </a>
 				                        <ul class="nav nav-children">
 				                            <li>
-				                                <a class="nav-link" href="index.html">
+				                                <a class="nav-link" href="{{Route('poskoIndex')}}">
 				                                    Data Posko 
 				                                </a>
 				                            </li>
@@ -325,6 +326,9 @@
 
 		<!-- Examples -->
 		<script src="{{asset('admin/js/examples/examples.dashboard.js')}}"></script>
-        @yield('scripts')
+
+		<!-- Summernote -->
+		<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote.min.js"></script>
+		@yield('scripts')
 	</body>
 </html>
