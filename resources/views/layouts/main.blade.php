@@ -26,6 +26,9 @@
 		<link rel="stylesheet" href="{{asset('admin/vendor/jquery-ui/jquery-ui.theme.css')}}" />
 		<link rel="stylesheet" href="{{asset('admin/vendor/bootstrap-multiselect/css/bootstrap-multiselect.css')}}" />
 		<link rel="stylesheet" href="{{asset('admin/vendor/morris/morris.css')}}" />
+		
+		<!-- Datatable -->
+		<link rel="stylesheet" href="{{asset('admin/vendor/datatables/media/css/dataTables.bootstrap4.css')}}" />
 
 		<!-- Theme CSS -->
 		<link rel="stylesheet" href="{{asset('admin/css/theme.css')}}" />
@@ -180,7 +183,7 @@
 				                        </a>
 				                        <ul class="nav nav-children">
 				                            <li>
-				                                <a class="nav-link" href="index.html">
+				                                <a class="nav-link" href="{{route('userIndex')}}">
 				                                    Admin 
 				                                </a>
 				                            </li>
@@ -300,6 +303,17 @@
 		<script src="{{asset('admin/vendor/snap.svg/snap.svg.js')}}"></script>
 		<script src="{{asset('admin/vendor/liquid-meter/liquid.meter.js')}}"></script>
 		
+		<!-- Datatable Scripts -->
+		<script src="{{asset('admin/js/examples/examples.datatables.default.js')}}"></script>
+		<script src="{{asset('admin/vendor/datatables/media/js/jquery.dataTables.min.js')}}"></script>
+		<script src="{{asset('admin/vendor/datatables/media/js/dataTables.bootstrap4.min.js')}}"></script>
+		<script src="{{asset('admin/vendor/datatables/extras/TableTools/Buttons-1.4.2/js/dataTables.buttons.min.js')}}"></script>
+		<script src="{{asset('admin/vendor/datatables/extras/TableTools/Buttons-1.4.2/js/buttons.bootstrap4.min.js')}}"></script>
+		<script src="{{asset('admin/vendor/datatables/extras/TableTools/Buttons-1.4.2/js/buttons.html5.min.js')}}"></script>
+		<script src="{{asset('admin/vendor/datatables/extras/TableTools/Buttons-1.4.2/js/buttons.print.min.js')}}"></script>
+		<script src="{{asset('admin/vendor/datatables/extras/TableTools/JSZip-2.5.0/jszip.min.js')}}"></script>
+		<script src="{{asset('admin/vendor/datatables/extras/TableTools/pdfmake-0.1.32/pdfmake.min.js')}}"></script>
+		<script src="{{asset('admin/vendor/datatables/extras/TableTools/pdfmake-0.1.32/vfs_fonts.js')}}"></script>
 		<!-- Theme Base, Components and Settings -->
 		<script src="{{asset('admin/js/theme.js')}}"></script>
 		

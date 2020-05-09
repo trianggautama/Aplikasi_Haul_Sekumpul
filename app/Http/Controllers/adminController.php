@@ -10,4 +10,9 @@ class adminController extends Controller
 
         return view('admin.index');
     }
+
+    public function userIndex(){
+    
+        return view('admin.user.index');
+    }
 }
