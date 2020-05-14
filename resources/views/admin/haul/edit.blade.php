@@ -25,7 +25,8 @@
                     <div class="card-body">
                         <form action="" enctype="multipart/form-data">
                             @csrf
-                            @method('PUT')                            <div class="form-group">
+                            @method('PUT')                            
+                            <div class="form-group">
                                 <label for="">Informasi</label>
                                 <textarea id="summernote" name="editordata"></textarea>
                             </div>

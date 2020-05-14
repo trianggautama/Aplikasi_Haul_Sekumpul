@@ -10,14 +10,4 @@ class adminController extends Controller
 
         return view('admin.index');
     }
-
-    public function poskoIndex(){
-    
-        return view('admin.posko.index');
-    }
-
-    public function poskoDetail(){
-    
-        return view('admin.posko.detail');
-    }
 }

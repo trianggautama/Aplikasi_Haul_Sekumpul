@@ -91,6 +91,173 @@
                         </div>
                     </div>
                 </div>
+                <div class="card">
+                    <div class="card-body">
+                        <!-- vertical -->
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="tabs tabs-vertical tabs-left">
+								<ul class="nav nav-tabs">
+									<li class="nav-item active">
+										<a class="nav-link" href="#kehilanganBarang" data-toggle="tab"> Kehilangan Barang</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="#penemuanBarang" data-toggle="tab">Penemuan Barang</a>
+                                    </li>
+                                    <li class="nav-item active">
+										<a class="nav-link" href="#kehilanganKendaraan" data-toggle="tab"> Kehilangan Kendaraan</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="#penemuanKendaraan" data-toggle="tab">Penemuan Kendaraan</a>
+									</li>
+								</ul>
+								<div class="tab-content">
+									<div id="kehilanganBarang" class="tab-pane active">
+										<p>Kehilangan barang</p>
+                                        <table class="table table-bordered table-striped mb-0" id="datatable-default">
+                                            <thead>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>haul</th>
+                                                    <th>Nama Posko</th>
+                                                    <th>Alamat</th>
+                                                    <th>Jenis Posko</th>
+                                                    <th>Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>2020</td>
+                                                    <td>Sungai ulin</td>
+                                                    <td>jl.PM.Noor Sungai Ulin Banjarbaru </td>
+                                                    <td>Jamaah</td>
+                                                    <td> 
+                                                        <a href="#" class="btn btn-sm btn-warning m-1" id="detail"> <i class="fa fa-file"></i></a> 
+                                                        <a class="btn btn-sm btn-primary m-1 "> <i class="fa fa-edit"></i></a> 
+                                                        <button class="btn btn-sm btn-danger m-1 "> <i class="fa fa-trash"></i></button> 
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>									
+                                    </div>
+									<div id="penemuanBarang" class="tab-pane">
+                                        <p>Penemuan Barang</p>
+                                        <table class="table table-bordered table-striped mb-0" id="datatable-default">
+                                            <thead>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>haul</th>
+                                                    <th>Nama Posko</th>
+                                                    <th>Alamat</th>
+                                                    <th>Jenis Posko</th>
+                                                    <th>Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>2020</td>
+                                                    <td>Sungai ulin</td>
+                                                    <td>jl.PM.Noor Sungai Ulin Banjarbaru </td>
+                                                    <td>Jamaah</td>
+                                                    <td> 
+                                                        <a href="#" class="btn btn-sm btn-warning m-1" id="detail"> <i class="fa fa-file"></i></a> 
+                                                        <a class="btn btn-sm btn-primary m-1 "> <i class="fa fa-edit"></i></a> 
+                                                        <button class="btn btn-sm btn-danger m-1 "> <i class="fa fa-trash"></i></button> 
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>	
+                                    </div>
+                                    <div id="kehilanganKendaraan" class="tab-pane ">
+                                        <p>Kehilangan Kendaraan</p>
+                                        <table class="table table-bordered table-striped mb-0" id="datatable-default">
+                                            <thead>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>haul</th>
+                                                    <th>Nama Posko</th>
+                                                    <th>Alamat</th>
+                                                    <th>Jenis Posko</th>
+                                                    <th>Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>2020</td>
+                                                    <td>Sungai ulin</td>
+                                                    <td>jl.PM.Noor Sungai Ulin Banjarbaru </td>
+                                                    <td>Jamaah</td>
+                                                    <td> 
+                                                        <a href="#" class="btn btn-sm btn-warning m-1" id="detail"> <i class="fa fa-file"></i></a> 
+                                                        <a class="btn btn-sm btn-primary m-1 "> <i class="fa fa-edit"></i></a> 
+                                                        <button class="btn btn-sm btn-danger m-1 "> <i class="fa fa-trash"></i></button> 
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>2020</td>
+                                                    <td>Sungai ulin</td>
+                                                    <td>jl.PM.Noor Sungai Ulin Banjarbaru </td>
+                                                    <td>Jamaah</td>
+                                                    <td> 
+                                                        <a href="#" class="btn btn-sm btn-warning m-1" id="detail"> <i class="fa fa-file"></i></a> 
+                                                        <a class="btn btn-sm btn-primary m-1 "> <i class="fa fa-edit"></i></a> 
+                                                        <button class="btn btn-sm btn-danger m-1 "> <i class="fa fa-trash"></i></button> 
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>	
+									</div>
+									<div id="penemuanKendaraan" class="tab-pane">
+                                        <p>Penemuan Kendaraan</p>
+                                        <table class="table table-bordered table-striped mb-0" id="datatable-default">
+                                            <thead>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>haul</th>
+                                                    <th>Nama Posko</th>
+                                                    <th>Alamat</th>
+                                                    <th>Jenis Posko</th>
+                                                    <th>Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>2020</td>
+                                                    <td>Sungai ulin</td>
+                                                    <td>jl.PM.Noor Sungai Ulin Banjarbaru </td>
+                                                    <td>Jamaah</td>
+                                                    <td> 
+                                                        <a href="#" class="btn btn-sm btn-warning m-1" id="detail"> <i class="fa fa-file"></i></a> 
+                                                        <a class="btn btn-sm btn-primary m-1 "> <i class="fa fa-edit"></i></a> 
+                                                        <button class="btn btn-sm btn-danger m-1 "> <i class="fa fa-trash"></i></button> 
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>2020</td>
+                                                    <td>Sungai ulin</td>
+                                                    <td>jl.PM.Noor Sungai Ulin Banjarbaru </td>
+                                                    <td>Jamaah</td>
+                                                    <td> 
+                                                        <a href="#" class="btn btn-sm btn-warning m-1" id="detail"> <i class="fa fa-file"></i></a> 
+                                                        <a class="btn btn-sm btn-primary m-1 "> <i class="fa fa-edit"></i></a> 
+                                                        <button class="btn btn-sm btn-danger m-1 "> <i class="fa fa-trash"></i></button> 
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>	
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

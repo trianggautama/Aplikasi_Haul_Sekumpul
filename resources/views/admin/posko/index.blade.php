@@ -46,8 +46,8 @@
                                 <td>jl.PM.Noor Sungai Ulin Banjarbaru </td>
                                 <td>Jamaah</td>
 								<td> 
-                                    <button class="btn btn-sm btn-warning m-1" id="detail"> <i class="fa fa-file"></i></button> 
-                                    <button class="btn btn-sm btn-primary m-1 "> <i class="fa fa-edit"></i></button> 
+                                    <a href="{{Route('poskoDetail')}}" class="btn btn-sm btn-warning m-1" id="detail"> <i class="fa fa-file"></i></a> 
+                                    <a href="{{Route('poskoEdit')}}" class="btn btn-sm btn-primary m-1 text-white"> <i class="fa fa-edit"></i></a> 
                                     <button class="btn btn-sm btn-danger m-1 "> <i class="fa fa-trash"></i></button> 
                                 </td>
 							</tr>

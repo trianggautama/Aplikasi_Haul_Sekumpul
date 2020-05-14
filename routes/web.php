@@ -29,5 +29,6 @@ Route::get('/haul/detail', 'haulController@detail')->name('haulDetail');
 Route::get('/haul/edit', 'haulController@edit')->name('haulEdit');
 
 
-Route::get('/poskoIndex', 'adminController@poskoIndex')->name('poskoIndex');
-Route::get('/poskoDetail', 'adminController@poskoDetail')->name('poskoDetail');
+Route::get('/posko/index', 'poskoController@index')->name('poskoIndex');
+Route::get('/posko/detail', 'poskoController@detail')->name('poskoDetail'); 
+Route::get('/posko/edit', 'poskoController@edit')->name('poskoEdit');

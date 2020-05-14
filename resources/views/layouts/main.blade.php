@@ -172,7 +172,7 @@
 				            
 				                <ul class="nav nav-main">
 				                    <li>
-				                        <a class="nav-link" href="layouts-default.html">
+				                        <a class="nav-link" href="{{Route('adminIndex')}}">
 				                            <i class="fas fa-home" aria-hidden="true"></i>
 				                            <span>Dashboard</span>
 				                        </a>                        
