@@ -46,8 +46,8 @@
                                 <td>13 Maret 2020 </td>
                                 <td>Jane Dhoe</td>
 								<td> 
-                                    <button class="btn btn-sm btn-warning m-1 "> <i class="fa fa-file"></i></button> 
-                                    <button class="btn btn-sm btn-primary m-1 "> <i class="fa fa-edit"></i></button> 
+                                    <a href="{{Route('haulDetail')}}" class="btn btn-sm btn-warning m-1 "> <i class="fa fa-file"></i></a> 
+                                    <a href="{{Route('haulEdit')}}" class="btn btn-sm btn-primary m-1 "> <i class="fa fa-edit"></i></a> 
                                     <button class="btn btn-sm btn-danger m-1 "> <i class="fa fa-trash"></i></button> 
                                 </td>
 							</tr>
@@ -70,7 +70,7 @@
 				</button>
 			</div>
 			<div class="modal-body">
-				<form action="">
+				<form action="" method="post">
                     <div class="form-group">
                         <label for="">Informasi</label>
                         <textarea id="summernote" name="editordata"></textarea>

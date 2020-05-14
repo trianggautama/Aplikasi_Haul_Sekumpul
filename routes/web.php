@@ -21,7 +21,13 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/adminIndex', 'adminController@index')->name('adminIndex');
-Route::get('/userIndex', 'adminController@userIndex')->name('userIndex');
-Route::get('/haulIndex', 'adminController@haulIndex')->name('haulIndex');
+Route::get('/user/index', 'userController@index')->name('userIndex');
+Route::get('/user/edit', 'userController@edit')->name('userEdit');
+
+Route::get('/haul/index', 'haulController@index')->name('haulIndex');
+Route::get('/haul/detail', 'haulController@detail')->name('haulDetail');
+Route::get('/haul/edit', 'haulController@edit')->name('haulEdit');
+
+
 Route::get('/poskoIndex', 'adminController@poskoIndex')->name('poskoIndex');
 Route::get('/poskoDetail', 'adminController@poskoDetail')->name('poskoDetail');

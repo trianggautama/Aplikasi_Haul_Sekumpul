@@ -21,11 +21,6 @@
         <i class="fa fa-comments"></i> Live chat
     </div>
     <div class="col-sm-2 col-6 text-center">
-        <i class="fa fa-facebook-square"></i>
-        <i class="fa fa-twitter-square"></i>
-        <i class="fa fa-instagram"></i>
-        <i class="fa fa-google-plus-square"></i>
-        <i class="fa fa-linkedin"></i>
     </div>
     <div class="col-sm-3 col-6 login">
         <a href="{{Route('adminIndex')}}" class="text-white">Login</a> &nbsp; &nbsp;

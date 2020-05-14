@@ -44,8 +44,8 @@
 									Explorer 4.0
 								</td>
 								<td> 
-                                    <button class="btn btn-sm btn-primary"> <i class="fa fa-edit"></i></button> 
-                                    <button class="btn btn-sm btn-danger"> <i class="fa fa-trash"></i></button> 
+                                    <a href="{{Route('userEdit')}}" class="btn btn-sm btn-primary text-white"> <i class="fa fa-edit"></i></a> 
+                                    <button class="btn btn-sm btn-danger" onclick="Hapus()"> <i class="fa fa-trash"></i></button> 
                                 </td>
 							</tr>
 						</tbody>
@@ -79,6 +79,10 @@
                         <label for="">Password</label>
                         <input type="password"class="form-control" name="password" id="password">
                     </div>
+					<div class="form-group">
+                        <label for="">foto</label>
+                        <input type="file"class="form-control" name="foto" id="foto">
+                    </div>
                 </form>
 			</div>
 			<div class="modal-footer">
@@ -97,5 +101,22 @@
             $('#status').text('Tambah Data');
             $('#modal').modal('show');
         });
+
+		function Hapus() {
+			Swal.fire({
+			title: 'Anda Yakin?',
+			text: " Menghapus data objek Penelitian '",        
+			icon: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#3085d6',
+			cancelButtonColor: '#d33',
+			confirmButtonText: 'Hapus',
+			cancelButtonText: 'Batal'
+		}).then((result) => {
+			if (result.value) {
+				alert('sukses');
+			}
+		})
+        }
     </script>
 @endsection

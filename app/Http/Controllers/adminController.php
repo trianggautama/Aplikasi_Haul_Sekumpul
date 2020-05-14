@@ -11,16 +11,6 @@ class adminController extends Controller
         return view('admin.index');
     }
 
-    public function userIndex(){
-    
-        return view('admin.user.index');
-    }
-
-    public function haulIndex(){
-    
-        return view('admin.haul.index');
-    }
-
     public function poskoIndex(){
     
         return view('admin.posko.index');
