@@ -24,17 +24,20 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for=""> <b>Informasi Haul : </b></label>
-                                    <p class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic aliquam, architecto, corporis quisquam assumenda aperiam sit enim molestias doloremque iusto reprehenderit repellendus quo voluptas rerum incidunt iste illo possimus? Accusantium?</p>
+                                    @php
+                                        $info = $data->informasi_acara
+                                    @endphp
+                                    <p class="text-justify">{!! $info !!}</p>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for=""> <b>Tanggal :</b>  </label>
-                                    <p>1 Mei 2020 - 3 mei 2020</p>
+                                    <p>{{$data->tanggal_mulai}} - {{$data->tanggal_selesai}}</p>
                                 </div>
                                 <div class="form-group">
                                     <label for=""><b>Ketua Panitia :</b> </label>
-                                    <p>John Doe</p>
+                                    <p>{{$data->ketua_panitia}}</p>
                                 </div>
                             </div>
                         </div>
@@ -75,8 +78,6 @@
                                 <td>Jamaah</td>
 								<td> 
                                     <button class="btn btn-sm btn-warning m-1" id="detail"> <i class="fa fa-file"></i></button> 
-                                    <button class="btn btn-sm btn-primary m-1 "> <i class="fa fa-edit"></i></button> 
-                                    <button class="btn btn-sm btn-danger m-1 "> <i class="fa fa-trash"></i></button> 
                                 </td>
 							</tr>
 						</tbody>

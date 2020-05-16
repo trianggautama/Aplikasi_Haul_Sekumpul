@@ -125,7 +125,8 @@
 		}).then((result) => {
 			if (result.value) {
 				url = '{{route("userDestroy",'')}}';
-          		window.location.href =  url+'/'+uuid ;			}
+				window.location.href =  url+'/'+uuid ;			
+			}
 		})
         }
 </script>

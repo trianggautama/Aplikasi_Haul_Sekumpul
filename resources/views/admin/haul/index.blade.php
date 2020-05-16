@@ -40,22 +40,27 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ducimus amet
-                                        delectus repudiandae neque tempore ...</td>
-                                    <td>12 Maret 2020 </td>
-                                    <td>13 Maret 2020 </td>
-                                    <td>Jane Dhoe</td>
-                                    <td>
-                                        {{-- <a href="{{Route('haulDetail')}}" class="btn btn-sm btn-warning m-1 "> <i
-                                            class="fa fa-file"></i></a>
-                                        <a href="{{Route('haulEdit')}}" class="btn btn-sm btn-primary m-1 "> <i
-                                                class="fa fa-edit"></i></a>
-                                        <button class="btn btn-sm btn-danger m-1 "> <i class="fa fa-trash"></i></button>
-                                        --}}
-                                    </td>
-                                </tr>
+                                @foreach($data as $d)
+                                    @php 
+                                        $info = $d->informasi_acara;
+                                    @endphp
+                                    <tr>
+                                        <td>{{$loop->iteration}}</td>
+                                        <td>{!! $info !!}</td>
+                                        <td>{{$d->tanggal_mulai}}</td>
+                                        <td>{{$d->tanggal_selesai}}</td>
+                                        <td>{{$d->ketua_panitia}}</td>
+                                        <td>
+                                         <a href="{{Route('haulShow',['uuid'=>$d->uuid])}}" class="btn btn-sm btn-warning m-1 "> <i
+                                                class="fa fa-file"></i></a>
+                                            <a href="{{Route('haulEdit',['uuid'=>$d->uuid])}}" class="btn btn-sm btn-primary m-1 "> <i
+                                                    class="fa fa-edit"></i></a>
+                                            <button class="btn btn-sm btn-danger" onclick="Hapus('{{$d->uuid}}')"> <i
+                                                class="fa fa-trash"></i></button>
+                                        
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -69,7 +74,7 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Are you sure?</h5>
+                <h5 class="modal-title">Tambah Data</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -95,8 +100,8 @@
                             placeholder="username">
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Confirm</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
                     </div>
                 </form>
             </div>
@@ -116,5 +121,23 @@
         $(document).ready(function() {
             $('#summernote').summernote();
         });
+
+        function Hapus(uuid) {
+			Swal.fire({
+			title: 'Anda Yakin?',
+			text: " Menghapus Haul " ,        
+			icon: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#3085d6',
+			cancelButtonColor: '#d33',
+			confirmButtonText: 'Hapus',
+			cancelButtonText: 'Batal'
+		}).then((result) => {
+			if (result.value) {
+				url = '{{route("haulDestroy",'')}}';
+				window.location.href =  url+'/'+uuid ;			
+			}
+		})
+        }
 </script>
 @endsection
