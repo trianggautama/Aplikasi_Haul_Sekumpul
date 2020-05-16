@@ -48,7 +48,7 @@
 								<td>
 									<a href="{{Route('userEdit',['uuid' => $d->uuid])}}"
 										class="btn btn-sm btn-primary text-white"> <i class="fa fa-edit"></i></a>
-									<button class="btn btn-sm btn-danger" onclick="Hapus()"> <i
+									<button class="btn btn-sm btn-danger" onclick="Hapus('{{$d->uuid}}','{{$d->nama}}')"> <i
 											class="fa fa-trash"></i></button>
 								</td>
 							</tr>
@@ -112,10 +112,10 @@
             $('#modal').modal('show');
         });
 
-		function Hapus() {
+		function Hapus(uuid, nama) {
 			Swal.fire({
 			title: 'Anda Yakin?',
-			text: " Menghapus data objek Penelitian '",        
+			text: " Menghapus User '" + nama ,        
 			icon: 'warning',
 			showCancelButton: true,
 			confirmButtonColor: '#3085d6',
@@ -124,8 +124,8 @@
 			cancelButtonText: 'Batal'
 		}).then((result) => {
 			if (result.value) {
-				alert('sukses');
-			}
+				url = '{{route("userDestroy",'')}}';
+          		window.location.href =  url+'/'+uuid ;			}
 		})
         }
 </script>

@@ -341,6 +341,9 @@
 
 	<!-- Summernote -->
 	<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote.min.js"></script>
+
+	<!-- Sweetalert -->
+	<script src="{{asset('vendor/sweetalert/sweetalert.all.js')}}"></script>
 	@yield('scripts')
 </body>
 
