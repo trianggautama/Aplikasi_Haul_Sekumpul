@@ -24,7 +24,6 @@
                         Detail Posko
                         <div class="text-right">
                             <button class="btn btn-sm btn-secondary"><i class="fa fa-print"></i> Cetak Data</button>
-                            <button class="btn btn-sm btn-success" id="tambah"><i class="fa fa-plus"></i> Tambah Data</button>
                         </div>
                     </div>
                     <div class="card-body">
@@ -32,19 +31,25 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for=""> <b>Nama Posko</b></label>
-                                    <p>-</p>
+                                    <p>{{$data->nama_posko}}</p>
                                 </div>
                                 <div class="form-group">
                                     <label for=""> <b> No Telepon Posko</b> </label>
-                                    <p>-</p>
+                                    <p>{{$data->no_hp}}</p>
                                 </div>
                                 <div class="form-group">
                                     <label for=""> <b>Jenis Posko</b> </label>
-                                    <p>-</p>
+                                    @if($data->jenis_posko == 1)
+                                        <p>Posko Induk</p>
+                                    @elseif($data->jenis_posko == 2)
+                                        <p>Posko Non Induk</p>
+                                    @else
+                                        <p>Posko Kesehatan</p>
+                                    @endif
                                 </div>
                                 <div class="form-group">
                                     <label for=""> <b>Periode Haul</b> </label>
-                                    <p>2020</p>
+                                    <p>Periode Haul {{\carbon\carbon::parse($data->haul_sekumpul->created_at)->translatedFormat('Y')}}</p>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -303,9 +308,7 @@
             $('#modal').modal('show');
         });
 
-        $("#detail").click(function(){
-            window.location.replace("{{Route('poskoDetail')}}");
-        });
+
 
     </script>
 @endsection
