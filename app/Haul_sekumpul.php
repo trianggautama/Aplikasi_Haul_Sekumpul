@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Haul_sekumpul extends Model
 {
     use Uuid;
+
+    public function posko(){
+        return $this->hasMany('App\Posko');
+    }
+
+    public function donasi(){
+        return $this->hasMany('App\Donasi');
+    }
 }

@@ -4,13 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Anggota_posko extends Model
-{   
+class Ketua_posko extends Model
+{
     //TABEL
-    protected $table = 'anggota_hauls';
+    protected $table = 'ketua_poskos';
 
     //RElASI MODEL
     public function posko(){
-        return $this->belongsTo('App\Posko');
+        return $this->hasMany('App\Posko');
     }
 }
