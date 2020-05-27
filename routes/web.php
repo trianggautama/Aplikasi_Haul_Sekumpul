@@ -63,3 +63,10 @@ Route::get('/pengeluaran/detail/', 'pengeluaranController@show')->name('pengelua
 Route::get('/pengeluaran/edit', 'pengeluaranController@edit')->name('pengeluaranEdit');
 Route::put('/pengeluaran/edit/{uuid}', 'pengeluaranController@update')->name('pengeluaranUpdate');
 Route::get('/pengeluaran/delete/{uuid}', 'pengeluaranController@destroy')->name('pengeluaranDestroy');
+
+Route::get('/rombongan/index', 'rombonganController@index')->name('rombonganIndex');
+Route::post('/rombongan/index', 'rombonganController@store')->name('rombonganStore');
+Route::get('/rombongan/detail/', 'rombonganController@show')->name('rombonganShow');
+Route::get('/rombongan/edit', 'rombonganController@edit')->name('rombonganEdit');
+Route::put('/rombongan/edit/{uuid}', 'rombonganController@update')->name('rombonganUpdate');
+Route::get('/rombongan/delete/{uuid}', 'rombonganController@destroy')->name('rombonganDestroy');

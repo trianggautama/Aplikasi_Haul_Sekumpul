@@ -262,7 +262,7 @@
 									</a>
 									<ul class="nav nav-children">
 										<li>
-											<a class="nav-link" href="index.html">
+											<a class="nav-link" href="{{Route('rombonganIndex')}}">
 												Informasi Rombongan
 											</a>
 										</li>
