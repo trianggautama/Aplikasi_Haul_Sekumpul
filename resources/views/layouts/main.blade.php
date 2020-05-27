@@ -207,6 +207,29 @@
 								<li class="nav-parent ">
 									<a class="nav-link" href="#">
 										<i class="fas fa-columns" aria-hidden="true"></i>
+										<span>Keuangan</span>
+									</a>
+									<ul class="nav nav-children">
+										<li>
+											<a class="nav-link" href="{{Route('donasiIndex')}}">
+												Donasi Haul
+											</a>
+										</li>
+										<li>
+											<a class="nav-link" href="layouts-two-navigations.html">
+												Pemasukan Arraudah
+											</a>
+										</li>
+										<li>
+											<a class="nav-link" href="layouts-light-sidebar.html">
+												Pengeluaran Arraudah
+											</a>
+										</li>
+									</ul>
+								</li>
+								<li class="nav-parent ">
+									<a class="nav-link" href="#">
+										<i class="fas fa-columns" aria-hidden="true"></i>
 										<span>Posko</span>
 									</a>
 									<ul class="nav nav-children">
@@ -217,7 +240,12 @@
 										</li>
 										<li>
 											<a class="nav-link" href="layouts-two-navigations.html">
-												Penanggnung Jawab (Ketua)
+												Ketua Posko
+											</a>
+										</li>
+										<li>
+											<a class="nav-link" href="layouts-two-navigations.html">
+												Anggota Posko
 											</a>
 										</li>
 										<li>
@@ -233,6 +261,11 @@
 										<span>Informasi</span>
 									</a>
 									<ul class="nav nav-children">
+										<li>
+											<a class="nav-link" href="index.html">
+												Informasi Rombongan
+											</a>
+										</li>
 										<li>
 											<a class="nav-link" href="index.html">
 												Kehilangan Barang
