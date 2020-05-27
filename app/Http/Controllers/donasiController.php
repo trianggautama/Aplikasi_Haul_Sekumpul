@@ -24,7 +24,6 @@ class donasiController extends Controller
     {
         $haul = Haul_sekumpul::all();
         return view('admin.donasi.edit',compact('haul'));
-
     }
 
 }

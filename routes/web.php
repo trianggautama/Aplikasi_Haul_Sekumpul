@@ -48,3 +48,18 @@ Route::get('/donasi/detail/', 'donasiController@show')->name('donasiShow');
 Route::get('/donasi/edit', 'donasiController@edit')->name('donasiEdit');
 Route::put('/donasi/edit/{uuid}', 'donasiController@update')->name('donasiUpdate');
 Route::get('/donasi/delete/{uuid}', 'donasiController@destroy')->name('donasiDestroy');
+
+
+Route::get('/pemasukan/index', 'pemasukanController@index')->name('pemasukanIndex');
+Route::post('/pemasukan/index', 'pemasukanController@store')->name('pemasukanStore');
+Route::get('/pemasukan/detail/', 'pemasukanController@show')->name('pemasukanShow');
+Route::get('/pemasukan/edit', 'pemasukanController@edit')->name('pemasukanEdit');
+Route::put('/pemasukan/edit/{uuid}', 'pemasukanController@update')->name('pemasukanUpdate');
+Route::get('/pemasukan/delete/{uuid}', 'pemasukanController@destroy')->name('pemasukanDestroy');
+
+Route::get('/pengeluaran/index', 'pengeluaranController@index')->name('pengeluaranIndex');
+Route::post('/pengeluaran/index', 'pengeluaranController@store')->name('pengeluaranStore');
+Route::get('/pengeluaran/detail/', 'pengeluaranController@show')->name('pengeluaranShow');
+Route::get('/pengeluaran/edit', 'pengeluaranController@edit')->name('pengeluaranEdit');
+Route::put('/pengeluaran/edit/{uuid}', 'pengeluaranController@update')->name('pengeluaranUpdate');
+Route::get('/pengeluaran/delete/{uuid}', 'pengeluaranController@destroy')->name('pengeluaranDestroy');

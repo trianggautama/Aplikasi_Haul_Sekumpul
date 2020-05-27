@@ -216,12 +216,12 @@
 											</a>
 										</li>
 										<li>
-											<a class="nav-link" href="layouts-two-navigations.html">
+											<a class="nav-link" href="{{Route('pemasukanIndex')}}">
 												Pemasukan Arraudah
 											</a>
 										</li>
 										<li>
-											<a class="nav-link" href="layouts-light-sidebar.html">
+											<a class="nav-link" href="{{Route('pengeluaranIndex')}}">
 												Pengeluaran Arraudah
 											</a>
 										</li>
