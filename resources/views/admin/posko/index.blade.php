@@ -134,11 +134,7 @@
             $('#status').text('Tambah Data');
             $('#modal').modal('show');
         });
-
-        $("#detail").click(function(){
-            window.location.replace("{{Route('poskoShow',['uuid'=>1])}}");
-        });
-
+        
         function Hapus(uuid, nama) {
 			Swal.fire({
 			title: 'Anda Yakin?',

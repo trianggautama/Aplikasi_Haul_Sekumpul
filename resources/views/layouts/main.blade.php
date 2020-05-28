@@ -239,17 +239,17 @@
 											</a>
 										</li>
 										<li>
-											<a class="nav-link" href="layouts-two-navigations.html">
+											<a class="nav-link" href="{{Route('ketuaIndex')}}">
 												Ketua Posko
 											</a>
 										</li>
 										<li>
-											<a class="nav-link" href="layouts-two-navigations.html">
+											<a class="nav-link" href="{{Route('anggotaIndex')}}">
 												Anggota Posko
 											</a>
 										</li>
 										<li>
-											<a class="nav-link" href="layouts-light-sidebar.html">
+											<a class="nav-link" href="{{Route('parkiranIndex')}}">
 												Parkiran
 											</a>
 										</li>

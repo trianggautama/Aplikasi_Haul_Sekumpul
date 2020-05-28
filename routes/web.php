@@ -49,7 +49,6 @@ Route::get('/donasi/edit', 'donasiController@edit')->name('donasiEdit');
 Route::put('/donasi/edit/{uuid}', 'donasiController@update')->name('donasiUpdate');
 Route::get('/donasi/delete/{uuid}', 'donasiController@destroy')->name('donasiDestroy');
 
-
 Route::get('/pemasukan/index', 'pemasukanController@index')->name('pemasukanIndex');
 Route::post('/pemasukan/index', 'pemasukanController@store')->name('pemasukanStore');
 Route::get('/pemasukan/detail/', 'pemasukanController@show')->name('pemasukanShow');
@@ -70,3 +69,24 @@ Route::get('/rombongan/detail/', 'rombonganController@show')->name('rombonganSho
 Route::get('/rombongan/edit', 'rombonganController@edit')->name('rombonganEdit');
 Route::put('/rombongan/edit/{uuid}', 'rombonganController@update')->name('rombonganUpdate');
 Route::get('/rombongan/delete/{uuid}', 'rombonganController@destroy')->name('rombonganDestroy');
+
+Route::get('/ketua/index', 'ketuaController@index')->name('ketuaIndex');
+Route::post('/ketua/index', 'ketuaController@store')->name('ketuaStore');
+Route::get('/ketua/detail/', 'ketuaController@show')->name('ketuaShow');
+Route::get('/ketua/edit', 'ketuaController@edit')->name('ketuaEdit');
+Route::put('/ketua/edit/{uuid}', 'ketuaController@update')->name('ketuaUpdate');
+Route::get('/ketua/delete/{uuid}', 'ketuaController@destroy')->name('ketuaDestroy');
+
+Route::get('/anggota/index', 'anggotaController@index')->name('anggotaIndex');
+Route::post('/anggota/index', 'anggotaController@store')->name('anggotaStore');
+Route::get('/anggota/detail/', 'anggotaController@show')->name('anggotaShow');
+Route::get('/anggota/edit', 'anggotaController@edit')->name('anggotaEdit');
+Route::put('/anggota/edit/{uuid}', 'anggotaController@update')->name('anggotaUpdate');
+Route::get('/anggota/delete/{uuid}', 'anggotaController@destroy')->name('anggotaDestroy');
+
+Route::get('/parkiran/index', 'parkiranController@index')->name('parkiranIndex');
+Route::post('/parkiran/index', 'parkiranController@store')->name('parkiranStore');
+Route::get('/parkiran/detail/', 'parkiranController@show')->name('parkiranShow');
+Route::get('/parkiran/edit', 'parkiranController@edit')->name('parkiranEdit');
+Route::put('/parkiran/edit/{uuid}', 'parkiranController@update')->name('parkiranUpdate');
+Route::get('/parkiran/delete/{uuid}', 'parkiranController@destroy')->name('parkiranDestroy');
