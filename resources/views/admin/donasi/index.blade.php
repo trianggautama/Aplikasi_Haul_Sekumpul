@@ -40,22 +40,31 @@
                                 </tr>
                             </thead>
                             <tbody>
-                               <tr>
-                               <td>1</td>
-                               <td>Tri Angga T.U</td>
-                               <td> 912917271721</td>
-                               <td>Rp.1000.000.000</td>
-                               <td>Cash</td>
-                               <td>
-                               <a href="#" class="btn btn-sm btn-warning m-1"
-                                            id="detail">
+                                @foreach($data as $d)
+                                <tr>
+                                    <td>{{$loop->iteration}}</td>
+                                    <td>{{$d->nama_donatur}}</td>
+                                    <td>{{$d->no_hp}}</td>
+                                    <td>Rp.{{$d->besaran}},-</td>
+                                    <td>
+                                        @if($d->metode == 1)
+                                        Cash
+                                        @else
+                                        Transfer
+                                        @endif
+                                    </td>
+                                    <td>
+                                        <a href="{{Route('donasiShow',['uuid' => $d->uuid])}}"
+                                            class="btn btn-sm btn-warning m-1" id="detail">
                                             <i class="fa fa-file"></i></a>
-                                            <a href="{{Route('donasiEdit')}}" class="btn btn-sm btn-primary m-1 text-white">
-                                                <i class="fa fa-edit"></i></a>
-                                                <button class="btn btn-sm btn-danger" onclick="Hapus()"> <i
-											class="fa fa-trash"></i></button>          
-                               </td>
-                               </tr>
+                                        <a href="{{Route('donasiEdit',['uuid' => $d->uuid])}}"
+                                            class="btn btn-sm btn-primary m-1 text-white">
+                                            <i class="fa fa-edit"></i></a>
+                                        <button class="btn btn-sm btn-danger" onclick="Hapus()"> <i
+                                                class="fa fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -75,20 +84,22 @@
                 </button>
             </div>
             <div class="modal-body">
-            <form action="{{Route('donasiStore')}}" method="post">
-            @csrf
+                <form action="{{Route('donasiStore')}}" method="post">
+                    @csrf
                     <div class="form-group">
                         <label for="">Haul</label>
                         <select name="haul_sekumpul_id" id="haul_id" class="form-control">
                             <option value="">-- Pilih Periode Haul --</option>
                             @foreach($haul as $h)
-                                <option value="{{$h->id}}">Periode {{\carbon\carbon::parse($h->tanggal_mulai)->translatedFormat('Y')}}</option>
+                            <option value="{{$h->id}}">Periode
+                                {{\carbon\carbon::parse($h->tanggal_mulai)->translatedFormat('Y')}}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="form-group ">
                         <label class="">Nama Donatur</label>
-                        <input type="text" class="form-control" name="nama_posko" id="nama_posko" placeholder="Nama Donatur">
+                        <input type="text" class="form-control" name="nama_donatur" id="nama_donatur"
+                            placeholder="Nama Donatur">
                     </div>
                     <div class="form-group ">
                         <label class="">Nomor HP </label>
@@ -96,11 +107,11 @@
                     </div>
                     <div class="form-group ">
                         <label class="">Besaran (Rp.)</label>
-                        <input type="text" class="form-control" name="no_hp" id="no_hp" placeholder="Rp.">
+                        <input type="number" class="form-control" name="besaran" id="besaran" placeholder="Rp.">
                     </div>
                     <div class="form-group">
                         <label for="">Metode</label>
-                        <select name="jenis_posko" id="jenis_posko" class="form-control">
+                        <select name="metode" id="metode" class="form-control">
                             <option value="">-- Pilih Jenis --</option>
                             <option value="1">Cash</option>
                             <option value="2">Transfer</option>
@@ -125,9 +136,9 @@
             $('#modal').modal('show');
         });
 
-        $("#detail").click(function(){
+        {{-- $("#detail").click(function(){
             window.location.replace("{{Route('donasiShow')}}");
-        });
+        }); --}}
 
         function Hapus(uuid, nama) {
 			Swal.fire({

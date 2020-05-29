@@ -44,8 +44,8 @@ Route::get('/posko/delete/{uuid}', 'poskoController@destroy')->name('poskoDestro
 
 Route::get('/donasi/index', 'donasiController@index')->name('donasiIndex');
 Route::post('/donasi/index', 'donasiController@store')->name('donasiStore');
-Route::get('/donasi/detail/', 'donasiController@show')->name('donasiShow');
-Route::get('/donasi/edit', 'donasiController@edit')->name('donasiEdit');
+Route::get('/donasi/detail/{uuid}', 'donasiController@show')->name('donasiShow');
+Route::get('/donasi/edit/{uuid}', 'donasiController@edit')->name('donasiEdit');
 Route::put('/donasi/edit/{uuid}', 'donasiController@update')->name('donasiUpdate');
 Route::get('/donasi/delete/{uuid}', 'donasiController@destroy')->name('donasiDestroy');
 
