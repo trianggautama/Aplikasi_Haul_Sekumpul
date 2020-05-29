@@ -51,7 +51,7 @@
 		<!-- start: header -->
 		<header class="header">
 			<div class="logo-container">
-				<a href="../2.2.0" class="logo">
+				<a href="/" class="logo">
 					<img src="{{asset('admin/img/logo.png')}}" width="55" height="35" alt="Porto Admin" />
 					Sistem Informasi Haul Sekumpul dan Mushola Arraudhah Martapura
 				</a>
