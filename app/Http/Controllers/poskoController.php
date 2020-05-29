@@ -59,13 +59,13 @@ class poskoController extends Controller
         } else {
             $data->foto = 'default.jpg';
         }
+        $data->save();
 
         $ketua = new Ketua_posko;
         $ketua->posko_id = $id->id;
         $ketua->user_id = $data->id;
         $ketua->alamat = $request->alamat;
 
-        $data->save();
         $ketua->save();
 
         return redirect()->route('poskoShow', ['uuid' => $request->uuid])->with('success', 'Data Berhasil Disimpan');
