@@ -40,22 +40,25 @@
                                 </tr>
                             </thead>
                             <tbody>
-                               <tr>
-                               <td>1</td>
-                               <td>hibah Dana Mesjid</td>
-                               <td> Membeli Karpet</td>
-                               <td>Rp.10.000.000</td>
-                               <td>John Doe</td>
-                               <td>
-                               <!-- <a href="#" class="btn btn-sm btn-warning m-1"
+                                @foreach($data as $d)
+                                <tr>
+                                    <td>{{$loop->iteration}}</td>
+                                    <td>{{$d->arraudah->judul}}</td>
+                                    <td>{{$d->keperluan}}</td>
+                                    <td>Rp.{{$d->besaran}},-</td>
+                                    <td>{{$d->user->nama}}</td>
+                                    <td>
+                                        <!-- <a href="#" class="btn btn-sm btn-warning m-1"
                                             id="detail">
                                             <i class="fa fa-file"></i></a> -->
-                                            <a href="{{Route('pengeluaranEdit')}}" class="btn btn-sm btn-primary m-1 text-white">
-                                                <i class="fa fa-edit"></i></a>
-                                                <button class="btn btn-sm btn-danger" onclick="Hapus()"> <i
-											class="fa fa-trash"></i></button>          
-                               </td>
-                               </tr>
+                                        <a href="{{Route('pengeluaranEdit',['uuid' => $d->uuid])}}"
+                                            class="btn btn-sm btn-primary m-1 text-white">
+                                            <i class="fa fa-edit"></i></a>
+                                        <button class="btn btn-sm btn-danger" onclick="Hapus()"> <i
+                                                class="fa fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -75,15 +78,15 @@
                 </button>
             </div>
             <div class="modal-body">
-            <form action="{{Route('pengeluaranStore')}}" method="post">
-            @csrf
+                <form action="{{Route('pengeluaranStore')}}" method="post">
+                    @csrf
                     <div class="form-group ">
                         <label class="">Judul</label>
-                        <input type="text" class="form-control" name="nama_posko" id="nama_posko" placeholder="Judul">
+                        <input type="text" class="form-control" name="judul" id="judul" placeholder="Judul">
                     </div>
                     <div class="form-group ">
                         <label class="">Isi </label>
-                        <textarea id="summernote" name="informasi_acara"></textarea>
+                        <textarea id="summernote" name="isi"></textarea>
                     </div>
                     <!-- kategori default Pengeluaran -->
                     <div class="form-group ">
@@ -92,7 +95,12 @@
                     </div>
                     <div class="form-group ">
                         <label class="">Besaran (Rp.)</label>
-                        <input type="text" class="form-control" name="no_hp" id="no_hp" placeholder="Rp.">
+                        <input type="text" class="form-control" name="besaran" id="no_hp" placeholder="Rp.">
+                    </div>
+                    <div class="form-group ">
+                        <label class="">Penanggungjawab</label>
+                        <input type="text" class="form-control" value="{{Auth::user()->nama}}" id="no_hp" placeholder=""
+                            readonly>
                     </div>
                     <!-- Nama penanggungjawab dari Auth -->
             </div>
@@ -114,9 +122,9 @@
             $('#modal').modal('show');
         });
 
-        $("#detail").click(function(){
+        {{-- $("#detail").click(function(){
             window.location.replace("{{Route('pengeluaranShow')}}");
-        });
+        }); --}}
 
         $(document).ready(function() {
             $('#summernote').summernote();

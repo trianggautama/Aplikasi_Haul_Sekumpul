@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Posko;
 use App\Haul_sekumpul;
+use App\Ketua_posko;
+use App\Posko;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class poskoController extends Controller
 {
@@ -12,11 +15,11 @@ class poskoController extends Controller
     {
         $data = Posko::orderBy('id', 'desc')->get();
         $haul = Haul_sekumpul::orderBy('id', 'desc')->get();
-        return view('admin.posko.index', compact('data','haul'));
+        return view('admin.posko.index', compact('data', 'haul'));
     }
 
     public function store(Request $request)
-    {   
+    {
         $data = new Posko;
         $data->haul_sekumpul_id = $request->haul_sekumpul_id;
         $data->nama_posko = $request->nama_posko;
@@ -35,11 +38,39 @@ class poskoController extends Controller
         return view('admin.posko.detail', compact('data'));
     }
 
+    public function storeKetua($uuid)
+    {
+        $id = Posko::where('uuid', $uuid)->first();
+        $data = new User;
+        $data->nama = $request->nama;
+        $data->username = $request->username;
+        $data->password = Hash::make($request->password);
+        if ($request->foto != null) {
+            $img = $request->file('foto');
+            $FotoExt = $img->getClientOriginalExtension();
+            $FotoName = $request->nama;
+            $foto = $FotoName . '.' . $FotoExt;
+            $img->move('images/user', $foto);
+            $data->foto = $foto;
+        } else {
+            $data->foto = 'default.jpg';
+        }
+
+        $ketua = new Ketua_posko;
+        $ketua->posko_id = $id->id;
+
+        $data->save();
+        $ketua->save();
+
+        return redirect()->route('userIndex')->with('success', 'Data Berhasil Disimpan');
+
+    }
+
     public function edit($uuid)
     {
         $data = Posko::where('uuid', $uuid)->first();
         $haul = Haul_sekumpul::orderBy('id', 'desc')->get();
-        return view('admin.posko.edit', compact('data','haul'));
+        return view('admin.posko.edit', compact('data', 'haul'));
     }
 
     public function update(Request $request, $uuid)

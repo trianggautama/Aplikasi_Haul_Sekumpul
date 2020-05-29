@@ -33,11 +33,12 @@ Route::post('/haul-sekumpul/index', 'HaulSekumpulController@store')->name('haulS
 Route::get('/haul-sekumpul/detail/{uuid}', 'HaulSekumpulController@show')->name('haulShow');
 Route::get('/haul-sekumpul/edit/{uuid}', 'HaulSekumpulController@edit')->name('haulEdit');
 Route::put('/haul-sekumpul/edit/{uuid}', 'HaulSekumpulController@update')->name('haulUpdate');
-Route::get('/haul-sekumpul/delete/{uuid}', 'HaulSekumpulController@destroy')->name('haulDestroy');
+Route::get('/haul-sekumpul/delete/{uuid}', 'HauSekumpulController@destroy')->name('haulDestroy');
 
 Route::get('/posko/index', 'poskoController@index')->name('poskoIndex');
 Route::post('/posko/index', 'poskoController@store')->name('poskoStore');
 Route::get('/posko/detail/{uuid}', 'poskoController@show')->name('poskoShow');
+Route::post('/posko/detail/{uuid}', 'poskoController@store')->name('ketuaPoskoStore');
 Route::get('/posko/edit/{uuid}', 'poskoController@edit')->name('poskoEdit');
 Route::put('/posko/edit/{uuid}', 'poskoController@update')->name('poskoUpdate');
 Route::get('/posko/delete/{uuid}', 'poskoController@destroy')->name('poskoDestroy');
@@ -58,8 +59,8 @@ Route::get('/pemasukan/delete/{uuid}', 'pemasukanController@destroy')->name('pem
 
 Route::get('/pengeluaran/index', 'pengeluaranController@index')->name('pengeluaranIndex');
 Route::post('/pengeluaran/index', 'pengeluaranController@store')->name('pengeluaranStore');
-Route::get('/pengeluaran/detail/', 'pengeluaranController@show')->name('pengeluaranShow');
-Route::get('/pengeluaran/edit', 'pengeluaranController@edit')->name('pengeluaranEdit');
+Route::get('/pengeluaran/detail/{uuid}', 'pengeluaranController@show')->name('pengeluaranShow');
+Route::get('/pengeluaran/edit/{uuid}', 'pengeluaranController@edit')->name('pengeluaranEdit');
 Route::put('/pengeluaran/edit/{uuid}', 'pengeluaranController@update')->name('pengeluaranUpdate');
 Route::get('/pengeluaran/delete/{uuid}', 'pengeluaranController@destroy')->name('pengeluaranDestroy');
 
@@ -71,7 +72,7 @@ Route::put('/rombongan/edit/{uuid}', 'rombonganController@update')->name('rombon
 Route::get('/rombongan/delete/{uuid}', 'rombonganController@destroy')->name('rombonganDestroy');
 
 Route::get('/ketua/index', 'ketuaController@index')->name('ketuaIndex');
-Route::post('/ketua/index', 'ketuaController@store')->name('ketuaStore');
+
 Route::get('/ketua/detail/', 'ketuaController@show')->name('ketuaShow');
 Route::get('/ketua/edit', 'ketuaController@edit')->name('ketuaEdit');
 Route::put('/ketua/edit/{uuid}', 'ketuaController@update')->name('ketuaUpdate');
