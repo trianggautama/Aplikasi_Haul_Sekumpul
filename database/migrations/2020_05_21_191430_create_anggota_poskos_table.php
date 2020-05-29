@@ -17,7 +17,7 @@ class CreateAnggotaPoskosTable extends Migration
             $table->id();
             $table->string('uuid')->length(36);
             $table->unsignedBigInteger('posko_id');
-            $table->string('nama')->length(9);
+            $table->string('nama')->length(100);
             $table->string('jabatan', 35);
             $table->string('no_hp', 13);
             $table->text('tugas');

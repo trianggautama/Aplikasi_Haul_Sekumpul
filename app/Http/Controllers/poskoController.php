@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Anggota_posko;
 use App\Haul_sekumpul;
 use App\Ketua_posko;
 use App\Posko;
@@ -35,7 +36,9 @@ class poskoController extends Controller
     public function show($uuid)
     {
         $data = Posko::where('uuid', $uuid)->first();
-        return view('admin.posko.detail', compact('data'));
+        $anggota = Anggota_posko::orderBy('id', 'desc')->get();
+
+        return view('admin.posko.detail', compact('data', 'anggota'));
     }
 
     public function storeKetua(Request $request)
@@ -64,7 +67,34 @@ class poskoController extends Controller
         $data->save();
         $ketua->save();
 
-        return redirect()->route("poskoShow,['uuid' =>$request->uuid]")->with('success', 'Data Berhasil Disimpan');
+        return redirect()->route('poskoShow', ['uuid' => $request->uuid])->with('success', 'Data Berhasil Disimpan');
+
+    }
+
+    public function storeAnggota(Request $request)
+    {
+        $id = Posko::where('uuid', $request->uuid)->first();
+
+        $data = new Anggota_posko;
+        $data->posko_id = $id->id;
+        $data->nama = $request->nama;
+        $data->jabatan = $request->jabatan;
+        $data->no_hp = $request->no_hp;
+        $data->tugas = $request->tugas;
+        if ($request->foto != null) {
+            $img = $request->file('foto');
+            $FotoExt = $img->getClientOriginalExtension();
+            $FotoName = $request->nama;
+            $foto = $FotoName . '.' . $FotoExt;
+            $img->move('images/anggota', $foto);
+            $data->foto = $foto;
+        } else {
+            $data->foto = 'default.jpg';
+        }
+
+        $data->save();
+
+        return redirect()->route('poskoShow', ['uuid' => $request->uuid])->with('success', 'Data Berhasil Disimpan');
 
     }
 
