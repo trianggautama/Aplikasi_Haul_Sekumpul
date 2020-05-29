@@ -229,7 +229,7 @@
                         <input type="number" class="form-control" name="no_hp">
                     </div>
                     <div class="form-group">
-                        <label for="">No Hp</label>
+                        <label for="">Alamat</label>
                         <input type="text" class="form-control" name="alamat">
                     </div>
                     <div class="form-group">
