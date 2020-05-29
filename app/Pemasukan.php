@@ -2,16 +2,24 @@
 
 namespace App;
 
+use App\Traits\Uuid;
 use Illuminate\Database\Eloquent\Model;
 
 class Pemasukan extends Model
-{  
-        //TABEL
-        protected $table = 'pemasukans';
+{
+    use Uuid;
+    //TABEL
+    protected $table = 'pemasukans';
 
-        //RElASI MODEL
-        public function arraudah(){
-            return $this->hasMany('App\Arraudah');
-        }
+    //RElASI MODEL
+    public function arraudah()
+    {
+        return $this->BelongsTo('App\Arraudah');
+    }
+
+    public function user()
+    {
+        return $this->BelongsTo('App\User');
+    }
 
 }

@@ -40,22 +40,25 @@
                                 </tr>
                             </thead>
                             <tbody>
-                               <tr>
-                               <td>1</td>
-                               <td>hibah Dana Mesjid</td>
-                               <td> Tri Angga</td>
-                               <td>Rp.1000.000.000</td>
-                               <td>John Doe</td>
-                               <td>
-                               <!-- <a href="#" class="btn btn-sm btn-warning m-1"
-                                            id="detail">
-                                            <i class="fa fa-file"></i></a> -->
-                                            <a href="{{Route('pemasukanEdit')}}" class="btn btn-sm btn-primary m-1 text-white">
-                                                <i class="fa fa-edit"></i></a>
-                                                <button class="btn btn-sm btn-danger" onclick="Hapus()"> <i
-											class="fa fa-trash"></i></button>          
-                               </td>
-                               </tr>
+                                @foreach($data as $d)
+                                <tr>
+                                    <td>{{$loop->iteration}}</td>
+                                    <td>{{$d->arraudah->judul}}</td>
+                                    <td>{{$d->nama_donatur}}</td>
+                                    <td>Rp.{{$d->besaran}},-</td>
+                                    <td>{{$d->user->nama}}</td>
+                                    <td>
+                                        <a href="{{Route('pemasukanShow',['uuid' => $d->uuid])}}"
+                                            class="btn btn-sm btn-warning m-1" id="detail">
+                                            <i class="fa fa-file"></i></a>
+                                        <a href="{{Route('pemasukanEdit',['uuid' => $d->uuid])}}"
+                                            class="btn btn-sm btn-primary m-1 text-white">
+                                            <i class="fa fa-edit"></i></a>
+                                        <button class="btn btn-sm btn-danger" onclick="Hapus()"> <i
+                                                class="fa fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -75,24 +78,30 @@
                 </button>
             </div>
             <div class="modal-body">
-            <form action="{{Route('pemasukanStore')}}" method="post">
-            @csrf
+                <form action="{{Route('pemasukanStore')}}" method="post">
+                    @csrf
                     <div class="form-group ">
                         <label class="">Judul</label>
-                        <input type="text" class="form-control" name="nama_posko" id="nama_posko" placeholder="Judul">
+                        <input type="text" class="form-control" name="judul" id="judul" placeholder="Judul">
                     </div>
                     <div class="form-group ">
                         <label class="">Isi </label>
-                        <textarea id="summernote" name="informasi_acara"></textarea>
+                        <textarea id="summernote" name="isi"></textarea>
                     </div>
                     <!-- kategori default pemasukan -->
                     <div class="form-group ">
                         <label class="">Donatur</label>
-                        <input type="text" class="form-control" name="no_hp" id="no_hp" placeholder="Nama Donatur">
+                        <input type="text" class="form-control" name="nama_donatur" id="nama_donatur"
+                            placeholder="Nama Donatur">
                     </div>
                     <div class="form-group ">
                         <label class="">Besaran (Rp.)</label>
-                        <input type="text" class="form-control" name="no_hp" id="no_hp" placeholder="Rp.">
+                        <input type="text" class="form-control" name="besaran" id="no_hp" placeholder="Rp.">
+                    </div>
+                    <div class="form-group ">
+                        <label class="">Penanggungjawab</label>
+                        <input type="text" class="form-control" value="{{Auth::user()->nama}}" id="no_hp" placeholder=""
+                            readonly>
                     </div>
                     <!-- Nama Penerima dari Auth -->
             </div>
@@ -114,9 +123,9 @@
             $('#modal').modal('show');
         });
 
-        $("#detail").click(function(){
+        {{-- $("#detail").click(function(){
             window.location.replace("{{Route('pemasukanShow')}}");
-        });
+        }); --}}
 
         $(document).ready(function() {
             $('#summernote').summernote();
