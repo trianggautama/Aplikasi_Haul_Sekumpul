@@ -62,6 +62,7 @@ class poskoController extends Controller
 
         $ketua = new Ketua_posko;
         $ketua->posko_id = $id->id;
+        $ketua->user_id = $data->id;
         $ketua->alamat = $request->alamat;
 
         $data->save();
