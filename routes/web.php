@@ -51,7 +51,7 @@ Route::get('/donasi/delete/{uuid}', 'donasiController@destroy')->name('donasiDes
 
 Route::get('/pemasukan/index', 'pemasukanController@index')->name('pemasukanIndex');
 Route::post('/pemasukan/index', 'pemasukanController@store')->name('pemasukanStore');
-Route::get('/pemasukan/detail/{uuid}/', 'pemasukanController@show')->name('pemasukanShow');
+Route::get('/pemasukan/detail/{uuid}', 'pemasukanController@show')->name('pemasukanShow');
 Route::get('/pemasukan/edit/{uuid}', 'pemasukanController@edit')->name('pemasukanEdit');
 Route::put('/pemasukan/edit/{uuid}', 'pemasukanController@update')->name('pemasukanUpdate');
 Route::get('/pemasukan/delete/{uuid}', 'pemasukanController@destroy')->name('pemasukanDestroy');
