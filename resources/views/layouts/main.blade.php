@@ -207,6 +207,29 @@
 								<li class="nav-parent ">
 									<a class="nav-link" href="#">
 										<i class="fas fa-columns" aria-hidden="true"></i>
+										<span>Keuangan</span>
+									</a>
+									<ul class="nav nav-children">
+										<li>
+											<a class="nav-link" href="{{Route('donasiIndex')}}">
+												Donasi Haul
+											</a>
+										</li>
+										<li>
+											<a class="nav-link" href="{{Route('pemasukanIndex')}}">
+												Pemasukan Arraudah
+											</a>
+										</li>
+										<li>
+											<a class="nav-link" href="{{Route('pengeluaranIndex')}}">
+												Pengeluaran Arraudah
+											</a>
+										</li>
+									</ul>
+								</li>
+								<li class="nav-parent ">
+									<a class="nav-link" href="#">
+										<i class="fas fa-columns" aria-hidden="true"></i>
 										<span>Posko</span>
 									</a>
 									<ul class="nav nav-children">
@@ -216,12 +239,17 @@
 											</a>
 										</li>
 										<li>
-											<a class="nav-link" href="layouts-two-navigations.html">
-												Penanggnung Jawab (Ketua)
+											<a class="nav-link" href="{{Route('ketuaIndex')}}">
+												Ketua Posko
 											</a>
 										</li>
 										<li>
-											<a class="nav-link" href="layouts-light-sidebar.html">
+											<a class="nav-link" href="{{Route('anggotaIndex')}}">
+												Anggota Posko
+											</a>
+										</li>
+										<li>
+											<a class="nav-link" href="{{Route('parkiranIndex')}}">
 												Parkiran
 											</a>
 										</li>
@@ -233,6 +261,11 @@
 										<span>Informasi</span>
 									</a>
 									<ul class="nav nav-children">
+										<li>
+											<a class="nav-link" href="{{Route('rombonganIndex')}}">
+												Informasi Rombongan
+											</a>
+										</li>
 										<li>
 											<a class="nav-link" href="index.html">
 												Kehilangan Barang

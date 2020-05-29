@@ -45,7 +45,7 @@ class userController extends Controller
     }
 
     public function update(Request $request, $uuid)
-    {   
+    {
         $data = User::where('uuid', $uuid)->first();
         $data->nama = $request->nama;
         $data->username = $request->username;

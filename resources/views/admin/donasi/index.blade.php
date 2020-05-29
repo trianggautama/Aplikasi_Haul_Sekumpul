@@ -3,7 +3,7 @@
 @section('content')
 <section role="main" class="content-body">
     <header class="page-header">
-        <h2>Halaman Posko</h2>
+        <h2>Halaman Donasi</h2>
         <div class="right-wrapper text-right">
             <ol class="breadcrumbs">
                 <li>
@@ -11,7 +11,7 @@
                         <i class="fas fa-home"></i>
                     </a>
                 </li>
-                <li><span>Data Posko</span></li>
+                <li><span>Data Donasi</span></li>
             </ol>
             <a class="sidebar-right-toggle"><i class="fas fa-chevron-left"></i></a>
         </div>
@@ -32,38 +32,38 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>haul</th>
-                                    <th>Nama Posko</th>
-                                    <th>Alamat</th>
-                                    <th>Jenis Posko</th>
+                                    <th>Nama</th>
+                                    <th>Nomor HP</th>
+                                    <th>Besaran</th>
+                                    <th>Metode</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($data as $d)
-                                    <tr>
-                                        <td>{{$loop->iteration}}</td>
-                                        <td>Periode Haul {{\carbon\carbon::parse($d->haul_sekumpul->created_at)->translatedFormat('Y')}}</td>
-                                        <td>{{$d->nama_posko}}</td>
-                                        <td>{{$d->alamat}} </td>
-                                        <td>
-                                            @if($d->jenis_posko == 1)
-                                                <p>Posko Induk</p>
-                                            @elseif($d->jenis_posko == 2)
-                                                <p>Posko Non Induk</p>
-                                            @else
-                                                <p>Posko Kesehatan</p>
-                                            @endif
-                                        </td>
-                                        <td>
-                                            <a href="{{Route('poskoShow',['uuid'=>$d->uuid])}}" class="btn btn-sm btn-warning m-1"
-                                            id="detail">
+                                <tr>
+                                    <td>{{$loop->iteration}}</td>
+                                    <td>{{$d->nama_donatur}}</td>
+                                    <td>{{$d->no_hp}}</td>
+                                    <td>Rp.{{$d->besaran}},-</td>
+                                    <td>
+                                        @if($d->metode == 1)
+                                        Cash
+                                        @else
+                                        Transfer
+                                        @endif
+                                    </td>
+                                    <td>
+                                        <a href="{{Route('donasiShow',['uuid' => $d->uuid])}}"
+                                            class="btn btn-sm btn-warning m-1" id="detail">
                                             <i class="fa fa-file"></i></a>
-                                            <a href="{{Route('poskoEdit',['uuid'=>$d->uuid])}}" class="btn btn-sm btn-primary m-1 text-white">
-                                                <i class="fa fa-edit"></i></a>
-                                                <button class="btn btn-sm btn-danger" onclick="Hapus('{{$d->uuid}}','{{$d->nama_posko}}')"> <i
-											class="fa fa-trash"></i></button>                                        </td>
-                                    </tr>
+                                        <a href="{{Route('donasiEdit',['uuid' => $d->uuid])}}"
+                                            class="btn btn-sm btn-primary m-1 text-white">
+                                            <i class="fa fa-edit"></i></a>
+                                        <button class="btn btn-sm btn-danger" onclick="Hapus('{{$d->uuid}}','{{$d->nama_donatur}}')"> <i
+                                                class="fa fa-trash"></i></button>
+                                    </td>
+                                </tr>
                                 @endforeach
                             </tbody>
                         </table>
@@ -84,36 +84,37 @@
                 </button>
             </div>
             <div class="modal-body">
-            <form action="{{Route('poskoStore')}}" method="post">
-            @csrf
+                <form action="{{Route('donasiStore')}}" method="post">
+                    @csrf
                     <div class="form-group">
                         <label for="">Haul</label>
                         <select name="haul_sekumpul_id" id="haul_id" class="form-control">
                             <option value="">-- Pilih Periode Haul --</option>
                             @foreach($haul as $h)
-                                <option value="{{$h->id}}">Periode {{\carbon\carbon::parse($h->tanggal_mulai)->translatedFormat('Y')}}</option>
+                            <option value="{{$h->id}}">Periode
+                                {{\carbon\carbon::parse($h->tanggal_mulai)->translatedFormat('Y')}}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="form-group ">
-                        <label class="">Nama Posko</label>
-                        <input type="text" class="form-control" name="nama_posko" id="nama_posko" placeholder="Nama Posko">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Alamat</label>
-                        <textarea name="alamat" id="alamat" class="form-control"></textarea>
+                        <label class="">Nama Donatur</label>
+                        <input type="text" class="form-control" name="nama_donatur" id="nama_donatur"
+                            placeholder="Nama Donatur">
                     </div>
                     <div class="form-group ">
-                        <label class="">Nomor HP Posko</label>
+                        <label class="">Nomor HP </label>
                         <input type="text" class="form-control" name="no_hp" id="no_hp" placeholder="Nomor Telepon">
                     </div>
+                    <div class="form-group ">
+                        <label class="">Besaran (Rp.)</label>
+                        <input type="number" class="form-control" name="besaran" id="besaran" placeholder="Rp.">
+                    </div>
                     <div class="form-group">
-                        <label for="">Jenis Posko</label>
-                        <select name="jenis_posko" id="jenis_posko" class="form-control">
+                        <label for="">Metode</label>
+                        <select name="metode" id="metode" class="form-control">
                             <option value="">-- Pilih Jenis --</option>
-                            <option value="1">Posko Induk</option>
-                            <option value="2">Posko Non Induk</option>
-                            <option value="3">Posko Kesehatan</option>
+                            <option value="1">Cash</option>
+                            <option value="2">Transfer</option>
                         </select>
                     </div>
             </div>
@@ -134,11 +135,12 @@
             $('#status').text('Tambah Data');
             $('#modal').modal('show');
         });
-        
+
+
         function Hapus(uuid, nama) {
 			Swal.fire({
 			title: 'Anda Yakin?',
-			text: " Menghapus Posko " + nama ,        
+			text: " Menghapus Data Donasi " + nama ,        
 			icon: 'warning',
 			showCancelButton: true,
 			confirmButtonColor: '#3085d6',
@@ -147,7 +149,7 @@
 			cancelButtonText: 'Batal'
 		}).then((result) => {
 			if (result.value) {
-				url = '{{route("poskoDestroy",'')}}';
+				url = '{{route("donasiDestroy",'')}}';
 				window.location.href =  url+'/'+uuid ;			
 			}
 		})

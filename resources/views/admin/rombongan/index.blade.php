@@ -3,7 +3,7 @@
 @section('content')
 <section role="main" class="content-body">
     <header class="page-header">
-        <h2>Halaman Posko</h2>
+        <h2>Halaman Rombongan Haul</h2>
         <div class="right-wrapper text-right">
             <ol class="breadcrumbs">
                 <li>
@@ -11,7 +11,7 @@
                         <i class="fas fa-home"></i>
                     </a>
                 </li>
-                <li><span>Data Posko</span></li>
+                <li><span>Data Rombongan</span></li>
             </ol>
             <a class="sidebar-right-toggle"><i class="fas fa-chevron-left"></i></a>
         </div>
@@ -32,39 +32,32 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>haul</th>
-                                    <th>Nama Posko</th>
-                                    <th>Alamat</th>
-                                    <th>Jenis Posko</th>
+                                    <th>Haul</th>
+                                    <th>Asal Rombongan</th>
+                                    <th>Ketua Rombongan</th>
+                                    <th>Jumlah Rombongan</th>
+                                    <th>Pendata</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($data as $d)
-                                    <tr>
-                                        <td>{{$loop->iteration}}</td>
-                                        <td>Periode Haul {{\carbon\carbon::parse($d->haul_sekumpul->created_at)->translatedFormat('Y')}}</td>
-                                        <td>{{$d->nama_posko}}</td>
-                                        <td>{{$d->alamat}} </td>
-                                        <td>
-                                            @if($d->jenis_posko == 1)
-                                                <p>Posko Induk</p>
-                                            @elseif($d->jenis_posko == 2)
-                                                <p>Posko Non Induk</p>
-                                            @else
-                                                <p>Posko Kesehatan</p>
-                                            @endif
-                                        </td>
-                                        <td>
-                                            <a href="{{Route('poskoShow',['uuid'=>$d->uuid])}}" class="btn btn-sm btn-warning m-1"
+                               <tr>
+                               <td>1</td>
+                               <td>Hul periode 2019</td>
+                               <td>Samarinda</td>
+                               <td>Agus</td>
+                               <td>73 Orang</td>
+                               <td>Posko 3</td>
+                               <td>
+                               <!-- <a href="#" class="btn btn-sm btn-warning m-1"
                                             id="detail">
-                                            <i class="fa fa-file"></i></a>
-                                            <a href="{{Route('poskoEdit',['uuid'=>$d->uuid])}}" class="btn btn-sm btn-primary m-1 text-white">
+                                            <i class="fa fa-file"></i></a> -->
+                                            <a href="{{Route('rombonganEdit')}}" class="btn btn-sm btn-primary m-1 text-white">
                                                 <i class="fa fa-edit"></i></a>
-                                                <button class="btn btn-sm btn-danger" onclick="Hapus('{{$d->uuid}}','{{$d->nama_posko}}')"> <i
-											class="fa fa-trash"></i></button>                                        </td>
-                                    </tr>
-                                @endforeach
+                                                <button class="btn btn-sm btn-danger" onclick="Hapus()"> <i
+											class="fa fa-trash"></i></button>          
+                               </td>
+                               </tr>
                             </tbody>
                         </table>
                     </div>
@@ -84,7 +77,7 @@
                 </button>
             </div>
             <div class="modal-body">
-            <form action="{{Route('poskoStore')}}" method="post">
+            <form action="{{Route('rombonganStore')}}" method="post">
             @csrf
                     <div class="form-group">
                         <label for="">Haul</label>
@@ -96,26 +89,22 @@
                         </select>
                     </div>
                     <div class="form-group ">
-                        <label class="">Nama Posko</label>
-                        <input type="text" class="form-control" name="nama_posko" id="nama_posko" placeholder="Nama Posko">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Alamat</label>
-                        <textarea name="alamat" id="alamat" class="form-control"></textarea>
+                        <label class="">Asal Rombongan</label>
+                        <input type="text" class="form-control" name="nama_posko" id="nama_posko" placeholder="Judul">
                     </div>
                     <div class="form-group ">
-                        <label class="">Nomor HP Posko</label>
-                        <input type="text" class="form-control" name="no_hp" id="no_hp" placeholder="Nomor Telepon">
+                        <label class="">Ketua Rombongan</label>
+                        <input type="text" class="form-control" name="keperluan" id="keperluan" placeholder="Ketua Rombongan">
                     </div>
-                    <div class="form-group">
-                        <label for="">Jenis Posko</label>
-                        <select name="jenis_posko" id="jenis_posko" class="form-control">
-                            <option value="">-- Pilih Jenis --</option>
-                            <option value="1">Posko Induk</option>
-                            <option value="2">Posko Non Induk</option>
-                            <option value="3">Posko Kesehatan</option>
-                        </select>
+                    <div class="form-group ">
+                        <label class="">No Hp</label>
+                        <input type="text" class="form-control" name="keperluan" id="keperluan" >
                     </div>
+                    <div class="form-group ">
+                        <label class="">Jumlah rombongan</label>
+                        <input type="number" class="form-control" name="no_hp" id="no_hp">
+                    </div>
+                    <!-- Nama pendata ngambil dari auth login -->
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
@@ -134,7 +123,11 @@
             $('#status').text('Tambah Data');
             $('#modal').modal('show');
         });
-        
+
+        $("#detail").click(function(){
+            window.location.replace("{{Route('rombonganShow')}}");
+        });
+
         function Hapus(uuid, nama) {
 			Swal.fire({
 			title: 'Anda Yakin?',
