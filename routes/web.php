@@ -38,7 +38,7 @@ Route::get('/haul-sekumpul/delete/{uuid}', 'HauSekumpulController@destroy')->nam
 Route::get('/posko/index', 'poskoController@index')->name('poskoIndex');
 Route::post('/posko/index', 'poskoController@store')->name('poskoStore');
 Route::get('/posko/detail/{uuid}', 'poskoController@show')->name('poskoShow');
-Route::post('/posko/detail/{uuid}', 'poskoController@store')->name('ketuaPoskoStore');
+Route::post('/posko/detail/ketua', 'poskoController@storeKetua')->name('ketuaPoskoStore');
 Route::get('/posko/edit/{uuid}', 'poskoController@edit')->name('poskoEdit');
 Route::put('/posko/edit/{uuid}', 'poskoController@update')->name('poskoUpdate');
 Route::get('/posko/delete/{uuid}', 'poskoController@destroy')->name('poskoDestroy');

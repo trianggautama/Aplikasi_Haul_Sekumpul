@@ -12,10 +12,11 @@ class User extends Authenticatable
     use Uuid;
     //RElASI MODEL
 
-    public function ketua_posko(){
-        return $this->hasMany('App\Ketua_posko');
+    public function ketua_posko()
+    {
+        return $this->hasOne('App\Ketua_posko');
     }
-    
+
     /**
      * The attributes that are mass assignable.
      *

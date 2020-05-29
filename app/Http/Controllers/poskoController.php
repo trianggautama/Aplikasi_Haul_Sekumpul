@@ -38,13 +38,14 @@ class poskoController extends Controller
         return view('admin.posko.detail', compact('data'));
     }
 
-    public function storeKetua($uuid)
+    public function storeKetua(Request $request)
     {
-        $id = Posko::where('uuid', $uuid)->first();
+        $id = Posko::where('uuid', $request->uuid)->first();
         $data = new User;
         $data->nama = $request->nama;
         $data->username = $request->username;
         $data->password = Hash::make($request->password);
+        $data->no_hp = $request->no_hp;
         if ($request->foto != null) {
             $img = $request->file('foto');
             $FotoExt = $img->getClientOriginalExtension();
@@ -58,11 +59,12 @@ class poskoController extends Controller
 
         $ketua = new Ketua_posko;
         $ketua->posko_id = $id->id;
+        $ketua->alamat = $request->alamat;
 
         $data->save();
         $ketua->save();
 
-        return redirect()->route('userIndex')->with('success', 'Data Berhasil Disimpan');
+        return redirect()->route("poskoShow,['uuid' =>$request->uuid]")->with('success', 'Data Berhasil Disimpan');
 
     }
 

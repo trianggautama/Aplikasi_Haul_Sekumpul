@@ -17,7 +17,10 @@ class CreateKetuaPoskosTable extends Migration
             $table->id();
             $table->string('uuid')->length(36);
             $table->unsignedBigInteger('posko_id');
+            $table->unsignedBigInteger('user_id');
+            $table->text('alamat');
             $table->foreign('posko_id')->references('id')->on('poskos')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

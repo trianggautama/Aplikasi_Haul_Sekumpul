@@ -62,15 +62,33 @@
                                 <table>
                                     <tr>
                                         <td>Nama</td>
-                                        <td class="pl-3">: Jane Doe</td>
+                                        <td class="pl-3">:
+                                            @if(isset($data->ketua_posko))
+                                            {{$data->ketua_posko->user->nama}}
+                                            @else
+                                            Belum diisi
+                                            @endif
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>Nomor Telepon</td>
-                                        <td class="pl-3">: 05764467656</td>
+                                        <td class="pl-3">:
+                                            @if(isset($data->ketua_posko))
+                                            {{$data->ketua_posko->user->no_hp}}
+                                            @else
+                                            Belum diisi
+                                            @endif
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>Alamat</td>
-                                        <td class="pl-3">: -</td>
+                                        <td class="pl-3">:
+                                            @if(isset($data->ketua_posko))
+                                            {{$data->ketua_posko->alamat}}
+                                            @else
+                                            Belum diisi
+                                            @endif
+                                        </td>
                                     </tr>
                                 </table>
                             </div>
@@ -191,6 +209,7 @@
             <div class="modal-body" id="modalProgress">
                 <form action="{{Route('ketuaPoskoStore')}}" enctype="multipart/form-data" method="post">
                     @csrf
+                    <input type="hidden" name="uuid" value="{{$data->uuid}}">
                     <div class="form-group">
                         <label for="">Nama </label>
                         <input type="text" name="nama" id="nama" class="form-control" required></input>
