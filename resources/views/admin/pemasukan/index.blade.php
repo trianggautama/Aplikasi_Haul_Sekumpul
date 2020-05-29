@@ -48,13 +48,13 @@
                                     <td>Rp.{{$d->besaran}},-</td>
                                     <td>{{$d->user->nama}}</td>
                                     <td>
-                                        <a href="{{Route('pemasukanShow',['uuid' => $d->uuid])}}"
+                                        <!-- <a href="{{Route('pemasukanShow',['uuid' => $d->uuid])}}"
                                             class="btn btn-sm btn-warning m-1" id="detail">
-                                            <i class="fa fa-file"></i></a>
+                                            <i class="fa fa-file"></i></a> -->
                                         <a href="{{Route('pemasukanEdit',['uuid' => $d->uuid])}}"
                                             class="btn btn-sm btn-primary m-1 text-white">
                                             <i class="fa fa-edit"></i></a>
-                                        <button class="btn btn-sm btn-danger" onclick="Hapus()"> <i
+                                        <button class="btn btn-sm btn-danger" onclick="Hapus('{{$d->uuid}}','{{$d->nama_donatur}}')"> <i
                                                 class="fa fa-trash"></i></button>
                                     </td>
                                 </tr>
@@ -134,7 +134,7 @@
         function Hapus(uuid, nama) {
 			Swal.fire({
 			title: 'Anda Yakin?',
-			text: " Menghapus Posko " + nama ,        
+			text: " Menghapus Data Pemasukan " + nama ,        
 			icon: 'warning',
 			showCancelButton: true,
 			confirmButtonColor: '#3085d6',
@@ -143,7 +143,7 @@
 			cancelButtonText: 'Batal'
 		}).then((result) => {
 			if (result.value) {
-				url = '{{route("poskoDestroy",'')}}';
+				url = '{{route("pemasukanDestroy",'')}}';
 				window.location.href =  url+'/'+uuid ;			
 			}
 		})
