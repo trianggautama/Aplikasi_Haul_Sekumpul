@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Ketua_posko;
 use Illuminate\Http\Request;
 
 class ketuaController extends Controller
@@ -11,14 +12,15 @@ class ketuaController extends Controller
         return view('admin.ketua.index');
     }
 
-    public function show()
+    public function show($uuid)
     {
-
-        return view('admin.ketua.show');
+        $data = Ketua_posko::where('uuid',$uuid)->first();
+        return view('admin.ketua.show',compact('data'));
     }
 
-    public function edit()
-    {
-        return view('admin.ketua.edit');
+    public function edit($uuid)
+    {   
+        $data = Ketua_posko::where('uuid',$uuid)->first();
+        return view('admin.ketua.edit',compact('data'));
     }
 }

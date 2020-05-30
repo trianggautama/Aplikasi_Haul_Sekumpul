@@ -77,7 +77,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/ketua/index', 'ketuaController@index')->name('ketuaIndex');
 
     Route::get('/ketua/detail/', 'ketuaController@show')->name('ketuaShow');
-    Route::get('/ketua/edit', 'ketuaController@edit')->name('ketuaEdit');
+    Route::get('/ketua/edit/{uuid}', 'ketuaController@edit')->name('ketuaEdit');
+    Route::get('/ketua/detail/{uuid}', 'ketuaController@show')->name('ketuaShow');
     Route::put('/ketua/edit/{uuid}', 'ketuaController@update')->name('ketuaUpdate');
     Route::get('/ketua/delete/{uuid}', 'ketuaController@destroy')->name('ketuaDestroy');
 

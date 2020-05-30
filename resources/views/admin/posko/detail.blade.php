@@ -57,8 +57,14 @@
                                 @endif
                             </div>
                             <div class="form-group">
-                                <label for=""> <b>Ketua Posko</b> <a id="ubah-ketua" class="ml-4 text-success"> + Ubah
-                                        Data</a></label>
+                                <label for=""> <b>Ketua Posko</b> 
+                                    @if($data->ketua_posko != null)
+                                    <a  href="{{Route('ketuaEdit',['uuid'=>$data->ketua_posko->uuid])}}" class="btn btn-xs btn-primary ml-4 text-white"> Ubah Data</a> 
+                                    <a  href="{{Route('ketuaShow',['uuid'=>$data->ketua_posko->uuid])}}" class="btn btn-xs btn-success text-white"> Detail Ketua Posko</a> 
+                                    @else
+                                    <a id="ubah-ketua" class="ml-4 text-success"> + tambah Data</a>
+                                    @endif
+                                </label>
                                 <table>
                                     <tr>
                                         <td>Nama</td>

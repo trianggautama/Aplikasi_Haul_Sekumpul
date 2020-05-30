@@ -14,7 +14,7 @@ class Ketua_posko extends Model
     //RElASI MODEL
     public function posko()
     {
-        return $this->hasOne('App\Posko');
+        return $this->belongsTo('App\Posko');
     }
 
     public function user()
