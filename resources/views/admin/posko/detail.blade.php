@@ -124,11 +124,12 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($anggota as $d)
                             <tr>
-                                <td>1</td>
-                                <td>Tri Angga T.U</td>
-                                <td> Koordinator</td>
-                                <td>078781826186</td>
+                                <td>{{$loop->iteration}}</td>
+                                <td>{{$d->nama}}</td>
+                                <td>{{$d->tugas}}</td>
+                                <td>{{$d->no_hp}}</td>
                                 <td>
                                     <a href="#" class="btn btn-sm btn-warning m-1" id="detail">
                                         <i class="fa fa-file"></i></a>
@@ -138,6 +139,7 @@
                                             class="fa fa-trash"></i></button>
                                 </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -231,6 +233,14 @@
                         <input type="password" class="form-control" name="password" id="password">
                     </div>
                     <div class="form-group">
+                        <label for="">No Hp</label>
+                        <input type="number" class="form-control" name="no_hp">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Alamat</label>
+                        <input type="text" class="form-control" name="alamat">
+                    </div>
+                    <div class="form-group">
                         <label for="">foto</label>
                         <input type="file" class="form-control" name="foto" id="foto">
                     </div>
@@ -254,9 +264,9 @@
                 </button>
             </div>
             <div class="modal-body" id="modalProgress">
-                <form action="" method="post">
+                <form action="{{Route('anggotaPoskoStore')}}" enctype="multipart/form-data" method="post">
                     @csrf
-                    <input type="hidden" name="aplikasi_id" value="">
+                    <input type="hidden" name="uuid" value="{{$data->uuid}}">
                     <div class="form-group">
                         <label for="">Nama </label>
                         <input type="text" name="nama" id="nama" class="form-control" required></input>
@@ -264,6 +274,10 @@
                     <div class="form-group">
                         <label for="">Nomor Hp </label>
                         <input type="text" name="no_hp" id="no_hp" class="form-control" required></input>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Jabatan </label>
+                        <input type="text" name="jabatan" id="jabatan" class="form-control" required></input>
                     </div>
                     <div class="form-group">
                         <label for="">Tugas </label>

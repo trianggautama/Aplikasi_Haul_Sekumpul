@@ -2,15 +2,16 @@
 
 namespace App;
 
+use App\Traits\Uuid;
 use Illuminate\Database\Eloquent\Model;
 
 class Anggota_posko extends Model
-{   
-    //TABEL
-    protected $table = 'anggota_hauls';
+{
+    use Uuid;
 
     //RElASI MODEL
-    public function posko(){
+    public function posko()
+    {
         return $this->belongsTo('App\Posko');
     }
 }
