@@ -295,7 +295,7 @@
                     </div>
             </div>
             <div class="card-footer text-right">
-                <button type="submit" class="btn btn-success"> Tambah Fitur</button>
+                <button type="submit" class="btn btn-success"> Tambah Anggota</button>
             </div>
             </form>
         </div>
