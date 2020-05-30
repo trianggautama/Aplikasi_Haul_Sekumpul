@@ -62,6 +62,7 @@ class poskoController extends Controller
         $ketua->alamat = $request->alamat;
 
         $data->save();
+        $ketua->user_id = $data->id;
         $ketua->save();
 
         return redirect()->route("poskoShow,['uuid' =>$request->uuid]")->with('success', 'Data Berhasil Disimpan');

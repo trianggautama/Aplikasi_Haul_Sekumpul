@@ -215,16 +215,20 @@
                         <input type="text" name="nama" id="nama" class="form-control" required></input>
                     </div>
                     <div class="form-group">
+                        <label for="">Alamat </label>
+                        <textarea name="alamat" id="alamat" class="form-control"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="">No Hp</label>
+                        <input type="number" class="form-control" name="no_hp">
+                    </div>
+                    <div class="form-group">
                         <label for="">Username</label>
                         <input type="text" class="form-control" name="username" id="username" placeholder="username">
                     </div>
                     <div class="form-group">
                         <label for="">Password</label>
                         <input type="password" class="form-control" name="password" id="password">
-                    </div>
-                    <div class="form-group">
-                        <label for="">No Hp</label>
-                        <input type="number" class="form-control" name="no_hp">
                     </div>
                     <div class="form-group">
                         <label for="">foto</label>

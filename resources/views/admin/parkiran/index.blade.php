@@ -112,10 +112,6 @@
             $('#modal').modal('show');
         });
 
-        $("#detail").click(function(){
-            window.location.replace("{{Route('pengeluaranShow')}}");
-        });
-
         $(document).ready(function() {
             $('#summernote').summernote();
         });

@@ -17,11 +17,11 @@ class CreatePengeluaransTable extends Migration
             $table->id();
             $table->string('uuid')->length(36);
             $table->unsignedBigInteger('arraudah_id');
-            $table->unsignedBigInteger('penanggungjawab_id');
+            $table->unsignedBigInteger('user_id');
             $table->integer('besaran')->length(9);
             $table->string('keperluan')->length(75);
             $table->foreign('arraudah_id')->references('id')->on('arraudahs')->onDelete('cascade');
-            $table->foreign('penanggungjawab_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

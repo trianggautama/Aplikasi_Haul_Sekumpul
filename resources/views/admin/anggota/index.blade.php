@@ -69,9 +69,6 @@
             $('#modal').modal('show');
         });
 
-        $("#detail").click(function(){
-            window.location.replace("{{Route('donasiShow')}}");
-        });
 
         function Hapus(uuid, nama) {
 			Swal.fire({
