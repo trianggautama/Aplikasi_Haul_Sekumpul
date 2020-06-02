@@ -3,7 +3,7 @@
 @section('content')
 <section role="main" class="content-body">
     <header class="page-header">
-        <h2>Halaman Anggota Posko</h2>
+        <h2>Halaman Kehilangan Barang</h2>
         <div class="right-wrapper text-right">
             <ol class="breadcrumbs">
                 <li>
@@ -11,7 +11,7 @@
                         <i class="fas fa-home"></i>
                     </a>
                 </li>
-                <li><span>Data Anggota Posko</span></li>
+                <li><span>Data Kehilangan Barang</span></li>
             </ol>
             <a class="sidebar-right-toggle"><i class="fas fa-chevron-left"></i></a>
         </div>
@@ -32,22 +32,24 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Nama</th>
-                                    <th>Bagian Tugas</th>
-                                    <th>No Hp</th>
-                                    <th>Aksi</th>
+                                    <th>Nama Posko</th>
+                                    <th>Nama Barang</th>
+                                    <th>Merk</th>
+                                    <th>Status</th>
+                                    <th>aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                <tr>
                                <td>1</td>
-                               <td>Tri Angga T.U</td>
-                               <td> Koordinator</td>
-                               <td>078781826186</td>
+                               <td>Simpang 4</td>
+                               <td> HP</td>
+                               <td>Samsung</td>
+                               <td>Belum terambil</td>
                                <td>
                                <a href="#" class="btn btn-sm btn-warning m-1"
                                             id="detail">
-                                            <i class="fa fa-file"></i></a>
+                                            <i class="fa fa-info-circle"></i></a>
                                             <a href="" class="btn btn-sm btn-primary m-1 text-white">
                                                 <i class="fa fa-edit"></i></a>
                                                 <button class="btn btn-sm btn-danger" onclick="Hapus()"> <i

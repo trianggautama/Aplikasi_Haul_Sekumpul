@@ -99,6 +99,13 @@ Route::group(['middleware' => ['auth']], function () {
     Route::put('/parkiran/edit/{uuid}', 'parkiranController@update')->name('parkiranUpdate');
     Route::get('/parkiran/delete/{uuid}', 'parkiranController@destroy')->name('parkiranDestroy');
 
+    Route::get('/kehilanganBarang/index', 'kehilanganBarangController@index')->name('kehilanganBarangIndex');
+    Route::post('/kehilanganBarang/index', 'kehilanganBarangController@store')->name('kehilanganBarangStore');
+    Route::get('/kehilanganBarang/detail/', 'kehilanganBarangController@show')->name('kehilanganBarangShow');
+    Route::get('/kehilanganBarang/edit', 'kehilanganBarangController@edit')->name('kehilanganBarangEdit');
+    Route::put('/kehilanganBarang/edit/{uuid}', 'kehilanganBarangController@update')->name('kehilanganBarangUpdate');
+    Route::get('/kehilanganBarang/delete/{uuid}', 'kehilanganBarangController@destroy')->name('kehilanganBarangDestroy');
+
     //cetak route
     Route::get('/posko/cetak', 'reportController@poskoCetak')->name('poskoCetak');
     Route::get('/posko/detail/cetak/{uuid}', 'reportController@poskoDetailCetak')->name('poskoDetailCetak');

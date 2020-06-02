@@ -267,7 +267,7 @@
 											</a>
 										</li>
 										<li>
-											<a class="nav-link" href="index.html">
+											<a class="nav-link" href="{{Route('kehilanganBarangIndex')}}">
 												Kehilangan Barang
 											</a>
 										</li>
