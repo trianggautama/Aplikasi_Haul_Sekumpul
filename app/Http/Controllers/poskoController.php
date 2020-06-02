@@ -129,4 +129,10 @@ class poskoController extends Controller
         return redirect()->route('poskoIndex')->with('success', 'Berhasil menghapus data');
 
     }
+
+    public function filter()
+    {
+        $haul = Haul_sekumpul::orderBy('id', 'desc')->get();
+        return view('admin.posko.filter', compact('haul'));
+    }
 }

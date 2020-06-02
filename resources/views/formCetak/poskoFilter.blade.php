@@ -99,27 +99,29 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Nama</th>
-                                    <th>Nomor HP</th>
-                                    <th>Besaran</th>
-                                    <th>Metode</th>
+                                    <th>haul</th>
+                                    <th>Nama Posko</th>
+                                    <th>Alamat</th>
+                                    <th>Jenis Posko</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($data as $d)
-                                <tr>
-                                    <td>{{$loop->iteration}}</td>
-                                    <td>{{$d->nama_donatur}}</td>
-                                    <td>{{$d->no_hp}}</td>
-                                    <td>Rp.{{$d->besaran}},-</td>
-                                    <td>
-                                        @if($d->metode == 1)
-                                        Cash
-                                        @else
-                                        Transfer
-                                        @endif
-                                    </td>
-                                </tr>
+                                    <tr>
+                                        <td>{{$loop->iteration}}</td>
+                                        <td>Periode Haul {{\carbon\carbon::parse($d->haul_sekumpul->created_at)->translatedFormat('Y')}}</td>
+                                        <td>{{$d->nama_posko}}</td>
+                                        <td>{{$d->alamat}} </td>
+                                        <td>
+                                            @if($d->jenis_posko == 1)
+                                                <p>Posko Induk</p>
+                                            @elseif($d->jenis_posko == 2)
+                                                <p>Posko Non Induk</p>
+                                            @else
+                                                <p>Posko Kesehatan</p>
+                                            @endif
+                                        </td>
+                                    </tr>
                                 @endforeach
                             </tbody>
                         </table>

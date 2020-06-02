@@ -45,6 +45,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/posko/edit/{uuid}', 'poskoController@edit')->name('poskoEdit');
     Route::put('/posko/edit/{uuid}', 'poskoController@update')->name('poskoUpdate');
     Route::get('/posko/delete/{uuid}', 'poskoController@destroy')->name('poskoDestroy');
+    Route::get('/posko/filter', 'poskoController@filter')->name('poskoFilter');
+
 
     Route::get('/donasi/index', 'donasiController@index')->name('donasiIndex');
     Route::post('/donasi/index', 'donasiController@store')->name('donasiStore');
@@ -98,11 +100,13 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/parkiran/delete/{uuid}', 'parkiranController@destroy')->name('parkiranDestroy');
 
     //cetak route
+    Route::get('/posko/cetak', 'reportController@poskoCetak')->name('poskoCetak');
     Route::get('/posko/detail/cetak/{uuid}', 'reportController@poskoDetailCetak')->name('poskoDetailCetak');
     Route::get('/donasi/cetak', 'reportController@donasiCetak')->name('donasiCetak');
     Route::post('/donasi/filter', 'reportController@donasiFilter')->name('donasiFilterCetak');
     Route::get('/pemasukan/cetak', 'reportController@pemasukanCetak')->name('pemasukanCetak');
     Route::get('/pengeluaran/cetak', 'reportController@pengeluaranCetak')->name('pengeluaranCetak');
+    Route::post('/posko/filter', 'reportController@poskoFilter')->name('poskoFilterCetak');
 
 
 });

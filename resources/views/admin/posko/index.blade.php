@@ -21,7 +21,8 @@
             <div class="card">
                 <div class="card-header">
                     <div class="text-right">
-                        <button class="btn btn-sm btn-secondary"><i class="fa fa-print"></i> Cetak Data</button>
+                        <a href="{{Route('poskoFilter')}}" class="btn btn-sm btn-secondary"><i class="fa fa-filter"></i> filter Cetak Data</a>
+                        <a href="{{Route('poskoCetak')}}" class="btn btn-sm btn-secondary" target="_blank"><i class="fa fa-print"></i> Cetak Data</a>
                         <button class="btn btn-sm btn-success" id="tambah"><i class="fa fa-plus"></i> Tambah
                             Data</button>
                     </div>
