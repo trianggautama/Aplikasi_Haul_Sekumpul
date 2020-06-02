@@ -9,7 +9,8 @@ class ketuaController extends Controller
 {
     public function index()
     {
-        return view('admin.ketua.index');
+        $data = Ketua_posko::all();
+        return view('admin.ketua.index',compact('data'));
     }
 
     public function show($uuid)

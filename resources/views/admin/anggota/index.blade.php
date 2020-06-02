@@ -31,27 +31,31 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Nama</th>
+                                    <th>Posko</th>
                                     <th>Bagian Tugas</th>
                                     <th>No Hp</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
-                               <tr>
-                               <td>1</td>
-                               <td>Tri Angga T.U</td>
-                               <td> Koordinator</td>
-                               <td>078781826186</td>
-                               <td>
-                               <a href="#" class="btn btn-sm btn-warning m-1"
-                                            id="detail">
-                                            <i class="fa fa-file"></i></a>
-                                            <a href="{{Route('anggotaEdit')}}" class="btn btn-sm btn-primary m-1 text-white">
-                                                <i class="fa fa-edit"></i></a>
-                                                <button class="btn btn-sm btn-danger" onclick="Hapus()"> <i
-											class="fa fa-trash"></i></button>          
-                               </td>
-                               </tr>
+                                @foreach($data as $d)
+                                <tr>
+                                    <td>{{$loop->iteration}}</td>
+                                    <td>{{$d->nama}}</td>
+                                    <td>{{$d->posko->nama_posko}}</td>
+                                    <td> {{$d->tugas}}</td>
+                                    <td>{{$d->no_hp}}</td>
+                                    <td>
+                                    <a href="{{Route('anggotaShow',['uuid'=>$d->uuid])}}" class="btn btn-sm btn-warning m-1"
+                                                    id="detail">
+                                                    <i class="fa fa-file"></i></a>
+                                                    <a href="{{Route('anggotaEdit',['uuid'=>$d->uuid])}}" class="btn btn-sm btn-primary m-1 text-white">
+                                                        <i class="fa fa-edit"></i></a>
+                                                        <button class="btn btn-sm btn-danger" onclick="Hapus()"> <i
+                                                    class="fa fa-trash"></i></button>          
+                                    </td>
+                                </tr>
+                               @endforeach
                             </tbody>
                         </table>
                     </div>

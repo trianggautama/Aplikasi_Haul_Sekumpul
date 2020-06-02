@@ -23,7 +23,7 @@
                 <div class="card-header">
                     Detail Posko
                     <div class="text-right">
-                        <a href="{{Route('poskoDetailCetak',['uuid'=> $data->uuid])}}" class="btn btn-sm btn-secondary"><i class="fa fa-print"></i> Cetak Data</a>
+                        <a href="{{Route('poskoDetailCetak',['uuid'=> $data->uuid])}}" class="btn btn-sm btn-secondary" target="_blank"><i class="fa fa-print"></i> Cetak Data</a>
                     </div>
                 </div>
                 <div class="card-body">
@@ -137,9 +137,9 @@
                                 <td>{{$d->tugas}}</td>
                                 <td>{{$d->no_hp}}</td>
                                 <td>
-                                    <a href="#" class="btn btn-sm btn-warning m-1" id="detail">
-                                        <i class="fa fa-file"></i></a>
-                                    <a href="{{Route('anggotaEdit')}}" class="btn btn-sm btn-primary m-1 text-white">
+                                    <a href="{{Route('anggotaShow',['uuid'=>$d->uuid])}}" class="btn btn-sm btn-warning m-1" >
+                                        <i class="fa fa-info-circle"></i></a>
+                                    <a href="{{Route('anggotaEdit',['uuid'=>$d->uuid])}}" class="btn btn-sm btn-primary m-1 text-white">
                                         <i class="fa fa-edit"></i></a>
                                     <button class="btn btn-sm btn-danger" onclick="Hapus()"> <i
                                             class="fa fa-trash"></i></button>

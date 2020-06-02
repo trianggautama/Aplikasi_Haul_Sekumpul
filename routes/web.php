@@ -87,8 +87,8 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/anggota/index', 'anggotaController@index')->name('anggotaIndex');
     Route::post('/anggota/index', 'anggotaController@store')->name('anggotaStore');
-    Route::get('/anggota/detail/', 'anggotaController@show')->name('anggotaShow');
-    Route::get('/anggota/edit', 'anggotaController@edit')->name('anggotaEdit');
+    Route::get('/anggota/detail/{uuid}', 'anggotaController@show')->name('anggotaShow');
+    Route::get('/anggota/edit/{uuid}', 'anggotaController@edit')->name('anggotaEdit');
     Route::put('/anggota/edit/{uuid}', 'anggotaController@update')->name('anggotaUpdate');
     Route::get('/anggota/delete/{uuid}', 'anggotaController@destroy')->name('anggotaDestroy');
 
