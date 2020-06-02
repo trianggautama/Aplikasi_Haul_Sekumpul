@@ -52,6 +52,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/donasi/edit/{uuid}', 'donasiController@edit')->name('donasiEdit');
     Route::put('/donasi/edit/{uuid}', 'donasiController@update')->name('donasiUpdate');
     Route::get('/donasi/delete/{uuid}', 'donasiController@destroy')->name('donasiDestroy');
+    Route::get('/donasi/filter', 'donasiController@filter')->name('donasiFilter');
 
     Route::get('/pemasukan/index', 'pemasukanController@index')->name('pemasukanIndex');
     Route::post('/pemasukan/index', 'pemasukanController@store')->name('pemasukanStore');
@@ -98,5 +99,8 @@ Route::group(['middleware' => ['auth']], function () {
 
     //cetak route
     Route::get('/posko/detail/cetak/{uuid}', 'reportController@poskoDetailCetak')->name('poskoDetailCetak');
+    Route::get('/donasi/cetak', 'reportController@donasiCetak')->name('donasiCetak');
+    Route::post('/donasi/filter', 'reportController@donasiFilter')->name('donasiFilterCetak');
+
 
 });

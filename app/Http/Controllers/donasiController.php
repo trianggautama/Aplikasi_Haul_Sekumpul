@@ -64,4 +64,10 @@ class donasiController extends Controller
 
     }
 
+    public function filter()
+    {
+        $haul = Haul_sekumpul::orderBy('id', 'desc')->get();
+        return view('admin.donasi.filter', compact('haul'));
+    }
+
 }
