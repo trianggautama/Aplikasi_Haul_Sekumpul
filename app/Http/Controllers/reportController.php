@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Donasi;
+use App\Pemasukan;
+use App\Pengeluaran;
 use App\posko;
 use Carbon\Carbon;
 use PDF;
@@ -35,5 +37,23 @@ class reportController extends Controller
         $pdf->setPaper('a4', 'portrait');
 
         return $pdf->stream('Laporan Informasi Donasi Filter.pdf');
+    }
+
+    public function pemasukanCetak(){
+        $data = Pemasukan::all();
+        $tgl= Carbon::now()->format('d-m-Y');
+        $pdf          = PDF::loadView('formCetak.pemasukan', ['data'=>$data,'tgl'=>$tgl]);
+        $pdf->setPaper('a4', 'portrait');
+
+        return $pdf->stream('Laporan Informasi Pemasukan Mushola.pdf');
+    }
+
+    public function pengeluaranCetak(){
+        $data = Pengeluaran::all();
+        $tgl= Carbon::now()->format('d-m-Y');
+        $pdf          = PDF::loadView('formCetak.pengeluaran', ['data'=>$data,'tgl'=>$tgl]);
+        $pdf->setPaper('a4', 'portrait');
+
+        return $pdf->stream('Laporan Informasi Pengeluaran Mushola.pdf');
     }
 }
