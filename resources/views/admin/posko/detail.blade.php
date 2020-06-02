@@ -23,7 +23,7 @@
                 <div class="card-header">
                     Detail Posko
                     <div class="text-right">
-                        <button class="btn btn-sm btn-secondary"><i class="fa fa-print"></i> Cetak Data</button>
+                        <a href="{{Route('poskoDetailCetak',['uuid'=> $data->uuid])}}" class="btn btn-sm btn-secondary"><i class="fa fa-print"></i> Cetak Data</a>
                     </div>
                 </div>
                 <div class="card-body">

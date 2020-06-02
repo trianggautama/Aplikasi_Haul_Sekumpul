@@ -95,4 +95,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/parkiran/edit', 'parkiranController@edit')->name('parkiranEdit');
     Route::put('/parkiran/edit/{uuid}', 'parkiranController@update')->name('parkiranUpdate');
     Route::get('/parkiran/delete/{uuid}', 'parkiranController@destroy')->name('parkiranDestroy');
+
+    //cetak route
+    Route::get('/posko/detail/cetak/{uuid}', 'reportController@poskoDetailCetak')->name('poskoDetailCetak');
+
 });
