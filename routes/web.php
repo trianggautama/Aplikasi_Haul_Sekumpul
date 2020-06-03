@@ -106,6 +106,35 @@ Route::group(['middleware' => ['auth']], function () {
     Route::put('/kehilanganBarang/edit/{uuid}', 'kehilanganBarangController@update')->name('kehilanganBarangUpdate');
     Route::get('/kehilanganBarang/delete/{uuid}', 'kehilanganBarangController@destroy')->name('kehilanganBarangDestroy');
 
+    Route::get('/penemuanBarang/index', 'penemuanBarangController@index')->name('penemuanBarangIndex');
+    Route::post('/penemuanBarang/index', 'penemuanBarangController@store')->name('penemuanBarangStore');
+    Route::get('/penemuanBarang/detail/', 'penemuanBarangController@show')->name('penemuanBarangShow');
+    Route::get('/penemuanBarang/edit', 'penemuanBarangController@edit')->name('penemuanBarangEdit');
+    Route::put('/penemuanBarang/edit/{uuid}', 'penemuanBarangController@update')->name('penemuanBarangUpdate');
+    Route::get('/penemuanBarang/delete/{uuid}', 'penemuanBarangController@destroy')->name('penemuanBarangDestroy');
+
+
+    Route::get('/kehilanganOrang/index', 'kehilanganOrangController@index')->name('kehilanganOrangIndex');
+    Route::post('/kehilanganOrang/index', 'kehilanganOrangController@store')->name('kehilanganOrangStore');
+    Route::get('/kehilanganOrang/detail/', 'kehilanganOrangController@show')->name('kehilanganOrangShow');
+    Route::get('/kehilanganOrang/edit', 'kehilanganOrangController@edit')->name('kehilanganOrangEdit');
+    Route::put('/kehilanganOrang/edit/{uuid}', 'kehilanganOrangController@update')->name('kehilanganOrangUpdate');
+    Route::get('/kehilanganOrang/delete/{uuid}', 'kehilanganOrangController@destroy')->name('kehilanganOrangDestroy');
+
+    Route::get('/kehilanganKendaraan/index', 'kehilanganKendaraanController@index')->name('kehilanganKendaraanIndex');
+    Route::post('/kehilanganKendaraan/index', 'kehilanganKendaraanController@store')->name('kehilanganKendaraanStore');
+    Route::get('/kehilanganKendaraan/detail/', 'kehilanganKendaraanController@show')->name('kehilanganKendaraanShow');
+    Route::get('/kehilanganKendaraan/edit', 'kehilanganKendaraanController@edit')->name('kehilanganKendaraanEdit');
+    Route::put('/kehilanganKendaraan/edit/{uuid}', 'kehilanganKendaraanController@update')->name('kehilanganKendaraanUpdate');
+    Route::get('/kehilanganKendaraan/delete/{uuid}', 'kehilanganKendaraanController@destroy')->name('kehilanganKendaraanDestroy');
+
+    Route::get('/penemuanKendaraan/index', 'penemuanKendaraanController@index')->name('penemuanKendaraanIndex');
+    Route::post('/penemuanKendaraan/index', 'penemuanKendaraanController@store')->name('penemuanKendaraanStore');
+    Route::get('/penemuanKendaraan/detail/', 'penemuanKendaraanController@show')->name('penemuanKendaraanShow');
+    Route::get('/penemuanKendaraan/edit', 'penemuanKendaraanController@edit')->name('penemuanKendaraanEdit');
+    Route::put('/penemuanKendaraan/edit/{uuid}', 'penemuanKendaraanController@update')->name('penemuanKendaraanUpdate');
+    Route::get('/penemuanKendaraan/delete/{uuid}', 'penemuanKendaraanController@destroy')->name('penemuanKendaraanDestroy');
+
     //cetak route
     Route::get('/posko/cetak', 'reportController@poskoCetak')->name('poskoCetak');
     Route::get('/posko/detail/cetak/{uuid}', 'reportController@poskoDetailCetak')->name('poskoDetailCetak');

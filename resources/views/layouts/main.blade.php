@@ -272,22 +272,22 @@
 											</a>
 										</li>
 										<li>
-											<a class="nav-link" href="layouts-two-navigations.html">
+											<a class="nav-link" href="{{Route('penemuanBarangIndex')}}">
 												Penemuan Barang
 											</a>
 										</li>
 										<li>
-											<a class="nav-link" href="layouts-light-sidebar.html">
+											<a class="nav-link" href="{{Route('kehilanganOrangIndex')}}">
 												Kehilangan Orang
 											</a>
 										</li>
 										<li>
-											<a class="nav-link" href="layouts-light-sidebar.html">
+											<a class="nav-link" href="{{Route('kehilanganKendaraanIndex')}}">
 												Kehilangan Kendaraan
 											</a>
 										</li>
 										<li>
-											<a class="nav-link" href="layouts-light-sidebar.html">
+											<a class="nav-link" href="{{Route('penemuanKendaraanIndex')}}">
 												Penemuan Kendaraan
 											</a>
 										</li>
