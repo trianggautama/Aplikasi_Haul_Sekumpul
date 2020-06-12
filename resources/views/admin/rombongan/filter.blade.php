@@ -3,7 +3,7 @@
 @section('content')
     <section role="main" class="content-body">
 		<header class="page-header">
-			<h2>Halaman Posko</h2>
+			<h2>Halaman Rombongan</h2>
 				<div class="right-wrapper text-right">
 					<ol class="breadcrumbs">
 						<li>
@@ -11,7 +11,7 @@
 								<i class="fas fa-home"></i>
 							</a>
 						</li>
-						<li><span>Filter Posko</span></li>
+                        <li><span>Filter Rombongan</span></li>
 					</ol>
 				<a class="sidebar-right-toggle" ><i class="fas fa-chevron-left"></i></a>
 			</div>
@@ -20,7 +20,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        Filter Data Posko
+                        Filter Data Rombongan
                     </div>
                     <div class="card-body">
                         <form action="" method="post" target="_blank">
@@ -29,7 +29,7 @@
                                 <label for="">Haul</label>
                                 <select name="haul_sekumpul_id" id="haul_sekumpul_id" class="form-control">
                                     <option value="">-- Pilih Periode Haul --</option>
-                                    @foreach($haul as $h)
+                                    @foreach($data as $h)
                                         <option value="{{$h->id}}">Periode {{\carbon\carbon::parse($h->tanggal_mulai)->translatedFormat('Y')}}</option>
                                     @endforeach
                                 </select>

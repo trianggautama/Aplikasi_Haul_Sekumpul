@@ -5,9 +5,15 @@ namespace App\Http\Controllers;
 use App\Anggota_posko;
 use App\Donasi;
 use App\Haul_sekumpul;
+use App\Informasi_rombongan;
+use App\Kehilangan_barang;
+use App\Kehilangan_kendaraan;
+use App\Kehilangan_orang;
 use App\Ketua_posko;
 use App\Lokasi_parkir;
 use App\Pemasukan;
+use App\Penemuan_barang;
+use App\Penemuan_kendaraan;
 use App\Pengeluaran;
 use App\posko;
 use Carbon\Carbon;
@@ -126,5 +132,69 @@ class reportController extends Controller
         $pdf->setPaper('a4', 'landscape');
 
         return $pdf->stream('Laporan Anggota Parkir Filter posko.pdf');
+    }
+
+    public function rombonganCetak(){
+        $data = Informasi_rombongan::all();
+        $tgl= Carbon::now()->format('d-m-Y');
+        $pdf          = PDF::loadView('formCetak.rombongan', ['data'=>$data,'tgl'=>$tgl]);
+        $pdf->setPaper('a4', 'portrait');
+
+        return $pdf->stream('Laporan Rombongan.pdf');
+    }
+
+    public function filterRombongan(Request $request){
+        $haul         = Haul_sekumpul::findOrFail($request->haul_sekumpul_id);
+        $data         = Informasi_rombongan::where('haul_sekumpul_id',$request->haul_sekumpul_id)->get();
+        $tgl          = Carbon::now()->format('d-m-Y');
+        $pdf          = PDF::loadView('formCetak.rombonganFilter', ['data'=>$data,'tgl'=>$tgl,'haul'=>$haul]);
+        $pdf->setPaper('a4', 'landscape');
+
+        return $pdf->stream('Laporan Anggota Parkir Filter posko.pdf');
+    }
+
+    public function kehilanganBarangCetak(){
+        $data = Kehilangan_barang::all();
+        $tgl= Carbon::now()->format('d-m-Y');
+        $pdf          = PDF::loadView('formCetak.kehilanganBarang', ['data'=>$data,'tgl'=>$tgl]);
+        $pdf->setPaper('a4', 'portrait');
+
+        return $pdf->stream('Laporan Kehilangan Barang.pdf');
+    }
+
+    public function penemuanBarangCetak(){
+        $data = Penemuan_barang::all();
+        $tgl= Carbon::now()->format('d-m-Y');
+        $pdf          = PDF::loadView('formCetak.penemuanBarang', ['data'=>$data,'tgl'=>$tgl]);
+        $pdf->setPaper('a4', 'portrait');
+
+        return $pdf->stream('Laporan Penemuan Barang.pdf');
+    }
+
+    public function kehilanganOrangCetak(){
+        $data = Kehilangan_orang::all();
+        $tgl= Carbon::now()->format('d-m-Y');
+        $pdf          = PDF::loadView('formCetak.kehilanganOrang', ['data'=>$data,'tgl'=>$tgl]);
+        $pdf->setPaper('a4', 'landscape');
+
+        return $pdf->stream('Laporan Kehilangan Orang.pdf');
+    }
+
+    public function kehilanganKendaraanCetak(){
+        $data = Kehilangan_kendaraan::all();
+        $tgl= Carbon::now()->format('d-m-Y');
+        $pdf          = PDF::loadView('formCetak.kehilanganKendaraan', ['data'=>$data,'tgl'=>$tgl]);
+        $pdf->setPaper('a4', 'landscape');
+
+        return $pdf->stream('Laporan Kehilangan Kendaraan.pdf');
+    }
+
+    public function penemuanKendaraanCetak(){
+        $data = Penemuan_kendaraan::all();
+        $tgl= Carbon::now()->format('d-m-Y');
+        $pdf          = PDF::loadView('formCetak.penemuanKendaraan', ['data'=>$data,'tgl'=>$tgl]);
+        $pdf->setPaper('a4', 'landscape');
+
+        return $pdf->stream('Laporan Penemuan Kendaraan.pdf');
     }
 }

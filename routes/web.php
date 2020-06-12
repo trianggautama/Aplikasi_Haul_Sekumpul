@@ -74,6 +74,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/rombongan/edit/{uuid}', 'rombonganController@edit')->name('rombonganEdit');
     Route::put('/rombongan/edit/{uuid}', 'rombonganController@update')->name('rombonganUpdate');
     Route::get('/rombongan/delete/{uuid}', 'rombonganController@destroy')->name('rombonganDestroy');
+    Route::get('/rombongan/filter', 'rombonganController@filter')->name('rombonganFilter');
 
     Route::get('/ketua/index', 'ketuaController@index')->name('ketuaIndex');
 
@@ -149,5 +150,12 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/parkiran/filter', 'reportController@parkiranFilter')->name('parkiranFilterCetak');
     Route::get('/anggota/cetak', 'reportController@anggotaCetak')->name('anggotaCetak');
     Route::post('/anggota/filter', 'reportController@anggotaFilter')->name('anggotaFilterCetak');
+    Route::get('/rombongan/cetak', 'reportController@rombonganCetak')->name('rombonganCetak');
+    Route::post('/rombongan/filter', 'reportController@filterRombongan')->name('rombonganFilterCetak');
+    Route::get('/kehilanganBarang/cetak', 'reportController@kehilanganBarangCetak')->name('kehilanganBarangCetak');
+    Route::get('/penemuanBarang/cetak', 'reportController@penemuanBarangCetak')->name('penemuanBarangCetak');
+    Route::get('/kehilanganOrang/cetak', 'reportController@kehilanganOrangCetak')->name('kehilanganOrangCetak');
+    Route::get('/kehilanganKendaraan/cetak', 'reportController@kehilanganKendaraanCetak')->name('kehilanganKendaraanCetak');
+    Route::get('/penemuanKendaraan/cetak', 'reportController@penemuanKendaraanCetak')->name('penemuanKendaraanCetak');
 
 });

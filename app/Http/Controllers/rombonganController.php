@@ -41,8 +41,12 @@ class rombonganController extends Controller
     public function destroy($uuid)
     {
         $data = Informasi_rombongan::where('uuid', $uuid)->first()->delete();
-
         return redirect()->back()->with('success', 'Berhasil menghapus data');
+    }
 
+    public function filter()
+    {
+        $data = Haul_sekumpul::orderBy('id', 'desc')->get();
+        return view('admin.rombongan.filter', compact( 'data'));
     }
 }
