@@ -28,7 +28,7 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                    <table class="table table-bordered table-striped mb-0" id="datatable-default">
+                        <table class="table table-bordered table-striped mb-0" id="datatable-default">
                             <thead>
                                 <tr>
                                     <th>No</th>
@@ -41,20 +41,29 @@
                                 </tr>
                             </thead>
                             <tbody>
-                               <tr>
-                               <td>1</td>
-                               <td>Simpang 4</td>
-                               <td> HP</td>
-                               <td>Samsung</td>
-                               <td>Belum terambil</td>
-                               <td>2 Juni 2020</td>
-                               <td>
-                                            <a href="{{Route('kehilanganBarangEdit')}}" class="btn btn-sm btn-primary m-1 text-white">
-                                                <i class="fa fa-edit"></i></a>
-                                                <button class="btn btn-sm btn-danger" onclick="Hapus()"> <i
-											class="fa fa-trash"></i></button>          
-                               </td>
-                               </tr>
+                                @foreach($data as $d)
+                                <tr>
+                                    <td>{{$loop->iteration}}</td>
+                                    <td>{{$d->posko->nama_posko}}</td>
+                                    <td>{{$d->nama_barang}}</td>
+                                    <td>{{$d->merk}}</td>
+                                    <td>
+                                        @if($d->status == 1)
+                                        <span class="badge badge-warning">Belum ditemukan</span>
+                                        @elseif($d->status == 2)
+                                        <span class="badge badge-success">Sudah ditemukan</span>
+                                        @endif
+                                    </td>
+                                    <td>{{carbon\carbon::parse($d->created_at)->translatedFormat('d F Y')}}</td>
+                                    <td>
+                                        <a href="{{Route('kehilanganBarangEdit',['uuid' => $d->uuid])}}"
+                                            class="btn btn-sm btn-primary m-1 text-white">
+                                            <i class="fa fa-edit"></i></a>
+                                        <button class="btn btn-sm btn-danger" onclick="Hapus()"> <i
+                                                class="fa fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -74,37 +83,49 @@
                 </button>
             </div>
             <div class="modal-body">
-            <form action="{{Route('pengeluaranStore')}}" method="post">
-            @csrf
+                <form action="{{Route('kehilanganBarangStore')}}" method="post">
+                    @csrf
                     <div class="form-group ">
                         <label class="">Posko Terdekat</label>
                         <select name="posko_id" id="" class="form-control">
-                            <option value="">ambil dari posko</option>
+                            <option value="">Pilih posko</option>
+                            @foreach ($posko as $d)
+                            <option value="{{$d->id}}">{{$d->nama_posko}}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="form-group ">
                         <label class="">Nama Barang</label>
-                        <input type="text" class="form-control" name="nama_barang" id="nama_barang" placeholder="nama_barang">
+                        <input type="text" class="form-control" name="nama_barang" id="nama_barang"
+                            placeholder="nama_barang">
                     </div>
                     <div class="form-group ">
                         <label class="">Merk Barang</label>
-                        <input type="text" class="form-control" name="merk_barang" id="merk_barang" placeholder="merk_barang">
+                        <input type="text" class="form-control" name="merk" id="merk" placeholder="Merk barang">
                     </div>
                     <div class="form-group ">
-                        <label class="">Posko Terdekat</label>
-                        <select name="posko_id" id="" class="form-control">
-                            <option value="">belum ditemukan</option>
-                            <option value="">sudah ditemukan</option>
+                        <label class="">Nomor Hp</label>
+                        <input type="text" class="form-control" name="no_hp" id="no_hp" placeholder="Nomor hp">
+                    </div>
+                    <div class="form-group ">
+                        <label class="">Deskripsi</label>
+                        <input type="text" class="form-control" name="deskripsi" id="deskripsi" placeholder="Deskripsi">
+                    </div>
+                    <div class="form-group ">
+                        <label class="">Status Barang</label>
+                        <select name="status" id="" class="form-control">
+                            <option value="1">Belum ditemukan</option>
+                            <option value="2">Sudah ditemukan</option>
                         </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                    </div>
+                </form>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-                <button type="submit" class="btn btn-primary">Simpan</button>
-            </div>
-            </form>
         </div>
     </div>
-</div>
 </div>
 
 @endsection

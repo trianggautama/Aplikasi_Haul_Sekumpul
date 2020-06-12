@@ -21,6 +21,7 @@ class CreateKehilanganBarangsTable extends Migration
             $table->string('merk', 50);
             $table->text('deskripsi');
             $table->string('no_hp');
+            $table->tinyInteger('status');
             $table->timestamps();
             $table->foreign('posko_id')->references('id')->on('poskos')->onDelete('restrict');
         });

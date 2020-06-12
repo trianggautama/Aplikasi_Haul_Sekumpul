@@ -28,7 +28,7 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                    <table class="table table-bordered table-striped mb-0" id="datatable-default">
+                        <table class="table table-bordered table-striped mb-0" id="datatable-default">
                             <thead>
                                 <tr>
                                     <th>No</th>
@@ -43,22 +43,31 @@
                                 </tr>
                             </thead>
                             <tbody>
-                               <tr>
-                               <td>1</td>
-                               <td>Posko 2</td>
-                               <td>Agung</td>
-                               <td> 12 Tahun</td>
-                               <td>jl.ayani bjb</td>
-                               <td>Tinggi sekitar 150 cm ,gundul</td>
-                               <td>-</td>
-                               <td>Belum Ditemukan</td>
-                               <td>
-                                            <a href="{{Route('kehilanganOrangEdit')}}" class="btn btn-sm btn-primary m-1 text-white">
-                                                <i class="fa fa-edit"></i></a>
-                                                <button class="btn btn-sm btn-danger" onclick="Hapus()"> <i
-											class="fa fa-trash"></i></button>          
-                               </td>
-                               </tr>
+                                @foreach($data as $d)
+                                <tr>
+                                    <td>{{$loop->iteration}}</td>
+                                    <td>{{$d->posko->nama_posko}}</td>
+                                    <td>{{$d->nama_orang}}</td>
+                                    <td>{{$d->umur}}</td>
+                                    <td>{{$d->alamat}}</td>
+                                    <td>{{$d->ciri_fisik}}</td>
+                                    <td>{{$d->deskripsi}}</td>
+                                    <td>
+                                        @if($d->status == 1)
+                                        <span class="badge badge-warning">Belum ditemukan</span>
+                                        @elseif($d->status == 2)
+                                        <span class="badge badge-success">Sudah ditemukan</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        <a href="{{Route('kehilanganOrangEdit',['uuid' => $d->uuid])}}"
+                                            class="btn btn-sm btn-primary m-1 text-white">
+                                            <i class="fa fa-edit"></i></a>
+                                        <button class="btn btn-sm btn-danger" onclick="Hapus()"> <i
+                                                class="fa fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -78,21 +87,25 @@
                 </button>
             </div>
             <div class="modal-body">
-            <form action="{{Route('pengeluaranStore')}}" method="post">
-            @csrf
+                <form action="{{Route('kehilanganOrangStore')}}" method="post">
+                    @csrf
                     <div class="form-group ">
                         <label class="">Posko Terdekat</label>
                         <select name="posko_id" id="" class="form-control">
-                            <option value="">ambil dari posko</option>
+                            <option value="">Pilih posko</option>
+                            @foreach ($posko as $d)
+                            <option value="{{$d->id}}">{{$d->nama_posko}}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="form-group ">
                         <label class="">Nama Orang</label>
-                        <input type="text" class="form-control" name="nama_Orang" id="nama_Orang" placeholder="nama_Orang">
+                        <input type="text" class="form-control" name="nama_orang" id="nama_orang"
+                            placeholder="nama_orang">
                     </div>
                     <div class="form-group ">
                         <label class="">Umur</label>
-                        <input type="text" class="form-control" name="merk_Orang" id="merk_Orang" placeholder="merk_barang">
+                        <input type="text" class="form-control" name="umur" id="umur" placeholder="Umur">
                     </div>
                     <div class="form-group ">
                         <label class="">Alamat</label>
@@ -109,19 +122,19 @@
                     </div>
                     <div class="form-group ">
                         <label class="">Status</label>
-                        <select name="posko_id" id="" class="form-control">
-                            <option value="">belum ditemukan</option>
-                            <option value="">sudah ditemukan</option>
+                        <select name="status" id="" class="form-control">
+                            <option value="1">Belum ditemukan</option>
+                            <option value="2">Sudah ditemukan</option>
                         </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                    </div>
+                </form>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-                <button type="submit" class="btn btn-primary">Simpan</button>
-            </div>
-            </form>
         </div>
     </div>
-</div>
 </div>
 
 @endsection

@@ -17,11 +17,13 @@ class CreateInformasiRombongansTable extends Migration
             $table->id();
             $table->string('uuid')->length(36);
             $table->unsignedBigInteger('posko_id');
+            $table->unsignedBigInteger('haul_sekumpul_id');
             $table->string('asal_rombongan')->length(75);
             $table->string('nama_ketua_rombongan')->length(75);
             $table->integer('jumlah_rombongan')->length(9);
             $table->string('no_hp')->length(15);
             $table->foreign('posko_id')->references('id')->on('poskos')->onDelete('cascade');
+            $table->foreign('haul_sekumpul_id')->references('id')->on('haul_sekumpuls')->onDelete('cascade');
             $table->timestamps();
         });
     }

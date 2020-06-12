@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePenemuanBarangsTable extends Migration
+class CreatePenemuanKendaraansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,20 @@ class CreatePenemuanBarangsTable extends Migration
      */
     public function up()
     {
-        Schema::create('penemuan_barangs', function (Blueprint $table) {
+        Schema::create('penemuan_kendaraans', function (Blueprint $table) {
             $table->id();
             $table->string('uuid', 36);
             $table->unsignedBigInteger('posko_id');
-            $table->string('nama_barang', 50);
-            $table->string('merk', 50);
-            $table->text('deskripsi');
+            $table->unsignedBigInteger('lokasi_parkir_id');
+            $table->string('plat_nomor', 50);
+            $table->string('merk_kendaraan', 50);
+            $table->string('warna', 20);
+            $table->string('nama_pelapor', 50);
+            $table->string('no_hp_pelapor', 13);
             $table->tinyInteger('status');
-            $table->string('penanggung_jawab', 50);
-            $table->string('foto_penyerahan', 50);
-            $table->string('ktp_penerima', 50);
             $table->timestamps();
             $table->foreign('posko_id')->references('id')->on('poskos')->onDelete('restrict');
+            $table->foreign('lokasi_parkir_id')->references('id')->on('lokasi_parkirs')->onDelete('restrict');
         });
     }
 
@@ -36,6 +37,6 @@ class CreatePenemuanBarangsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('penemuan_barangs');
+        Schema::dropIfExists('penemuan_kendaraans');
     }
 }

@@ -2,15 +2,22 @@
 
 namespace App;
 
+use App\Traits\Uuid;
 use Illuminate\Database\Eloquent\Model;
 
 class Penemuan_barang extends Model
 {
-        //TABEL
-        protected $table = 'penemuan_barang';
+    use Uuid;
+    //TABEL
+    protected $table = 'penemuan_barangs';
 
-        //RElASI MODEL
-        public function posko(){
-            return $this->belongTo('App\Posko');
-        }
+    protected $fillable = [
+        'posko_id', 'nama_barang', 'merk', 'deskripsi', 'status', 'penanggung_jawab',
+    ];
+
+    //RElASI MODEL
+    public function posko()
+    {
+        return $this->belongsTo('App\Posko');
+    }
 }

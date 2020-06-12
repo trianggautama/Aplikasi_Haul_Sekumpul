@@ -22,6 +22,7 @@ class CreateKehilanganOrangsTable extends Migration
             $table->text('alamat');
             $table->string('ciri_fisik', 100);
             $table->text('deskripsi');
+            $table->tinyInteger('status');
             $table->timestamps();
             $table->foreign('posko_id')->references('id')->on('poskos')->onDelete('restrict');
         });
