@@ -106,7 +106,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/penemuanBarang/index', 'penemuanBarangController@index')->name('penemuanBarangIndex');
     Route::post('/penemuanBarang/index', 'penemuanBarangController@store')->name('penemuanBarangStore');
-    Route::get('/penemuanBarang/detail/', 'penemuanBarangController@show')->name('penemuanBarangShow');
+    Route::get('/penemuanBarang/detail/{uuid}', 'penemuanBarangController@show')->name('penemuanBarangShow');
     Route::get('/penemuanBarang/edit/{uuid}', 'penemuanBarangController@edit')->name('penemuanBarangEdit');
     Route::put('/penemuanBarang/edit/{uuid}', 'penemuanBarangController@update')->name('penemuanBarangUpdate');
     Route::get('/penemuanBarang/delete/{uuid}', 'penemuanBarangController@destroy')->name('penemuanBarangDestroy');

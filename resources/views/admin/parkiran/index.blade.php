@@ -3,7 +3,7 @@
 @section('content')
 <section role="main" class="content-body">
     <header class="page-header">
-        <h2>Halaman Anggota Posko</h2>
+        <h2>Halaman Parkiran</h2>
         <div class="right-wrapper text-right">
             <ol class="breadcrumbs">
                 <li>
@@ -11,7 +11,7 @@
                         <i class="fas fa-home"></i>
                     </a>
                 </li>
-                <li><span>Data Anggota Posko</span></li>
+                <li><span>Data Lokasi Parkir</span></li>
             </ol>
             <a class="sidebar-right-toggle"><i class="fas fa-chevron-left"></i></a>
         </div>
@@ -22,40 +22,44 @@
                 <div class="card-header">
                     <div class="text-right">
                         <button class="btn btn-sm btn-secondary"><i class="fa fa-print"></i> Cetak Data</button>
-                        <button class="btn btn-sm btn-success" id="tambah"><i class="fa fa-plus"></i> Tambah
-                            Data</button>
                     </div>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
                     <table class="table table-bordered table-striped mb-0" id="datatable-default">
-                            <thead>
-                                <tr>
-                                    <th>No</th>
-                                    <th>Nama</th>
-                                    <th>Bagian Tugas</th>
-                                    <th>No Hp</th>
-                                    <th>Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                               <tr>
-                               <td>1</td>
-                               <td>Tri Angga T.U</td>
-                               <td> Koordinator</td>
-                               <td>078781826186</td>
-                               <td>
-                               <a href="#" class="btn btn-sm btn-warning m-1"
-                                            id="detail">
-                                            <i class="fa fa-file"></i></a>
-                                            <a href="" class="btn btn-sm btn-primary m-1 text-white">
-                                                <i class="fa fa-edit"></i></a>
-                                                <button class="btn btn-sm btn-danger" onclick="Hapus()"> <i
-											class="fa fa-trash"></i></button>          
-                               </td>
-                               </tr>
-                            </tbody>
-                        </table>
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Alamat</th>
+                                <th>Nama Posko</th>
+                                <th>Petugas</th>
+                                <th>Jenis Parkir</th>
+                                <th>Luas Parkir</th>
+                                <th>Status</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($data as $d)
+                            <tr>
+                                <td>{{$loop->iteration}}</td>
+                                <td>{{$d->alamat}}</td>
+                                <td>{{$d->posko->nama_posko}}</td>
+                                <td>{{$d->anggota_posko->nama}}</td>
+                                <td>{{$d->jenis_parkir}}</td>
+                                <td>{{$d->luas_parkir}}</td>
+                                <td>Terisi {{$d->status}} %</td>
+                                <td>
+                                    <a href="{{Route('parkiranEdit',['uuid'=>$d->uuid])}}"
+                                        class="btn btn-sm btn-primary m-1 text-white">
+                                        <i class="fa fa-edit"></i></a>
+                                    <button class="btn btn-sm btn-danger" onclick="Hapus('{{$d->uuid}}','{{$d->alamat}}')"> <i
+                                            class="fa fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                     </div>
                 </div>
             </div>
@@ -119,7 +123,7 @@
         function Hapus(uuid, nama) {
 			Swal.fire({
 			title: 'Anda Yakin?',
-			text: " Menghapus Posko " + nama ,        
+			text: " Menghapus Lokasi Parkir " + nama ,        
 			icon: 'warning',
 			showCancelButton: true,
 			confirmButtonColor: '#3085d6',
@@ -128,7 +132,7 @@
 			cancelButtonText: 'Batal'
 		}).then((result) => {
 			if (result.value) {
-				url = '{{route("poskoDestroy",'')}}';
+				url = '{{route("parkiranDestroy",'')}}';
 				window.location.href =  url+'/'+uuid ;			
 			}
 		})

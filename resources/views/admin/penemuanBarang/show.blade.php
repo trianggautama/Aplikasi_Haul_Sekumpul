@@ -25,15 +25,15 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for=""> <b>Nama Barang : </b></label>
-                                    <p>HP</p>
+                                    <p>{{$data->nama_barang}}</p>
                                 </div>
                                 <div class="form-group">
                                     <label for=""> <b>Merk Barang : </b></label>
-                                    <p>Samsung</p>
+                                    <p>{{$data->merk_barang}}</p>
                                 </div>
                                 <div class="form-group">
                                     <label for=""> <b>Deskripsi Barang : </b></label>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos praesentium recusandae in, voluptatem architecto culpa tenetur nihil, nobis saepe ad consequuntur reprehenderit. Eveniet ipsa non eius deserunt officia natus illum.</p>
+                                    <p>{{$data->deskripsi}}</p>
                                 </div>
                             </div>
                             <div class="col-md-6">

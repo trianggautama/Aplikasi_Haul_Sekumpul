@@ -10,9 +10,9 @@ class parkiranController extends Controller
 {
     public function index()
     {
-        $data = Lokasi_parkir::orderBy('id', 'desc');
-        return view('admin.parkiran.index');
-    }
+        $data = Lokasi_parkir::orderBy('id', 'desc')->get();
+        return view('admin.parkiran.index',compact('data'));
+    } 
 
     public function store(Request $request)
     {

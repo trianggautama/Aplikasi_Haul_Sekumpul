@@ -59,7 +59,7 @@
                                         <td>
                                             <a href="{{Route('poskoShow',['uuid'=>$d->uuid])}}" class="btn btn-sm btn-warning m-1"
                                             id="detail">
-                                            <i class="fa fa-file"></i></a>
+                                            <i class="fa fa-info-circle"></i></a>
                                             <a href="{{Route('poskoEdit',['uuid'=>$d->uuid])}}" class="btn btn-sm btn-primary m-1 text-white">
                                                 <i class="fa fa-edit"></i></a>
                                                 <button class="btn btn-sm btn-danger" onclick="Hapus('{{$d->uuid}}','{{$d->nama_posko}}')"> <i

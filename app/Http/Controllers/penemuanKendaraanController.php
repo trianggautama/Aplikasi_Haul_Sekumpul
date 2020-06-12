@@ -69,5 +69,7 @@ class penemuanKendaraanController extends Controller
         // File::delete('images/penemuanKendaraan/' . $data->foto_penyerahan);
         // File::delete('images/penemuanKendaraan/' . $data->ktp_penerima);
         $data->delete();
+        return redirect()->route('penemuanKendaraanIndex')->withSuccess('Data berhasil dihapus');
+
     }
 }

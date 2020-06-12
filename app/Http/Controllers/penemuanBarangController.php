@@ -67,5 +67,7 @@ class penemuanBarangController extends Controller
         File::delete('images/penemuanBarang/' . $data->foto_penyerahan);
         File::delete('images/penemuanBarang/' . $data->ktp_penerima);
         $data->delete();
+        return redirect()->route('penemuanBarangIndex')->withSuccess('Data berhasil dihapus');
+
     }
 }

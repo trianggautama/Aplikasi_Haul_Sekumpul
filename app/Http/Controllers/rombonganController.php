@@ -4,15 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Haul_sekumpul;
 use App\Informasi_rombongan;
+use App\Posko;
 use Illuminate\Http\Request;
 
-class rombonganController extends Controller
+class rombonganController extends Controller 
 {
     public function index()
     {
         $data = Informasi_rombongan::orderBy('id', 'desc')->get();
         $haul = Haul_sekumpul::orderBy('id', 'desc')->get();
-        return view('admin.rombongan.index', compact('haul', 'data'));
+        $posko = Posko::orderBy('id','desc')->get();
+        return view('admin.rombongan.index', compact('haul', 'data','posko'));
     }
 
     public function store(Request $request)

@@ -64,7 +64,7 @@
                                         <a href="{{Route('penemuanKendaraanEdit',['uuid' => $d->uuid])}}"
                                             class="btn btn-sm btn-primary m-1 text-white">
                                             <i class="fa fa-edit"></i></a>
-                                        <button class="btn btn-sm btn-danger" onclick="Hapus()"> <i
+                                        <button class="btn btn-sm btn-danger" onclick="Hapus('{{$d->uuid}}','{{$d->plat_nomor}}')"> <i
                                                 class="fa fa-trash"></i></button>
                                     </td>
                                 </tr>
@@ -90,7 +90,15 @@
             <div class="modal-body">
                 <form action="{{Route('penemuanKendaraanStore')}}" method="post">
                     @csrf
-                    <input type="text" name="posko_id" id="" value="{{Auth::user()->ketua_posko->posko->id}}">
+                    <div class="form-group ">
+                        <label class="">Posko Terdekat</label>
+                        <select name="posko_id" id="" class="form-control">
+                            <option value="">Pilih posko</option>
+                            @foreach ($posko as $d)
+                            <option value="{{$d->id}}">{{$d->nama_posko}}</option>
+                            @endforeach
+                        </select>
+                    </div>                    
                     <div class="form-group ">
                         <label class="">Lokasi Parkir</label>
                         <select name="lokasi_parkir_id" id="" class="form-control">
@@ -157,7 +165,7 @@
         function Hapus(uuid, nama) {
 			Swal.fire({
 			title: 'Anda Yakin?',
-			text: " Menghapus Posko " + nama ,        
+			text: " Menghapus data penemuan kendaraan dengan plat nomor " + nama ,        
 			icon: 'warning',
 			showCancelButton: true,
 			confirmButtonColor: '#3085d6',
@@ -166,7 +174,7 @@
 			cancelButtonText: 'Batal'
 		}).then((result) => {
 			if (result.value) {
-				url = '{{route("poskoDestroy",'')}}';
+				url = '{{route("penemuanKendaraanDestroy",'')}}';
 				window.location.href =  url+'/'+uuid ;			
 			}
 		})
