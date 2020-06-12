@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Anggota_posko;
 use App\Haul_sekumpul;
 use App\Ketua_posko;
+use App\Lokasi_parkir;
 use App\Posko;
 use App\User;
 use Illuminate\Http\Request;
@@ -36,9 +37,10 @@ class poskoController extends Controller
     public function show($uuid)
     {
         $data = Posko::where('uuid', $uuid)->first();
-        $anggota = Anggota_posko::orderBy('id', 'desc')->get();
+        $anggota = Anggota_posko::where('posko_id', $data->id)->orderBy('id', 'desc')->get();
+        $lokasi_parkir = Lokasi_parkir::where('posko_id', $data->id)->orderBy('id', 'desc')->get();
 
-        return view('admin.posko.detail', compact('data', 'anggota'));
+        return view('admin.posko.detail', compact('data', 'anggota', 'lokasi_parkir'));
     }
 
     public function storeKetua(Request $request)

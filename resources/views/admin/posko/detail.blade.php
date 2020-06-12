@@ -23,7 +23,8 @@
                 <div class="card-header">
                     Detail Posko
                     <div class="text-right">
-                        <a href="{{Route('poskoDetailCetak',['uuid'=> $data->uuid])}}" class="btn btn-sm btn-secondary" target="_blank"><i class="fa fa-print"></i> Cetak Data</a>
+                        <a href="{{Route('poskoDetailCetak',['uuid'=> $data->uuid])}}" class="btn btn-sm btn-secondary"
+                            target="_blank"><i class="fa fa-print"></i> Cetak Data</a>
                     </div>
                 </div>
                 <div class="card-body">
@@ -57,10 +58,12 @@
                                 @endif
                             </div>
                             <div class="form-group">
-                                <label for=""> <b>Ketua Posko</b> 
+                                <label for=""> <b>Ketua Posko</b>
                                     @if($data->ketua_posko != null)
-                                    <a  href="{{Route('ketuaEdit',['uuid'=>$data->ketua_posko->uuid])}}" class="btn btn-xs btn-primary ml-4 text-white"> Ubah Data</a> 
-                                    <a  href="{{Route('ketuaShow',['uuid'=>$data->ketua_posko->uuid])}}" class="btn btn-xs btn-success text-white"> Detail Ketua Posko</a> 
+                                    <a href="{{Route('ketuaEdit',['uuid'=>$data->ketua_posko->uuid])}}"
+                                        class="btn btn-xs btn-primary ml-4 text-white"> Ubah Data</a>
+                                    <a href="{{Route('ketuaShow',['uuid'=>$data->ketua_posko->uuid])}}"
+                                        class="btn btn-xs btn-success text-white"> Detail Ketua Posko</a>
                                     @else
                                     <a id="ubah-ketua" class="ml-4 text-success"> + tambah Data</a>
                                     @endif
@@ -137,9 +140,11 @@
                                 <td>{{$d->tugas}}</td>
                                 <td>{{$d->no_hp}}</td>
                                 <td>
-                                    <a href="{{Route('anggotaShow',['uuid'=>$d->uuid])}}" class="btn btn-sm btn-warning m-1" >
+                                    <a href="{{Route('anggotaShow',['uuid'=>$d->uuid])}}"
+                                        class="btn btn-sm btn-warning m-1">
                                         <i class="fa fa-info-circle"></i></a>
-                                    <a href="{{Route('anggotaEdit',['uuid'=>$d->uuid])}}" class="btn btn-sm btn-primary m-1 text-white">
+                                    <a href="{{Route('anggotaEdit',['uuid'=>$d->uuid])}}"
+                                        class="btn btn-sm btn-primary m-1 text-white">
                                         <i class="fa fa-edit"></i></a>
                                     <button class="btn btn-sm btn-danger" onclick="Hapus()"> <i
                                             class="fa fa-trash"></i></button>
@@ -179,22 +184,23 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($lokasi_parkir as $d)
                             <tr>
-                                <td>1</td>
-                                <td>Seberang RS </td>
-                                <td> John Doe</td>
-                                <td> Parkir Motor</td>
-                                <td>50 m</td>
-                                <td>Terisi 50 %</td>
+                                <td>{{$loop->iteration}}</td>
+                                <td>{{$d->alamat}}</td>
+                                <td>{{$d->anggota_posko->nama}}</td>
+                                <td>{{$d->jenis_parkir}}</td>
+                                <td>{{$d->luas_parkir}}</td>
+                                <td>Terisi {{$d->status}} %</td>
                                 <td>
-                                    <a href="#" class="btn btn-sm btn-warning m-1" id="detail">
-                                        <i class="fa fa-file"></i></a>
-                                    <a href="{{Route('parkiranEdit')}}" class="btn btn-sm btn-primary m-1 text-white">
+                                    <a href="{{Route('parkiranEdit',['uuid'=>$d->uuid])}}"
+                                        class="btn btn-sm btn-primary m-1 text-white">
                                         <i class="fa fa-edit"></i></a>
                                     <button class="btn btn-sm btn-danger" onclick="Hapus()"> <i
                                             class="fa fa-trash"></i></button>
                                 </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -307,39 +313,43 @@
     <div class="modal-dialog ">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="tambahPendidikan">Tambah Fitur</h5>
+                <h5 class="modal-title" id="tambahPendidikan">Tambah Lokasi Parkiran</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body" id="modalProgress">
-                <form action="" method="post">
+                <form action="{{Route('parkiranStore')}}" method="post">
                     @csrf
+                    <input type="hidden" name="posko_id" value="{{$data->id}}">
                     <div class="form-group">
                         <label for="">Alamat Parkir</label>
-                        <input type="text" name="nama_fitur" id="nama_fitur" class="form-control" required></input>
+                        <input type="text" name="alamat" id="alamat" class="form-control" required></input>
                     </div>
                     <div class="form-group">
                         <label for="">Petugas</label>
-                        <select name="petugas_id" id="petugas_id" class="form-control">
-                            <option value="">-- pilih dari anggota posko</option>
+                        <select name="anggota_posko_id" id="anggota_posko_id" class="form-control">
+                            <option value="">-- pilih anggota posko</option>
+                            @foreach ($anggota as $d)
+                            <option value="{{$d->id}}">{{$d->nama}}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="">Luas Parkir</label>
-                        <input type="text" name="nama_fitur" id="nama_fitur" class="form-control" required></input>
+                        <input type="text" name="luas_parkir" id="luas_parkir" class="form-control" required></input>
                     </div>
                     <div class="form-group">
                         <label for="">Jenis Parkiran</label>
-                        <select name="petugas_id" id="petugas_id" class="form-control">
+                        <select name="jenis_parkir" id="jenis_parkir" class="form-control">
                             <option value="">-- pilih jenis parkir --</option>
-                            <option value="1">Roda 2</option>
-                            <option value="2">Roda 4</option>
+                            <option value="Roda 2">Roda 2</option>
+                            <option value="Roda 4">Roda 4</option>
                         </select>
                     </div>
             </div>
             <div class="card-footer text-right">
-                <button type="submit" class="btn btn-success"> Tambah Fitur</button>
+                <button type="submit" class="btn btn-success"> Tambah</button>
             </div>
             </form>
         </div>

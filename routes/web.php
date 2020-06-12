@@ -47,7 +47,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/posko/delete/{uuid}', 'poskoController@destroy')->name('poskoDestroy');
     Route::get('/posko/filter', 'poskoController@filter')->name('poskoFilter');
 
-
     Route::get('/donasi/index', 'donasiController@index')->name('donasiIndex');
     Route::post('/donasi/index', 'donasiController@store')->name('donasiStore');
     Route::get('/donasi/detail/{uuid}', 'donasiController@show')->name('donasiShow');
@@ -94,8 +93,8 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/parkiran/index', 'parkiranController@index')->name('parkiranIndex');
     Route::post('/parkiran/index', 'parkiranController@store')->name('parkiranStore');
-    Route::get('/parkiran/detail/', 'parkiranController@show')->name('parkiranShow');
-    Route::get('/parkiran/edit', 'parkiranController@edit')->name('parkiranEdit');
+    Route::get('/parkiran/detail/{uuid}', 'parkiranController@show')->name('parkiranShow');
+    Route::get('/parkiran/edit/{uuid}', 'parkiranController@edit')->name('parkiranEdit');
     Route::put('/parkiran/edit/{uuid}', 'parkiranController@update')->name('parkiranUpdate');
     Route::get('/parkiran/delete/{uuid}', 'parkiranController@destroy')->name('parkiranDestroy');
 
@@ -112,7 +111,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/penemuanBarang/edit', 'penemuanBarangController@edit')->name('penemuanBarangEdit');
     Route::put('/penemuanBarang/edit/{uuid}', 'penemuanBarangController@update')->name('penemuanBarangUpdate');
     Route::get('/penemuanBarang/delete/{uuid}', 'penemuanBarangController@destroy')->name('penemuanBarangDestroy');
-
 
     Route::get('/kehilanganOrang/index', 'kehilanganOrangController@index')->name('kehilanganOrangIndex');
     Route::post('/kehilanganOrang/index', 'kehilanganOrangController@store')->name('kehilanganOrangStore');
@@ -143,6 +141,5 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/pemasukan/cetak', 'reportController@pemasukanCetak')->name('pemasukanCetak');
     Route::get('/pengeluaran/cetak', 'reportController@pengeluaranCetak')->name('pengeluaranCetak');
     Route::post('/posko/filter', 'reportController@poskoFilter')->name('poskoFilterCetak');
-
 
 });
