@@ -89,6 +89,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/anggota/edit/{uuid}', 'anggotaController@edit')->name('anggotaEdit');
     Route::put('/anggota/edit/{uuid}', 'anggotaController@update')->name('anggotaUpdate');
     Route::get('/anggota/delete/{uuid}', 'anggotaController@destroy')->name('anggotaDestroy');
+    Route::get('/anggota/filter', 'anggotaController@filter')->name('anggotaFilter');
+
 
     Route::get('/parkiran/index', 'parkiranController@index')->name('parkiranIndex');
     Route::post('/parkiran/index', 'parkiranController@store')->name('parkiranStore');
@@ -96,6 +98,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/parkiran/edit/{uuid}', 'parkiranController@edit')->name('parkiranEdit');
     Route::put('/parkiran/edit/{uuid}', 'parkiranController@update')->name('parkiranUpdate');
     Route::get('/parkiran/delete/{uuid}', 'parkiranController@destroy')->name('parkiranDestroy');
+    Route::get('/parkiran/filter', 'parkiranController@filter')->name('parkiranFilter');
+
 
     Route::get('/kehilanganBarang/index', 'kehilanganBarangController@index')->name('kehilanganBarangIndex');
     Route::post('/kehilanganBarang/index', 'kehilanganBarangController@store')->name('kehilanganBarangStore');
@@ -140,5 +144,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/pemasukan/cetak', 'reportController@pemasukanCetak')->name('pemasukanCetak');
     Route::get('/pengeluaran/cetak', 'reportController@pengeluaranCetak')->name('pengeluaranCetak');
     Route::post('/posko/filter', 'reportController@poskoFilter')->name('poskoFilterCetak');
+    Route::get('/ketuaPosko/cetak', 'reportController@ketuaPoskoCetak')->name('ketuaPoskoCetak');
+    Route::get('/parkiran/cetak', 'reportController@parkiranCetak')->name('parkiranCetak');
+    Route::post('/parkiran/filter', 'reportController@parkiranFilter')->name('parkiranFilterCetak');
+    Route::get('/anggota/cetak', 'reportController@anggotaCetak')->name('anggotaCetak');
+    Route::post('/anggota/filter', 'reportController@anggotaFilter')->name('anggotaFilterCetak');
 
 });

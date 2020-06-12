@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Anggota_posko;
+use App\Posko;
 use File;
 use Illuminate\Http\Request;
 
@@ -59,5 +60,11 @@ class anggotaController extends Controller
         $data->delete();
 
         return redirect()->back()->withSuccess('Data berhasil dihapus');
+    }
+
+    public function filter()
+    {
+        $data = Posko::all();
+        return view('admin.anggota.filter', compact('data'));
     }
 }

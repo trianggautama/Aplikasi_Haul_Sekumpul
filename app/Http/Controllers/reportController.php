@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Anggota_posko;
 use App\Donasi;
 use App\Haul_sekumpul;
+use App\Ketua_posko;
+use App\Lokasi_parkir;
 use App\Pemasukan;
 use App\Pengeluaran;
 use App\posko;
@@ -76,5 +79,52 @@ class reportController extends Controller
         $pdf->setPaper('a4', 'portrait');
 
         return $pdf->stream('Laporan Informasi Pengeluaran Mushola.pdf');
+    }
+
+    public function ketuaPoskoCetak(){
+        $data = Ketua_posko::all();
+        $tgl= Carbon::now()->format('d-m-Y');
+        $pdf          = PDF::loadView('formCetak.ketuaPosko', ['data'=>$data,'tgl'=>$tgl]);
+        $pdf->setPaper('a4', 'portrait');
+
+        return $pdf->stream('Laporan Informasi Kjetua Posko Keseluruhan.pdf');
+    }
+
+    public function parkiranCetak(){
+        $data = Lokasi_parkir::all();
+        $tgl= Carbon::now()->format('d-m-Y');
+        $pdf          = PDF::loadView('formCetak.parkiran', ['data'=>$data,'tgl'=>$tgl]);
+        $pdf->setPaper('a4', 'landscape');
+
+        return $pdf->stream('Laporan Informasi Lokasi Parkir.pdf');
+    }
+
+    public function parkiranFilter(Request $request){
+        $posko = posko::findOrFail($request->posko_id);
+        $data = Lokasi_parkir::where('posko_id',$request->posko_id)->get();
+        $tgl= Carbon::now()->format('d-m-Y');
+        $pdf          = PDF::loadView('formCetak.parkiranFilter', ['data'=>$data,'tgl'=>$tgl,'posko'=>$posko]);
+        $pdf->setPaper('a4', 'landscape');
+
+        return $pdf->stream('Laporan Lokasi Parkiran Filter posko.pdf');
+    }
+
+    public function anggotaCetak(){
+        $data = Anggota_posko::all();
+        $tgl= Carbon::now()->format('d-m-Y');
+        $pdf          = PDF::loadView('formCetak.anggota', ['data'=>$data,'tgl'=>$tgl]);
+        $pdf->setPaper('a4', 'landscape');
+
+        return $pdf->stream('Laporan Informasi Anggota Posko.pdf');
+    }
+
+    public function anggotaFilter(Request $request){
+        $posko = posko::findOrFail($request->posko_id);
+        $data = Anggota_posko::where('posko_id',$request->posko_id)->get();
+        $tgl= Carbon::now()->format('d-m-Y');
+        $pdf          = PDF::loadView('formCetak.anggotaFilter', ['data'=>$data,'tgl'=>$tgl,'posko'=>$posko]);
+        $pdf->setPaper('a4', 'landscape');
+
+        return $pdf->stream('Laporan Anggota Parkir Filter posko.pdf');
     }
 }

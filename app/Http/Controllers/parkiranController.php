@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Anggota_posko;
+use App\Haul_sekumpul;
 use App\Lokasi_parkir;
+use App\Posko;
 use Illuminate\Http\Request;
 
 class parkiranController extends Controller
@@ -48,6 +50,11 @@ class parkiranController extends Controller
         $data = Lokasi_parkir::where('uuid', $uuid)->first()->delete();
 
         return redirect()->back()->with('success', 'Berhasil menghapus data');
-
     }
+
+    public function filter()
+    {
+        $data = Posko::orderBy('id', 'desc')->get();
+        return view('admin.parkiran.filter',compact('data'));
+    } 
 }

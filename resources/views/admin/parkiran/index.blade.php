@@ -21,7 +21,8 @@
             <div class="card">
                 <div class="card-header">
                     <div class="text-right">
-                        <button class="btn btn-sm btn-secondary"><i class="fa fa-print"></i> Cetak Data</button>
+                        <a href="{{Route('parkiranFilter')}}" class="btn btn-sm btn-secondary"><i class="fa fa-print"></i> Filter Data</a>
+                        <a href="{{Route('parkiranCetak')}}" class="btn btn-sm btn-secondary" target="_blank"><i class="fa fa-print"></i> Cetak Data</a>
                     </div>
                 </div>
                 <div class="card-body">

@@ -20,8 +20,9 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <div class="text-right">
-                        <button class="btn btn-sm btn-secondary"><i class="fa fa-print"></i> Cetak Data</button>
+                    <div class="text-right"> 
+                        <a href="{{Route('anggotaFilter')}}" class="btn btn-sm btn-secondary"><i class="fa fa-filter"></i> Filter Data</a>
+                        <a href="{{Route('anggotaCetak')}}" class="btn btn-sm btn-secondary" target="_blank"><i class="fa fa-print"></i> Cetak Data</a>
                     </div>
                 </div>
                 <div class="card-body">
