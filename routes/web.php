@@ -108,6 +108,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/kehilanganBarang/edit/{uuid}', 'kehilanganBarangController@edit')->name('kehilanganBarangEdit');
     Route::put('/kehilanganBarang/edit/{uuid}', 'kehilanganBarangController@update')->name('kehilanganBarangUpdate');
     Route::get('/kehilanganBarang/delete/{uuid}', 'kehilanganBarangController@destroy')->name('kehilanganBarangDestroy');
+    Route::get('/kehilanganBarang/filter', 'kehilanganBarangController@filter')->name('kehilanganBarangFilter');
+
 
     Route::get('/penemuanBarang/index', 'penemuanBarangController@index')->name('penemuanBarangIndex');
     Route::post('/penemuanBarang/index', 'penemuanBarangController@store')->name('penemuanBarangStore');
@@ -157,5 +159,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/kehilanganOrang/cetak', 'reportController@kehilanganOrangCetak')->name('kehilanganOrangCetak');
     Route::get('/kehilanganKendaraan/cetak', 'reportController@kehilanganKendaraanCetak')->name('kehilanganKendaraanCetak');
     Route::get('/penemuanKendaraan/cetak', 'reportController@penemuanKendaraanCetak')->name('penemuanKendaraanCetak');
+    Route::post('/kehilanganBarang/filter', 'reportController@kehilanganBarangFilter')->name('kehilanganBarangFilterCetak');   
 
 });

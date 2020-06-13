@@ -48,4 +48,10 @@ class kehilanganBarangController extends Controller
         $data = Kehilangan_barang::where('uuid', $uuid)->first()->delete();
         return redirect()->back()->withSuccess('Data berhasil dihapus');
     }
+
+    public function filter()
+    {
+        $posko = Posko::orderBy('nama_posko', 'asc')->get();
+        return view('admin.kehilanganBarang.filter', compact('posko'));
+    }
 }

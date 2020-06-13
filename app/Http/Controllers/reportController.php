@@ -197,4 +197,14 @@ class reportController extends Controller
 
         return $pdf->stream('Laporan Penemuan Kendaraan.pdf');
     }
+
+    public function kehilanganBarangFilter(Request $request){
+        $posko        = Posko::findOrFail($request->posko_id);
+        $data         = Kehilangan_barang::where('posko_id',$request->posko_id)->get();
+        $tgl          = Carbon::now()->format('d-m-Y');
+        $pdf          = PDF::loadView('formCetak.kehilanganBarangFilter', ['data'=>$data,'tgl'=>$tgl,'posko'=>$posko]);
+        $pdf->setPaper('a4', 'landscape');
+
+        return $pdf->stream('Laporan Kehilangan Barang Filter posko.pdf');
+    }
 }
