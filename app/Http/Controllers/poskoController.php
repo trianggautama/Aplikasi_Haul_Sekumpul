@@ -9,6 +9,7 @@ use App\Lokasi_parkir;
 use App\Posko;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class poskoController extends Controller
@@ -136,5 +137,12 @@ class poskoController extends Controller
     {
         $haul = Haul_sekumpul::orderBy('id', 'desc')->get();
         return view('admin.posko.filter', compact('haul'));
+    }
+
+    public function profil()
+    {
+        $posko_id = Auth::user()->ketua_posko->posko->id;
+        $posko    = Posko::findOrFail($posko_id);
+        return view('posko.profil', compact('posko'));
     }
 }

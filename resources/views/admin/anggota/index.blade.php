@@ -20,10 +20,12 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
+                    @if(Auth::user()->role == 2)
                     <div class="text-right"> 
                         <a href="{{Route('anggotaFilter')}}" class="btn btn-sm btn-secondary"><i class="fa fa-filter"></i> Filter Data</a>
                         <a href="{{Route('anggotaCetak')}}" class="btn btn-sm btn-secondary" target="_blank"><i class="fa fa-print"></i> Cetak Data</a>
                     </div>
+                    @endif
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -47,13 +49,13 @@
                                     <td> {{$d->tugas}}</td>
                                     <td>{{$d->no_hp}}</td>
                                     <td>
-                                    <a href="{{Route('anggotaShow',['uuid'=>$d->uuid])}}" class="btn btn-sm btn-warning m-1"
-                                                    id="detail">
-                                                    <i class="fa fa-info-circle"></i></a>
-                                                    <a href="{{Route('anggotaEdit',['uuid'=>$d->uuid])}}" class="btn btn-sm btn-primary m-1 text-white">
-                                                        <i class="fa fa-edit"></i></a>
-                                                        <button class="btn btn-sm btn-danger" onclick="Hapus('{{$d->uuid}}','{{$d->nama}}')"> <i
-                                                    class="fa fa-trash"></i></button>          
+                                    @if(Auth::user()->role ==2 || Auth::user()->ketua_posko->posko->id == $d->posko->id)
+                                        <a href="{{Route('anggotaShow',['uuid'=>$d->uuid])}}" class="btn btn-sm btn-warning m-1" id="detail">   <i class="fa fa-info-circle"></i></a>
+                                        <a href="{{Route('anggotaEdit',['uuid'=>$d->uuid])}}" class="btn btn-sm btn-primary m-1 text-white">    <i class="fa fa-edit"></i></a>
+                                        @if(Auth::user()->role == 2)
+                                        <button class="btn btn-sm btn-danger" onclick="Hapus('{{$d->uuid}}','{{$d->nama}}')"> <i   class="fa fa-trash"></i></button>
+                                        @endif
+                                    @endif          
                                     </td>
                                 </tr>
                                @endforeach

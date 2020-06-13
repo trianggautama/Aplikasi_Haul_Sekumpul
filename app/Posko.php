@@ -27,7 +27,7 @@ class Posko extends Model
     //RElASI MODEL
     public function parkiran()
     {
-        return $this->hasMany('App\Parkiran');
+        return $this->hasMany('App\Lokasi_parkir');
     }
 
     //RElASI MODEL

@@ -63,7 +63,7 @@ class LoginController extends Controller
         if (auth()->attempt(array($fieldType => $input['username'], 'password' => $input['password'])) && auth()->user()->role == 2) {
             return redirect()->route('adminIndex');
         } else if (auth()->attempt(array($fieldType => $input['username'], 'password' => $input['password'])) && auth()->user()->role == 1) {
-            return redirect()->route('poskoIndex');
+            return redirect()->route('halamanPoskoIndex');
         }
         return redirect()->route('login')
             ->with('error', 'Usernmae Atau Password Salah.');

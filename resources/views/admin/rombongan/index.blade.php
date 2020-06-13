@@ -21,10 +21,11 @@
             <div class="card">
                 <div class="card-header">
                     <div class="text-right">
-                        <a href="{{Route('rombonganFilter')}}" class="btn btn-sm btn-secondary"><i class="fa fa-filter"></i> Filter Data</a>
-                        <a href="{{Route('rombonganCetak')}}" class="btn btn-sm btn-secondary" target="_blank"><i class="fa fa-print"></i> Cetak Data</a>
-                        <button class="btn btn-sm btn-success" id="tambah"><i class="fa fa-plus"></i> Tambah
-                            Data</button>
+                        @if(Auth::user()->role == 2)
+                            <a href="{{Route('rombonganFilter')}}" class="btn btn-sm btn-secondary"><i class="fa fa-filter"></i> Filter Data</a>
+                            <a href="{{Route('rombonganCetak')}}" class="btn btn-sm btn-secondary" target="_blank"><i class="fa fa-print"></i> Cetak Data</a>
+                        @endif
+                            <button class="btn btn-sm btn-success" id="tambah"><i class="fa fa-plus"></i> Tambah  Data</button>
                     </div>
                 </div>
                 <div class="card-body">
@@ -53,11 +54,13 @@
                                     <td>{{$d->jumlah_rombongan}} orang</td>
                                     <td>{{$d->posko->nama_posko}}</td>
                                     <td>
+                                        @if(Auth::user()->role == 2 || Auth::user()->ketua_posko->posko->id == $d->posko_id)
                                         <a href="{{Route('rombonganEdit',['uuid' => $d->uuid])}}"
                                             class="btn btn-sm btn-primary m-1 text-white">
                                             <i class="fa fa-edit"></i></a>
                                         <button class="btn btn-sm btn-danger" onclick="Hapus('{{$d->uuid}}','{{$d->asal_rombongan}}')"> <i
                                                 class="fa fa-trash"></i></button>
+                                        @endif
                                     </td>
                                 </tr>
                                 @endforeach
@@ -81,7 +84,8 @@
             </div>
             <div class="modal-body">
                 <form action="{{Route('rombonganStore')}}" method="post">
-                    @csrf              
+                    @csrf  
+                    @if(Auth::user()->role == 2)            
                     <div class="form-group"> 
                         <label for="">Haul</label> 
                         <select name="haul_sekumpul_id" id="haul_id" class="form-control">
@@ -92,15 +96,19 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="form-group ">
-                        <label class="">Posko Terdekat</label>
-                        <select name="posko_id" id="" class="form-control">
-                            <option value="">Pilih posko</option>
-                            @foreach ($posko as $d)
-                            <option value="{{$d->id}}">{{$d->nama_posko}}</option>
-                            @endforeach
-                        </select>
-                    </div>      
+                        <div class="form-group ">
+                            <label class="">Posko Terdekat</label>
+                            <select name="posko_id" id="" class="form-control">
+                                <option value="">Pilih posko</option>
+                                @foreach ($posko as $d)
+                                <option value="{{$d->id}}">{{$d->nama_posko}}</option>
+                                @endforeach
+                            </select>
+                        </div>   
+                    @else
+                        <input type="hidden" name="haul_sekumpul_id" value="{{Auth::user()->ketua_posko->posko->haul_sekumpul->id}}">
+                        <input type="hidden" name="posko_id" value="{{Auth::user()->ketua_posko->posko->id}}">
+                    @endif   
                     <div class="form-group ">
                         <label class="">Asal Rombongan</label>
                         <input type="text" class="form-control" name="asal_rombongan" id="asal_rombongan"

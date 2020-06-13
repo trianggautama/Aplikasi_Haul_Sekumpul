@@ -22,7 +22,6 @@ Auth::routes();
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/admin/index', 'adminController@index')->name('adminIndex');
-    // Route::get('/posko/index', 'userController@index')->name('poskoIndex');
 
     Route::get('/user/index', 'userController@index')->name('userIndex');
     Route::post('/user/index', 'userController@store')->name('userStore');
@@ -172,5 +171,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/kehilanganOrang/filter', 'reportController@kehilanganOrangFilter')->name('kehilanganOrangFilterCetak');
     Route::post('/kehilanganKendaraan/filter', 'reportController@kehilanganKendaraanFilter')->name('kehilanganKendaraanFilterCetak');
     Route::post('/penemuanKendaraan/filter', 'reportController@penemuanKendaraanfilter')->name('penemuanKendaraanFilterCetak');
+
+    //Login Sebagai Admin Posko
+    Route::get('halaman/posko/index', 'adminController@poskoIndex')->name('halamanPoskoIndex');
+    Route::get('profil/posko', 'poskoController@profil')->name('profilPosko');
 
 });

@@ -136,11 +136,19 @@
                 </tr>
                 <tr>
                     <td>Jumlah Anggota Posko</td>
-                    <td>: {{$data->anggota_posko->count()}} Orang</td>
+                    <td>: 
+                        @if($data->anggota_posko->count() != 0)
+                            {{$data->anggota_posko->count()}} Orang
+                        @endif
+                        </td>
                 </tr>
                 <tr>
                     <td>Jumlah Lokasi Parkir</td>
-                    <td>: {{$data->parkiran->count()}} Lokasi Parkir</td>
+                    <td>: 
+                        @if($data->parkiran->count() != 0)
+                            {{$data->parkiran->count()}} Lokasi Parkir
+                        @endif
+                    </td>
                 </tr>
             </table>
                       <br>

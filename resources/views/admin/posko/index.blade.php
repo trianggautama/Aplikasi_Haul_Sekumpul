@@ -20,11 +20,13 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
+                    @if(Auth::user()->role == 2)
                     <div class="text-right">
                         <a href="{{Route('poskoFilter')}}" class="btn btn-sm btn-secondary"><i class="fa fa-filter"></i> filter Cetak Data</a>
                         <a href="{{Route('poskoCetak')}}" class="btn btn-sm btn-secondary" target="_blank"><i class="fa fa-print"></i> Cetak Data</a>
                         <button class="btn btn-sm btn-success" id="tambah"><i class="fa fa-plus"></i> Tambah
                             Data</button>
+                    @endif
                     </div>
                 </div>
                 <div class="card-body">
@@ -57,13 +59,18 @@
                                             @endif
                                         </td>
                                         <td>
+                                            @if(Auth::user()->role == 2 || Auth::user()->ketua_posko->posko->id == $d->id )
                                             <a href="{{Route('poskoShow',['uuid'=>$d->uuid])}}" class="btn btn-sm btn-warning m-1"
                                             id="detail">
                                             <i class="fa fa-info-circle"></i></a>
                                             <a href="{{Route('poskoEdit',['uuid'=>$d->uuid])}}" class="btn btn-sm btn-primary m-1 text-white">
                                                 <i class="fa fa-edit"></i></a>
+                                                @if(Auth::user()->role == 2)
                                                 <button class="btn btn-sm btn-danger" onclick="Hapus('{{$d->uuid}}','{{$d->nama_posko}}')"> <i
-											class="fa fa-trash"></i></button>                                        </td>
+                                            class="fa fa-trash"></i></button>  
+                                            @endif
+                                            @endif
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>

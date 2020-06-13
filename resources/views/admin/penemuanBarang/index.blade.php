@@ -21,8 +21,10 @@
             <div class="card">
                 <div class="card-header">
                     <div class="text-right">
+                    @if(Auth::user()->role == 2)
                         <a href="{{Route('penemuanBarangFilter')}}" class="btn btn-sm btn-secondary" ><i class="fa fa-filter"></i> Filter Data</a>
                         <a href="{{Route('penemuanBarangCetak')}}" class="btn btn-sm btn-secondary" target="_blank"><i class="fa fa-print"></i> Cetak Data</a>
+                    @endif
                         <button class="btn btn-sm btn-success" id="tambah"><i class="fa fa-plus"></i> Tambah
                             Data</button>
                     </div>
@@ -39,7 +41,7 @@
                                     <th>Status</th>
                                     <th>aksi</th>
                                 </tr>
-                            </thead>
+                            </thead> 
                             <tbody>
                                 @foreach($data as $d)
                                 <tr>
@@ -55,6 +57,7 @@
                                         @endif
                                     </td>
                                     <td>
+                                    @if(Auth::user()->role == 2 || Auth::user()->ketua_posko->posko->id == $d->posko_id)
                                         <a href="{{Route('penemuanBarangShow',['uuid'=>$d->uuid])}}"
                                             class="btn btn-sm btn-warning m-1 text-white">
                                             <i class="fa fa-info-circle"></i></a>
@@ -63,7 +66,8 @@
                                             <i class="fa fa-edit"></i></a>
                                         <button class="btn btn-sm btn-danger" onclick="Hapus('{{$d->uuid}}','{{$d->nama_barang}}')"> <i
                                                 class="fa fa-trash"></i></button>
-                                    </td>
+                                    @endif
+                                            </td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -87,15 +91,19 @@
             <div class="modal-body">
                 <form action="{{Route('penemuanBarangStore')}}" method="post">
                     @csrf
-                    <div class="form-group ">
-                        <label class="">Posko Terdekat</label>
-                        <select name="posko_id" id="" class="form-control">
-                            <option value="">Pilih posko</option>
-                            @foreach ($posko as $d)
-                            <option value="{{$d->id}}">{{$d->nama_posko}}</option>
-                            @endforeach
-                        </select>
-                    </div>
+                    @if(Auth::user()->role == 2)            
+                        <div class="form-group ">
+                            <label class="">Posko Terdekat</label>
+                            <select name="posko_id" id="" class="form-control">
+                                <option value="">Pilih posko</option>
+                                @foreach ($posko as $d)
+                                <option value="{{$d->id}}">{{$d->nama_posko}}</option>
+                                @endforeach
+                            </select>
+                        </div>   
+                    @else
+                        <input type="hidden" name="posko_id" value="{{Auth::user()->ketua_posko->posko->id}}">
+                    @endif  
                     <div class="form-group ">
                         <label class="">Nama Barang</label>
                         <input type="text" class="form-control" name="nama_barang" id="nama_barang"

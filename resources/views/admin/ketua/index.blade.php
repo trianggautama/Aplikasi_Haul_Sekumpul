@@ -46,12 +46,12 @@
                                <td> Periode tahun {{\carbon\carbon::parse($d->posko->haul_sekumpul->created_at)->format('Y')}}</td>
                                <td>{{$d->user->no_hp}}</td>
                                <td>
+                                @if(Auth::user()->role == 2 || Auth::user()->ketua_posko->id == $d->id)
                                <a href="{{Route('ketuaShow',['uuid'=>$d->uuid])}}" class="btn btn-sm btn-warning m-1 text-white">
                                                 <i class="fa fa-info-circle"></i></a>
                                             <a href="{{Route('ketuaEdit',['uuid'=>$d->uuid])}}" class="btn btn-sm btn-primary m-1 text-white">
                                                 <i class="fa fa-edit"></i></a>
-                                                <button class="btn btn-sm btn-danger" onclick="Hapus()"> <i
-											class="fa fa-trash"></i></button>          
+                                @endif
                                </td>
                                </tr>
                                @endforeach

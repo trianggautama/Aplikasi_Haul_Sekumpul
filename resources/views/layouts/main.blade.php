@@ -65,68 +65,8 @@
 			<div class="header-right">
 
 
-				<span class="separator"></span>
 
-				<ul class="notifications">
-					<li>
-						<a href="#" class="dropdown-toggle notification-icon" data-toggle="dropdown">
-							<i class="fas fa-envelope"></i>
-							<span class="badge">4</span>
-						</a>
-
-						<div class="dropdown-menu notification-menu">
-							<div class="notification-title">
-								<span class="float-right badge badge-default">230</span>
-								Messages
-							</div>
-
-							<div class="content">
-								<ul>
-									<li>
-										<a href="#" class="clearfix">
-											<figure class="image">
-												<img src="img/!sample-user.jpg" alt="Joseph Doe Junior"
-													class="rounded-circle" />
-											</figure>
-											<span class="title">Joseph Doe</span>
-											<span class="message">Lorem ipsum dolor sit.</span>
-										</a>
-									</li>
-								</ul>
-
-							</div>
-						</div>
-					</li>
-					<li>
-						<a href="#" class="dropdown-toggle notification-icon" data-toggle="dropdown">
-							<i class="fas fa-bell"></i>
-							<span class="badge">3</span>
-						</a>
-
-						<div class="dropdown-menu notification-menu">
-							<div class="notification-title">
-								<span class="float-right badge badge-default">3</span>
-								Alerts
-							</div>
-
-							<div class="content">
-								<ul>
-									<li>
-										<a href="#" class="clearfix">
-											<div class="image">
-												<i class="fas fa-thumbs-down bg-danger text-light"></i>
-											</div>
-											<span class="title">Server is Down!</span>
-											<span class="message">Just now</span>
-										</a>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</li>
-				</ul>
-
-				<span class="separator"></span>
+				<span class="separator"></span> 
 
 				<div id="userbox" class="userbox">
 					<a href="#" data-toggle="dropdown">
@@ -135,8 +75,8 @@
 								data-lock-picture="{{asset('admin/img/!logged-user.jpg')}}" />
 						</figure>
 						<div class="profile-info" data-lock-name="John Doe" data-lock-email="johndoe@okler.com">
-							<span class="name">John Doe Junior</span>
-							<span class="role">administrator</span>
+							<span class="name">{{Auth::user()->nama}}</span>
+							<span class="role">Admin pusat</span>
 						</div>
 
 						<i class="fa custom-caret"></i>
@@ -150,8 +90,16 @@
 										class="fas fa-user"></i> My Profile</a>
 							</li>
 							<li>
-								<a role="menuitem" tabindex="-1" href="pages-signin.html"><i
-										class="fas fa-power-off"></i> Logout</a>
+								<a role="menuitem" tabindex="-1" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"> <i
+										class="fas fa-power-off"></i>
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
 							</li>
 						</ul>
 					</div>
@@ -180,6 +128,7 @@
 						<nav id="menu" class="nav-main" role="navigation">
 
 							<ul class="nav nav-main">
+								@if(Auth::user()->role == 2)
 								<li>
 									<a class="nav-link" href="{{Route('adminIndex')}}">
 										<i class="fas fa-home" aria-hidden="true"></i>
@@ -299,6 +248,87 @@
 										<span>Kegiatan Arraudhah</span>
 									</a>
 								</li>
+								@endif
+								@if(Auth::user()->role == 1)
+								<li>
+									<a class="nav-link" href="{{Route('halamanPoskoIndex')}}">
+										<i class="fas fa-home" aria-hidden="true"></i>
+										<span>Beranda</span>
+									</a>
+                                </li>
+                                <li>
+									<a class="nav-link" href="{{Route('profilPosko')}}">
+										<i class="fas fa-user" aria-hidden="true"></i>
+										<span>Profil</span>
+									</a>
+								</li>
+								<li class="nav-parent ">
+									<a class="nav-link" href="#">
+										<i class="fas fa-columns" aria-hidden="true"></i>
+										<span>Posko</span>
+									</a>
+									<ul class="nav nav-children">
+										<li>
+											<a class="nav-link" href="{{Route('poskoIndex')}}">
+												Data Posko
+											</a>
+										</li>
+										<li>
+											<a class="nav-link" href="{{Route('ketuaIndex')}}">
+												Ketua Posko
+											</a>
+										</li>
+										<li>
+											<a class="nav-link" href="{{Route('anggotaIndex')}}">
+												Anggota Posko
+											</a>
+										</li>
+										<li>
+											<a class="nav-link" href="{{Route('parkiranIndex')}}">
+												Parkiran
+											</a>
+										</li>
+									</ul>
+								</li>
+								<li class="nav-parent ">
+									<a class="nav-link" href="#">
+										<i class="fas fa-columns" aria-hidden="true"></i>
+										<span>Informasi</span>
+									</a>
+									<ul class="nav nav-children">
+										<li>
+											<a class="nav-link" href="{{Route('rombonganIndex')}}">
+												Informasi Rombongan
+											</a>
+										</li>
+										<li>
+											<a class="nav-link" href="{{Route('kehilanganBarangIndex')}}">
+												Kehilangan Barang
+											</a>
+										</li>
+										<li>
+											<a class="nav-link" href="{{Route('penemuanBarangIndex')}}">
+												Penemuan Barang
+											</a>
+										</li>
+										<li>
+											<a class="nav-link" href="{{Route('kehilanganOrangIndex')}}">
+												Kehilangan Orang
+											</a>
+										</li>
+										<li>
+											<a class="nav-link" href="{{Route('kehilanganKendaraanIndex')}}">
+												Kehilangan Kendaraan
+											</a>
+										</li>
+										<li>
+											<a class="nav-link" href="{{Route('penemuanKendaraanIndex')}}">
+												Penemuan Kendaraan
+											</a>
+										</li>
+									</ul>
+								</li>
+								@endif
 							</ul>
 						</nav>
 					</div>
