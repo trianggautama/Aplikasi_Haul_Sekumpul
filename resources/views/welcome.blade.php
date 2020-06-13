@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
-    <title>Example</title>
+    <title>Sistem Informasi Haul Sekumpul dan Mushola Arraudhah Martapura</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">-->
@@ -16,9 +16,7 @@
 <div class="row top-bar">
     <div class="col-sm-1"></div>
     <div class="col-sm-5 d-sm-block d-none" style="font-size: 13px">
-        <i class="fa fa-envelope"></i> Support@example.com &nbsp;
-        <i class="fa fa-phone"></i> 12312456342 &nbsp;
-        <i class="fa fa-comments"></i> Live chat
+        <a href="http://www.arraudhah-sekumpul.com" target="_blank" class="text-white"> <i class="fa fa-internet"></i> www.arraudhah-sekumpul.com</a>
     </div>
     <div class="col-sm-2 col-6 text-center">
     </div>
@@ -39,19 +37,19 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto navi">
                 <li class="nav-item">
-                    <a class="nav-link nav-btn active" href="#">HOME</a>
+                    <a class="nav-link nav-btn active" href="#">HEADER</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link nav-btn" href="#fh5co-pricing">HOSTING</a>
+                    <a class="nav-link nav-btn" href="#fh5co-pricing">LOKASI</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link nav-btn" href="#">DOMAIN</a>
+                    <a class="nav-link nav-btn" href="#">FITUR</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link nav-btn" href="#">NEWS</a>
+                    <a class="nav-link nav-btn" href="#">CCTV</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link nav-btn" href="#fh5co-contact">CONTACT</a>
+                    <a class="nav-link nav-btn" href="#fh5co-contact">KONTAK    </a>
                 </li>
             </ul>
         </div>
@@ -61,10 +59,8 @@
 <div>
     <img class="banner d-none d-sm-block" src="{{asset('depan/img/banner.jpg')}}">
     <div class="banner-text d-none d-sm-block animate-box" data-animate-effect="fadeInLeft">
-        <h2>We help you <br> to Build Your Dream Website</h2>
-        <div style="width: 45%">Get amazing results working with the best programmers, designers, writers and other top
-            online pros.
-            Powered by FreeHTML5.co.<br><br>
+        <h1>MUSHOLA AR RAUDHAH SEKUMPUL</h1>
+        <div style="width: 65%">Sistem Informasi Haul Sekumpul dan Mushola Arraudhah Martapura<br><br>
             <a href="#!" class="btn btn-banner">CHECK OUR PRICES</a>
         </div>
     </div>
@@ -72,30 +68,23 @@
 </div>
 <div>
     <div class="row aft-banner">
-        <div class="col-sm-1"></div>
-        <div class="col-sm-2 d-none d-sm-block">
-            <div class="g-box">Search your<br><b>Domain Name</b></div>
-        </div>
-        <div class="col-sm-4">
-          
-        </div>
-        <div class="col-sm-4">
-          <H1>NJXBAJXAJB</H1>
+        <div class="col-sm-12 text-center">
+            <a href="https://banjarkab.go.id/cctv/" target="_blank" class="text-white">Klik CCTV</a>
         </div>
     </div>
 </div>
 <div class="smoke">
     <div class="container" id="fh5co-pricing">
 
-        <div class="heading animate-box"><h2><b>CHOOSE YOUR PLAN</b></h2></div>
-        <div class="text-center animate-box"><h3>Lorem ipsum lahore</h3></div>
+        <div class="heading animate-box"><h2><b>Lokasi</b></h2></div>
+        <div class="text-center animate-box"><h3>kubah Sekumpul</h3></div>
         <br><br>
-		<h2 class="text-center animate-box">ISI</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4414.766011865244!2d114.85339486663894!3d-3.427675765891481!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2de681f01a4afa8b%3A0xbca32ee881a736f8!2sKubah%20Sekumpul!5e0!3m2!1sid!2sid!4v1592054713391!5m2!1sid!2sid" width="1150" height="400" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
     </div>
 </div>
 <div class="white">
     <div class="container" id="fh5co-features">
-        <div class="heading animate-box"><h2><b><span class="text-org">OUR</span> <span class="text-gr"> FEATURES</span></b></h2>
+        <div class="heading animate-box"><h2><b><span class="text-org">FITUR</span> <span class="text-gr"> KAMI</span></b></h2>
         </div>
         <br><br>
         <div class="row">
@@ -162,16 +151,6 @@
         </div>
     </div>
 </div>
-
-<div>
-    <div class="wordpress-bg text-center animate-box" data-animate-effect="fadeInUpBig">
-        <div><h2 class="text-org">WE PROVIDE BEST WORDPRESS HOSTING</h2></div>
-        <br>
-        <button class="btn btn-banner">LEARN MORE</button>
-    </div>
-</div>
-<br><br><br>
-
 
 <div class="white">
     <div class="container" id="fh5co-reviews">
@@ -252,11 +231,10 @@
     <div class="container animate-box" id="fh5co-footer">
         <div class="row">
             <div class="col-sm-4">
-                <div><a class="nsavbar-brand" href="#">FreeHTML5 <span class="navbar-brand2"> HOST</span></a></div>
+                <div><a class="nsavbar-brand" href="#">Lokasi</span></a></div>
                 <br>
-                <div class="text-white">Get amazing results working with the best programmers, designers, writers and
-                    other top online pros. You can hire us with confidence. Get amazing results working with the best
-                    programmers
+                <div class="text-white"> 
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4414.766011865244!2d114.85339486663894!3d-3.427675765891481!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2de681f01a4afa8b%3A0xbca32ee881a736f8!2sKubah%20Sekumpul!5e0!3m2!1sid!2sid!4v1592054713391!5m2!1sid!2sid" width="350" height="200" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
                 </div>
             </div>
             <div class="col-sm-4">
