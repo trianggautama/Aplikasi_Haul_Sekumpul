@@ -68,6 +68,11 @@ class penemuanBarangController extends Controller
         File::delete('images/penemuanBarang/' . $data->ktp_penerima);
         $data->delete();
         return redirect()->route('penemuanBarangIndex')->withSuccess('Data berhasil dihapus');
+    }
 
+    public function filter()
+    {
+        $posko = Posko::orderBy('nama_posko', 'asc')->get();
+        return view('admin.penemuanBarang.filter', compact('posko'));
     }
 }

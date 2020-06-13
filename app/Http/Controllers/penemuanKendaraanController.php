@@ -70,6 +70,11 @@ class penemuanKendaraanController extends Controller
         // File::delete('images/penemuanKendaraan/' . $data->ktp_penerima);
         $data->delete();
         return redirect()->route('penemuanKendaraanIndex')->withSuccess('Data berhasil dihapus');
+    }
 
+    public function filter()
+    {
+        $posko = Posko::orderBy('nama_posko', 'asc')->get();
+        return view('admin.penemuanKendaraan.filter', compact('posko'));
     }
 }

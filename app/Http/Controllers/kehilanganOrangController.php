@@ -48,4 +48,10 @@ class kehilanganOrangController extends Controller
         $data = Kehilangan_orang::where('uuid', $uuid)->first()->delete();
         return redirect()->back()->withSuccess('Data berhasil dihapus');
     }
+
+    public function filter()
+    {
+        $posko = Posko::orderBy('nama_posko', 'asc')->get();
+        return view('admin.kehilanganOrang.filter', compact('posko'));
+    }
 }

@@ -48,4 +48,10 @@ class kehilangankendaraanController extends Controller
         $data = Kehilangan_kendaraan::where('uuid', $uuid)->first()->delete();
         return redirect()->back()->withSuccess('Data berhasil dihapus');
     }
+
+    public function filter()
+    {
+        $posko = Posko::orderBy('nama_posko', 'asc')->get();
+        return view('admin.kehilanganKendaraan.filter', compact('posko'));
+    }
 }

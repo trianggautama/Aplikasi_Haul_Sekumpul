@@ -207,4 +207,44 @@ class reportController extends Controller
 
         return $pdf->stream('Laporan Kehilangan Barang Filter posko.pdf');
     }
+
+    public function penemuanBarangFilter(Request $request){
+        $posko        = Posko::findOrFail($request->posko_id);
+        $data         = Penemuan_barang::where('posko_id',$request->posko_id)->get();
+        $tgl          = Carbon::now()->format('d-m-Y');
+        $pdf          = PDF::loadView('formCetak.penemuanBarangFilter', ['data'=>$data,'tgl'=>$tgl,'posko'=>$posko]);
+        $pdf->setPaper('a4', 'landscape');
+
+        return $pdf->stream('Laporan Penemuan Barang Filter posko.pdf');
+    }
+
+    public function kehilanganOrangFilter(Request $request){
+        $posko        = Posko::findOrFail($request->posko_id);
+        $data         = Kehilangan_orang::where('posko_id',$request->posko_id)->get();
+        $tgl          = Carbon::now()->format('d-m-Y');
+        $pdf          = PDF::loadView('formCetak.kehilanganOrangFilter', ['data'=>$data,'tgl'=>$tgl,'posko'=>$posko]);
+        $pdf->setPaper('a4', 'landscape');
+
+        return $pdf->stream('Laporan Kehilangan Orang Filter posko.pdf');
+    }
+
+    public function kehilanganKendaraanFilter(Request $request){
+        $posko        = Posko::findOrFail($request->posko_id);
+        $data         = Kehilangan_kendaraan::where('posko_id',$request->posko_id)->get();
+        $tgl          = Carbon::now()->format('d-m-Y');
+        $pdf          = PDF::loadView('formCetak.kehilanganKendaraanFilter', ['data'=>$data,'tgl'=>$tgl,'posko'=>$posko]);
+        $pdf->setPaper('a4', 'landscape');
+
+        return $pdf->stream('Laporan Kehilangan Kendaraan Filter posko.pdf');
+    }
+
+    public function penemuanKendaraanFilter(Request $request){
+        $posko        = Posko::findOrFail($request->posko_id);
+        $data         = Penemuan_kendaraan::where('posko_id',$request->posko_id)->get();
+        $tgl          = Carbon::now()->format('d-m-Y');
+        $pdf          = PDF::loadView('formCetak.penemuanKendaraanFilter', ['data'=>$data,'tgl'=>$tgl,'posko'=>$posko]);
+        $pdf->setPaper('a4', 'landscape');
+
+        return $pdf->stream('Laporan Penemuan Kendaraan Filter posko.pdf');
+    }
 }
