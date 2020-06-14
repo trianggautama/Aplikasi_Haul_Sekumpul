@@ -27,23 +27,24 @@
                         @csrf
                         @method('PUT')
                         <div class="form-group ">
-                        <label class="">Judul</label>
-                        <input type="text" class="form-control" name="judul" id="judul" placeholder="Judul">
-                    </div>
-                    <div class="form-group ">
-                        <label class="">Isi </label>
-                        <textarea id="summernote" name="isi"></textarea>
-                    </div>
-                    <div class="form-group ">
-                        <label class="">Foto</label>
-                        <input type="file" class="form-control" name="judul" id="judul" placeholder="Judul">
-                    </div>
+                            <label class="">Judul</label>
+                            <input type="text" class="form-control" name="judul" id="judul" value="{{$data->judul}}"
+                                placeholder="Judul">
+                        </div>
+                        <div class="form-group ">
+                            <label class="">Isi </label>
+                            <textarea id="summernote" name="isi">{{$data->isi}}</textarea>
+                        </div>
+                        <div class="form-group ">
+                            <label class="">Foto</label>
+                            <input type="file" class="form-control" name="foto" id="foto" placeholder="Foto">
+                        </div>
+                        <div class="card-footer text-right">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                            <button type="submit" class="btn btn-primary">Simpan</button>
+                        </div>
+                    </form>
                 </div>
-                <div class="card-footer text-right">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
-                </div>
-                </form>
             </div>
         </div>
     </div>

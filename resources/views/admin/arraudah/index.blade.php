@@ -9,7 +9,7 @@
                 <li>
                     <a href="index.html">
                         <i class="fas fa-home"></i>
-                    </a> 
+                    </a>
                 </li>
                 <li><span>Data Berita </span></li>
             </ol>
@@ -38,19 +38,22 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($data as $d)
                                 <tr>
-                                    <td>1</td>
-                                    <td>Berita 1</td>
-                                    <td>1 juli 2020</td>
-                                    <td> Kegiatan Arraudah</td>
-                                    <td> 
-                                        <a href="{{Route('arraudahEdit')}}"
+                                    <td>{{$loop->iteration}}</td>
+                                    <td>{{$d->judul}}</td>
+                                    <td>{{carbon\carbon::parse($d->created_at)->translatedFormat('d F Y')}}</td>
+                                    <td>Kegiatan Arraudah</td>
+                                    <td>
+                                        <a href="{{Route('arraudahEdit', ['uuid' => $d->uuid])}}"
                                             class="btn btn-sm btn-primary m-1 text-white">
                                             <i class="fa fa-edit"></i></a>
-                                        <button class="btn btn-sm btn-danger" onclick="Hapus('')"> <i
+                                        <button class="btn btn-sm btn-danger"
+                                            onclick="Hapus('{{$d->uuid}}','{{$d->judul}}')"> <i
                                                 class="fa fa-trash"></i></button>
                                     </td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -70,7 +73,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{Route('donasiStore')}}" method="post">
+                <form action="{{Route('arraudahStore')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group ">
                         <label class="">Judul</label>
@@ -82,7 +85,7 @@
                     </div>
                     <div class="form-group ">
                         <label class="">Foto</label>
-                        <input type="file" class="form-control" name="judul" id="judul" placeholder="Judul">
+                        <input type="file" class="form-control" name="foto" id="foto" placeholder="Foto">
                     </div>
             </div>
             <div class="modal-footer">
@@ -107,10 +110,10 @@
             $('#summernote').summernote();
         });
 
-        function Hapus(uuid, nama) {
+        function Hapus(uuid, judul) {
 			Swal.fire({
 			title: 'Anda Yakin?',
-			text: " Menghapus Data Donasi " + nama ,        
+			text: " Menghapus Data Arraudah " + judul ,        
 			icon: 'warning',
 			showCancelButton: true,
 			confirmButtonColor: '#3085d6',
@@ -119,7 +122,7 @@
 			cancelButtonText: 'Batal'
 		}).then((result) => {
 			if (result.value) {
-				url = '{{route("donasiDestroy",'')}}';
+				url = '{{route("arraudahDestroy",'')}}';
 				window.location.href =  url+'/'+uuid ;			
 			}
 		})

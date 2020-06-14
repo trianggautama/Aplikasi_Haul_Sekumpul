@@ -91,7 +91,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/anggota/delete/{uuid}', 'anggotaController@destroy')->name('anggotaDestroy');
     Route::get('/anggota/filter', 'anggotaController@filter')->name('anggotaFilter');
 
-
     Route::get('/parkiran/index', 'parkiranController@index')->name('parkiranIndex');
     Route::post('/parkiran/index', 'parkiranController@store')->name('parkiranStore');
     Route::get('/parkiran/detail/{uuid}', 'parkiranController@show')->name('parkiranShow');
@@ -99,7 +98,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::put('/parkiran/edit/{uuid}', 'parkiranController@update')->name('parkiranUpdate');
     Route::get('/parkiran/delete/{uuid}', 'parkiranController@destroy')->name('parkiranDestroy');
     Route::get('/parkiran/filter', 'parkiranController@filter')->name('parkiranFilter');
-
 
     Route::get('/kehilanganBarang/index', 'kehilanganBarangController@index')->name('kehilanganBarangIndex');
     Route::post('/kehilanganBarang/index', 'kehilanganBarangController@store')->name('kehilanganBarangStore');
@@ -109,7 +107,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/kehilanganBarang/delete/{uuid}', 'kehilanganBarangController@destroy')->name('kehilanganBarangDestroy');
     Route::get('/kehilanganBarang/filter', 'kehilanganBarangController@filter')->name('kehilanganBarangFilter');
 
-
     Route::get('/penemuanBarang/index', 'penemuanBarangController@index')->name('penemuanBarangIndex');
     Route::post('/penemuanBarang/index', 'penemuanBarangController@store')->name('penemuanBarangStore');
     Route::get('/penemuanBarang/detail/{uuid}', 'penemuanBarangController@show')->name('penemuanBarangShow');
@@ -117,7 +114,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::put('/penemuanBarang/edit/{uuid}', 'penemuanBarangController@update')->name('penemuanBarangUpdate');
     Route::get('/penemuanBarang/delete/{uuid}', 'penemuanBarangController@destroy')->name('penemuanBarangDestroy');
     Route::get('/penemuanBarang/filter', 'penemuanBarangController@filter')->name('penemuanBarangFilter');
-
 
     Route::get('/kehilanganOrang/index', 'kehilanganOrangController@index')->name('kehilanganOrangIndex');
     Route::post('/kehilanganOrang/index', 'kehilanganOrangController@store')->name('kehilanganOrangStore');
@@ -127,7 +123,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/kehilanganOrang/delete/{uuid}', 'kehilanganOrangController@destroy')->name('kehilanganOrangDestroy');
     Route::get('/kehilanganOrang/filter', 'kehilanganOrangController@filter')->name('kehilanganOrangFilter');
 
-
     Route::get('/kehilanganKendaraan/index', 'kehilanganKendaraanController@index')->name('kehilanganKendaraanIndex');
     Route::post('/kehilanganKendaraan/index', 'kehilanganKendaraanController@store')->name('kehilanganKendaraanStore');
     Route::get('/kehilanganKendaraan/detail/', 'kehilanganKendaraanController@show')->name('kehilanganKendaraanShow');
@@ -135,7 +130,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::put('/kehilanganKendaraan/edit/{uuid}', 'kehilanganKendaraanController@update')->name('kehilanganKendaraanUpdate');
     Route::get('/kehilanganKendaraan/delete/{uuid}', 'kehilanganKendaraanController@destroy')->name('kehilanganKendaraanDestroy');
     Route::get('/kehilanganKendaraan/filter', 'kehilanganKendaraanController@filter')->name('kehilanganKendaraanFilter');
-
 
     Route::get('/penemuanKendaraan/index', 'penemuanKendaraanController@index')->name('penemuanKendaraanIndex');
     Route::post('/penemuanKendaraan/index', 'penemuanKendaraanController@store')->name('penemuanKendaraanStore');
@@ -148,7 +142,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/arraudah/index', 'arraudahController@index')->name('arraudahIndex');
     Route::post('/arraudah/index', 'arraudahController@store')->name('arraudahStore');
     Route::get('/arraudah/detail/', 'arraudahController@show')->name('arraudahShow');
-    Route::get('/arraudah/edit/', 'arraudahController@edit')->name('arraudahEdit');
+    Route::get('/arraudah/edit/{uuid}', 'arraudahController@edit')->name('arraudahEdit');
     Route::put('/arraudah/edit/{uuid}', 'arraudahController@update')->name('arraudahUpdate');
     Route::get('/arraudah/delete/{uuid}', 'arraudahController@destroy')->name('arraudahDestroy');
     Route::get('/arraudah/filter', 'arraudahController@filter')->name('arraudahFilter');
@@ -173,7 +167,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/kehilanganOrang/cetak', 'reportController@kehilanganOrangCetak')->name('kehilanganOrangCetak');
     Route::get('/kehilanganKendaraan/cetak', 'reportController@kehilanganKendaraanCetak')->name('kehilanganKendaraanCetak');
     Route::get('/penemuanKendaraan/cetak', 'reportController@penemuanKendaraanCetak')->name('penemuanKendaraanCetak');
-    Route::post('/kehilanganBarang/filter', 'reportController@kehilanganBarangFilter')->name('kehilanganBarangFilterCetak');   
+    Route::post('/kehilanganBarang/filter', 'reportController@kehilanganBarangFilter')->name('kehilanganBarangFilterCetak');
     Route::post('/penemuanBarang/filter', 'reportController@penemuanBarangFilter')->name('penemuanBarangFilterCetak');
     Route::post('/kehilanganOrang/filter', 'reportController@kehilanganOrangFilter')->name('kehilanganOrangFilterCetak');
     Route::post('/kehilanganKendaraan/filter', 'reportController@kehilanganKendaraanFilter')->name('kehilanganKendaraanFilterCetak');

@@ -11,6 +11,10 @@ class Arraudah extends Model
     //TABEL
     protected $table = 'arraudahs';
 
+    protected $fillable = [
+        'judul', 'isi',
+    ];
+
     //RElASI MODEL
     public function pemasukan()
     {
