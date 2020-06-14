@@ -40,16 +40,16 @@
                     <a class="nav-link nav-btn active" href="#">HEADER</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link nav-btn" href="#fh5co-pricing">LOKASI</a>
+                    <a class="nav-link nav-btn" href="#lokasi">LOKASI</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link nav-btn" href="#">FITUR</a>
+                    <a class="nav-link nav-btn" href="#fitur">FITUR</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link nav-btn" href="#">CCTV</a>
+                    <a class="nav-link nav-btn" href="#cctv">CCTV</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link nav-btn" href="#fh5co-contact">KONTAK    </a>
+                    <a class="nav-link nav-btn" href="#kontak">KONTAK</a>
                 </li>
             </ul>
         </div>
@@ -58,23 +58,22 @@
 
 <div>
     <img class="banner d-none d-sm-block" src="{{asset('depan/img/banner.jpg')}}">
-    <div class="banner-text d-none d-sm-block animate-box" data-animate-effect="fadeInLeft">
-        <h1>MUSHOLA AR RAUDHAH SEKUMPUL</h1>
-        <div style="width: 65%">Sistem Informasi Haul Sekumpul dan Mushola Arraudhah Martapura<br><br>
-            <a href="#!" class="btn btn-banner">CHECK OUR PRICES</a>
-        </div>
-    </div>
 
 </div>
-<div>
-    <div class="row aft-banner">
-        <div class="col-sm-12 text-center">
-            <a href="https://banjarkab.go.id/cctv/" target="_blank" class="text-white">Klik CCTV</a>
+<div class="white">
+    <div class=" row" id="fh5co-reviews" >
+        <div class="col-sm-6 text-center ">
+            <img src="{{asset('depan/img/cctv.png')}}" alt="" width="500px">
+        </div>
+        <div class="col-sm-5">
+            <h3>CCTV Kabupaten Banjar</h3>
+            <p class="text-justify">Dalam rangka untuk menciptakan kondisi lalu lintas yang aman, tertib dan lancar, Pemda Kabupaten Banjar telah memasang kamera pengawas atau CCTV pada beberapa titik jalan.,selain itu Membantu masyarakat dalam pemantauan arus lalu lintas di kabupaten banjar lebih khususnya area sekumpul.</p>
+            <a  class="btn btn-success" href="https://banjarkab.go.id/cctv/" target="_blank" class="text-white">Klik CCTV</a>
         </div>
     </div>
 </div>
 <div class="smoke">
-    <div class="container" id="fh5co-pricing">
+    <div class="container" id="lokasi">
 
         <div class="heading animate-box"><h2><b>Lokasi</b></h2></div>
         <div class="text-center animate-box"><h3>kubah Sekumpul</h3></div>
@@ -83,15 +82,15 @@
     </div>
 </div>
 <div class="white">
-    <div class="container" id="fh5co-features">
+    <div class="container" id="fitur">
         <div class="heading animate-box"><h2><b><span class="text-org">FITUR</span> <span class="text-gr"> KAMI</span></b></h2>
         </div>
         <br><br>
         <div class="row">
             <div class="col-sm-4 animate-box" data-animate-effect="fadeIn">
                 <div class="bordery">
-                    <i class="fa fa-server text-gr bfont" aria-hidden="true"></i> <b>Free Domain Transfer</b>
-                    <div class="features">Get amazing results working with the best programmers, designers, writers and
+                    <i class="fa fa-server text-gr bfont" aria-hidden="true"></i> <b>Informasi Rombongan</b>
+                    <div class="features text-justify">Get amazing results working with the best programmers, designers, writers and
                         other top online pros. You can hire us with confidence. Get amazing results working with the
                         best programmers...
                     </div>
@@ -100,8 +99,8 @@
             </div>
             <div class="col-sm-4 animate-box" data-animate-effect="fadeIn">
                 <div class="bordery">
-                    <i class="fa fa-server text-gr bfont" aria-hidden="true"></i> <b>Free Domain Transfer</b>
-                    <div class="features">Get amazing results working with the best programmers, designers, writers and
+                    <i class="fa fa-server text-gr bfont" aria-hidden="true"></i> <b>Kehilangan Barang</b>
+                    <div class="features text-justify">Get amazing results working with the best programmers, designers, writers and
                         other top online pros. You can hire us with confidence. Get amazing results working with the
                         best programmers...
                     </div>
@@ -110,8 +109,8 @@
             </div>
             <div class="col-sm-4 animate-box" data-animate-effect="fadeIn">
                 <div class="bordery" style="border-right: 0px;">
-                    <i class="fa fa-server text-gr bfont" aria-hidden="true"></i> <b>Free Domain Transfer</b>
-                    <div class="features">Get amazing results working with the best programmers, designers, writers and
+                    <i class="fa fa-server text-gr bfont" aria-hidden="true"></i> <b>penemuan Barang</b>
+                    <div class="features text-justify">Get amazing results working with the best programmers, designers, writers and
                         other top online pros. You can hire us with confidence. Get amazing results working with the
                         best programmers...
                     </div>
@@ -120,8 +119,8 @@
             </div>
             <div class="col-sm-4 animate-box">
                 <div class="bordery" style="border-bottom: 0px;">
-                    <i class="fa fa-server text-gr bfont" aria-hidden="true"></i> <b>Free Domain Transfer</b>
-                    <div class="features">Get amazing results working with the best programmers, designers, writers and
+                    <i class="fa fa-server text-gr bfont" aria-hidden="true"></i> <b>Kehilangan orang</b>
+                    <div class="features text-justify">Get amazing results working with the best programmers, designers, writers and
                         other top online pros. You can hire us with confidence. Get amazing results working with the
                         best programmers...
                     </div>
@@ -130,8 +129,8 @@
             </div>
             <div class="col-sm-4 animate-box">
                 <div class="bordery" style="border-bottom: 0px">
-                    <i class="fa fa-server text-gr bfont" aria-hidden="true"></i> <b>Free Domain Transfer</b>
-                    <div class="features">Get amazing results working with the best programmers, designers, writers and
+                    <i class="fa fa-server text-gr bfont" aria-hidden="true"></i> <b>Kehilangan Kendaraan</b>
+                    <div class="features text-justify">Get amazing results working with the best programmers, designers, writers and
                         other top online pros. You can hire us with confidence. Get amazing results working with the
                         best programmers...
                     </div>
@@ -140,7 +139,7 @@
             </div>
             <div class="col-sm-4 animate-box">
                 <div class="bordery" style="border-right: 0px; border-bottom: 0px">
-                    <i class="fa fa-server text-gr bfont" aria-hidden="true"></i> <b>Free Domain Transfer</b>
+                    <i class="fa fa-server text-gr bfont" aria-hidden="true"></i> <b>Penemuan Kendaraan</b>
                     <div class="features">Get amazing results working with the best programmers, designers, writers and
                         other top online pros. You can hire us with confidence. Get amazing results working with the
                         best programmers...
@@ -151,7 +150,52 @@
         </div>
     </div>
 </div>
-
+<div class="signup animate-box" id="fh5co-newsletter">
+    <div class="text-center"><h2>Sign up to our newsletter for special offers</h2></div>
+</div>
+<div class="smoke">
+    <div class="container" id="fh5co-pricing">
+        <div class="text-center animate-box"><h3>Berita Ar Rauddah</h3></div>
+        <br><br>
+        <div class="row">
+            <div class="col-sm-4 animate-box" data-animate-effect="fadeInLeft">
+                <div class="price-box">
+                <img src="{{asset('depan/img/cctv.png')}}" alt="" width="310px" class="mb-3">
+                    <h5 class="text-left">Judul Berita</b></h5>
+                    <p style="font-size:12px" class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, soluta. Dolorum beatae qui dignissimos iure iusto...</p>
+                    <div class="text-left">
+                    <button class="btn btn-banner text-left">BACA BERITA</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 animate-box" data-animate-effect="fadeInLeft">
+                <div class="price-box">
+                <img src="{{asset('depan/img/cctv.png')}}" alt="" width="310px" class="mb-3">
+                    <h5 class="text-left">Judul Berita</b></h5>
+                    <p style="font-size:12px" class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, soluta. Dolorum beatae qui dignissimos iure iusto...</p>
+                    <div class="text-left">
+                    <button class="btn btn-banner text-left">BACA BERITA</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 animate-box" data-animate-effect="fadeInLeft">
+                <div class="price-box">
+                <img src="{{asset('depan/img/cctv.png')}}" alt="" width="310px" class="mb-3">
+                    <h5 class="text-left">Judul Berita</b></h5>
+                    <p style="font-size:12px" class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, soluta. Dolorum beatae qui dignissimos iure iusto...</p>
+                    <div class="text-left">
+                    <button class="btn btn-banner text-left">BACA BERITA</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 animate-box text-center" data-animate-effect="fadeInLeft">
+            <br>
+            <br>
+                <a style="text-align:center color:green !important; text-decoration:none;" href="">Lihat Berita Liannya >></a>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="white">
     <div class="container" id="fh5co-reviews">
         <div class="heading animate-box"><h2><b>CUSTOMER LOVE US</b></h2></div>
@@ -282,18 +326,7 @@
     <div class="container" id="fh5co-legal">
         <div class="row">
             <div class="col-sm-8 text-white mtext-center">
-                &copy; 2018 <a class="text-gr" href="#">FreeHTML5 <span class="navbar-brand2"> HOST</span></a>. Design
-                by <a href="https://freehtml5.co" target="_blank">FreeHTML5</a>.
-            </div>
-            <div class="col-sm-4 text-white mtext-center">
-                <table>
-                    <tr>
-                        <td><a class="text-white" href="#!">Legal</a></td>
-                        <td><a class="text-white" href="#!">Sitemap</a></td>
-                        <td><a class="text-white" href="#!">Privacy Policy</a></td>
-
-                    </tr>
-                </table>
+                &copy; 2020 
             </div>
         </div>
     </div>
