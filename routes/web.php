@@ -145,6 +145,13 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/penemuanKendaraan/delete/{uuid}', 'penemuanKendaraanController@destroy')->name('penemuanKendaraanDestroy');
     Route::get('/penemuanKendaraan/filter', 'penemuanKendaraanController@filter')->name('penemuanKendaraanFilter');
 
+    Route::get('/arraudah/index', 'arraudahController@index')->name('arraudahIndex');
+    Route::post('/arraudah/index', 'arraudahController@store')->name('arraudahStore');
+    Route::get('/arraudah/detail/', 'arraudahController@show')->name('arraudahShow');
+    Route::get('/arraudah/edit/', 'arraudahController@edit')->name('arraudahEdit');
+    Route::put('/arraudah/edit/{uuid}', 'arraudahController@update')->name('arraudahUpdate');
+    Route::get('/arraudah/delete/{uuid}', 'arraudahController@destroy')->name('arraudahDestroy');
+    Route::get('/arraudah/filter', 'arraudahController@filter')->name('arraudahFilter');
 
     //cetak route
     Route::get('/posko/cetak', 'reportController@poskoCetak')->name('poskoCetak');

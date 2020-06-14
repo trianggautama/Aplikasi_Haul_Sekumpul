@@ -243,8 +243,8 @@
 									</ul>
 								</li>
 								<li>
-									<a class="nav-link" href="mailbox-folder.html">
-										<i class="fas fa-envelope" aria-hidden="true"></i>
+									<a class="nav-link" href="{{Route('arraudahIndex')}}">
+										<i class="fa fa-file" aria-hidden="true"></i>
 										<span>Kegiatan Arraudhah</span>
 									</a>
 								</li>
