@@ -57,23 +57,16 @@
 </nav>
 
 <div>
-    <img class="banner d-none d-sm-block" src="{{asset('depan/img/banner.jpg')}}">
+    <img class="banner d-none d-sm-block" src="{{asset('images/arraudah/'.$data->foto)}}" height="500px">
 
 </div>
 <div class="smoke">
     <div class="container" id="fh5co-pricing">
         <div class=" animate-box">
-            <h2 style="margin:0px">Judul Berita</h2>
-             <p style="margin:0px">2 Juli 2020</p>
+            <h2 style="margin:0px">{{$data->judul}}</h2>
+             <p style="margin:0px">{{\carbon\carbon::parse($data->created_at)->translatedFormat('d F Y')}}</p>
              <br>
-             <p class="text-justify">
-                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus facere, dolorem optio nisi voluptatum asperiores vitae? Illo iusto laboriosam corrupti possimus odio, eos sequi ad obcaecati, aut voluptas numquam ducimus?cal_from_jd
-                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae enim voluptas aliquam ducimus dolore sit quisquam atque, voluptates necessitatibus amet facere eum nobis ipsam iusto unde excepturi quo. Exercitationem, recusandae.
-                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quod quos ipsum nulla eveniet repudiandae repellendus, laudantium nisi minima dicta doloremque similique incidunt eius architecto quaerat consequatur, ad dignissimos mollitia.
-                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates vitae accusantium sint fugit quasi, consectetur sequi totam porro deserunt ex quia sed dolor quibusdam rem in expedita rerum. A, optio. <br>
-                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem iure at ab eaque quam soluta maxime natus dolores similique minima, corporis, enim, ad quod. Itaque dolore ut tempora sapiente doloribus.
-                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem dolore libero veniam consequatur atque minima placeat saepe aperiam, itaque sequi at accusamus praesentium eos neque voluptatibus laborum quia, temporibus expedita.
-             </p>
+             {!! $data->isi !!}
         </div>
         <br><br>
         <div class="row">

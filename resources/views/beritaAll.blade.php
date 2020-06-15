@@ -65,66 +65,17 @@
         <div class="text-center animate-box"><h3>Berita Ar Rauddah</h3></div>
         <br><br>
         <div class="row">
+            @foreach($berita as $b)
             <div class="col-sm-4 animate-box mb-3" data-animate-effect="fadeInLeft">
                 <div class="price-box">
-                <img src="{{asset('depan/img/cctv.png')}}" alt="" width="310px" class="mb-3">
-                    <h5 class="text-left">Judul Berita</b></h5>
-                    <p style="font-size:12px" class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, soluta. Dolorum beatae qui dignissimos iure iusto...</p>
+                <img src="{{asset('images/arraudah/'.$b->foto)}}" alt="" width="310px" class="mb-3">
+                    <h5 class="text-left">{{$b->judul}}</b></h5>
                     <div class="text-left">
-                        <a  href="{{Route('beritaShow')}}" class="btn btn-banner text-left">BACA BERITA</a>
+                    <a  href="{{Route('beritaShow',['uuid'=>$b->uuid])}}" class="btn btn-banner text-left">BACA BERITA</a>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-4 animate-box mb-3" data-animate-effect="fadeInLeft">
-                <div class="price-box">
-                <img src="{{asset('depan/img/cctv.png')}}" alt="" width="310px" class="mb-3">
-                    <h5 class="text-left">Judul Berita</b></h5>
-                    <p style="font-size:12px" class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, soluta. Dolorum beatae qui dignissimos iure iusto...</p>
-                    <div class="text-left">
-                    <button class="btn btn-banner text-left">BACA BERITA</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4 animate-box mb-3" data-animate-effect="fadeInLeft">
-                <div class="price-box">
-                <img src="{{asset('depan/img/cctv.png')}}" alt="" width="310px" class="mb-3">
-                    <h5 class="text-left">Judul Berita</b></h5>
-                    <p style="font-size:12px" class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, soluta. Dolorum beatae qui dignissimos iure iusto...</p>
-                    <div class="text-left">
-                    <button class="btn btn-banner text-left">BACA BERITA</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4 animate-box mb-3" data-animate-effect="fadeInLeft">
-                <div class="price-box">
-                <img src="{{asset('depan/img/cctv.png')}}" alt="" width="310px" class="mb-3">
-                    <h5 class="text-left">Judul Berita</b></h5>
-                    <p style="font-size:12px" class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, soluta. Dolorum beatae qui dignissimos iure iusto...</p>
-                    <div class="text-left">
-                    <button class="btn btn-banner text-left">BACA BERITA</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4 animate-box mb-3" data-animate-effect="fadeInLeft">
-                <div class="price-box">
-                <img src="{{asset('depan/img/cctv.png')}}" alt="" width="310px" class="mb-3">
-                    <h5 class="text-left">Judul Berita</b></h5>
-                    <p style="font-size:12px" class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, soluta. Dolorum beatae qui dignissimos iure iusto...</p>
-                    <div class="text-left">
-                    <button class="btn btn-banner text-left">BACA BERITA</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4 animate-box mb-3" data-animate-effect="fadeInLeft">
-                <div class="price-box">
-                <img src="{{asset('depan/img/cctv.png')}}" alt="" width="310px" class="mb-3">
-                    <h5 class="text-left">Judul Berita</b></h5>
-                    <p style="font-size:12px" class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, soluta. Dolorum beatae qui dignissimos iure iusto...</p>
-                    <div class="text-left">
-                    <button class="btn btn-banner text-left">BACA BERITA</button>
-                    </div>
-                </div>
-            </div>
+            @endforeach
             <div class="col-sm-12 animate-box text-center" data-animate-effect="fadeInLeft">
             <br>
             <br>

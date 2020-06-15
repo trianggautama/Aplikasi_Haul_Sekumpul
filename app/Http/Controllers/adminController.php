@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Anggota_posko;
+use App\Arraudah;
 use App\Haul_sekumpul;
 use App\Informasi_rombongan;
 use App\Kehilangan_barang;
@@ -18,6 +19,14 @@ use Illuminate\Http\Request;
 
 class adminController extends Controller
 {
+
+
+    public function depan(){
+
+        $berita = Arraudah::where('kategori',3)->paginate(3);
+        return view('welcome',compact('berita'));
+    }
+
     public function index(){
 
         $haul           = Haul_sekumpul::all();
@@ -36,12 +45,13 @@ class adminController extends Controller
 
     public function beritaAll(){
 
-        return view('beritaAll');
+        $berita = Arraudah::where('kategori',3)->get();
+        return view('beritaAll',compact('berita'));
     }
 
-    public function beritaShow(){
-
-        return view('beritaShow');
+    public function beritaShow($uuid){
+        $data = Arraudah::where('uuid',$uuid)->first();
+        return view('beritaShow',compact('data'));
     }
 
     public function rombonganDepan(){
