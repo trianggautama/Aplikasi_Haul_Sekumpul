@@ -16,6 +16,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/berita/all', 'adminController@beritaAll')->name('beritaAll');
+Route::get('/berita/show', 'adminController@beritaShow')->name('beritaShow');
+Route::get('/rombongan/depan', 'adminController@rombonganDepan')->name('rombonganDepan');
+Route::get('/kehilanganBarang/depan', 'adminController@kehilanganBarangDepan')->name('kehilanganBarangDepan');
+Route::get('/penemuanBarang/depan', 'adminController@penemuanBarangDepan')->name('penemuanBarangDepan');
+Route::get('/kehilanganOrang/depan', 'adminController@kehilanganOrangDepan')->name('kehilanganOrangDepan');
+Route::get('/kehilanganKendaraan/depan', 'adminController@kehilanganKendaraanDepan')->name('kehilanganKendaraanDepan');
+Route::get('/penemuanKendaraan/depan', 'adminController@penemuanKendaraanDepan')->name('penemuanKendaraanDepan');
+
 
 Auth::routes();
 

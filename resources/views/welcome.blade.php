@@ -88,6 +88,7 @@
         <br><br>
         <div class="row">
             <div class="col-sm-4 animate-box" data-animate-effect="fadeIn">
+                <a href="{{Route('rombonganDepan')}}" style="text-decoration: none; color:black;">
                 <div class="bordery">
                     <i class="fa fa-server text-gr bfont" aria-hidden="true"></i> <b>Informasi Rombongan</b>
                     <div class="features text-justify">Get amazing results working with the best programmers, designers, writers and
@@ -95,9 +96,10 @@
                         best programmers...
                     </div>
                 </div>
-
+                </a>
             </div>
             <div class="col-sm-4 animate-box" data-animate-effect="fadeIn">
+            <a href="{{Route('kehilanganBarangDepan')}}" style="text-decoration: none; color:black;">
                 <div class="bordery">
                     <i class="fa fa-server text-gr bfont" aria-hidden="true"></i> <b>Kehilangan Barang</b>
                     <div class="features text-justify">Get amazing results working with the best programmers, designers, writers and
@@ -105,9 +107,10 @@
                         best programmers...
                     </div>
                 </div>
-
+                </a>
             </div>
             <div class="col-sm-4 animate-box" data-animate-effect="fadeIn">
+            <a href="{{Route('penemuanBarangDepan')}}" style="text-decoration: none; color:black;">
                 <div class="bordery" style="border-right: 0px;">
                     <i class="fa fa-server text-gr bfont" aria-hidden="true"></i> <b>penemuan Barang</b>
                     <div class="features text-justify">Get amazing results working with the best programmers, designers, writers and
@@ -115,9 +118,10 @@
                         best programmers...
                     </div>
                 </div>
-
+            </a>
             </div>
             <div class="col-sm-4 animate-box">
+            <a href="{{Route('kehilanganOrangDepan')}}" style="text-decoration: none; color:black;">
                 <div class="bordery" style="border-bottom: 0px;">
                     <i class="fa fa-server text-gr bfont" aria-hidden="true"></i> <b>Kehilangan orang</b>
                     <div class="features text-justify">Get amazing results working with the best programmers, designers, writers and
@@ -125,9 +129,10 @@
                         best programmers...
                     </div>
                 </div>
-
+            </a>
             </div>
             <div class="col-sm-4 animate-box">
+            <a href="{{Route('kehilanganKendaraanDepan')}}" style="text-decoration: none; color:black;">
                 <div class="bordery" style="border-bottom: 0px">
                     <i class="fa fa-server text-gr bfont" aria-hidden="true"></i> <b>Kehilangan Kendaraan</b>
                     <div class="features text-justify">Get amazing results working with the best programmers, designers, writers and
@@ -135,9 +140,10 @@
                         best programmers...
                     </div>
                 </div>
-
+                </a>
             </div>
             <div class="col-sm-4 animate-box">
+            <a href="{{Route('penemuanKendaraanDepan')}}" style="text-decoration: none; color:black;">
                 <div class="bordery" style="border-right: 0px; border-bottom: 0px">
                     <i class="fa fa-server text-gr bfont" aria-hidden="true"></i> <b>Penemuan Kendaraan</b>
                     <div class="features">Get amazing results working with the best programmers, designers, writers and
@@ -145,7 +151,7 @@
                         best programmers...
                     </div>
                 </div>
-
+                </a>
             </div>
         </div>
     </div>
@@ -164,7 +170,7 @@
                     <h5 class="text-left">Judul Berita</b></h5>
                     <p style="font-size:12px" class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, soluta. Dolorum beatae qui dignissimos iure iusto...</p>
                     <div class="text-left">
-                    <button class="btn btn-banner text-left">BACA BERITA</button>
+                    <a  href="{{Route('beritaShow')}}" class="btn btn-banner text-left">BACA BERITA</a>
                     </div>
                 </div>
             </div>
@@ -191,7 +197,7 @@
             <div class="col-sm-12 animate-box text-center" data-animate-effect="fadeInLeft">
             <br>
             <br>
-                <a style="text-align:center color:green !important; text-decoration:none;" href="">Lihat Berita Liannya >></a>
+                <a href="{{Route('beritaAll')}}" style="text-align:center color:green !important; text-decoration:none;" href="">Lihat Berita Liannya >></a>
             </div>
         </div>
     </div>
