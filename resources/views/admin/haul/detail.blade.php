@@ -19,25 +19,32 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
-                    <div class="card-body">
+                    <div class="card-body pr-5">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-5">
+                            <h5> Data Ketua Panitia </h5>
+
+                                <img  class="mb-3" src="{{asset('images/user/admin.png')}}" alt="" width="200px">
+                                <div class="form-group">
+                                    <label for=""><b>Ketua Panitia :</b> </label>
+                                    <p>{{$data->ketua_panitia}}</p>
+                                </div>
+                                <div class="form-group">
+                                    <label for=""><b>Nomor Hp  :</b> </label>
+                                    <p>08765463727</p>
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                            <div class="form-group">
+                                    <label for=""> <b>Tanggal Pel]aksanaan:</b>  </label>
+                                    <p>{{$data->tanggal_mulai}} - {{$data->tanggal_selesai}}</p>
+                                </div>
                                 <div class="form-group">
                                     <label for=""> <b>Informasi Haul : </b></label>
                                     @php
                                         $info = $data->informasi_acara
                                     @endphp
                                     <p class="text-justify">{!! $info !!}</p>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for=""> <b>Tanggal :</b>  </label>
-                                    <p>{{$data->tanggal_mulai}} - {{$data->tanggal_selesai}}</p>
-                                </div>
-                                <div class="form-group">
-                                    <label for=""><b>Ketua Panitia :</b> </label>
-                                    <p>{{$data->ketua_panitia}}</p>
                                 </div>
                             </div>
                         </div>
@@ -59,29 +66,49 @@
                     <div class="card-body">
                         <div class="table-responsive">
                         <table class="table table-bordered table-striped mb-0" id="datatable-default">
-						<thead>
-							<tr>
-                                <th>No</th>
-								<th>haul</th>
-                                <th>Nama Posko</th>
-                                <th>Alamat</th>
-                                <th>Jenis Posko</th>
-								<th>Aksi</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-                                <td>1</td>
-								<td>2020</td>
-								<td>Sungai ulin</td>
-                                <td>jl.PM.Noor Sungai Ulin Banjarbaru </td>
-                                <td>Jamaah</td>
-								<td> 
-                                    <button class="btn btn-sm btn-warning m-1" id="detail"> <i class="fa fa-file"></i></button> 
-                                </td>
-							</tr>
-						</tbody>
-					</table>
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>haul</th>
+                                    <th>Nama Posko</th>
+                                    <th>Alamat</th>
+                                    <th>Jenis Posko</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($posko as $d)
+                                    <tr>
+                                        <td>{{$loop->iteration}}</td>
+                                        <td>Periode Haul {{\carbon\carbon::parse($d->haul_sekumpul->created_at)->translatedFormat('Y')}}</td>
+                                        <td>{{$d->nama_posko}}</td>
+                                        <td>{{$d->alamat}} </td>
+                                        <td>
+                                            @if($d->jenis_posko == 1)
+                                                <p>Posko Induk</p>
+                                            @elseif($d->jenis_posko == 2)
+                                                <p>Posko Non Induk</p>
+                                            @else
+                                                <p>Posko Kesehatan</p>
+                                            @endif
+                                        </td>
+                                        <td>
+                                            @if(Auth::user()->role == 2 || Auth::user()->ketua_posko->posko->id == $d->id )
+                                            <a href="{{Route('poskoShow',['uuid'=>$d->uuid])}}" class="btn btn-sm btn-warning m-1"
+                                            id="detail">
+                                            <i class="fa fa-info-circle"></i></a>
+                                            <a href="{{Route('poskoEdit',['uuid'=>$d->uuid])}}" class="btn btn-sm btn-primary m-1 text-white">
+                                                <i class="fa fa-edit"></i></a>
+                                                @if(Auth::user()->role == 2)
+                                                <button class="btn btn-sm btn-danger" onclick="Hapus('{{$d->uuid}}','{{$d->nama_posko}}')"> <i
+                                            class="fa fa-trash"></i></button>  
+                                            @endif
+                                            @endif
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
                         </div>
                     </div>
                 </div>

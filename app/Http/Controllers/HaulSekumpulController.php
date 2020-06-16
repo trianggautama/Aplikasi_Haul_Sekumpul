@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Haul_sekumpul;
+use App\Posko;
 use Illuminate\Http\Request;
 
 class HaulSekumpulController extends Controller
@@ -29,7 +30,8 @@ class HaulSekumpulController extends Controller
     public function show($uuid)
     {
         $data = Haul_sekumpul::where('uuid', $uuid)->first();
-        return view('admin.haul.detail', compact('data'));
+        $posko = Posko::where('haul_sekumpul_id',$data->id)->get();
+        return view('admin.haul.detail', compact('data','posko'));
     }
 
     public function edit($uuid)

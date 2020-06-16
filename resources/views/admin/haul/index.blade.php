@@ -95,9 +95,16 @@
                         <input type="date" class="form-control" name="tanggal_selesai" id="password">
                     </div>
                     <div class="form-group ">
-                        <label class="">Katua Panitia</label>
-                        <input type="text" class="form-control" name="ketua_panitia" id="username"
-                            placeholder="username">
+                        <label class="">Nama Katua Panitia</label>
+                        <input type="text" class="form-control" name="ketua_panitia" id="nama"  placeholder="Nama">
+                    </div>
+                    <div class="form-group ">
+                        <label class="">Nomor Hp</label>
+                        <input type="text" class="form-control" name="no_hp" id="no_hp"  placeholder="Nomor Hp Ketua Panitia">
+                    </div>
+                    <div class="form-group ">
+                        <label class="">Foto Ketua Panitia</label>
+                        <input type="file" class="form-control" name="foto" id="foto">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
