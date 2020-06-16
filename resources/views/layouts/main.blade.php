@@ -165,6 +165,11 @@
 											</a>
 										</li>
 										<li>
+											<a class="nav-link" href="{{Route('pengeluaranDonasiIndex')}}">
+												Pengeluaran Donasi haul
+											</a>
+										</li>
+										<li>
 											<a class="nav-link" href="{{Route('pemasukanIndex')}}">
 												Pemasukan Arraudah
 											</a>
@@ -228,6 +233,11 @@
 										<li>
 											<a class="nav-link" href="{{Route('kehilanganOrangIndex')}}">
 												Kehilangan Orang
+											</a>
+										</li>
+										<li>
+											<a class="nav-link" href="{{Route('penemuanOrangIndex')}}">
+												Penemuan Orang
 											</a>
 										</li>
 										<li>
@@ -314,6 +324,11 @@
 										<li>
 											<a class="nav-link" href="{{Route('kehilanganOrangIndex')}}">
 												Kehilangan Orang
+											</a>
+										</li>
+										<li>
+											<a class="nav-link" href="{{Route('penemuanOrangIndex')}}">
+												Penemuan Orang
 											</a>
 										</li>
 										<li>

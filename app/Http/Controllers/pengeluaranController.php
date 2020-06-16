@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Arraudah;
+use App\Pemasukan;
 use App\Pengeluaran;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -12,7 +13,9 @@ class pengeluaranController extends Controller
     public function index()
     {
         $data = Pengeluaran::orderBy('id', 'desc')->get();
-        return view('admin.pengeluaran.index', compact('data'));
+        $pendapatan = Pemasukan::all();
+        $pemasukan = $pendapatan->sum('besaran');
+        return view('admin.pengeluaran.index', compact('data','pemasukan'));
     }
 
     public function store(Request $request)

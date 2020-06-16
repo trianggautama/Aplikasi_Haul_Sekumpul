@@ -50,6 +50,14 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/donasi/delete/{uuid}', 'donasiController@destroy')->name('donasiDestroy');
     Route::get('/donasi/filter', 'donasiController@filter')->name('donasiFilter');
 
+    Route::get('/pengeluaranDonasi/index', 'pengeluaranDonasiController@index')->name('pengeluaranDonasiIndex');
+    Route::post('/pengeluaranDonasi/index', 'pengeluaranDonasiController@store')->name('pengeluaranDonasiStore');
+    Route::get('/pengeluaranDonasi/detail/{uuid}', 'pengeluaranDonasiController@show')->name('pengeluaranDonasiShow');
+    Route::get('/pengeluaranDonasi/edit/', 'pengeluaranDonasiController@edit')->name('pengeluaranDonasiEdit');
+    Route::put('/pengeluaranDonasi/edit/{uuid}', 'pengeluaranDonasiController@update')->name('pengeluaranDonasiUpdate');
+    Route::get('/pengeluaranDonasi/delete/{uuid}', 'pengeluaranDonasiController@destroy')->name('pengeluaranDonasiDestroy');
+    Route::get('/pengeluaranDonasi/filter', 'pengeluaranDonasiController@filter')->name('pengeluaranDonasiFilter');
+
     Route::get('/pemasukan/index', 'pemasukanController@index')->name('pemasukanIndex');
     Route::post('/pemasukan/index', 'pemasukanController@store')->name('pemasukanStore');
     Route::get('/pemasukan/detail/{uuid}', 'pemasukanController@show')->name('pemasukanShow');
@@ -118,6 +126,14 @@ Route::group(['middleware' => ['auth']], function () {
     Route::put('/kehilanganOrang/edit/{uuid}', 'kehilanganOrangController@update')->name('kehilanganOrangUpdate');
     Route::get('/kehilanganOrang/delete/{uuid}', 'kehilanganOrangController@destroy')->name('kehilanganOrangDestroy');
     Route::get('/kehilanganOrang/filter', 'kehilanganOrangController@filter')->name('kehilanganOrangFilter');
+
+    Route::get('/penemuanOrang/index', 'penemuanOrangController@index')->name('penemuanOrangIndex');
+    Route::post('/penemuanOrang/index', 'penemuanOrangController@store')->name('penemuanOrangStore');
+    Route::get('/penemuanOrang/detail/', 'penemuanOrangController@show')->name('penemuanOrangShow');
+    Route::get('/penemuanOrang/edit/', 'penemuanOrangController@edit')->name('penemuanOrangEdit');
+    Route::put('/penemuanOrang/edit/{uuid}', 'penemuanOrangController@update')->name('penemuanOrangUpdate');
+    Route::get('/penemuanOrang/delete/{uuid}', 'penemuanOrangController@destroy')->name('penemuanOrangDestroy');
+    Route::get('/penemuanOrang/filter', 'penemuanOrangController@filter')->name('penemuanOrangFilter');
 
     Route::get('/kehilanganKendaraan/index', 'kehilanganKendaraanController@index')->name('kehilanganKendaraanIndex');
     Route::post('/kehilanganKendaraan/index', 'kehilanganKendaraanController@store')->name('kehilanganKendaraanStore');

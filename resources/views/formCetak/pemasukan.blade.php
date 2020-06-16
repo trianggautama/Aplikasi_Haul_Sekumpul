@@ -73,6 +73,9 @@
      .text-right{
          text-align:right;
      }
+     .text-center{
+         text-align:center;
+     }
      .isi{
          padding:10px;
      }
@@ -101,8 +104,8 @@
                                     <th>No</th>
                                     <th>Judul</th>
                                     <th>Donatur</th>
-                                    <th>Besaran</th>
                                     <th>penerima</th>
+                                    <th>Besaran</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -111,10 +114,14 @@
                                     <td>{{$loop->iteration}}</td>
                                     <td>{{$d->arraudah->judul}}</td>
                                     <td>{{$d->nama_donatur}}</td>
-                                    <td>Rp.{{$d->besaran}},-</td>
                                     <td>{{$d->user->nama}}</td>
+                                    <td>Rp.{{$d->besaran}},-</td>
                                 </tr>
                                 @endforeach
+                                <tr>
+                                    <td class="text-center" colspan="4">Total</td>
+                                    <td>Rp.{{$data->sum('besaran')}},-</td>
+                                </tr>
                             </tbody>
                         </table>
                       <br>

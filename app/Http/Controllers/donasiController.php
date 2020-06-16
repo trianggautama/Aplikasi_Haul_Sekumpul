@@ -10,9 +10,8 @@ class donasiController extends Controller
 {
     public function index()
     {
-        $data = Donasi::orderBy('id', 'desc')->get();
         $haul = Haul_sekumpul::orderBy('id', 'desc')->get();
-        return view('admin.donasi.index', compact('data', 'haul'));
+        return view('admin.donasi.index', compact('haul'));
     }
 
     public function store(Request $request)
@@ -31,8 +30,9 @@ class donasiController extends Controller
 
     public function show($uuid)
     {
-        $data = donasi::where('uuid', $uuid)->first();
-        return view('admin.donasi.show', compact('data'));
+        $haul = Haul_sekumpul::where('uuid',$uuid)->first();
+        $data = Donasi::where('haul_sekumpul_id', $haul->id)->get();
+        return view('admin.donasi.show', compact('data','haul'));
     }
 
     public function edit($uuid)

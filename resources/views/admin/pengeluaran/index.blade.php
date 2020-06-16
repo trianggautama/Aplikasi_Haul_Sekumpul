@@ -10,7 +10,7 @@
                     <a href="index.html">
                         <i class="fas fa-home"></i>
                     </a>
-                </li>
+                </li> 
                 <li><span>Data Pengeluaran</span></li>
             </ol>
             <a class="sidebar-right-toggle"><i class="fas fa-chevron-left"></i></a>
@@ -45,12 +45,9 @@
                                     <td>{{$loop->iteration}}</td>
                                     <td>{{$d->arraudah->judul}}</td>
                                     <td>{{$d->keperluan}}</td>
-                                    <td>Rp.{{$d->besaran}},-</td>
+                                    <td><p class="text-success">Rp.{{$d->besaran}},-</p></td>
                                     <td>{{$d->user->nama}}</td>
                                     <td>
-                                        <!-- <a href="#" class="btn btn-sm btn-warning m-1"
-                                            id="detail">
-                                            <i class="fa fa-file"></i></a> -->
                                         <a href="{{Route('pengeluaranEdit',['uuid' => $d->uuid])}}"
                                             class="btn btn-sm btn-primary m-1 text-white">
                                             <i class="fa fa-edit"></i></a>
@@ -61,6 +58,12 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        <hr>
+                        @php
+                            $sisa = $pemasukan - $data->sum('besaran');
+                        @endphp
+                        <h5>Total Pengeluaran : </h5> <p class="text-danger">Rp.{{$data->sum('besaran')}},-</p>
+                        <h5>Sisa Keuangan Mesjid:</h5> <p class="text-success">Rp. {{$sisa}},-</p>
                     </div>
                 </div>
             </div>

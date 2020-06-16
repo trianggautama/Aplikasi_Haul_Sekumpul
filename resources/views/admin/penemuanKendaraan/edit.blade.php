@@ -66,6 +66,11 @@
                                 value="{{$data->no_hp_pelapor}}" id="no_hp_pelapor" placeholder="Nomor HP Pelapor">
                         </div>
                         <div class="form-group ">
+                        <label class="">Foto Kendaraan</label>
+                        <input type="file" class="form-control" name="foto" id="foto">
+                        <p class="text-danger">Isi Jika ingin merubah gambar kendaraan</p>
+                    </div>
+                        <div class="form-group ">
                             <label class="">Status barang</label>
                             <select name="status" id="" class="form-control">
                                 <option value="1" {{$data->status == 1 ? 'selected' : ''}}>Belum diambil</option>

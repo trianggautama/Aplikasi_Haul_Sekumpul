@@ -3,7 +3,7 @@
 @section('content')
 <section role="main" class="content-body">
     <header class="page-header">
-        <h2>Halaman Edit Kehilangan Orang</h2>
+        <h2>Halaman Edit Penemuan Orang</h2>
         <div class="right-wrapper text-right">
             <ol class="breadcrumbs">
                 <li>
@@ -11,7 +11,7 @@
                         <i class="fas fa-home"></i>
                     </a>
                 </li>
-                <li><span>Edit Kehilangan Orang </span></li>
+                <li><span>Edit Penemuan Orang </span></li>
             </ol>
             <a class="sidebar-right-toggle"><i class="fas fa-chevron-left"></i></a>
         </div>
@@ -20,7 +20,7 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    Edit Data Kehilangan Orang
+                    Edit Data Penemuan Orang
                 </div>
                 <div class="card-body">
                     <form action="" method="post">
@@ -31,34 +31,38 @@
                             <select name="posko_id" id="" class="form-control">
                                 <option value="">Pilih posko</option>
                                 @foreach ($posko as $d)
-                                <option value="{{$d->id}}" {{$d->id == $data->posko_id ? 'selected' : ''}}>
+                                <option value="{{$d->id}}" >
                                     {{$d->nama_posko}}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="form-group ">
                             <label class="">Nama Orang</label>
-                            <input type="text" class="form-control" name="nama_orang" value="{{$data->nama_orang}}"
+                            <input type="text" class="form-control" name="nama_orang" value=""
                                 id="nama_orang" placeholder="nama_orang">
                         </div>
                         <div class="form-group ">
                             <label class="">Umur</label>
-                            <input type="text" class="form-control" name="umur" value="{{$data->umur}}" id="umur"
+                            <input type="text" class="form-control" name="umur" value="" id="umur"
                                 placeholder="Umur">
                         </div>
                         <div class="form-group ">
                             <label class="">Alamat</label>
-                            <textarea name="alamat" id="" class="form-control">{{$data->alamat}}</textarea>
+                            <textarea name="alamat" id="" class="form-control"></textarea>
                         </div>
 
                         <div class="form-group ">
                             <label class="">Ciri Fisik</label>
-                            <textarea name="ciri_fisik" id="" class="form-control">{{$data->ciri_fisik}}</textarea>
+                            <textarea name="ciri_fisik" id="" class="form-control"></textarea>
                         </div>
                         <div class="form-group ">
                             <label class="">Deskripsi</label>
-                            <textarea name="deskripsi" id="" class="form-control">{{$data->deskripsi}}</textarea>
+                            <textarea name="deskripsi" id="" class="form-control"></textarea>
                         </div>
+                        <div class="form-group ">
+                        <label class="">Foto</label>
+                        <input type="file" class="form-control" name="foto" id="foto" >
+                    </div>
                         <div class="form-group ">
                             <label class="">Status</label>
                             <select name="status" id="" class="form-control">

@@ -3,7 +3,7 @@
 @section('content')
 <section role="main" class="content-body">
     <header class="page-header">
-        <h2>Halaman Donasi</h2>
+        <h2>Halaman Pengeluaran Donasi</h2>
         <div class="right-wrapper text-right">
             <ol class="breadcrumbs">
                 <li>
@@ -11,7 +11,7 @@
                         <i class="fas fa-home"></i>
                     </a>
                 </li>
-                <li><span>Data Donasi</span></li>
+                <li><span>Data Pengeluaran Donasi</span></li>
             </ol>
             <a class="sidebar-right-toggle"><i class="fas fa-chevron-left"></i></a>
         </div>
@@ -30,7 +30,7 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Periode</th>
-                                    <th>Besaran Donasi</th>
+                                    <th>Besaran Pengeluaran Donasi</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -42,10 +42,10 @@
                                     <tr>
                                         <td>{{$loop->iteration}}</td>
                                         <td>Perode {{\carbon\carbon::parse($d->tanggal_mulai)->translatedFormat('Y')}}</td>
-                                        <td>Rp.{{$d->donasi->sum('besaran')}},-</td>
+                                        <td>Rp.,-</td>
                                         <td>
-                                         <a href="{{Route('donasiShow',['uuid'=>$d->uuid])}}" class="btn btn-sm btn-warning m-1 "> <i
-                                                class="fa fa-info-circle"></i> Rincian Donasi</a>
+                                         <a href="{{Route('pengeluaranDonasiShow',['uuid'=>$d->uuid])}}" class="btn btn-sm btn-warning m-1 "> <i
+                                                class="fa fa-info-circle"></i> Rincian Pengeluaran Donasi</a>
                                         </td>
                                     </tr>
                                 @endforeach
