@@ -52,18 +52,16 @@
                                 id="deskripsi" placeholder="deskripsi_barang">
                         </div>
                         <div class="form-group ">
+                        <label class="">Foto Barang</label>
+                        <input type="file" class="form-control" name="foto" id="foto">
+                        </div>
+                        <hr>
+                        <div class="form-group ">
                             <label class="">Status barang</label>
                             <select name="status" id="" class="form-control">
                                 <option value="1" {{$data->status == 1 ? 'selected' : ''}}>Belum diambil</option>
                                 <option value="2" {{$data->status == 2 ? 'selected' : ''}}>Sudah diambil</option>
                             </select>
-                        </div>
-                        <hr>
-                        <div class="form-group ">
-                            <label class="">Penanggung Jawab</label>
-                            <input type="text" class="form-control" name="penanggung_jawab"
-                                value="{{$data->penanggung_jawab}}" id="penanggung_jawab"
-                                placeholder="penanggung_jawab">
                         </div>
                         <div class="form-group">
                             <label for="">Foto Penyerahan</label>

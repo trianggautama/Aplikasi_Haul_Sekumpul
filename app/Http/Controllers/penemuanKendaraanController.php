@@ -24,10 +24,10 @@ class penemuanKendaraanController extends Controller
         return redirect()->back()->withSuccess('Data berhasil disimpan');
     }
 
-    public function show()
+    public function show($uuid)
     {
-
-        return view('admin.penemuanKendaraan.show');
+        $data = Penemuan_kendaraan::where('uuid',$uuid)->first();
+        return view('admin.penemuanKendaraan.show',compact('data'));
     }
 
     public function edit($uuid)

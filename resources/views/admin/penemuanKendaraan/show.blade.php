@@ -25,14 +25,20 @@
                             <div class="col-md-4">
                             <img  class="mb-3" src="{{asset('images/user/admin.png')}}" alt="" width="200px">
                                 <div class="form-group">
-                                    <label for=""> <b>Nama Barang : </b></label>
-                                    <p>{{$data->nama_barang}}</p>
+                                    <label for=""> <b>Plat Nomor : </b></label>
+                                    <p>{{$data->plat_nomor}}</p>
                                 </div>
                                 <div class="form-group">
-                                    <label for=""> <b>Merk Barang : </b></label>
-                                    <p>{{$data->merk}}</p>
+                                    <label for=""> <b>Merk Kendaraan : </b></label>
+                                    <p>{{$data->merk_kendaraan}}</p>
                                 </div>
                                 <div class="form-group">
+                                    <label for=""> <b>Warna : </b></label>
+                                    <p>{{$data->warna}}</p>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                            <div class="form-group">
                                     <label for=""> <b>Status : </b></label>
                                     <p>  @if($data->status == 1)
                                         <span class="badge badge-warning">Belum diambil</span>
@@ -41,32 +47,21 @@
                                         @endif
                                     </p>
                                 </div>
-                                
-                            </div>
-                            <div class="col-md-8">
                             <div class="form-group">
-                                    <label for=""> <b>Deskripsi Barang : </b></label>
-                                    <p>{{$data->deskripsi}}</p>
+                                    <label for=""> <b>Posko : </b></label>
+                                    <p>{{$data->lokasi_parkir->posko->nama_posko}}</p>
                                 </div>
                                 <div class="form-group">
-                                    <label for=""> <b>Penanggung Jawab :</b>  </label>
-                                    <p>Admin</p>
+                                    <label for=""> <b>Lokasi Parkir :</b>  </label>
+                                    <p>{{$data->lokasi_parkir->alamat}}, </p>
                                 </div>
                                 <div class="form-group">
-                                    <label for=""> <b>Foto penyerahan :</b>  </label> <br>
-                                    @if($data->foto_penyerahan)
-                                        <a href="" class="btn btn-secondary"><i class="fas fa-paperclip"></i> Foto Penyerahan</a>
-                                    @else
-                                    -
-                                    @endif
+                                    <label for=""> <b>Nama Pelaopor :</b>  </label>
+                                    <p>{{$data->nama_pelapor}}, </p>
                                 </div>
                                 <div class="form-group">
-                                    <label for=""><b>KTP Penerima :</b> </label> <br>
-                                    @if($data->ktp_penerima)
-                                        <a href="" class="btn btn-secondary"><i class="fas fa-paperclip"></i> Foto KTP</a>
-                                    @else
-                                    -
-                                    @endif
+                                    <label for=""> <b>Nomor Hp Pelapor :</b>  </label>
+                                    <p>{{$data->lokasi_parkir->no_hp_pelapor}}, </p>
                                 </div>
                             </div>
                         </div>

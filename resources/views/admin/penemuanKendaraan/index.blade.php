@@ -58,17 +58,20 @@
                                     <td>{{$d->no_hp_pelapor}}</td>
                                     <td>
                                         @if($d->status == 1)
-                                        <span class="badge badge-warning">Belum diambil</span>
+                                            <span class="badge badge-warning">Belum diambil</span>
                                         @elseif($d->status == 2)
-                                        <span class="badge badge-success">Sudah diambil</span>
+                                            <span class="badge badge-success">Sudah diambil</span>
                                         @endif
                                     </td>
                                     <td>
                                         @if(Auth::user()->role == 2 || Auth::user()->ketua_posko->posko->id == $d->posko_id)
-                                            <a href="{{Route('penemuanKendaraanEdit',['uuid' => $d->uuid])}}"
+                                        <a href="{{Route('penemuanKendaraanShow',['uuid' => $d->uuid])}}"
+                                                class="btn btn-sm btn-warning m-1 text-white">
+                                                <i class="fa fa-info-circle"></i></a>    
+                                        <a href="{{Route('penemuanKendaraanEdit',['uuid' => $d->uuid])}}"
                                                 class="btn btn-sm btn-primary m-1 text-white">
                                                 <i class="fa fa-edit"></i></a>
-                                            <button class="btn btn-sm btn-danger" onclick="Hapus('{{$d->uuid}}','{{$d->plat_nomor}}')"> <i
+                                            <button class="btn btn-sm btn-danger m-1" onclick="Hapus('{{$d->uuid}}','{{$d->plat_nomor}}')"> <i
                                                     class="fa fa-trash"></i></button>
                                         @endif
                                     </td>
@@ -136,13 +139,17 @@
                         <input type="text" class="form-control" name="nama_pelapor" id="nama_pelapor"
                             placeholder="nama_pelapor">
                     </div>
-
                     <div class="form-group ">
                         <label class="">No Hp Pelapor</label>
                         <input type="text" class="form-control" name="no_hp_pelapor" id="no_hp_pelapor"
                             placeholder="Nomor HP Pelapor">
                     </div>
                     <div class="form-group ">
+                        <label class="">Foto Kendaraan</label>
+                        <input type="file" class="form-control" name="foto" id="foto"
+                            placeholder="nama_pelapor">
+                    </div>
+                    <div class="form-group">
                         <label class="">Status Kendaraan</label>
                         <select name="status" id="" class="form-control">
                             <option value="1">Belum diambil</option>

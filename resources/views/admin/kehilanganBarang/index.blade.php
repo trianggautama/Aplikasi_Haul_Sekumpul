@@ -37,9 +37,12 @@
                                     <th>No</th>
                                     <th>Nama Posko</th>
                                     <th>Nama Barang</th>
+                                    <th>Deskripsi</th>
                                     <th>Merk</th>
                                     <th>Status</th>
                                     <th>Tanggal Pelaporan</th>
+                                    <th>Nama Pelapor</th>
+                                    <th>No Hp Pelapor</th>
                                     <th>aksi</th>
                                 </tr>
                             </thead>
@@ -49,6 +52,7 @@
                                     <td>{{$loop->iteration}}</td>
                                     <td>{{$d->posko->nama_posko}}</td>
                                     <td>{{$d->nama_barang}}</td>
+                                    <td>{{$d->deskripsi}}</td>
                                     <td>{{$d->merk}}</td>
                                     <td>
                                         @if($d->status == 1)
@@ -58,6 +62,8 @@
                                         @endif
                                     </td>
                                     <td>{{carbon\carbon::parse($d->created_at)->translatedFormat('d F Y')}}</td>
+                                    <td>Nama Pelapor</td>
+                                    <td>09012891728</td>
                                     <td>
                                         @if(Auth::user()->role == 2 || Auth::user()->ketua_posko->posko->id == $d->posko_id)
                                         <a href="{{Route('kehilanganBarangEdit',['uuid' => $d->uuid])}}"
@@ -102,7 +108,15 @@
                         </div>   
                     @else
                         <input type="hidden" name="posko_id" value="{{Auth::user()->ketua_posko->posko->id}}">
-                    @endif   
+                    @endif
+                    <div class="form-group ">
+                        <label class="">Nama Pelapor</label>
+                        <input type="text" class="form-control" name="nama_pelapor" id="nama_pelapor" placeholder="nama_pelapor">
+                    </div>                    
+                    <div class="form-group ">
+                        <label class="">Nomor Hp Pelapor</label>
+                        <input type="text" class="form-control" name="no_hp" id="no_hp" placeholder="no_hp">
+                    </div>  
                     <div class="form-group ">
                         <label class="">Nama Barang</label>
                         <input type="text" class="form-control" name="nama_barang" id="nama_barang"

@@ -126,7 +126,7 @@
                         <textarea name="ciri_fisik" id="" class="form-control"></textarea>
                     </div>
                     <div class="form-group ">
-                        <label class="">Deskripsi</label>
+                        <label class="">Catatan</label>
                         <textarea name="deskripsi" id="" class="form-control"></textarea>
                     </div>
                     <div class="form-group ">

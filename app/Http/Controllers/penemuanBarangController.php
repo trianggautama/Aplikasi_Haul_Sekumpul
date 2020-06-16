@@ -21,12 +21,12 @@ class penemuanBarangController extends Controller
         $data = Penemuan_barang::create($req->all());
 
         return redirect()->back()->withSuccess('Data berhasil disimpan');
-    }
+    } 
 
-    public function show()
+    public function show($uuid)
     {
-
-        return view('admin.penemuanBarang.show');
+        $data = Penemuan_barang::where('uuid',$uuid)->first();
+        return view('admin.penemuanBarang.show',compact('data'));
     }
 
     public function edit($uuid)

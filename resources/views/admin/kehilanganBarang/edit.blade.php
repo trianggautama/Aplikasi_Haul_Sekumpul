@@ -37,6 +37,14 @@
                             </select>
                         </div>
                         <div class="form-group ">
+                        <label class="">Nama Pelapor</label>
+                        <input type="text" class="form-control" name="nama_pelapor" id="nama_pelapor" placeholder="nama_pelapor">
+                    </div>                    
+                    <div class="form-group ">
+                        <label class="">Nomor Hp Pelapor</label>
+                        <input type="text" class="form-control" name="no_hp" id="no_hp" placeholder="no_hp">
+                    </div>  
+                        <div class="form-group ">
                             <label class="">Nama Barang</label>
                             <input type="text" class="form-control" name="nama_barang" value="{{$data->nama_barang}}"
                                 id="nama_barang" placeholder="nama_barang">

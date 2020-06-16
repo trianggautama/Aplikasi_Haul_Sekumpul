@@ -129,7 +129,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/penemuanKendaraan/index', 'penemuanKendaraanController@index')->name('penemuanKendaraanIndex');
     Route::post('/penemuanKendaraan/index', 'penemuanKendaraanController@store')->name('penemuanKendaraanStore');
-    Route::get('/penemuanKendaraan/detail/', 'penemuanKendaraanController@show')->name('penemuanKendaraanShow');
+    Route::get('/penemuanKendaraan/detail/{uuid}', 'penemuanKendaraanController@show')->name('penemuanKendaraanShow');
     Route::get('/penemuanKendaraan/edit/{uuid}', 'penemuanKendaraanController@edit')->name('penemuanKendaraanEdit');
     Route::put('/penemuanKendaraan/edit/{uuid}', 'penemuanKendaraanController@update')->name('penemuanKendaraanUpdate');
     Route::get('/penemuanKendaraan/delete/{uuid}', 'penemuanKendaraanController@destroy')->name('penemuanKendaraanDestroy');

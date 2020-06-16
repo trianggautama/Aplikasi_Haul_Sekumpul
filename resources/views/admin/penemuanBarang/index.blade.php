@@ -125,6 +125,11 @@
                             <option value="2">Sudah diambil</option>
                         </select>
                     </div>
+                    <div class="form-group ">
+                        <label class="">Foto Barang</label>
+                        <input type="file" class="form-control" name="foto" id="foto"
+                            placeholder="deskripsi_barang">
+                    </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
                         <button type="submit" class="btn btn-primary">Simpan</button>
