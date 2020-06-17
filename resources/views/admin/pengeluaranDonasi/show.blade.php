@@ -56,7 +56,9 @@
                             </tbody>
                         </table>
                         <hr>
-                        <h5>Total Donasi :</h5>
+                        <h5>Total Pengeluaran :</h5>
+                        <p class="text-danger">Rp.,-</p>
+                        <h5>Sisa Keuangan :</h5>
                         <p class="text-success">Rp.,-</p>
                     </div>
                 </div>

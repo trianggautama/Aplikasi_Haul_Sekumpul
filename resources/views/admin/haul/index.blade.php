@@ -21,7 +21,6 @@
             <div class="card">
                 <div class="card-header">
                     <div class="text-right">
-                        <button class="btn btn-sm btn-secondary"><i class="fa fa-print"></i> Cetak Data</button>
                         <button class="btn btn-sm btn-success" id="tambah"><i class="fa fa-plus"></i> Tambah
                             Data</button>
                     </div>
@@ -55,7 +54,7 @@
                                                 class="fa fa-file"></i></a>
                                             <a href="{{Route('haulEdit',['uuid'=>$d->uuid])}}" class="btn btn-sm btn-primary m-1 "> <i
                                                     class="fa fa-edit"></i></a>
-                                            <button class="btn btn-sm btn-danger" onclick="Hapus('{{$d->uuid}}')"> <i
+                                            <button class="btn btn-sm btn-danger m-1" onclick="Hapus('{{$d->uuid}}')"> <i
                                                 class="fa fa-trash"></i></button>
                                         
                                         </td>
