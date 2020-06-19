@@ -23,6 +23,7 @@ class CreatePenemuanKendaraansTable extends Migration
             $table->string('warna', 20);
             $table->string('nama_pelapor', 50);
             $table->string('no_hp_pelapor', 13);
+            $table->string('foto', 100)->nullable();
             $table->tinyInteger('status');
             $table->timestamps();
             $table->foreign('posko_id')->references('id')->on('poskos')->onDelete('restrict');

@@ -26,16 +26,20 @@
                     <form action="" method="post" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
+                        @if(Auth::user()->role == 2)
                         <div class="form-group ">
                             <label class="">Posko Terdekat</label>
                             <select name="posko_id" id="" class="form-control">
                                 <option value="">Pilih posko</option>
                                 @foreach ($posko as $d)
-                                <option value="{{$d->id}}" {{$d->id == $data->posko_id ? 'selected' : ''}}>
+                                <option value="{{$d->id}}" {{$data->posko_id == $d->id ? 'selected' : ''}}>
                                     {{$d->nama_posko}}</option>
                                 @endforeach
                             </select>
                         </div>
+                        @else
+                        <input type="hidden" name="posko_id" value="{{Auth::user()->ketua_posko->posko->id}}">
+                        @endif
                         <div class="form-group ">
                             <label class="">Nama Barang</label>
                             <input type="text" class="form-control" name="nama_barang" value="{{$data->nama_barang}}"
@@ -52,8 +56,8 @@
                                 id="deskripsi" placeholder="deskripsi_barang">
                         </div>
                         <div class="form-group ">
-                        <label class="">Foto Barang</label>
-                        <input type="file" class="form-control" name="foto" id="foto">
+                            <label class="">Foto Barang</label>
+                            <input type="file" class="form-control" name="foto" id="foto">
                         </div>
                         <hr>
                         <div class="form-group ">

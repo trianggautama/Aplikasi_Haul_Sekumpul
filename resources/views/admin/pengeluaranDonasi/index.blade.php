@@ -25,7 +25,7 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                    <table class="table table-bordered table-striped mb-0" id="datatable-default">
+                        <table class="table table-bordered table-striped mb-0" id="datatable-default">
                             <thead>
                                 <tr>
                                     <th>No</th>
@@ -36,18 +36,19 @@
                             </thead>
                             <tbody>
                                 @foreach($haul as $d)
-                                    @php 
-                                        $info = $d->informasi_acara;
-                                    @endphp
-                                    <tr>
-                                        <td>{{$loop->iteration}}</td>
-                                        <td>Perode {{\carbon\carbon::parse($d->tanggal_mulai)->translatedFormat('Y')}}</td>
-                                        <td>Rp.,-</td>
-                                        <td>
-                                         <a href="{{Route('pengeluaranDonasiShow',['uuid'=>$d->uuid])}}" class="btn btn-sm btn-warning m-1 "> <i
-                                                class="fa fa-info-circle"></i> Rincian Pengeluaran Donasi</a>
-                                        </td>
-                                    </tr>
+                                @php
+                                $info = $d->informasi_acara;
+                                @endphp
+                                <tr>
+                                    <td>{{$loop->iteration}}</td>
+                                    <td>Perode {{\carbon\carbon::parse($d->tanggal_mulai)->translatedFormat('Y')}}</td>
+                                    <td>Rp.,-</td>
+                                    <td>
+                                        <a href="{{Route('pengeluaranDonasiShow',['uuid'=>$d->uuid])}}"
+                                            class="btn btn-sm btn-warning m-1 "> <i class="fa fa-info-circle"></i>
+                                            Rincian Pengeluaran Donasi</a>
+                                    </td>
+                                </tr>
                                 @endforeach
                             </tbody>
                         </table>

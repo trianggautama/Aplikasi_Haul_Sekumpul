@@ -21,8 +21,10 @@
             <div class="card">
                 <div class="card-header">
                     <div class="text-right">
-                        <a href="{{Route('donasiFilter')}}" class="btn btn-sm btn-secondary"><i class="fa fa-filter"></i> Filter Cetak Data</a>
-                        <a href="{{Route('donasiCetak')}}" class="btn btn-sm btn-secondary" target="_blank"><i class="fa fa-print"></i> Cetak Data</a>
+                        <a href="{{Route('donasiFilter')}}" class="btn btn-sm btn-secondary"><i
+                                class="fa fa-filter"></i> Filter Cetak Data</a>
+                        <a href="{{Route('donasiCetak')}}" class="btn btn-sm btn-secondary" target="_blank"><i
+                                class="fa fa-print"></i> Cetak Data</a>
                         <button class="btn btn-sm btn-success" id="tambah"><i class="fa fa-plus"></i> Tambah
                             Data</button>
                     </div>
@@ -40,26 +42,28 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($data as $d)
                                 <tr>
-                                    <td>1</td>
-                                    <td>Konsumsi Panitia</td>
-                                    <td>Admin</td>
-                                    <td>Rp.,-</td>
+                                    <td>{{$loop->iteration}}</td>
+                                    <td>{{$d->keperluan}}</td>
+                                    <td>{{$d->penanggung_jawab}}</td>
+                                    <td>@currency($d->besaran),-</td>
                                     <td>
-                                        <a href="{{Route('pengeluaranDonasiEdit')}}"
+                                        <a href="{{Route('pengeluaranDonasiEdit',['uuid' => $d->uuid])}}"
                                             class="btn btn-sm btn-primary m-1 text-white">
                                             <i class="fa fa-edit"></i></a>
                                         <button class="btn btn-sm btn-danger" onclick="Hapus('')"> <i
                                                 class="fa fa-trash"></i></button>
                                     </td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
                         <hr>
                         <h5>Total Pengeluaran :</h5>
-                        <p class="text-danger">Rp.,-</p>
+                        <p class="text-danger">@currency($total_pengeluaran),-</p>
                         <h5>Sisa Keuangan :</h5>
-                        <p class="text-success">Rp.,-</p>
+                        <p class="text-success">@currency($total_donasi-$total_pengeluaran),-</p>
                     </div>
                 </div>
             </div>
@@ -77,8 +81,13 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{Route('donasiStore')}}" method="post">
+                <form action="{{Route('pengeluaranDonasiStore')}}" method="post">
                     @csrf
+                    <div class="form-group ">
+                        <label class="">Sisa Uang Donasi</label>
+                        <input type="text" class="form-control" name="sisa" id="keperluan"
+                            value="{{$total_donasi - $total_pengeluaran}}" readonly>
+                    </div>
                     <div class="form-group">
                         <label for="">Haul</label>
                         <select name="haul_sekumpul_id" id="haul_id" class="form-control">
@@ -90,6 +99,11 @@
                         <label class="">Keperluan</label>
                         <input type="text" class="form-control" name="keperluan" id="keperluan"
                             placeholder="Keperluan Pengeluaran">
+                    </div>
+                    <div class="form-group ">
+                        <label class="">Penanggung Jawab</label>
+                        <input type="text" class="form-control" name="penanggung_jawab" id="penanggung_jawab"
+                            placeholder="Penanggung Jawab">
                     </div>
                     <div class="form-group ">
                         <label class="">Besaran (Rp.)</label>

@@ -19,14 +19,23 @@ class penemuanBarangController extends Controller
     public function store(Request $req)
     {
         $data = Penemuan_barang::create($req->all());
+        if ($req->foto != null) {
+            $img = $req->file('foto');
+            $FotoExt = $img->getClientOriginalExtension();
+            $FotoName = 'Foto' . '-' . $data->id;
+            $foto = $FotoName . '.' . $FotoExt;
+            $img->move('images/penemuanBarang', $foto);
+            $data->foto = $foto;
+        }
+        $data->update();
 
         return redirect()->back()->withSuccess('Data berhasil disimpan');
-    } 
+    }
 
     public function show($uuid)
     {
-        $data = Penemuan_barang::where('uuid',$uuid)->first();
-        return view('admin.penemuanBarang.show',compact('data'));
+        $data = Penemuan_barang::where('uuid', $uuid)->first();
+        return view('admin.penemuanBarang.show', compact('data'));
     }
 
     public function edit($uuid)
@@ -40,6 +49,14 @@ class penemuanBarangController extends Controller
     {
         $data = Penemuan_barang::where('uuid', $uuid)->first();
         $data->fill($req->all())->save();
+        if ($req->foto != null) {
+            $img = $req->file('foto');
+            $FotoExt = $img->getClientOriginalExtension();
+            $FotoName = 'Foto' . '-' . $data->id;
+            $foto = $FotoName . '.' . $FotoExt;
+            $img->move('images/penemuanOrang', $foto);
+            $data->foto = $foto;
+        }
         if ($req->foto_penyerahan != null) {
             $img = $req->file('foto_penyerahan');
             $FotoExt = $img->getClientOriginalExtension();
@@ -64,6 +81,8 @@ class penemuanBarangController extends Controller
     public function destroy($uuid)
     {
         $data = Penemuan_barang::where('uuid', $uuid)->first();
+
+        File::delete('images/penemuanBarang/' . $data->foto);
         File::delete('images/penemuanBarang/' . $data->foto_penyerahan);
         File::delete('images/penemuanBarang/' . $data->ktp_penerima);
         $data->delete();

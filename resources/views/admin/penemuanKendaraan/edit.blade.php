@@ -26,18 +26,20 @@
                     <form action="" method="post">
                         @csrf
                         @method('PUT')
+                        @if(Auth::user()->role == 2)
                         <div class="form-group ">
-                            <label class="">Lokasi Parkir</label>
-                            <select name="lokasi_parkir_id" id="" class="form-control">
-                                <option value="">Pilih lokasi
-                                    parkir
-                                </option>
-                                @foreach ($lokasi_parkir as $d)
-                                <option value="{{$d->id}}" {{$d->id == $data->lokasi_parkir_id ? 'selected' : ''}}>
-                                    {{$d->alamat}}, Posko {{$d->posko->nama_posko}}</option>
+                            <label class="">Posko Terdekat</label>
+                            <select name="posko_id" id="" class="form-control">
+                                <option value="">Pilih posko</option>
+                                @foreach ($posko as $d)
+                                <option value="{{$d->id}}" {{$data->posko_id == $d->id ? 'selected' : ''}}>
+                                    {{$d->nama_posko}}</option>
                                 @endforeach
                             </select>
                         </div>
+                        @else
+                        <input type="hidden" name="posko_id" value="{{Auth::user()->ketua_posko->posko->id}}">
+                        @endif
                         <div class="form-group ">
                             <label class="">Nomor Polisi</label>
                             <input type="text" class="form-control" name="plat_nomor" value="{{$data->plat_nomor}}"
@@ -66,10 +68,10 @@
                                 value="{{$data->no_hp_pelapor}}" id="no_hp_pelapor" placeholder="Nomor HP Pelapor">
                         </div>
                         <div class="form-group ">
-                        <label class="">Foto Kendaraan</label>
-                        <input type="file" class="form-control" name="foto" id="foto">
-                        <p class="text-danger">Isi Jika ingin merubah gambar kendaraan</p>
-                    </div>
+                            <label class="">Foto Kendaraan</label>
+                            <input type="file" class="form-control" name="foto" id="foto">
+                            <p class="text-danger">Isi Jika ingin merubah gambar kendaraan</p>
+                        </div>
                         <div class="form-group ">
                             <label class="">Status barang</label>
                             <select name="status" id="" class="form-control">

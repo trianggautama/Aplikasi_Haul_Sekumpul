@@ -26,16 +26,20 @@
                     <form action="" method="post">
                         @csrf
                         @method('PUT')
+                        @if(Auth::user()->role == 2)
                         <div class="form-group ">
                             <label class="">Posko Terdekat</label>
                             <select name="posko_id" id="" class="form-control">
                                 <option value="">Pilih posko</option>
                                 @foreach ($posko as $d)
-                                <option value="{{$d->id}}" {{$d->id == $data->posko_id ? 'selected' : ''}}>
+                                <option value="{{$d->id}}" {{$data->posko_id == $d->id ? 'selected' : ''}}>
                                     {{$d->nama_posko}}</option>
                                 @endforeach
                             </select>
                         </div>
+                        @else
+                        <input type="hidden" name="posko_id" value="{{Auth::user()->ketua_posko->posko->id}}">
+                        @endif
                         <div class="form-group ">
                             <label class="">Nomor Polisi</label>
                             <input type="text" class="form-control" name="plat_nomor" value="{{$data->plat_nomor}}"

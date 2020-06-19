@@ -22,8 +22,10 @@
                 <div class="card-header">
                     <div class="text-right">
                         @if(Auth::user()->role == 2)
-                            <a href="{{Route('penemuanKendaraanFilter')}}" class="btn btn-sm btn-secondary" ><i class="fa fa-filter"></i> Filter Data</a>
-                            <a href="{{Route('penemuanKendaraanCetak')}}" class="btn btn-sm btn-secondary" target="_blank"><i class="fa fa-print"></i> Cetak Data</a>
+                        <a href="{{Route('penemuanKendaraanFilter')}}" class="btn btn-sm btn-secondary"><i
+                                class="fa fa-filter"></i> Filter Data</a>
+                        <a href="{{Route('penemuanKendaraanCetak')}}" class="btn btn-sm btn-secondary"
+                            target="_blank"><i class="fa fa-print"></i> Cetak Data</a>
                         @endif
                         <button class="btn btn-sm btn-success" id="tambah"><i class="fa fa-plus"></i> Tambah
                             Data</button>
@@ -58,21 +60,23 @@
                                     <td>{{$d->no_hp_pelapor}}</td>
                                     <td>
                                         @if($d->status == 1)
-                                            <span class="badge badge-warning">Belum diambil</span>
+                                        <span class="badge badge-warning">Belum diambil</span>
                                         @elseif($d->status == 2)
-                                            <span class="badge badge-success">Sudah diambil</span>
+                                        <span class="badge badge-success">Sudah diambil</span>
                                         @endif
                                     </td>
                                     <td>
-                                        @if(Auth::user()->role == 2 || Auth::user()->ketua_posko->posko->id == $d->posko_id)
+                                        @if(Auth::user()->role == 2 || Auth::user()->ketua_posko->posko->id ==
+                                        $d->posko_id)
                                         <a href="{{Route('penemuanKendaraanShow',['uuid' => $d->uuid])}}"
-                                                class="btn btn-sm btn-warning m-1 text-white">
-                                                <i class="fa fa-info-circle"></i></a>    
+                                            class="btn btn-sm btn-warning m-1 text-white">
+                                            <i class="fa fa-info-circle"></i></a>
                                         <a href="{{Route('penemuanKendaraanEdit',['uuid' => $d->uuid])}}"
-                                                class="btn btn-sm btn-primary m-1 text-white">
-                                                <i class="fa fa-edit"></i></a>
-                                            <button class="btn btn-sm btn-danger m-1" onclick="Hapus('{{$d->uuid}}','{{$d->plat_nomor}}')"> <i
-                                                    class="fa fa-trash"></i></button>
+                                            class="btn btn-sm btn-primary m-1 text-white">
+                                            <i class="fa fa-edit"></i></a>
+                                        <button class="btn btn-sm btn-danger m-1"
+                                            onclick="Hapus('{{$d->uuid}}','{{$d->plat_nomor}}')"> <i
+                                                class="fa fa-trash"></i></button>
                                         @endif
                                     </td>
                                 </tr>
@@ -96,21 +100,21 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{Route('penemuanKendaraanStore')}}" method="post">
+                <form action="{{Route('penemuanKendaraanStore')}}" method="post" enctype="multipart/form-data">
                     @csrf
-                    @if(Auth::user()->role == 2)            
-                        <div class="form-group ">
-                            <label class="">Posko Terdekat</label>
-                            <select name="posko_id" id="" class="form-control">
-                                <option value="">Pilih posko</option>
-                                @foreach ($posko as $d)
-                                <option value="{{$d->id}}">{{$d->nama_posko}}</option>
-                                @endforeach
-                            </select>
-                        </div>   
+                    @if(Auth::user()->role == 2)
+                    <div class="form-group ">
+                        <label class="">Posko Terdekat</label>
+                        <select name="posko_id" id="" class="form-control">
+                            <option value="">Pilih posko</option>
+                            @foreach ($posko as $d)
+                            <option value="{{$d->id}}">{{$d->nama_posko}}</option>
+                            @endforeach
+                        </select>
+                    </div>
                     @else
-                        <input type="hidden" name="posko_id" value="{{Auth::user()->ketua_posko->posko->id}}">
-                    @endif                    
+                    <input type="hidden" name="posko_id" value="{{Auth::user()->ketua_posko->posko->id}}">
+                    @endif
                     <div class="form-group ">
                         <label class="">Lokasi Parkir</label>
                         <select name="lokasi_parkir_id" id="" class="form-control">
@@ -146,8 +150,7 @@
                     </div>
                     <div class="form-group ">
                         <label class="">Foto Kendaraan</label>
-                        <input type="file" class="form-control" name="foto" id="foto"
-                            placeholder="nama_pelapor">
+                        <input type="file" class="form-control" name="foto" id="foto" placeholder="nama_pelapor">
                     </div>
                     <div class="form-group">
                         <label class="">Status Kendaraan</label>

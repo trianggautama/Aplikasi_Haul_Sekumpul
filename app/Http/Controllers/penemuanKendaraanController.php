@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Lokasi_parkir;
 use App\Penemuan_kendaraan;
 use App\Posko;
+use File;
 use Illuminate\Http\Request;
 
 class penemuanKendaraanController extends Controller
@@ -20,14 +21,24 @@ class penemuanKendaraanController extends Controller
     public function store(Request $req)
     {
         $data = Penemuan_kendaraan::create($req->all());
+        if ($req->foto != null) {
+            $img = $req->file('foto');
+            $FotoExt = $img->getClientOriginalExtension();
+            $FotoName = 'Foto' . '-' . $data->id;
+            $foto = $FotoName . '.' . $FotoExt;
+            $img->move('images/penemuanKendaraan', $foto);
+            $data->foto = $foto;
+        }
+
+        $data->update();
 
         return redirect()->back()->withSuccess('Data berhasil disimpan');
     }
 
     public function show($uuid)
     {
-        $data = Penemuan_kendaraan::where('uuid',$uuid)->first();
-        return view('admin.penemuanKendaraan.show',compact('data'));
+        $data = Penemuan_kendaraan::where('uuid', $uuid)->first();
+        return view('admin.penemuanKendaraan.show', compact('data'));
     }
 
     public function edit($uuid)
@@ -42,23 +53,14 @@ class penemuanKendaraanController extends Controller
     {
         $data = Penemuan_kendaraan::where('uuid', $uuid)->first();
         $data->fill($req->all())->save();
-        // if ($req->foto_penyerahan != null) {
-        //     $img = $req->file('foto_penyerahan');
-        //     $FotoExt = $img->getClientOriginalExtension();
-        //     $FotoName = 'Foto' . '-' . $data->id;
-        //     $foto_penyerahan = $FotoName . '.' . $FotoExt;
-        //     $img->move('images/penemuanKendaraan', $foto_penyerahan);
-        //     $data->foto_penyerahan = $foto_penyerahan;
-        // }
-        // if ($req->ktp_penerima != null) {
-        //     $img = $req->file('ktp_penerima');
-        //     $FotoExt = $img->getClientOriginalExtension();
-        //     $FotoName = 'KTP' . '-' . $data->id;
-        //     $ktp_penerima = $FotoName . '.' . $FotoExt;
-        //     $img->move('images/penemuanKendaraan', $ktp_penerima);
-        //     $data->ktp_penerima = $ktp_penerima;
-        // }
-        // $data->update();
+        if ($req->foto != null) {
+            $img = $req->file('foto');
+            $FotoExt = $img->getClientOriginalExtension();
+            $FotoName = 'Foto' . '-' . $data->id;
+            $foto = $FotoName . '.' . $FotoExt;
+            $img->move('images/penemuanKendaraan', $foto);
+            $data->foto = $foto;
+        }
 
         return redirect()->route('penemuanKendaraanIndex')->withSuccess('Data berhasil diubah');
     }
@@ -66,7 +68,7 @@ class penemuanKendaraanController extends Controller
     public function destroy($uuid)
     {
         $data = Penemuan_kendaraan::where('uuid', $uuid)->first();
-        // File::delete('images/penemuanKendaraan/' . $data->foto_penyerahan);
+        File::delete('images/penemuanKendaraan/' . $data->foto);
         // File::delete('images/penemuanKendaraan/' . $data->ktp_penerima);
         $data->delete();
         return redirect()->route('penemuanKendaraanIndex')->withSuccess('Data berhasil dihapus');

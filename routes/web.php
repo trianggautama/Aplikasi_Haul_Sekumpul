@@ -12,7 +12,6 @@ Route::get('/kehilanganOrang/depan', 'adminController@kehilanganOrangDepan')->na
 Route::get('/kehilanganKendaraan/depan', 'adminController@kehilanganKendaraanDepan')->name('kehilanganKendaraanDepan');
 Route::get('/penemuanKendaraan/depan', 'adminController@penemuanKendaraanDepan')->name('penemuanKendaraanDepan');
 
-
 Auth::routes();
 
 Route::group(['middleware' => ['auth']], function () {
@@ -53,7 +52,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/pengeluaranDonasi/index', 'pengeluaranDonasiController@index')->name('pengeluaranDonasiIndex');
     Route::post('/pengeluaranDonasi/index', 'pengeluaranDonasiController@store')->name('pengeluaranDonasiStore');
     Route::get('/pengeluaranDonasi/detail/{uuid}', 'pengeluaranDonasiController@show')->name('pengeluaranDonasiShow');
-    Route::get('/pengeluaranDonasi/edit/', 'pengeluaranDonasiController@edit')->name('pengeluaranDonasiEdit');
+    Route::get('/pengeluaranDonasi/edit/{uuid}', 'pengeluaranDonasiController@edit')->name('pengeluaranDonasiEdit');
     Route::put('/pengeluaranDonasi/edit/{uuid}', 'pengeluaranDonasiController@update')->name('pengeluaranDonasiUpdate');
     Route::get('/pengeluaranDonasi/delete/{uuid}', 'pengeluaranDonasiController@destroy')->name('pengeluaranDonasiDestroy');
     Route::get('/pengeluaranDonasi/filter', 'pengeluaranDonasiController@filter')->name('pengeluaranDonasiFilter');
@@ -130,7 +129,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/penemuanOrang/index', 'penemuanOrangController@index')->name('penemuanOrangIndex');
     Route::post('/penemuanOrang/index', 'penemuanOrangController@store')->name('penemuanOrangStore');
     Route::get('/penemuanOrang/detail/', 'penemuanOrangController@show')->name('penemuanOrangShow');
-    Route::get('/penemuanOrang/edit/', 'penemuanOrangController@edit')->name('penemuanOrangEdit');
+    Route::get('/penemuanOrang/edit/{uuid}', 'penemuanOrangController@edit')->name('penemuanOrangEdit');
     Route::put('/penemuanOrang/edit/{uuid}', 'penemuanOrangController@update')->name('penemuanOrangUpdate');
     Route::get('/penemuanOrang/delete/{uuid}', 'penemuanOrangController@destroy')->name('penemuanOrangDestroy');
     Route::get('/penemuanOrang/filter', 'penemuanOrangController@filter')->name('penemuanOrangFilter');

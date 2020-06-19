@@ -5,14 +5,13 @@ namespace App;
 use App\Traits\Uuid;
 use Illuminate\Database\Eloquent\Model;
 
-class Kehilangan_barang extends Model
+class Penemuan_orang extends Model
 {
     use Uuid;
-    //TABEL
-    protected $table = 'kehilangan_barangs';
 
     protected $fillable = [
-        'posko_id', 'nama_pelapor', 'no_hp_pelapor', 'nama_barang', 'merk', 'deskripsi', 'no_hp', 'status',
+        'posko_id', 'nama_orang', 'umur', 'alamat', 'ciri_fisik',
+        'deskripsi', 'status',
     ];
 
     //RElASI MODEL

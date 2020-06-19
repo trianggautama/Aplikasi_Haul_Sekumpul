@@ -21,9 +21,11 @@
             <div class="card">
                 <div class="card-header">
                     <div class="text-right">
-                    @if(Auth::user()->role == 2)
-                        <a href="{{Route('kehilanganOrangFilter')}}" class="btn btn-sm btn-secondary" ><i class="fa fa-filter"></i> Filter Data</a>
-                        <a href="{{Route('kehilanganOrangCetak')}}" class="btn btn-sm btn-secondary" target="_blank"><i class="fa fa-print"></i> Cetak Data</a>
+                        @if(Auth::user()->role == 2)
+                        <a href="{{Route('kehilanganOrangFilter')}}" class="btn btn-sm btn-secondary"><i
+                                class="fa fa-filter"></i> Filter Data</a>
+                        <a href="{{Route('kehilanganOrangCetak')}}" class="btn btn-sm btn-secondary" target="_blank"><i
+                                class="fa fa-print"></i> Cetak Data</a>
                         @endif
                         <button class="btn btn-sm btn-success" id="tambah"><i class="fa fa-plus"></i> Tambah
                             Data</button>
@@ -46,27 +48,34 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($data as $d)
                                 <tr>
-                                    <td>1</td>
-                                    <td>Posko 2</td>
-                                    <td>Andi</td>
-                                    <td>68 Tahun</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
+                                    <td>{{$loop->iteration}}</td>
+                                    <td>{{$d->posko->nama_posko}}</td>
+                                    <td>{{$d->nama_orang}}</td>
+                                    <td>{{$d->umur}}</td>
+                                    <td>{{$d->alamat}}</td>
+                                    <td>{{$d->ciri_fisik}}</td>
+                                    <td>{{$d->deskripsi}}</td>
                                     <td>
-                                       
+                                        @if($d->status == 1)
                                         <span class="badge badge-warning">Belum ditemukan</span>
+                                        @elseif($d->status == 2)
+                                        <span class="badge badge-success">Sudah ditemukan</span>
+                                        @endif
                                     </td>
                                     <td>
-                                    @if(Auth::user()->role == 2 || Auth::user()->ketua_posko->posko->id == $d->posko_id)
-                                        <a href="{{Route('penemuanOrangEdit')}}"
+                                        @if(Auth::user()->role == 2 || Auth::user()->ketua_posko->posko->id ==
+                                        $d->posko_id)
+                                        <a href="{{Route('penemuanOrangEdit',['uuid' => $d->uuid])}}"
                                             class="btn btn-sm btn-primary m-1 text-white">
                                             <i class="fa fa-edit"></i></a>
-                                        <button class="btn btn-sm btn-danger" onclick="Hapus('')"> <i   class="fa fa-trash"></i></button>
-                                     @endif
+                                        <button class="btn btn-sm btn-danger" onclick="Hapus('')"> <i
+                                                class="fa fa-trash"></i></button>
+                                        @endif
                                     </td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -86,21 +95,21 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{Route('kehilanganOrangStore')}}" method="post">
+                <form action="{{Route('penemuanOrangStore')}}" method="post" enctype="multipart/form-data">
                     @csrf
-                    @if(Auth::user()->role == 2)            
-                        <div class="form-group ">
-                            <label class="">Posko Terdekat</label>
-                            <select name="posko_id" id="" class="form-control">
-                                <option value="">Pilih posko</option>
-                                @foreach ($posko as $d)
-                                <option value="{{$d->id}}">{{$d->nama_posko}}</option>
-                                @endforeach
-                            </select>
-                        </div>   
+                    @if(Auth::user()->role == 2)
+                    <div class="form-group ">
+                        <label class="">Posko Terdekat</label>
+                        <select name="posko_id" id="" class="form-control">
+                            <option value="">Pilih posko</option>
+                            @foreach ($posko as $d)
+                            <option value="{{$d->id}}">{{$d->nama_posko}}</option>
+                            @endforeach
+                        </select>
+                    </div>
                     @else
-                        <input type="hidden" name="posko_id" value="{{Auth::user()->ketua_posko->posko->id}}">
-                    @endif  
+                    <input type="hidden" name="posko_id" value="{{Auth::user()->ketua_posko->posko->id}}">
+                    @endif
                     <div class="form-group ">
                         <label class="">Nama Orang</label>
                         <input type="text" class="form-control" name="nama_orang" id="nama_orang"
@@ -120,7 +129,7 @@
                     </div>
                     <div class="form-group ">
                         <label class="">Foto</label>
-                        <input type="file" class="form-control" name="foto" id="foto" >
+                        <input type="file" class="form-control" name="foto" id="foto">
                     </div>
                     <div class="form-group ">
                         <label class="">Catatan</label>

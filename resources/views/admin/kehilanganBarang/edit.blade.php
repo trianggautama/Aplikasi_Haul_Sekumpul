@@ -26,24 +26,30 @@
                     <form action="" method="post">
                         @csrf
                         @method('PUT')
+                        @if(Auth::user()->role == 2)
                         <div class="form-group ">
                             <label class="">Posko Terdekat</label>
                             <select name="posko_id" id="" class="form-control">
                                 <option value="">Pilih posko</option>
                                 @foreach ($posko as $d)
-                                <option value="{{$d->id}}" {{$d->id == $data->posko_id ? 'selected' : ''}}>
+                                <option value="{{$d->id}}" {{$data->posko_id == $d->id ? 'selected' : ''}}>
                                     {{$d->nama_posko}}</option>
                                 @endforeach
                             </select>
                         </div>
+                        @else
+                        <input type="hidden" name="posko_id" value="{{Auth::user()->ketua_posko->posko->id}}">
+                        @endif
                         <div class="form-group ">
-                        <label class="">Nama Pelapor</label>
-                        <input type="text" class="form-control" name="nama_pelapor" id="nama_pelapor" placeholder="nama_pelapor">
-                    </div>                    
-                    <div class="form-group ">
-                        <label class="">Nomor Hp Pelapor</label>
-                        <input type="text" class="form-control" name="no_hp" id="no_hp" placeholder="no_hp">
-                    </div>  
+                            <label class="">Nama Pelapor</label>
+                            <input type="text" class="form-control" name="nama_pelapor" value="{{$data->nama_pelapor}}"
+                                id=" nama_pelapor" placeholder="nama_pelapor">
+                        </div>
+                        <div class="form-group ">
+                            <label class="">Nomor Hp Pelapor</label>
+                            <input type="text" class="form-control" name="no_hp_pelapor"
+                                value="{{$data->no_hp_pelapor}}" id=" no_hp_pelapor" placeholder="no_hp_pelapor">
+                        </div>
                         <div class="form-group ">
                             <label class="">Nama Barang</label>
                             <input type="text" class="form-control" name="nama_barang" value="{{$data->nama_barang}}"

@@ -21,6 +21,7 @@ class CreatePenemuanBarangsTable extends Migration
             $table->string('merk', 50);
             $table->text('deskripsi');
             $table->tinyInteger('status');
+            $table->string('foto', 100)->nullable();
             $table->string('penanggung_jawab', 50)->nullable();
             $table->string('foto_penyerahan', 50)->nullable();
             $table->string('ktp_penerima', 50)->nullable();

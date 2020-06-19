@@ -27,14 +27,26 @@
                         @csrf
                         @method('PUT')
                         <div class="form-group ">
-                        <label class="">Keperluan</label>
-                        <input type="text" class="form-control" name="keperluan" id="keperluan"
-                            placeholder="Keperluan Pengeluaran">
-                    </div>
-                    <div class="form-group ">
-                        <label class="">Besaran (Rp.)</label>
-                        <input type="number" class="form-control" name="besaran" id="besaran" placeholder="Rp.">
-                    </div>
+                            <label class="">Sisa Uang Donasi</label>
+                            <input type="text" name="sisa" class="form-control" id="keperluan"
+                                value="{{$total_donasi - $total_pengeluaran + $data->besaran}}" readonly>
+                        </div>
+                        <div class="form-group ">
+                            <label class="">Keperluan</label>
+                            <input type="text" class="form-control" name="keperluan" value="{{$data->keperluan}}"
+                                id="keperluan" placeholder="Keperluan Pengeluaran">
+                        </div>
+                        <div class="form-group ">
+                            <label class="">Penanggung Jawab</label>
+                            <input type="text" class="form-control" name="penanggung_jawab"
+                                value="{{$data->penanggung_jawab}}" id="penanggung_jawab"
+                                placeholder="Penanggung Jawab">
+                        </div>
+                        <div class="form-group ">
+                            <label class="">Besaran (Rp.)</label>
+                            <input type="number" class="form-control" name="besaran" value="{{$data->besaran}}"
+                                id="besaran" placeholder="Rp.">
+                        </div>
                         <div class="card-footer text-right">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
                             <button type="submit" class="btn btn-primary">Simpan</button>
