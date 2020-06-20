@@ -42,7 +42,7 @@
                                     <th>Umur</th>
                                     <th>Alamat</th>
                                     <th>Ciri Fisik</th>
-                                    <th>Deskripsi</th>
+                                    <th>Catatan</th>
                                     <th>Status</th>
                                     <th>aksi</th>
                                 </tr>

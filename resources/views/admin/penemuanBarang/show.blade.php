@@ -23,7 +23,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-4">
-                            <img  class="mb-3" src="{{asset('images/user/admin.png')}}" alt="" width="200px">
+                            <img  class="mb-3" src="{{asset('images/penemuanBarang/'. $data->foto)}}" alt="" width="200px">
                                 <div class="form-group">
                                     <label for=""> <b>Nama Barang : </b></label>
                                     <p>{{$data->nama_barang}}</p>

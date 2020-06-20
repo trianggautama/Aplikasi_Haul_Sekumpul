@@ -3,7 +3,7 @@
 @section('content')
     <section role="main" class="content-body">
 		<header class="page-header">
-			<h2>Halaman Penemuan Barang</h2>
+			<h2>Halaman Penemuan Kendaraan</h2>
 				<div class="right-wrapper text-right">
 					<ol class="breadcrumbs">
 						<li>
@@ -11,7 +11,7 @@
 								<i class="fas fa-home"></i>
 							</a>
 						</li>
-                        <li><span>Data Penemuan Barang</span></li>
+                        <li><span>Data Penemuan Kendaraan</span></li>
                         <li><span>Detail</span></li>
 					</ol>
 				<a class="sidebar-right-toggle" ><i class="fas fa-chevron-left"></i></a>
@@ -23,7 +23,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-4">
-                            <img  class="mb-3" src="{{asset('images/user/admin.png')}}" alt="" width="200px">
+                            <img  class="mb-3" src="{{asset('images/penemuanKendaraan/'.$data->foto)}}" alt="" width="200px">
                                 <div class="form-group">
                                     <label for=""> <b>Plat Nomor : </b></label>
                                     <p>{{$data->plat_nomor}}</p>
