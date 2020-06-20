@@ -83,23 +83,23 @@
                     @csrf
                     <div class="form-group">
                         <label for="">Informasi</label>
-                        <textarea id="summernote" name="informasi_acara"></textarea>
+                        <textarea id="summernote" name="informasi_acara" required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="">Tanggal Mulai</label>
-                        <input type="date" class="form-control" name="tanggal_mulai" placeholder="username">
+                        <input type="date" class="form-control" name="tanggal_mulai" placeholder="username" required>
                     </div>
                     <div class="form-group">
                         <label for="">Tanggal Selesai</label>
-                        <input type="date" class="form-control" name="tanggal_selesai" id="password">
+                        <input type="date" class="form-control" name="tanggal_selesai" id="password" required>
                     </div>
                     <div class="form-group ">
                         <label class="">Nama Katua Panitia</label>
-                        <input type="text" class="form-control" name="ketua_panitia" id="nama"  placeholder="Nama">
+                        <input type="text" class="form-control" name="ketua_panitia" id="nama"  placeholder="Nama" required>
                     </div>
                     <div class="form-group ">
                         <label class="">Nomor Hp</label>
-                        <input type="text" class="form-control" name="no_hp" id="no_hp"  placeholder="Nomor Hp Ketua Panitia">
+                        <input type="text" class="form-control" name="no_hp" id="no_hp"  placeholder="Nomor Hp Ketua Panitia" required>
                     </div>
                     <div class="form-group ">
                         <label class="">Foto Ketua Panitia</label>

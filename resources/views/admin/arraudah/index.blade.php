@@ -77,15 +77,15 @@
                     @csrf
                     <div class="form-group ">
                         <label class="">Judul</label>
-                        <input type="text" class="form-control" name="judul" id="judul" placeholder="Judul">
+                        <input type="text" class="form-control" name="judul" id="judul" placeholder="Judul" required>
                     </div>
                     <div class="form-group ">
                         <label class="">Isi </label>
-                        <textarea id="summernote" name="isi"></textarea>
+                        <textarea id="summernote" name="isi" required></textarea>
                     </div>
                     <div class="form-group ">
                         <label class="">Foto</label>
-                        <input type="file" class="form-control" name="foto" id="foto" placeholder="Foto">
+                        <input type="file" class="form-control" name="foto" id="foto" placeholder="Foto" required>
                     </div>
             </div>
             <div class="modal-footer">

@@ -94,11 +94,11 @@
                     <!-- kategori default Pengeluaran -->
                     <div class="form-group ">
                         <label class="">Keperluan</label>
-                        <input type="text" class="form-control" name="keperluan" id="keperluan" placeholder="Keperluan">
+                        <input type="text" class="form-control" name="keperluan" id="keperluan" placeholder="Keperluan" required>
                     </div>
                     <div class="form-group ">
                         <label class="">Besaran (Rp.)</label>
-                        <input type="text" class="form-control" name="besaran" id="no_hp" placeholder="Rp.">
+                        <input type="text" class="form-control" name="besaran" id="no_hp" placeholder="Rp." required>
                     </div>
                     <div class="form-group ">
                         <label class="">Penanggungjawab</label>

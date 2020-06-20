@@ -111,27 +111,27 @@
                     <div class="form-group ">
                         <label class="">Nama Barang</label>
                         <input type="text" class="form-control" name="nama_barang" id="nama_barang"
-                            placeholder="nama_barang">
+                            placeholder="nama_barang" required>
                     </div>
                     <div class="form-group ">
                         <label class="">Merk Barang</label>
-                        <input type="text" class="form-control" name="merk" id="merk" placeholder="merk_barang">
+                        <input type="text" class="form-control" name="merk" id="merk" placeholder="merk_barang" required>
                     </div>
                     <div class="form-group ">
                         <label class="">Deskripsi Barang</label>
                         <input type="text" class="form-control" name="deskripsi" id="deskripsi"
-                            placeholder="deskripsi_barang">
+                            placeholder="deskripsi_barang" required>
                     </div>
                     <div class="form-group ">
                         <label class="">Status barang</label>
-                        <select name="status" id="" class="form-control">
+                        <select name="status" id="" class="form-control" required>
                             <option value="1">Belum diambil</option>
                             <option value="2">Sudah diambil</option>
                         </select>
                     </div>
                     <div class="form-group ">
                         <label class="">Foto Barang</label>
-                        <input type="file" class="form-control" name="foto" id="foto" placeholder="deskripsi_barang">
+                        <input type="file" class="form-control" name="foto" id="foto" placeholder="deskripsi_barang" required>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>

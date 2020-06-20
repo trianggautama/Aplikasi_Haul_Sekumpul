@@ -103,7 +103,7 @@
                     @if(Auth::user()->role == 2)
                     <div class="form-group ">
                         <label class="">Posko Terdekat</label>
-                        <select name="posko_id" id="" class="form-control">
+                        <select name="posko_id" id="" class="form-control" required>
                             <option value="">Pilih posko</option>
                             @foreach ($posko as $d)
                             <option value="{{$d->id}}">{{$d->nama_posko}}</option>
@@ -111,38 +111,38 @@
                         </select>
                     </div>
                     @else
-                    <input type="hidden" name="posko_id" value="{{Auth::user()->ketua_posko->posko->id}}">
+                    <input type="hidden" name="posko_id" value="{{Auth::user()->ketua_posko->posko->id}}" required>
                     @endif
                     <div class="form-group ">
                         <label class="">Nama Pelapor</label>
                         <input type="text" class="form-control" name="nama_pelapor" id="nama_pelapor"
-                            placeholder="nama_pelapor">
+                            placeholder="nama_pelapor" required>
                     </div>
                     <div class="form-group ">
                         <label class="">Nomor Hp Pelapor</label>
                         <input type="text" class="form-control" name="no_hp_pelapor" id="no_hp_pelapor"
-                            placeholder="no_hp_pelapor">
+                            placeholder="no_hp_pelapor" required>
                     </div>
                     <div class="form-group ">
                         <label class="">Nama Barang</label>
                         <input type="text" class="form-control" name="nama_barang" id="nama_barang"
-                            placeholder="nama_barang">
+                            placeholder="nama_barang" required>
                     </div>
                     <div class="form-group ">
                         <label class="">Merk Barang</label>
-                        <input type="text" class="form-control" name="merk" id="merk" placeholder="Merk barang">
+                        <input type="text" class="form-control" name="merk" id="merk" placeholder="Merk barang" required>
                     </div>
                     <div class="form-group ">
                         <label class="">Nomor Hp</label>
-                        <input type="text" class="form-control" name="no_hp" id="no_hp" placeholder="Nomor hp">
+                        <input type="text" class="form-control" name="no_hp" id="no_hp" placeholder="Nomor hp" required>
                     </div>
                     <div class="form-group ">
                         <label class="">Deskripsi</label>
-                        <input type="text" class="form-control" name="deskripsi" id="deskripsi" placeholder="Deskripsi">
+                        <input type="text" class="form-control" name="deskripsi" id="deskripsi" placeholder="Deskripsi" required>
                     </div>
                     <div class="form-group ">
                         <label class="">Status Barang</label>
-                        <select name="status" id="" class="form-control">
+                        <select name="status" id="" class="form-control" required>
                             <option value="1">Belum ditemukan</option>
                             <option value="2">Sudah ditemukan</option>
                         </select>

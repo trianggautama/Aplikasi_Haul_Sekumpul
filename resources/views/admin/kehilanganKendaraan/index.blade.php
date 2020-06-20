@@ -97,7 +97,7 @@
                     @if(Auth::user()->role == 2)            
                         <div class="form-group ">
                             <label class="">Posko Terdekat</label>
-                            <select name="posko_id" id="" class="form-control">
+                            <select name="posko_id" id="" class="form-control" required>
                                 <option value="">Pilih posko</option>
                                 @foreach ($posko as $d)
                                 <option value="{{$d->id}}">{{$d->nama_posko}}</option>
@@ -105,36 +105,36 @@
                             </select>
                         </div>   
                     @else
-                        <input type="hidden" name="posko_id" value="{{Auth::user()->ketua_posko->posko->id}}">
+                        <input type="hidden" name="posko_id" value="{{Auth::user()->ketua_posko->posko->id}}" required>
                     @endif 
                     <div class="form-group ">
                         <label class="">Nomor Polisi</label>
-                        <input type="text" class="form-control" name="plat_nomor" id="plat_nomor" placeholder="DA XXX">
+                        <input type="text" class="form-control" name="plat_nomor" id="plat_nomor" placeholder="DA XXX" required>
                     </div>
                     <div class="form-group ">
                         <label class="">Merk Kendaraan</label>
                         <input type="text" class="form-control" name="merk_kendaraan" id="merk_kendaraan"
-                            placeholder="merk_kendaraan">
+                            placeholder="merk_kendaraan" required>
                     </div>
                     <div class="form-group ">
                         <label class="">Warna</label>
-                        <input type="text" class="form-control" name="warna" id="warna" placeholder="Warna">
+                        <input type="text" class="form-control" name="warna" id="warna" placeholder="Warna" required>
                     </div>
 
                     <div class="form-group ">
                         <label class="">Nama Pelapor</label>
                         <input type="text" class="form-control" name="nama_pelapor" id="nama_pelapor"
-                            placeholder="Nama Pelapor">
+                            placeholder="Nama Pelapor" required>
                     </div>
 
                     <div class="form-group ">
                         <label class="">No Hp Pelapor</label>
                         <input type="text" class="form-control" name="no_hp_pelapor" id="no_hp_pelapor"
-                            placeholder="Nomor HP Pelapor">
+                            placeholder="Nomor HP Pelapor" required>
                     </div>
                     <div class="form-group ">
                         <label class="">Posko Terdekat</label>
-                        <select name="status" id="" class="form-control">
+                        <select name="status" id="" class="form-control" required>
                             <option value="1">Belum ditemukan</option>
                             <option value="2">Sudah ditemukan</option>
                         </select>

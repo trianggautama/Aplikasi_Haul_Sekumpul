@@ -115,31 +115,31 @@
                     <div class="form-group ">
                         <label class="">Nama Orang</label>
                         <input type="text" class="form-control" name="nama_orang" id="nama_orang"
-                            placeholder="nama_orang">
+                            placeholder="nama_orang" required>
                     </div>
                     <div class="form-group ">
                         <label class="">Umur</label>
-                        <input type="text" class="form-control" name="umur" id="umur" placeholder="Umur">
+                        <input type="text" class="form-control" name="umur" id="umur" placeholder="Umur" required>
                     </div>
                     <div class="form-group ">
                         <label class="">Alamat</label>
-                        <textarea name="alamat" id="" class="form-control"></textarea>
+                        <textarea name="alamat" id="" class="form-control" required></textarea>
                     </div>
                     <div class="form-group ">
                         <label class="">Ciri Fisik</label>
-                        <textarea name="ciri_fisik" id="" class="form-control"></textarea>
+                        <textarea name="ciri_fisik" id="" class="form-control" required></textarea>
                     </div>
                     <div class="form-group ">
                         <label class="">Foto</label>
-                        <input type="file" class="form-control" name="foto" id="foto">
+                        <input type="file" class="form-control" name="foto" id="foto" >
                     </div>
                     <div class="form-group ">
                         <label class="">Catatan</label>
-                        <textarea name="deskripsi" id="" class="form-control"></textarea>
+                        <textarea name="deskripsi" id="" class="form-control" required></textarea>
                     </div>
                     <div class="form-group ">
                         <label class="">Status</label>
-                        <select name="status" id="" class="form-control">
+                        <select name="status" id="" class="form-control" required>
                             <option value="1">Belum ditemukan</option>
                             <option value="2">Sudah ditemukan</option>
                         </select>

@@ -93,7 +93,7 @@
     </div>
     <div class="container">
         <div class="isi">
-            <h2 style="text-align:center;">DATA DONASI HAUL KESELURUHAN</h2>
+            <h2 style="text-align:center;">DATA DONASI HAUL PERIODE {{\carbon\carbon::parse($haul->tanggal_mulai)->translatedFormat('Y')}}</h2>
             <br>
             <table class="table table-bordered table-striped mb-0" id="datatable-default">
                             <thead>
@@ -101,8 +101,8 @@
                                     <th>No</th>
                                     <th>Nama</th>
                                     <th>Nomor HP</th>
-                                    <th>Besaran</th>
                                     <th>Metode</th>
+                                    <th>Besaran</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -111,7 +111,6 @@
                                     <td>{{$loop->iteration}}</td>
                                     <td>{{$d->nama_donatur}}</td>
                                     <td>{{$d->no_hp}}</td>
-                                    <td>Rp.{{$d->besaran}},-</td>
                                     <td>
                                         @if($d->metode == 1)
                                         Cash
@@ -119,8 +118,13 @@
                                         Transfer
                                         @endif
                                     </td>
+                                    <td>Rp.{{$d->besaran}},-</td>
                                 </tr>
                                 @endforeach
+                                <tr>
+                                    <td colspan="4"> Total Donasi </td>
+                                    <td>Rp.{{$data->sum('besaran')}},-</td>
+                                </tr>
                             </tbody>
                         </table>
                       <br>

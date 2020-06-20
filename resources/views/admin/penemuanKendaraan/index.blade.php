@@ -117,7 +117,7 @@
                     @endif
                     <div class="form-group ">
                         <label class="">Lokasi Parkir</label>
-                        <select name="lokasi_parkir_id" id="" class="form-control">
+                        <select name="lokasi_parkir_id" id="" class="form-control" required>
                             <option value="">Pilih lokasi parkir</option>
                             @foreach ($lokasi_parkir as $d)
                             <option value="{{$d->id}}">{{$d->alamat}}, Posko {{$d->posko->nama_posko}}</option>
@@ -126,35 +126,35 @@
                     </div>
                     <div class="form-group ">
                         <label class="">Nomor Polisi</label>
-                        <input type="text" class="form-control" name="plat_nomor" id="plat_nomor" placeholder="DA XXX">
+                        <input type="text" class="form-control" name="plat_nomor" id="plat_nomor" placeholder="DA XXX" required>
                     </div>
                     <div class="form-group ">
                         <label class="">Merk Kendaraan</label>
                         <input type="text" class="form-control" name="merk_kendaraan" id="merk_kendaraan"
-                            placeholder="merk_kendaraan">
+                            placeholder="merk_kendaraan" required>
                     </div>
                     <div class="form-group ">
                         <label class="">Warna</label>
-                        <input type="text" class="form-control" name="warna" id="warna" placeholder="Warna">
+                        <input type="text" class="form-control" name="warna" id="warna" placeholder="Warna" required>
                     </div>
 
                     <div class="form-group ">
                         <label class="">Nama Pelapor</label>
                         <input type="text" class="form-control" name="nama_pelapor" id="nama_pelapor"
-                            placeholder="nama_pelapor">
+                            placeholder="nama_pelapor" required>
                     </div>
                     <div class="form-group ">
                         <label class="">No Hp Pelapor</label>
                         <input type="text" class="form-control" name="no_hp_pelapor" id="no_hp_pelapor"
-                            placeholder="Nomor HP Pelapor">
+                            placeholder="Nomor HP Pelapor" required>
                     </div>
                     <div class="form-group ">
                         <label class="">Foto Kendaraan</label>
-                        <input type="file" class="form-control" name="foto" id="foto" placeholder="nama_pelapor">
+                        <input type="file" class="form-control" name="foto" id="foto" required>
                     </div>
                     <div class="form-group">
                         <label class="">Status Kendaraan</label>
-                        <select name="status" id="" class="form-control">
+                        <select name="status" id="" class="form-control" required>
                             <option value="1">Belum diambil</option>
                             <option value="2">Sudah diambil</option>
                         </select>

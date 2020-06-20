@@ -85,21 +85,21 @@
                     @csrf
                     <div class="form-group ">
                         <label class="">Judul</label>
-                        <input type="text" class="form-control" name="judul" id="judul" placeholder="Judul">
+                        <input type="text" class="form-control" name="judul" id="judul" placeholder="Judul" required>
                     </div>
                     <div class="form-group ">
                         <label class="">Isi </label>
-                        <textarea id="summernote" name="isi"></textarea>
+                        <textarea id="summernote" name="isi" required></textarea>
                     </div>
                     <!-- kategori default pemasukan -->
                     <div class="form-group ">
                         <label class="">Donatur</label>
                         <input type="text" class="form-control" name="nama_donatur" id="nama_donatur"
-                            placeholder="Nama Donatur">
+                            placeholder="Nama Donatur" required>
                     </div>
                     <div class="form-group ">
                         <label class="">Besaran (Rp.)</label>
-                        <input type="text" class="form-control" name="besaran" id="no_hp" placeholder="Rp.">
+                        <input type="text" class="form-control" name="besaran" id="no_hp" placeholder="Rp." required>
                     </div>
                     <div class="form-group ">
                         <label class="">Penanggungjawab</label>

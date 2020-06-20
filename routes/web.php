@@ -161,7 +161,7 @@ Route::group(['middleware' => ['auth']], function () {
     //cetak route
     Route::get('/posko/cetak', 'reportController@poskoCetak')->name('poskoCetak');
     Route::get('/posko/detail/cetak/{uuid}', 'reportController@poskoDetailCetak')->name('poskoDetailCetak');
-    Route::get('/donasi/cetak', 'reportController@donasiCetak')->name('donasiCetak');
+    Route::get('/donasi/cetak/{uuid}', 'reportController@donasiCetak')->name('donasiCetak');
     Route::post('/donasi/filter', 'reportController@donasiFilter')->name('donasiFilterCetak');
     Route::get('/pemasukan/cetak', 'reportController@pemasukanCetak')->name('pemasukanCetak');
     Route::get('/pengeluaran/cetak', 'reportController@pengeluaranCetak')->name('pengeluaranCetak');

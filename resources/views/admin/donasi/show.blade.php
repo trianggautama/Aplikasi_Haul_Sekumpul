@@ -21,8 +21,7 @@
             <div class="card">
                 <div class="card-header">
                     <div class="text-right">
-                        <a href="{{Route('donasiFilter')}}" class="btn btn-sm btn-secondary"><i class="fa fa-filter"></i> Filter Cetak Data</a>
-                        <a href="{{Route('donasiCetak')}}" class="btn btn-sm btn-secondary" target="_blank"><i class="fa fa-print"></i> Cetak Data</a>
+                        <a href="{{Route('donasiCetak',['uuid'=>$haul->uuid])}}" class="btn btn-sm btn-secondary" target="_blank"><i class="fa fa-print"></i> Cetak Data</a>
                         <button class="btn btn-sm btn-success" id="tambah"><i class="fa fa-plus"></i> Tambah
                             Data</button>
                     </div>
@@ -89,7 +88,7 @@
                     @csrf
                     <div class="form-group">
                         <label for="">Haul</label>
-                        <select name="haul_sekumpul_id" id="haul_id" class="form-control">
+                        <select name="haul_sekumpul_id" id="haul_id" class="form-control" required>
                             <option value="{{$haul->id}}">Periode
                                 {{\carbon\carbon::parse($haul->tanggal_mulai)->translatedFormat('Y')}}</option>
                         </select>
@@ -97,19 +96,19 @@
                     <div class="form-group ">
                         <label class="">Nama Donatur</label>
                         <input type="text" class="form-control" name="nama_donatur" id="nama_donatur"
-                            placeholder="Nama Donatur">
+                            placeholder="Nama Donatur" required>
                     </div>
                     <div class="form-group ">
                         <label class="">Nomor HP </label>
-                        <input type="text" class="form-control" name="no_hp" id="no_hp" placeholder="Nomor Telepon">
+                        <input type="text" class="form-control" name="no_hp" id="no_hp" placeholder="Nomor Telepon" required>
                     </div>
                     <div class="form-group ">
                         <label class="">Besaran (Rp.)</label>
-                        <input type="number" class="form-control" name="besaran" id="besaran" placeholder="Rp.">
+                        <input type="number" class="form-control" name="besaran" id="besaran" placeholder="Rp." required>
                     </div>
                     <div class="form-group">
                         <label for="">Metode</label>
-                        <select name="metode" id="metode" class="form-control">
+                        <select name="metode" id="metode" class="form-control" required>
                             <option value="">-- Pilih Jenis --</option>
                             <option value="1">Cash</option>
                             <option value="2">Transfer</option>
