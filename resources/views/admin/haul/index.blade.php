@@ -40,25 +40,25 @@
                             </thead>
                             <tbody>
                                 @foreach($data as $d)
-                                    @php 
-                                        $info = $d->informasi_acara;
-                                    @endphp
-                                    <tr>
-                                        <td>{{$loop->iteration}}</td>
-                                        <td>{!! $info !!}</td>
-                                        <td>{{$d->tanggal_mulai}}</td>
-                                        <td>{{$d->tanggal_selesai}}</td>
-                                        <td>{{$d->ketua_panitia}}</td>
-                                        <td>
-                                         <a href="{{Route('haulShow',['uuid'=>$d->uuid])}}" class="btn btn-sm btn-warning m-1 "> <i
-                                                class="fa fa-file"></i></a>
-                                            <a href="{{Route('haulEdit',['uuid'=>$d->uuid])}}" class="btn btn-sm btn-primary m-1 "> <i
-                                                    class="fa fa-edit"></i></a>
-                                            <button class="btn btn-sm btn-danger m-1" onclick="Hapus('{{$d->uuid}}')"> <i
+                                @php
+                                $info = $d->informasi_acara;
+                                @endphp
+                                <tr>
+                                    <td>{{$loop->iteration}}</td>
+                                    <td>{!! $info !!}</td>
+                                    <td>{{$d->tanggal_mulai}}</td>
+                                    <td>{{$d->tanggal_selesai}}</td>
+                                    <td>{{$d->ketua_panitia}}</td>
+                                    <td>
+                                        <a href="{{Route('haulShow',['uuid'=>$d->uuid])}}"
+                                            class="btn btn-sm btn-warning m-1 "> <i class="fa fa-file"></i></a>
+                                        <a href="{{Route('haulEdit',['uuid'=>$d->uuid])}}"
+                                            class="btn btn-sm btn-primary m-1 "> <i class="fa fa-edit"></i></a>
+                                        <button class="btn btn-sm btn-danger m-1" onclick="Hapus('{{$d->uuid}}')"> <i
                                                 class="fa fa-trash"></i></button>
-                                        
-                                        </td>
-                                    </tr>
+
+                                    </td>
+                                </tr>
                                 @endforeach
                             </tbody>
                         </table>
@@ -79,7 +79,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{route('haulStore')}}" method="post">
+                <form action="{{route('haulStore')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="">Informasi</label>
@@ -95,11 +95,13 @@
                     </div>
                     <div class="form-group ">
                         <label class="">Nama Katua Panitia</label>
-                        <input type="text" class="form-control" name="ketua_panitia" id="nama"  placeholder="Nama" required>
+                        <input type="text" class="form-control" name="ketua_panitia" id="nama" placeholder="Nama"
+                            required>
                     </div>
                     <div class="form-group ">
                         <label class="">Nomor Hp</label>
-                        <input type="text" class="form-control" name="no_hp" id="no_hp"  placeholder="Nomor Hp Ketua Panitia" required>
+                        <input type="text" class="form-control" name="no_hp_ketua" id="no_hp_ketua"
+                            placeholder="Nomor Hp Ketua Panitia" required>
                     </div>
                     <div class="form-group ">
                         <label class="">Foto Ketua Panitia</label>
