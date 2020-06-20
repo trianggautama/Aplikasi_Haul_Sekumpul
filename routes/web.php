@@ -6,6 +6,7 @@ Route::get('/', 'adminController@depan')->name('depan');
 Route::get('/berita/all', 'adminController@beritaAll')->name('beritaAll');
 Route::get('/berita/show/{uuid}', 'adminController@beritaShow')->name('beritaShow');
 Route::get('/rombongan/depan', 'adminController@rombonganDepan')->name('rombonganDepan');
+Route::get('/informasi/depan', 'adminController@informasiDepan')->name('informasiDepan');
 Route::get('/kehilanganBarang/depan', 'adminController@kehilanganBarangDepan')->name('kehilanganBarangDepan');
 Route::get('/penemuanBarang/depan', 'adminController@penemuanBarangDepan')->name('penemuanBarangDepan');
 Route::get('/kehilanganOrang/depan', 'adminController@kehilanganOrangDepan')->name('kehilanganOrangDepan');

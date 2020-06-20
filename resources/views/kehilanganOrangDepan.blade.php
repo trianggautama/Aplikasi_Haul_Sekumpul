@@ -39,23 +39,14 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto navi">
                 <li class="nav-item">
-                    <a class="nav-link nav-btn active" href="#">HEADER</a>
+                    <a class="nav-link nav-btn" href="/">BERANDA</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link nav-btn" href="#lokasi">LOKASI</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link nav-btn" href="#fitur">FITUR</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link nav-btn" href="#cctv">CCTV</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link nav-btn" href="#kontak">KONTAK</a>
+                    <a class="nav-link nav-btn active" href="#">INFORMASI</a>
                 </li>
             </ul>
         </div>
-    </div> 
+    </div>
 </nav>
 
 <div class="smoke">
@@ -68,6 +59,7 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
+                                    <th>Periode Haul</th>
                                     <th>Posko Pelaporan</th>
                                     <th>Nama </th>
                                     <th>Umur</th>
@@ -81,6 +73,7 @@
                                 @foreach($data as $d)
                                 <tr>
                                     <td>{{$loop->iteration}}</td>
+                                    <td>Tahun {{carbon\carbon::parse($d->posko->haul_sekumpul->tanggal_mulai)->translatedFormat('Y')}}</td>
                                     <td>{{$d->posko->nama_posko}}</td>
                                     <td>{{$d->nama_orang}}</td>
                                     <td>{{$d->umur}}</td>
@@ -105,50 +98,22 @@
 
 
 <div class="dark">
-    <div class="container animate-box" id="fh5co-footer">
+    <div class="container animate-box" id="kontak">
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-6">
                 <div><a class="nsavbar-brand" href="#">Lokasi</span></a></div>
                 <br>
                 <div class="text-white"> 
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4414.766011865244!2d114.85339486663894!3d-3.427675765891481!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2de681f01a4afa8b%3A0xbca32ee881a736f8!2sKubah%20Sekumpul!5e0!3m2!1sid!2sid!4v1592054713391!5m2!1sid!2sid" width="350" height="200" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
                 </div>
             </div>
-            <div class="col-sm-4">
-                <div class="icons">Explore Our Pages</h3></div>
-                <br>
-                <table width="100%">
-                    <tr>
-                        <td><a class="text-white" href="#!">Home</a></td>
-                        <td><a class="text-white" href="#fh5co-pricing">Hosting</a></td>
-                    </tr>
-                    <tr>
-                        <td><a class="text-white" href="#!">About us</a></td>
-                        <td><a class="text-white" href="#!">Faq</a></td>
-                    </tr>
-                    <tr>
-                        <td><a class="text-white" href="#!">Services</a></td>
-                        <td><a class="text-white" href="#!">Cart</a></td>
-                    </tr>
-                    <tr>
-                        <td><a class="text-white" href="#!">Shop</a></td>
-                        <td><a class="text-white" href="#!">Checkout</a></td>
-                    </tr>
-                    <tr>
-                        <td><a class="text-white" href="#!">Blog</a></td>
-                        <td><a class="text-white" href="#fh5co-contact">Contact</a></td>
-                    </tr>
-                </table>
-            </div>
-            <div class="col-sm-4">
-                <div class="icons">Get in Touch</h3></div>
+            <div class="col-sm-6">
+                <div class="icons">Media Sosial</h3></div>
                 <br>
                 <div>
-                    <i class="fa fa-facebook-square" aria-hidden="true"></i>
-                    <i class="fa fa-twitter-square" aria-hidden="true"></i>
-                    <i class="fa fa-instagram" aria-hidden="true"></i>
-                    <i class="fa fa-google-plus-square" aria-hidden="true"></i>
-                    <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+                    <a href="https://www.facebook.com/ArraudhahSekumpul/"><h5 class="text-white"><i class="fa fa-facebook-square" aria-hidden="true"></i> Arraudhah Sekumpul</h5></a> <br>
+                    <a href="https://www.instagram.com/arraudhah_sekumpul/"><h5 class="text-white"><i class="fa fa-instagram" aria-hidden="true"></i> arraudhah_sekumpul </h5></a> <br>
+                    <a href="https://www.youtube.com/channel/UCNWJUm_p-nB32PYfX99nLBw"><h5 class="text-white"><i class="fa fa-youtube" aria-hidden="true"></i> Ar_Raudhah TV_Official</h5></a>
                 </div>
             </div>
         </div>

@@ -49,6 +49,11 @@ class adminController extends Controller
         return view('beritaAll',compact('berita'));
     }
 
+    public function informasiDepan(){
+
+        return view('informasiDepan');
+    }
+
     public function beritaShow($uuid){
         $data = Arraudah::where('uuid',$uuid)->first();
         return view('beritaShow',compact('data'));
