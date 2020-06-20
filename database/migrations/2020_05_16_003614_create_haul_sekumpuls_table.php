@@ -20,6 +20,8 @@ class CreateHaulSekumpulsTable extends Migration
             $table->date('tanggal_mulai');
             $table->date('tanggal_selesai');
             $table->string('ketua_panitia', 100);
+            $table->string('foto', 100)->default('default.jpg');
+            $table->string('no_hp_ketua', 13);
             $table->timestamps();
         });
     }
