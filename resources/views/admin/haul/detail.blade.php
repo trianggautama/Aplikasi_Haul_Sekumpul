@@ -24,7 +24,7 @@
                             <div class="col-md-5">
                             <h5> Data Ketua Panitia </h5>
 
-                                <img  class="mb-3" src="{{asset('images/user/admin.png')}}" alt="" width="200px">
+                                <img  class="mb-3" src="{{asset('images/ketua/'.$data->foto)}}" alt="" width="200px">
                                 <div class="form-group">
                                     <label for=""><b>Ketua Panitia :</b> </label>
                                     <p>{{$data->ketua_panitia}}</p>

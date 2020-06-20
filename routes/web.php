@@ -10,6 +10,7 @@ Route::get('/informasi/depan', 'adminController@informasiDepan')->name('informas
 Route::get('/kehilanganBarang/depan', 'adminController@kehilanganBarangDepan')->name('kehilanganBarangDepan');
 Route::get('/penemuanBarang/depan', 'adminController@penemuanBarangDepan')->name('penemuanBarangDepan');
 Route::get('/kehilanganOrang/depan', 'adminController@kehilanganOrangDepan')->name('kehilanganOrangDepan');
+Route::get('/penemuanOrang/depan', 'adminController@penemuanOrangDepan')->name('penemuanOrangDepan');
 Route::get('/kehilanganKendaraan/depan', 'adminController@kehilanganKendaraanDepan')->name('kehilanganKendaraanDepan');
 Route::get('/penemuanKendaraan/depan', 'adminController@penemuanKendaraanDepan')->name('penemuanKendaraanDepan');
 
@@ -30,7 +31,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/haul-sekumpul/detail/{uuid}', 'HaulSekumpulController@show')->name('haulShow');
     Route::get('/haul-sekumpul/edit/{uuid}', 'HaulSekumpulController@edit')->name('haulEdit');
     Route::put('/haul-sekumpul/edit/{uuid}', 'HaulSekumpulController@update')->name('haulUpdate');
-    Route::get('/haul-sekumpul/delete/{uuid}', 'HauSekumpulController@destroy')->name('haulDestroy');
+    Route::get('/haul-sekumpul/delete/{uuid}', 'HaulSekumpulController@destroy')->name('haulDestroy');
 
     Route::get('/posko/index', 'poskoController@index')->name('poskoIndex');
     Route::post('/posko/index', 'poskoController@store')->name('poskoStore');

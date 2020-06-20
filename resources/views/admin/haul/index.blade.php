@@ -84,14 +84,17 @@
                     <div class="form-group">
                         <label for="">Informasi</label>
                         <textarea id="summernote" name="informasi_acara" required></textarea>
-                    </div>
+                  </div>
+                    @php
+                        $tgl_mulai = carbon\carbon::now()->format('Y-m-d');
+                    @endphp
                     <div class="form-group">
-                        <label for="">Tanggal Mulai</label>
-                        <input type="date" class="form-control" name="tanggal_mulai" placeholder="username" required>
+                        <label for="">Tanggal Mulai {{$tgl_mulai}}</label>
+                        <input type="date" class="form-control" name="tanggal_mulai" value="{{$tgl_mulai}}" required>
                     </div>
                     <div class="form-group">
                         <label for="">Tanggal Selesai</label>
-                        <input type="date" class="form-control" name="tanggal_selesai" id="password" required>
+                        <input type="date" class="form-control" name="tanggal_selesai" value="{{$tgl_mulai}}" required>
                     </div>
                     <div class="form-group ">
                         <label class="">Nama Katua Panitia</label>

@@ -76,7 +76,7 @@ class HaulSekumpulController extends Controller
     public function destroy($uuid)
     {
         $haul = haul_sekumpul::where('uuid', $uuid)->first();
-        File::delete('images/Ketua/' . $data->foto);
+        File::delete('images/Ketua/' . $haul->foto);
 
         $haul->delete();
 

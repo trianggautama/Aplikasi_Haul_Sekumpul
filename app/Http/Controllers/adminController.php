@@ -13,6 +13,7 @@ use App\Ketua_posko;
 use App\Pemasukan;
 use App\Penemuan_barang;
 use App\Penemuan_kendaraan;
+use App\Penemuan_orang;
 use App\Pengeluaran;
 use App\Posko;
 use Illuminate\Http\Request;
@@ -77,6 +78,11 @@ class adminController extends Controller
     public function kehilanganOrangDepan(){
         $data = Kehilangan_orang::all();
         return view('kehilanganOrangDepan',compact('data'));
+    }
+
+    public function penemuanOrangDepan(){
+        $data = Penemuan_orang::all();
+        return view('penemuanOrangDepan',compact('data'));
     }
 
     public function kehilanganKendaraanDepan(){
