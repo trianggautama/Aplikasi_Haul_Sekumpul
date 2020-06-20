@@ -14,7 +14,9 @@ use App\Lokasi_parkir;
 use App\Pemasukan;
 use App\Penemuan_barang;
 use App\Penemuan_kendaraan;
+use App\Penemuan_orang;
 use App\Pengeluaran;
+use App\Pengeluaran_donasi;
 use App\posko;
 use Carbon\Carbon;
 use PDF;
@@ -246,5 +248,35 @@ class reportController extends Controller
         $pdf->setPaper('a4', 'landscape');
 
         return $pdf->stream('Laporan Penemuan Kendaraan Filter posko.pdf');
+    }
+
+    public function penemuanOrangCetak(){
+        $data = Penemuan_orang::all();
+        $tgl= Carbon::now()->format('d-m-Y');
+        $pdf          = PDF::loadView('formCetak.penemuanOrang', ['data'=>$data,'tgl'=>$tgl]);
+        $pdf->setPaper('a4', 'landscape');
+
+        return $pdf->stream('Laporan Penemuan Orang.pdf');
+    }
+
+    public function penemuanOrangFilter(Request $request){
+        $posko        = Posko::findOrFail($request->posko_id);
+        $data         = Penemuan_orang::where('posko_id',$request->posko_id)->get();
+        $tgl          = Carbon::now()->format('d-m-Y');
+        $pdf          = PDF::loadView('formCetak.penemuanOrangFilter', ['data'=>$data,'tgl'=>$tgl,'posko'=>$posko]);
+        $pdf->setPaper('a4', 'landscape');
+
+        return $pdf->stream('Laporan Penemuan Orang Filter posko.pdf');
+    }
+
+    public function pengeluaranDonasiCetak($uuid){
+        $haul = Haul_sekumpul::where('uuid',$uuid)->first();
+        $data = Pengeluaran_donasi::where('haul_sekumpul_id',$haul->id)->get();
+        $donasi = Donasi::where('haul_sekumpul_id',$haul->id)->get();
+        $tgl  = Carbon::now()->format('d-m-Y');
+        $pdf  = PDF::loadView('formCetak.pengeluaranDonasi', ['data'=>$data,'tgl'=>$tgl,'haul'=>$haul,'donasi'=>$donasi]);
+        $pdf->setPaper('a4', 'landscape');
+
+        return $pdf->stream('Laporan Pengeluaran Donasi.pdf');
     }
 }

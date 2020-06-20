@@ -128,7 +128,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/penemuanOrang/index', 'penemuanOrangController@index')->name('penemuanOrangIndex');
     Route::post('/penemuanOrang/index', 'penemuanOrangController@store')->name('penemuanOrangStore');
-    Route::get('/penemuanOrang/detail/', 'penemuanOrangController@show')->name('penemuanOrangShow');
+    Route::get('/penemuanOrang/detail/{uuid}', 'penemuanOrangController@show')->name('penemuanOrangShow');
     Route::get('/penemuanOrang/edit/{uuid}', 'penemuanOrangController@edit')->name('penemuanOrangEdit');
     Route::put('/penemuanOrang/edit/{uuid}', 'penemuanOrangController@update')->name('penemuanOrangUpdate');
     Route::get('/penemuanOrang/delete/{uuid}', 'penemuanOrangController@destroy')->name('penemuanOrangDestroy');
@@ -183,6 +183,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/kehilanganOrang/filter', 'reportController@kehilanganOrangFilter')->name('kehilanganOrangFilterCetak');
     Route::post('/kehilanganKendaraan/filter', 'reportController@kehilanganKendaraanFilter')->name('kehilanganKendaraanFilterCetak');
     Route::post('/penemuanKendaraan/filter', 'reportController@penemuanKendaraanfilter')->name('penemuanKendaraanFilterCetak');
+    Route::get('/penemuanOrang/cetak', 'reportController@penemuanOrangCetak')->name('penemuanOrangCetak');
+    Route::post('/penemuanOrang/filter', 'reportController@penemuanOrangFilter')->name('penemuanOrangFilterCetak');
+    Route::get('/pengeluaranDonasi/cetak/{uuid}', 'reportController@pengeluaranDonasiCetak')->name('pengeluaranDonasiCetak');
 
     //Login Sebagai Admin Posko
     Route::get('halaman/posko/index', 'adminController@poskoIndex')->name('halamanPoskoIndex');

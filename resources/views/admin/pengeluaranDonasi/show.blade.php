@@ -6,7 +6,7 @@
         <h2>Halaman Pengeluaran Donasi</h2>
         <div class="right-wrapper text-right">
             <ol class="breadcrumbs">
-                <li>
+                <li> 
                     <a href="index.html">
                         <i class="fas fa-home"></i>
                     </a>
@@ -21,12 +21,8 @@
             <div class="card">
                 <div class="card-header">
                     <div class="text-right">
-                        <a href="{{Route('donasiFilter')}}" class="btn btn-sm btn-secondary"><i
-                                class="fa fa-filter"></i> Filter Cetak Data</a>
-                        <a href="{{Route('donasiCetak')}}" class="btn btn-sm btn-secondary" target="_blank"><i
-                                class="fa fa-print"></i> Cetak Data</a>
-                        <button class="btn btn-sm btn-success" id="tambah"><i class="fa fa-plus"></i> Tambah
-                            Data</button>
+                        <a href="{{Route('pengeluaranDonasiCetak',['uuid'=>$haul->uuid])}}" class="btn btn-sm btn-secondary" target="_blank"><i  class="fa fa-print"></i> Cetak Data</a>
+                        <button class="btn btn-sm btn-success" id="tambah"><i class="fa fa-plus"></i> Tambah Data</button>
                     </div>
                 </div>
                 <div class="card-body">
@@ -52,7 +48,7 @@
                                         <a href="{{Route('pengeluaranDonasiEdit',['uuid' => $d->uuid])}}"
                                             class="btn btn-sm btn-primary m-1 text-white">
                                             <i class="fa fa-edit"></i></a>
-                                        <button class="btn btn-sm btn-danger" onclick="Hapus('')"> <i
+                                        <button class="btn btn-sm btn-danger" onclick="Hapus('{{$d->uuid}}','{{$d->keperluan}}')"> <i
                                                 class="fa fa-trash"></i></button>
                                     </td>
                                 </tr>
@@ -141,7 +137,7 @@
 			cancelButtonText: 'Batal'
 		}).then((result) => {
 			if (result.value) {
-				url = '{{route("donasiDestroy",'')}}';
+				url = '{{route("pengeluaranDonasiDestroy",'')}}';
 				window.location.href =  url+'/'+uuid ;			
 			}
 		})

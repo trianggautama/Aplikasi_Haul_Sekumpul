@@ -22,9 +22,9 @@
                 <div class="card-header">
                     <div class="text-right">
                         @if(Auth::user()->role == 2)
-                        <a href="{{Route('kehilanganOrangFilter')}}" class="btn btn-sm btn-secondary"><i
+                        <a href="{{Route('penemuanOrangFilter')}}" class="btn btn-sm btn-secondary"><i
                                 class="fa fa-filter"></i> Filter Data</a>
-                        <a href="{{Route('kehilanganOrangCetak')}}" class="btn btn-sm btn-secondary" target="_blank"><i
+                        <a href="{{Route('penemuanOrangCetak')}}" class="btn btn-sm btn-secondary" target="_blank"><i
                                 class="fa fa-print"></i> Cetak Data</a>
                         @endif
                         <button class="btn btn-sm btn-success" id="tambah"><i class="fa fa-plus"></i> Tambah
@@ -65,12 +65,14 @@
                                         @endif
                                     </td>
                                     <td>
-                                        @if(Auth::user()->role == 2 || Auth::user()->ketua_posko->posko->id ==
-                                        $d->posko_id)
+                                        @if(Auth::user()->role == 2 || Auth::user()->ketua_posko->posko->id == $d->posko_id)
+                                        <a href="{{Route('penemuanOrangShow',['uuid' => $d->uuid])}}"
+                                            class="btn btn-sm btn-warning m-1 text-white">
+                                            <i class="fa fa-info-circle"></i></a>
                                         <a href="{{Route('penemuanOrangEdit',['uuid' => $d->uuid])}}"
                                             class="btn btn-sm btn-primary m-1 text-white">
                                             <i class="fa fa-edit"></i></a>
-                                        <button class="btn btn-sm btn-danger" onclick="Hapus('')"> <i
+                                        <button class="btn btn-sm btn-danger" onclick="Hapus('{{$d->uuid}}','{{$d->nama_orang}}')"> <i
                                                 class="fa fa-trash"></i></button>
                                         @endif
                                     </td>
@@ -176,7 +178,7 @@
 			cancelButtonText: 'Batal'
 		}).then((result) => {
 			if (result.value) {
-				url = '{{route("kehilanganOrangDestroy",'')}}';
+				url = '{{route("penemuanOrangDestroy",'')}}';
 				window.location.href =  url+'/'+uuid ;			
 			}
 		})

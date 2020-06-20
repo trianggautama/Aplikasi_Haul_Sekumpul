@@ -32,10 +32,10 @@ class penemuanOrangController extends Controller
         return redirect()->back()->withSuccess('Data berhasil disimpan');
     }
 
-    public function show()
+    public function show($uuid)
     {
-
-        return view('admin.penemuanOrang.show');
+        $data = Penemuan_orang::where('uuid',$uuid)->first();
+        return view('admin.penemuanOrang.show',compact('data'));
     }
 
     public function edit($uuid)
@@ -68,7 +68,7 @@ class penemuanOrangController extends Controller
         File::delete('images/penemuanPenemuan/' . $data->foto);
         // File::delete('images/penemuanKendaraan/' . $data->ktp_penerima);
         $data->delete();
-        return redirect()->route('penemuanKendaraanIndex')->withSuccess('Data berhasil dihapus');
+        return redirect()->route('penemuanOrangIndex')->withSuccess('Data berhasil dihapus');
     }
 
     public function filter()

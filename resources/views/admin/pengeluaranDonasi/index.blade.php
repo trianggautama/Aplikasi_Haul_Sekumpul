@@ -42,7 +42,7 @@
                                 <tr>
                                     <td>{{$loop->iteration}}</td>
                                     <td>Perode {{\carbon\carbon::parse($d->tanggal_mulai)->translatedFormat('Y')}}</td>
-                                    <td>Rp.,-</td>
+                                    <td>Rp.{{$d->Pengeluaran_donasi->sum('besaran')}},-</td>
                                     <td>
                                         <a href="{{Route('pengeluaranDonasiShow',['uuid'=>$d->uuid])}}"
                                             class="btn btn-sm btn-warning m-1 "> <i class="fa fa-info-circle"></i>
