@@ -31,13 +31,13 @@
                                 </div>
                                 <div class="form-group">
                                     <label for=""><b>Nomor Hp  :</b> </label>
-                                    <p>08765463727</p>
+                                    <p>{{$data->no_hp_ketua}}</p>
                                 </div>
                             </div>
                             <div class="col-md-7">
                             <div class="form-group">
                                     <label for=""> <b>Tanggal Pel]aksanaan:</b>  </label>
-                                    <p>{{$data->tanggal_mulai}} - {{$data->tanggal_selesai}}</p>
+                                    <p>{{\carbon\carbon::parse($data->tanggal_mulai)->translatedFormat('d F Y')}} - {{\carbon\carbon::parse($data->tanggal_selesai)->translatedFormat('d F Y')}}</p>
                                 </div>
                                 <div class="form-group">
                                     <label for=""> <b>Informasi Haul : </b></label>

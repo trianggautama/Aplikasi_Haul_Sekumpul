@@ -57,9 +57,9 @@ class userController extends Controller
             $FotoName = $request->nama;
             $foto = $FotoName . '.' . $FotoExt;
             $img->move('images/user', $foto);
-            $user->foto = $foto;
+            $data->foto = $foto;
         } else {
-            $user->foto = 'default.jpg';
+            $data->foto = 'default.jpg';
         }
         $data->role = 2;
 
