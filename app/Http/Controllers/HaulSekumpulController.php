@@ -58,6 +58,7 @@ class HaulSekumpulController extends Controller
         $data->tanggal_mulai = $request->tanggal_mulai;
         $data->tanggal_selesai = $request->tanggal_selesai;
         $data->ketua_panitia = $request->ketua_panitia;
+        $data->no_hp_ketua = $request->no_hp_ketua;
         if ($request->foto != null) {
             $img = $request->file('foto');
             $FotoExt = $img->getClientOriginalExtension();

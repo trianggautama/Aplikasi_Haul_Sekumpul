@@ -36,7 +36,7 @@
                             </div>
                             <div class="col-md-7">
                             <div class="form-group">
-                                    <label for=""> <b>Tanggal Pel]aksanaan:</b>  </label>
+                                    <label for=""> <b>Tanggal Pelaksanaan:</b>  </label>
                                     <p>{{\carbon\carbon::parse($data->tanggal_mulai)->translatedFormat('d F Y')}} - {{\carbon\carbon::parse($data->tanggal_selesai)->translatedFormat('d F Y')}}</p>
                                 </div>
                                 <div class="form-group">
