@@ -151,8 +151,8 @@ class reportController extends Controller
 
     public function rombonganCetak()
     {
-        $data = Informasi_rombongan::all();
-        $tgl= Carbon::now()->format('d-m-Y');
+        $data         = Informasi_rombongan::all();
+        $tgl          = Carbon::now()->format('d-m-Y');
         $pdf          = PDF::loadView('formCetak.rombongan', ['data'=>$data,'tgl'=>$tgl]);
         $pdf->setPaper('a4', 'portrait');
 
@@ -172,8 +172,8 @@ class reportController extends Controller
 
     public function kehilanganBarangCetak()
     {
-        $data = Kehilangan_barang::all();
-        $tgl= Carbon::now()->format('d-m-Y');
+        $data         = Kehilangan_barang::all();
+        $tgl          = Carbon::now()->format('d-m-Y');
         $pdf          = PDF::loadView('formCetak.kehilanganBarang', ['data'=>$data,'tgl'=>$tgl]);
         $pdf->setPaper('a4', 'portrait');
 
@@ -182,8 +182,8 @@ class reportController extends Controller
 
     public function penemuanBarangCetak()
     {
-        $data = Penemuan_barang::all();
-        $tgl= Carbon::now()->format('d-m-Y');
+        $data         = Penemuan_barang::all();
+        $tgl          = Carbon::now()->format('d-m-Y');
         $pdf          = PDF::loadView('formCetak.penemuanBarang', ['data'=>$data,'tgl'=>$tgl]);
         $pdf->setPaper('a4', 'portrait');
 
@@ -192,8 +192,8 @@ class reportController extends Controller
 
     public function kehilanganOrangCetak()
     {
-        $data = Kehilangan_orang::all();
-        $tgl= Carbon::now()->format('d-m-Y');
+        $data         = Kehilangan_orang::all();
+        $tgl          = Carbon::now()->format('d-m-Y');
         $pdf          = PDF::loadView('formCetak.kehilanganOrang', ['data'=>$data,'tgl'=>$tgl]);
         $pdf->setPaper('a4', 'landscape');
 
@@ -202,8 +202,8 @@ class reportController extends Controller
 
     public function kehilanganKendaraanCetak()
     {
-        $data = Kehilangan_kendaraan::all();
-        $tgl= Carbon::now()->format('d-m-Y');
+        $data         = Kehilangan_kendaraan::all();
+        $tgl          = Carbon::now()->format('d-m-Y');
         $pdf          = PDF::loadView('formCetak.kehilanganKendaraan', ['data'=>$data,'tgl'=>$tgl]);
         $pdf->setPaper('a4', 'landscape');
 
@@ -212,8 +212,8 @@ class reportController extends Controller
 
     public function penemuanKendaraanCetak()
     {
-        $data = Penemuan_kendaraan::all();
-        $tgl= Carbon::now()->format('d-m-Y');
+        $data         = Penemuan_kendaraan::all();
+        $tgl          = Carbon::now()->format('d-m-Y');
         $pdf          = PDF::loadView('formCetak.penemuanKendaraan', ['data'=>$data,'tgl'=>$tgl]);
         $pdf->setPaper('a4', 'landscape');
 
@@ -277,8 +277,8 @@ class reportController extends Controller
 
     public function penemuanOrangCetak()
     {
-        $data = Penemuan_orang::all();
-        $tgl= Carbon::now()->format('d-m-Y');
+        $data         = Penemuan_orang::all();
+        $tgl          = Carbon::now()->format('d-m-Y');
         $pdf          = PDF::loadView('formCetak.penemuanOrang', ['data'=>$data,'tgl'=>$tgl]);
         $pdf->setPaper('a4', 'landscape');
 
@@ -298,13 +298,57 @@ class reportController extends Controller
 
     public function pengeluaranDonasiCetak($uuid)
     {
-        $haul = Haul_sekumpul::where('uuid',$uuid)->first();
-        $data = Pengeluaran_donasi::where('haul_sekumpul_id',$haul->id)->get();
-        $donasi = Donasi::where('haul_sekumpul_id',$haul->id)->get();
-        $tgl  = Carbon::now()->format('d-m-Y');
-        $pdf  = PDF::loadView('formCetak.pengeluaranDonasi', ['data'=>$data,'tgl'=>$tgl,'haul'=>$haul,'donasi'=>$donasi]);
+        $haul       = Haul_sekumpul::where('uuid',$uuid)->first();
+        $data       = Pengeluaran_donasi::where('haul_sekumpul_id',$haul->id)->get();
+        $donasi     = Donasi::where('haul_sekumpul_id',$haul->id)->get();
+        $tgl        = Carbon::now()->format('d-m-Y');
+        $pdf        = PDF::loadView('formCetak.pengeluaranDonasi', ['data'=>$data,'tgl'=>$tgl,'haul'=>$haul,'donasi'=>$donasi]);
         $pdf->setPaper('a4', 'landscape');
 
         return $pdf->stream('Laporan Pengeluaran Donasi.pdf');
+    }
+
+    public function katuaPoskoCetak()
+    {
+        $data         = Ketua_posko::all();
+        $tgl          = Carbon::now()->format('d-m-Y');
+        $pdf          = PDF::loadView('formCetak.ketuaPosko', ['data'=>$data,'tgl'=>$tgl]);
+        $pdf->setPaper('a4', 'landscape');
+
+        return $pdf->stream('Laporan Ketua Posko.pdf');
+    }
+
+    public function ketuaFilter(Request $request)
+    {
+        $haul         = Haul_sekumpul::findOrFail($request->haul_sekumpul_id);
+        $posko        = Posko::where('haul_sekumpul_id',$request->haul_sekumpul_id)->get();
+        $data         = $posko->map(function($item){
+                         return   Ketua_posko::with('user')->where('posko_id',$item->id)->get();
+                        });
+        $tgl          = Carbon::now()->format('d-m-Y');
+        $pdf          = PDF::loadView('formCetak.ketuaFilter', ['data'=>$data,'tgl'=>$tgl,'haul'=>$haul]);
+        $pdf->setPaper('a4', 'landscape');
+
+        return $pdf->stream('Laporan Ketua Posko Filter posko.pdf');
+    }
+
+    public function ketuaDetail($uuid)
+    {
+        $data       = Ketua_posko::where('uuid',$uuid)->first();
+        $tgl        = Carbon::now()->format('d-m-Y');
+        $pdf        = PDF::loadView('formCetak.detailKetua', ['data'=>$data,'tgl'=>$tgl]);
+        $pdf->setPaper('a4', 'portrait');
+
+        return $pdf->stream('Laporan Detail Ketua.pdf');
+    }
+
+    public function anggotaDetail($uuid)
+    {
+        $data       = Anggota_posko::where('uuid',$uuid)->first();
+        $tgl        = Carbon::now()->format('d-m-Y');
+        $pdf        = PDF::loadView('formCetak.detailAnggota', ['data'=>$data,'tgl'=>$tgl]);
+        $pdf->setPaper('a4', 'portrait');
+
+        return $pdf->stream('Laporan Detail Anggota.pdf');
     }
 }

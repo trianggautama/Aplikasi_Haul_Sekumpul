@@ -44,10 +44,10 @@
                                         </ul>
 										</div>
 									</div>
-					
-
-									<hr class="dotted short">
-
+                                    <hr class="dotted short">
+                                    <div class="">
+                                    <a href="{{Route('detailAnggotaCetak',['uuid'=>$data->uuid])}}" class="btn btn-block btn-secondary ml-1" target="_blank"><i class="fa fa-print"></i> Cetak Detail</a>
+                                    </div>
 
 								</div>
 							</section>
@@ -59,7 +59,7 @@
 							<div class="tabs">
 								<ul class="nav nav-tabs tabs-primary">
 									<li class="nav-item active">
-										<a class="nav-link" href="#overview" data-toggle="tab">Detail Ketua Posko</a>
+										<a class="nav-link" href="#overview" data-toggle="tab">Detail Anggota Posko</a>
 									</li>
 								</ul>
 								<div class="tab-content">

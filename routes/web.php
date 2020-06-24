@@ -81,12 +81,13 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/rombongan/filter', 'rombonganController@filter')->name('rombonganFilter');
 
     Route::get('/ketua/index', 'ketuaController@index')->name('ketuaIndex');
-
     Route::get('/ketua/detail/', 'ketuaController@show')->name('ketuaShow');
     Route::get('/ketua/edit/{uuid}', 'ketuaController@edit')->name('ketuaEdit');
     Route::get('/ketua/detail/{uuid}', 'ketuaController@show')->name('ketuaShow');
     Route::put('/ketua/edit/{uuid}', 'ketuaController@update')->name('ketuaUpdate');
     Route::get('/ketua/delete/{uuid}', 'ketuaController@destroy')->name('ketuaDestroy');
+    Route::get('/ketua/filter', 'ketuaController@filter')->name('ketuaPoskoFilter');
+
 
     Route::get('/anggota/index', 'anggotaController@index')->name('anggotaIndex');
     Route::post('/anggota/index', 'anggotaController@store')->name('anggotaStore');
@@ -188,6 +189,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/penemuanOrang/cetak', 'reportController@penemuanOrangCetak')->name('penemuanOrangCetak');
     Route::post('/penemuanOrang/filter', 'reportController@penemuanOrangFilter')->name('penemuanOrangFilterCetak');
     Route::get('/pengeluaranDonasi/cetak/{uuid}', 'reportController@pengeluaranDonasiCetak')->name('pengeluaranDonasiCetak');
+    Route::post('/ketua/filter', 'reportController@ketuaFilter')->name('ketuaPoskoFilterCetak');
+    Route::get('ketua/cetak/{uuid}', 'reportController@ketuaDetail')->name('detailKetuaCetak');
+    Route::get('anggota/cetak/{uuid}', 'reportController@anggotaDetail')->name('detailAnggotaCetak');
+
 
     //Login Sebagai Admin Posko
     Route::get('halaman/posko/index', 'adminController@poskoIndex')->name('halamanPoskoIndex');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Haul_sekumpul;
 use App\Ketua_posko;
 use App\User;
 use Illuminate\Http\Request;
@@ -24,7 +25,7 @@ class ketuaController extends Controller
     {
         $data = Ketua_posko::where('uuid', $uuid)->first();
         return view('admin.ketua.edit', compact('data'));
-    }
+    } 
 
     public function update(Request $request, $uuid)
     {
@@ -65,5 +66,11 @@ class ketuaController extends Controller
         $data->delete();
 
         return redirect()->back()->withSuccess('Data berhasil dihapus');
+    }
+
+    public function filter()
+    {
+        $haul = Haul_sekumpul::orderBy('id', 'desc')->get();
+        return view('admin.ketua.filter', compact('haul'));
     }
 }

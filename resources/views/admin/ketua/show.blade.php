@@ -3,7 +3,7 @@
 @section('content')
     <section role="main" class="content-body">
 		<header class="page-header">
-			<h2>Halaman Edit Ketua Posko</h2>
+			<h2>Halaman Detail Ketua Posko</h2>
 				<div class="right-wrapper text-right">
 					<ol class="breadcrumbs">
 						<li>
@@ -11,7 +11,7 @@
 								<i class="fas fa-home"></i>
 							</a>
 						</li>
-						<li><span>Edit Ketua Posko</span></li>
+						<li><span>Detail Ketua Posko</span></li>
 					</ol>
 				<a class="sidebar-right-toggle" ><i class="fas fa-chevron-left"></i></a>
 			</div>
@@ -48,10 +48,8 @@
 
 									<hr class="dotted short">
 
-									<div class="social-icons-list">
-										<a rel="tooltip" data-placement="bottom" target="_blank" href="http://www.facebook.com" data-original-title="Facebook"><i class="fab fa-facebook-f"></i><span>Facebook</span></a>
-										<a rel="tooltip" data-placement="bottom" href="http://www.twitter.com" data-original-title="Twitter"><i class="fab fa-twitter"></i><span>Twitter</span></a>
-										<a rel="tooltip" data-placement="bottom" href="http://www.linkedin.com" data-original-title="Linkedin"><i class="fab fa-linkedin-in"></i><span>Linkedin</span></a>
+									<div class="">
+                                    <a href="{{Route('detailKetuaCetak',['uuid'=>$data->uuid])}}" class="btn btn-block btn-secondary ml-1" target="_blank"><i class="fa fa-print"></i> Cetak Detail</a>
 									</div>
 
 								</div>
@@ -65,7 +63,7 @@
 								<ul class="nav nav-tabs tabs-primary">
 									<li class="nav-item active">
 										<a class="nav-link" href="#overview" data-toggle="tab">Detail Ketua Posko</a>
-									</li>
+                                    </li>
 								</ul>
 								<div class="tab-content">
 									<div id="overview" class="tab-pane active">

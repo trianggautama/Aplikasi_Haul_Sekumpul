@@ -93,7 +93,7 @@
     <div class="container">
         <div class="isi">
         <hr>
-            <h2 style="text-align:center;">DATA KETUA POSKO</h2>
+            <h2 style="text-align:center;">DATA KETUA POSKO PERIODE HAUL {{\carbon\carbon::parse($haul->created_at)->format('Y')}}</h2>
             <br>
             <table class="table table-bordered table-striped mb-0" id="datatable-default">
                             <thead>
@@ -101,19 +101,21 @@
                                     <th>No</th>
                                     <th>Nama</th>
                                     <th>Posko</th>
-                                    <th>Periode Haul</th>
+                                    <th>Alamat</th>
                                     <th>No Hp</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($data as $d)
-                               <tr>
-                               <td>{{$loop->iteration}}</td>
-                               <td>{{$d->user->nama}}</td>
-                               <td>{{$d->posko->nama_posko}}</td>
-                               <td> Periode tahun {{\carbon\carbon::parse($d->posko->haul_sekumpul->created_at)->format('Y')}}</td>
-                               <td>{{$d->user->no_hp}}</td>
-                               </tr>
+                                @foreach($data as $data => $b)
+                                    @foreach($b as $d)
+                                        <tr>
+                                            <td>{{$loop->iteration}}</td>
+                                            <td>{{$d->user->nama}}</td>
+                                            <td>{{$d->posko->nama_posko}}</td>
+                                            <td>{{$d->alamat}}</td>
+                                            <td>{{$d->user->no_hp}}</td>
+                                        </tr>
+                                    @endforeach
                                @endforeach
                             </tbody>
                         </table>

@@ -58,7 +58,6 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="text-right">
-                                    <button class="btn btn-sm btn-secondary"><i class="fa fa-print"></i> Cetak Data</button>
                                 </div>
                             </div>
                         </div>
