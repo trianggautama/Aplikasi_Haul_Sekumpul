@@ -37,19 +37,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto navi">
                 <li class="nav-item">
-                    <a class="nav-link nav-btn active" href="#">HEADER</a>
+                    <a class="nav-link nav-btn" href="/">BERANDA</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link nav-btn" href="#lokasi">LOKASI</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link nav-btn" href="#fitur">FITUR</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link nav-btn" href="#cctv">CCTV</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link nav-btn" href="#kontak">KONTAK</a>
+                    <a class="nav-link nav-btn active" href="#">BERITA</a>
                 </li>
             </ul>
         </div>

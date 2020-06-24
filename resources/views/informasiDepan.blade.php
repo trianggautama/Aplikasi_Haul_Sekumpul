@@ -61,54 +61,56 @@
             <div class="col-sm-4 animate-box text-center" data-animate-effect="fadeIn">
                 <a href="{{Route('rombonganDepan')}}" style="text-decoration: none; color:black;">
                 <div class="bordery">
-                    <i class="fa fa-server text-gr bfont" aria-hidden="true"></i> <br><b>Informasi Rombongan</b>
-
+                    <i class="fa fa-bus text-gr bfont" aria-hidden="true"></i> <br><b>Informasi Rombongan</b>
+                    <p></p>
                 </div>
                 </a>
             </div>
             <div class="col-sm-4 animate-box text-center" data-animate-effect="fadeIn">
             <a href="{{Route('kehilanganBarangDepan')}}" style="text-decoration: none; color:black;">
                 <div class="bordery">
-                    <i class="fa fa-server text-gr bfont" aria-hidden="true"></i> <br><b>Kehilangan Barang</b>
-
+                    <i class="fa fa-briefcase text-gr bfont" aria-hidden="true"></i> <br><b>Kehilangan Barang</b>
+                    <p></p>
                 </div>
                 </a>
             </div>
             <div class="col-sm-4 animate-box text-center" data-animate-effect="fadeIn">
             <a href="{{Route('penemuanBarangDepan')}}" style="text-decoration: none; color:black;">
                 <div class="bordery" style="border-right: 0px;">
-                    <i class="fa fa-server text-gr bfont" aria-hidden="true"></i> <br> <b>penemuan Barang</b>
-
+                    <i class="fa fa-archive text-gr bfont" aria-hidden="true"></i> <br> <b>penemuan Barang</b>
+                    <p></p>
                 </div>
             </a>
             </div>
             <div class="col-sm-4 animate-box text-center">
             <a href="{{Route('kehilanganOrangDepan')}}" style="text-decoration: none; color:black;">
                 <div class="bordery" style="border-bottom: 0px;">
-                    <i class="fa fa-server text-gr bfont" aria-hidden="true"></i> <br> <b>Kehilangan orang</b>
-
+                    <i class="fa fa-user-times text-gr bfont" aria-hidden="true"></i> <br> <b>Kehilangan orang</b>
+                    <p></p>
                 </div>
+                <hr>
             </a>
             </div>
             <div class="col-sm-4 animate-box text-center">
             <a href="{{Route('penemuanOrangDepan')}}" style="text-decoration: none; color:black;">
                 <div class="bordery" style="border-bottom: 0px;">
-                    <i class="fa fa-server text-gr bfont" aria-hidden="true"></i> <br> <b>Penemuan orang</b>
+                    <i class="fa fa-users text-gr bfont" aria-hidden="true"></i> <br> <b>Penemuan orang</b>
+                    <p></p>
                 </div>
             </a>
             </div>
             <div class="col-sm-4 animate-box text-center">
             <a href="{{Route('kehilanganKendaraanDepan')}}" style="text-decoration: none; color:black;">
                 <div class="bordery" style="border-bottom: 0px">
-                    <i class="fa fa-server text-gr bfont" aria-hidden="true"></i> <br> <b>Kehilangan Kendaraan</b>
-
+                    <i class="fa fa-motorcycle text-gr bfont" aria-hidden="true"></i> <br> <b>Kehilangan Kendaraan</b>
+                    <p></p>
                 </div>
                 </a>
             </div>
             <div class="col-sm-4 animate-box text-center">
             <a href="{{Route('penemuanKendaraanDepan')}}" style="text-decoration: none; color:black;">
                 <div class="bordery" style="border-right: 0px; border-bottom: 0px">
-                    <i class="fa fa-server text-gr bfont" aria-hidden="true"></i> <br> <b>Penemuan Kendaraan</b>
+                    <i class="fa fa-motorcycle text-gr bfont" aria-hidden="true"></i> <br> <b>Penemuan Kendaraan</b>
                 </div>
                 </a>
             </div>
