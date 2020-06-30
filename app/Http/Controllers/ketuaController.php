@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
-use App\Ketua_posko;
 use App\Haul_sekumpul;
+use App\Ketua_posko;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -26,7 +26,7 @@ class ketuaController extends Controller
     {
         $data = Ketua_posko::where('uuid', $uuid)->first();
         return view('admin.ketua.edit', compact('data'));
-    } 
+    }
 
     public function update(Request $request, $uuid)
     {
@@ -36,7 +36,7 @@ class ketuaController extends Controller
         $data->nama = $request->nama;
         $data->username = $request->username;
         if (isset($request->password)) {
-            $data->password = H ash::make($request->password);
+            $data->password = Hash::make($request->password);
         }
 
         $data->no_hp = $request->no_hp;
