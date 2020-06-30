@@ -142,7 +142,7 @@ class poskoController extends Controller
     public function profil()
     {
         $posko_id = Auth::user()->ketua_posko->posko->id;
-        $posko    = Posko::findOrFail($posko_id);
+        $posko = Posko::findOrFail($posko_id);
         return view('posko.profil', compact('posko'));
     }
 }
