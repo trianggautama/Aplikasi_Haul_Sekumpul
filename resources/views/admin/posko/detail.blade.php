@@ -245,14 +245,6 @@
                         <input type="password" class="form-control" name="password" id="password">
                     </div>
                     <div class="form-group">
-                        <label for="">No Hp</label>
-                        <input type="number" class="form-control" name="no_hp">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Alamat</label>
-                        <input type="text" class="form-control" name="alamat">
-                    </div>
-                    <div class="form-group">
                         <label for="">foto</label>
                         <input type="file" class="form-control" name="foto" id="foto">
                     </div>
