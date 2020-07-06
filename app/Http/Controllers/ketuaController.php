@@ -6,6 +6,7 @@ use App\Haul_sekumpul;
 use App\Ketua_posko;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class ketuaController extends Controller
@@ -56,7 +57,11 @@ class ketuaController extends Controller
         $ketua->user_id = $data->id;
         $ketua->update();
 
-        return redirect()->route('poskoShow', ['uuid' => $ketua->posko->uuid])->with('success', 'Data Berhasil diubah');
+        if (Auth::user()->role == 2) {
+            return redirect()->route('poskoShow', ['uuid' => $ketua->posko->uuid])->with('success', 'Data Berhasil diubah');
+        } else {
+            return redirect()->route('profilPosko')->with('success', 'Data Berhasil diubah');
+        }
 
     }
 
