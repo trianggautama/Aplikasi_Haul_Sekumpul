@@ -6,6 +6,7 @@ Route::get('/', 'adminController@depan')->name('depan');
 Route::get('/berita/all', 'adminController@beritaAll')->name('beritaAll');
 Route::get('/berita/show/{uuid}', 'adminController@beritaShow')->name('beritaShow');
 Route::get('/rombongan/depan', 'adminController@rombonganDepan')->name('rombonganDepan');
+Route::get('/penutupanJalan/depan', 'adminController@penutupanJalanDepan')->name('penutupanJalanDepan');
 Route::get('/informasi/depan', 'adminController@informasiDepan')->name('informasiDepan');
 Route::get('/kehilanganBarang/depan', 'adminController@kehilanganBarangDepan')->name('kehilanganBarangDepan');
 Route::get('/penemuanBarang/depan', 'adminController@penemuanBarangDepan')->name('penemuanBarangDepan');
@@ -65,6 +66,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/pemasukan/edit/{uuid}', 'pemasukanController@edit')->name('pemasukanEdit');
     Route::put('/pemasukan/edit/{uuid}', 'pemasukanController@update')->name('pemasukanUpdate');
     Route::get('/pemasukan/delete/{uuid}', 'pemasukanController@destroy')->name('pemasukanDestroy');
+    Route::get('/pemasukan/filter', 'pemasukanController@filter')->name('pemasukanFilter');
+
 
     Route::get('/pengeluaran/index', 'pengeluaranController@index')->name('pengeluaranIndex');
     Route::post('/pengeluaran/index', 'pengeluaranController@store')->name('pengeluaranStore');
@@ -200,6 +203,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/ketua/filter', 'reportController@ketuaFilter')->name('ketuaPoskoFilterCetak');
     Route::get('ketua/cetak/{uuid}', 'reportController@ketuaDetail')->name('detailKetuaCetak');
     Route::get('anggota/cetak/{uuid}', 'reportController@anggotaDetail')->name('detailAnggotaCetak');
+    Route::post('/pemasukan/filter', 'reportController@pemasukanFilter')->name('pemasukanFilterCetak');
+
 
 
     //Login Sebagai Admin Posko

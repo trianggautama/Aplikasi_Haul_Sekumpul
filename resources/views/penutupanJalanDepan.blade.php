@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="{{asset('depan/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('depan//css/style.css')}}">
     <link rel="stylesheet" href="{{asset('depan//css/animate.css')}}" />
+    	<!-- Datatable -->
+	<link rel="stylesheet" href="{{asset('admin/vendor/datatables/media/css/dataTables.bootstrap4.css')}}" />
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
     <script src="{{asset('depan/js/modernizr-3.5.0.min.js')}}"></script>
 </head>
@@ -47,84 +49,39 @@
     </div>
 </nav>
 
-<div>
-    <img class="banner d-none d-sm-block" src="{{asset('depan/img/banner.jpg')}}">
-
-</div>
-
-<div class="white">
-    <div class="container" id="fitur">
-        <div class="heading animate-box"><h2><b><span class="text-org">HALAMAN</span> <span class="text-gr"> INFORMASI</span></b></h2>
-        </div>
-        <br><br>
-        <div class="row">
-            <div class="col-sm-4 animate-box text-center" data-animate-effect="fadeIn">
-                <a href="{{Route('rombonganDepan')}}" style="text-decoration: none; color:black;">
-                <div class="bordery">
-                    <i class="fa fa-bus text-gr bfont" aria-hidden="true"></i> <br><b>Informasi Rombongan</b>
-                    <p></p>
-                </div>
-                </a>
-            </div>
-            <div class="col-sm-4 animate-box text-center" data-animate-effect="fadeIn">
-                <a href="{{Route('penutupanJalanDepan')}}" style="text-decoration: none; color:black;">
-                <div class="bordery">
-                    <i class="fa fa-road text-gr bfont" aria-hidden="true"></i> <br><b>Informasi Penutupan Jalan</b>
-                    <p></p>
-                </div>
-                </a>
-            </div>
-            <div class="col-sm-4 animate-box text-center" data-animate-effect="fadeIn">
-            <a href="{{Route('kehilanganBarangDepan')}}" style="text-decoration: none; color:black;">
-                <div class="bordery">
-                    <i class="fa fa-briefcase text-gr bfont" aria-hidden="true"></i> <br><b>Kehilangan Barang</b>
-                    <p></p>
-                </div>
-                </a>
-            </div>
-            <div class="col-sm-4 animate-box text-center" data-animate-effect="fadeIn">
-            <a href="{{Route('penemuanBarangDepan')}}" style="text-decoration: none; color:black;">
-                <div class="bordery" style="border-right: 0px;">
-                    <i class="fa fa-archive text-gr bfont" aria-hidden="true"></i> <br> <b>penemuan Barang</b>
-                    <p></p>
-                </div>
-            </a>
-            </div>
-            <div class="col-sm-4 animate-box text-center">
-            <a href="{{Route('kehilanganOrangDepan')}}" style="text-decoration: none; color:black;">
-                <div class="bordery" style="border-bottom: 0px;">
-                    <i class="fa fa-user-times text-gr bfont" aria-hidden="true"></i> <br> <b>Kehilangan orang</b>
-                    <p></p>
-                </div>
-                <hr>
-            </a>
-            </div>
-            <div class="col-sm-4 animate-box text-center">
-            <a href="{{Route('penemuanOrangDepan')}}" style="text-decoration: none; color:black;">
-                <div class="bordery" style="border-bottom: 0px;">
-                    <i class="fa fa-users text-gr bfont" aria-hidden="true"></i> <br> <b>Penemuan orang</b>
-                    <p></p>
-                </div>
-            </a>
-            </div>
-            <div class="col-sm-4 animate-box text-center">
-            <a href="{{Route('kehilanganKendaraanDepan')}}" style="text-decoration: none; color:black;">
-                <div class="bordery" style="border-bottom: 0px">
-                    <i class="fa fa-motorcycle text-gr bfont" aria-hidden="true"></i> <br> <b>Kehilangan Kendaraan</b>
-                    <p></p>
-                </div>
-                </a>
-            </div>
-            <div class="col-sm-4 animate-box text-center">
-            <a href="{{Route('penemuanKendaraanDepan')}}" style="text-decoration: none; color:black;">
-                <div class="bordery" style="border-right: 0px; border-bottom: 0px">
-                    <i class="fa fa-motorcycle text-gr bfont" aria-hidden="true"></i> <br> <b>Penemuan Kendaraan</b>
-                </div>
-                </a>
-            </div>
-        </div>
+<div class="smoke">
+    <div class="container" id="fh5co-pricing">
+        <div class="card card-body">
+        <h2>Informasi Kehilangan Orang</h2>
+        <hr>
+        <div class="table-responsive">
+        <table class="table table-bordered table-striped mb-0" id="datatable-default">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th> Periode Haul</th>
+                                    <th>Nama Jalan</th>
+                                    <th>Status</th>
+                                    <th>Jalan Alternatif</th>
+                                    <th>Durasi Pengalihan</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Perode Haul 2020</td>
+                                        <td>Jl.A.yani arah Banjarmasin</td>
+                                        <td>Ditutup</td>
+                                        <td>Lingkar utara dan Lingkar Selatan</td>
+                                        <td>2 Juli 2020- 3 Juli 2020</td>
+                                    </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    </div>
     </div>
 </div>
+
 
 <div class="dark">
     <div class="container animate-box" id="kontak">
@@ -152,12 +109,13 @@
 <div class="darker">
     <div class="container" id="fh5co-legal">
         <div class="row">
-            <div class="col-sm-12 text-white text-center">
+            <div class="col-sm-8 text-white mtext-center">
                 &copy; 2020 
             </div>
         </div>
     </div>
 </div>
+
 
 <!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -168,7 +126,20 @@
 <!--<script src="https://use.fontawesome.com/8e45396e2e.js"></script>-->
 <script src="{{asset('depan/js/fontawesome.js')}}"></script>
 <script src="{{asset('depan/js/jquery.waypoints.min.js')}}"></script>
-<script src="{{asset('depan/js/animate.js')}}"></script>
+<script src="{{asset('depan/js/animate.js')}}"></script> 
+	<!-- Datatable Scripts -->
+	<script src="{{asset('admin/js/examples/examples.datatables.default.js')}}"></script>
+	<script src="{{asset('admin/vendor/datatables/media/js/jquery.dataTables.min.js')}}"></script>
+	<script src="{{asset('admin/vendor/datatables/media/js/dataTables.bootstrap4.min.js')}}"></script>
+	<script src="{{asset('admin/vendor/datatables/extras/TableTools/Buttons-1.4.2/js/dataTables.buttons.min.js')}}">
+	</script>
+	<script src="{{asset('admin/vendor/datatables/extras/TableTools/Buttons-1.4.2/js/buttons.bootstrap4.min.js')}}">
+	</script>
+	<script src="{{asset('admin/vendor/datatables/extras/TableTools/Buttons-1.4.2/js/buttons.html5.min.js')}}"></script>
+	<script src="{{asset('admin/vendor/datatables/extras/TableTools/Buttons-1.4.2/js/buttons.print.min.js')}}"></script>
+	<script src="{{asset('admin/vendor/datatables/extras/TableTools/JSZip-2.5.0/jszip.min.js')}}"></script>
+	<script src="{{asset('admin/vendor/datatables/extras/TableTools/pdfmake-0.1.32/pdfmake.min.js')}}"></script>
+	<script src="{{asset('admin/vendor/datatables/extras/TableTools/pdfmake-0.1.32/vfs_fonts.js')}}"></script>
 
 </body>
 </html>

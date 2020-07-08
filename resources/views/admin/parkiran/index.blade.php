@@ -22,7 +22,7 @@
                 <div class="card-header">
                     @if(Auth::user()->role == 2)
                     <div class="text-right">
-                        <a href="{{Route('parkiranFilter')}}" class="btn btn-sm btn-secondary"><i class="fa fa-print"></i> Filter Data</a>
+                        <a href="{{Route('parkiranFilter')}}" class="btn btn-sm btn-secondary"><i class="fa fa-filter"></i> Filter Data</a>
                         <a href="{{Route('parkiranCetak')}}" class="btn btn-sm btn-secondary" target="_blank"><i class="fa fa-print"></i> Cetak Data</a>
                     </div>
                     @endif

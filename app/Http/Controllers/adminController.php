@@ -65,6 +65,10 @@ class adminController extends Controller
         return view('rombonganDepan',compact('data'));
     }
 
+    public function penutupanJalanDepan(){
+        return view('penutupanJalanDepan');
+    }
+
     public function kehilanganBarangDepan(){
         $data = Kehilangan_barang::all();
         return view('kehilanganBarangDepan',compact('data'));

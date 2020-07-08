@@ -71,6 +71,10 @@ class pemasukanController extends Controller
         $pemasukan->delete();
 
         return redirect()->route('pemasukanIndex')->with('success', 'Berhasil menghapus data');
+    }
 
+    public function filter()
+    {
+        return view('admin.pemasukan.filter');
     }
 }
