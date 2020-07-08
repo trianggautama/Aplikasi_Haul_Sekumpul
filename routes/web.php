@@ -161,6 +161,14 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/arraudah/delete/{uuid}', 'arraudahController@destroy')->name('arraudahDestroy');
     Route::get('/arraudah/filter', 'arraudahController@filter')->name('arraudahFilter');
 
+    Route::get('/penutupanJalan/index', 'penutupanJalanController@index')->name('penutupanJalanIndex');
+    Route::post('/penutupanJalan/index', 'penutupanJalanController@store')->name('penutupanJalanStore');
+    Route::get('/penutupanJalan/detail/', 'penutupanJalanController@show')->name('penutupanJalanShow');
+    Route::get('/penutupanJalan/edit/{uuid}', 'penutupanJalanController@edit')->name('penutupanJalanEdit');
+    Route::put('/penutupanJalan/edit/{uuid}', 'penutupanJalanController@update')->name('penutupanJalanUpdate');
+    Route::get('/penutupanJalan/delete/{uuid}', 'penutupanJalanController@destroy')->name('penutupanJalanDestroy');
+    Route::get('/penutupanJalan/filter', 'penutupanJalanController@filter')->name('penutupanJalanFilter');
+
     //cetak route
     Route::get('/posko/cetak', 'reportController@poskoCetak')->name('poskoCetak');
     Route::get('/posko/detail/cetak/{uuid}', 'reportController@poskoDetailCetak')->name('poskoDetailCetak');

@@ -2,7 +2,6 @@
 <html class="fixed">
 
 <head>
-
 	<!-- Basic -->
 	<meta charset="UTF-8">
 
@@ -19,11 +18,7 @@
 
 	<!-- Vendor CSS -->
 	<link rel="stylesheet" href="{{asset('admin/vendor/bootstrap/css/bootstrap.css')}}" />
-	<link rel="stylesheet" href="{{asset('admin/vendor/animate/animate.css')}}">
-
 	<link rel="stylesheet" href="{{asset('admin/vendor/font-awesome/css/all.min.css')}}" />
-	<link rel="stylesheet" href="{{asset('admin/vendor/magnific-popup/magnific-popup.css')}}" />
-	<link rel="stylesheet" href="{{asset('admin/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.css')}}" />
 
 	<!-- Theme CSS -->
 	<link rel="stylesheet" href="{{asset('admin/css/theme.css')}}" />
@@ -33,8 +28,7 @@
 
 
 	<!-- Head Libs -->
-	<script src="{{asset('admin/vendor/modernizr/modernizr.js')}}"></script>
-
+ 
 </head>
 
 <body>
@@ -52,39 +46,36 @@
 					</div>
 					<form method="POST" action="{{ route('login') }}">
 						@csrf
-						<div class="form-group mb-3">
-							<label>Username</label>
-							<div class="input-group">
-								<input id="username" type="username"
-									class="form-control form-control-lg @error('username') is-invalid @enderror"
-									name="username" value="{{ old('username') }}" required autocomplete="username"
-									autofocus>
-								<span class="input-group-append">
-									<span class="input-group-text">
-										<i class="fas fa-user"></i>
-									</span>
-								</span>
-
-								@error('username')
+						<div class="input-group mb-3">
+						<input id="username" type="text" class="form-control form-control-lg @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" autocomplete="username" autofocus>
+							@error('username')
 								<span class="invalid-feedback" role="alert">
 									<strong>{{ $message }}</strong>
 								</span>
-								@enderror
+							@enderror
+						<div class="input-group-append">
+							<div class="input-group-text">
+							<span class="fas fa-user"></span>
 							</div>
 						</div>
-
+						</div>
 						<div class="form-group mb-3">
 							<div class="clearfix">
 								<label class="float-left">Password</label>
 								<a href="pages-recover-password.html" class="float-right">Lost Password?</a>
 							</div>
 							<div class="input-group">
-								<input name="password" type="password" class="form-control form-control-lg" />
+								<input name="password" type="password" class="form-control form-control-lg @error('password') is-invalid @enderror" />
 								<span class="input-group-append">
 									<span class="input-group-text">
 										<i class="fas fa-lock"></i>
 									</span>
 								</span>
+								@error('password')
+									<span class="invalid-feedback" role="alert">
+										<strong>{{ $message }}</strong>
+									</span>
+								@enderror
 							</div>
 						</div>
 
@@ -99,35 +90,15 @@
 								<button type="submit" class="btn btn-primary mt-2">Sign In</button>
 							</div>
 						</div>
-
-						<p class="text-center">Don't have an account yet? <a href="pages-signup.html">Sign Up!</a></p>
-
 					</form>
 				</div>
 			</div>
 		</div>
 	</section>
 	<!-- end: page -->
-
+	<!-- Sweetalert -->
+	<script src="{{asset('vendor/sweetalert/sweetalert.all.js')}}"></script>
 	<!-- Vendor -->
-	<!-- Vendor -->
-	<script src="{{asset('admin/vendor/jquery/jquery.js')}}"></script>
-	<script src="{{asset('admin/vendor/jquery-browser-mobile/jquery.browser.mobile.js')}}"></script>
-	<script src="{{asset('admin/vendor/popper/umd/popper.min.js')}}"></script>
-	<script src="{{asset('admin/vendor/bootstrap/js/bootstrap.js')}}"></script>
-	<script src="{{asset('admin/vendor/common/common.js')}}"></script>
-	<script src="{{asset('admin/vendor/nanoscroller/nanoscroller.js')}}"></script>
-	<script src="{{asset('admin/vendor/magnific-popup/jquery.magnific-popup.js')}}"></script>
-	<script src="{{asset('admin/vendor/jquery-placeholder/jquery.placeholder.js')}}"></script>
-
-	<!-- Theme Base, Components and Settings -->
-	<script src="{{asset('admin/js/theme.js')}}"></script>
-
-	<!-- Theme Custom -->
-	<script src="{{asset('admin/js/custom.js')}}"></script>
-
-	<!-- Theme Initialization Files -->
-	<script src="{{asset('admin/js/theme.init.js')}}"></script>
 </body>
 
 </html>

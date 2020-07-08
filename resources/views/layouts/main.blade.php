@@ -217,6 +217,11 @@
 											</a>
 										</li>
 										<li>
+											<a class="nav-link" href="{{Route('penutupanJalanIndex')}}">
+												Informasi Penutupan Jalan
+											</a>
+										</li>
+										<li>
 											<a class="nav-link" href="{{Route('kehilanganBarangIndex')}}">
 												Kehilangan Barang
 											</a>
@@ -305,6 +310,11 @@
 										<li>
 											<a class="nav-link" href="{{Route('rombonganIndex')}}">
 												Informasi Rombongan
+											</a>
+										</li>
+										<li>
+											<a class="nav-link" href="{{Route('penutupanJalanIndex')}}">
+												Informasi Penutupan Jalan
 											</a>
 										</li>
 										<li>
