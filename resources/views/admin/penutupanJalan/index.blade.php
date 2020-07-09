@@ -63,7 +63,7 @@
                                         <a href="{{Route('penutupanJalanEdit',['uuid' => $d->uuid])}}"
                                             class="btn btn-sm btn-primary m-1 text-white">
                                             <i class="fa fa-edit"></i></a>
-                                        <button class="btn btn-sm btn-danger" onclick="Hapus('')"> <i
+                                        <button class="btn btn-sm btn-danger" onclick="Hapus('{{$d->uuid}}')"> <i
                                                 class="fa fa-trash"></i></button>
                                     </td>
                                 </tr>
@@ -141,12 +141,29 @@
 </div>
 </div>
 @endsection
-@section('scripts')
+@section('scripts') 
 <script>
     $("#tambah").click(function(){
-            $('#status').text('Tambah Data');
-            $('#modal').modal('show');
-        });
-
+        $('#status').text('Tambah Data');
+        $('#modal').modal('show');
+    });
+    
+        function Hapus(uuid) {
+			Swal.fire({
+			title: 'Anda Yakin?',
+			text: " Menghapus Penutupan Jalan " ,        
+			icon: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#3085d6',
+			cancelButtonColor: '#d33',
+			confirmButtonText: 'Hapus',
+			cancelButtonText: 'Batal'
+		}).then((result) => {
+			if (result.value) {
+				url = '{{route("penutupanJalanDestroy",'')}}';
+				window.location.href =  url+'/'+uuid ;			
+			}
+		})
+        }
 </script>
 @endsection
