@@ -20,13 +20,14 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
-                <div class="text-right">
-                        <button class="btn btn-sm btn-success" id="tambah"><i class="fa fa-plus"></i>Tambah  Data</button>
+                    <div class="text-right">
+                        <button class="btn btn-sm btn-success" id="tambah"><i class="fa fa-plus"></i>Tambah
+                            Data</button>
                     </div>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                    <table class="table table-bordered table-striped mb-0" id="datatable-default">
+                        <table class="table table-bordered table-striped mb-0" id="datatable-default">
                             <thead>
                                 <tr>
                                     <th>No</th>
@@ -39,21 +40,34 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Perode Haul 2020</td>
-                                        <td>Jl.A.yani arah Banjarmasin</td>
-                                        <td>Ditutup</td>
-                                        <td>Lingkar utara dan Lingkar Selatan</td>
-                                        <td>2 Juli 2020- 3 Juli 2020</td>
-                                        <td>
-                                        <a href="{{Route('penutupanJalanEdit','xaa')}}"
+                                @foreach($data as $d)
+                                <tr>
+                                    <td>{{$loop->iteration}}</td>
+                                    <td>{{carbon\carbon::parse($d->haul_sekumpul->created_at)->translatedFormat('Y')}}
+                                    </td>
+                                    <td>{{$d->nama_jalan}}</td>
+                                    <td>
+                                        @if($d->status == 1)
+                                        Ditutup
+                                        @elseif($d->status == 2)
+                                        Dibuka
+                                        @else
+                                        Dialihkan
+                                        @endif
+                                    </td>
+                                    <td>{{$d->jalan_alternatif}}</td>
+                                    <td>{{carbon\carbon::parse($d->tgl_mulai)->translatedFormat('d F Y')}} -
+                                        {{carbon\carbon::parse($d->tgl_selesai)->translatedFormat('d F Y')}}
+                                    </td>
+                                    <td>
+                                        <a href="{{Route('penutupanJalanEdit',['uuid' => $d->uuid])}}"
                                             class="btn btn-sm btn-primary m-1 text-white">
                                             <i class="fa fa-edit"></i></a>
                                         <button class="btn btn-sm btn-danger" onclick="Hapus('')"> <i
                                                 class="fa fa-trash"></i></button>
-                                        </td>
-                                    </tr>
+                                    </td>
+                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -80,7 +94,7 @@
                         <label for="">Haul</label>
                         <select name="haul_sekumpul_id" id="haul_id" class="form-control" required>
                             @foreach($haul as $h)
-                            <option value="aul{{$h->id}}">Periode
+                            <option value="{{$h->id}}">Periode
                                 {{\carbon\carbon::parse($h->tanggal_mulai)->translatedFormat('Y')}}</option>
                             @endforeach
                         </select>
@@ -92,10 +106,10 @@
                     <!-- kategori default Pengeluaran -->
                     <div class="form-group ">
                         <label class="">Status</label>
-                        <select name="status_jalan" id="status_jalan" class="form-control">
-                            <option value="Ditutup">Ditutup</option>
-                            <option value="Dibuka">Dibuka</option>
-                            <option value="Dialihkan">Dialihkan</option>
+                        <select name="status" id="status_jalan" class="form-control">
+                            <option value="1">Ditutup</option>
+                            <option value="2">Dibuka</option>
+                            <option value="3">Dialihkan</option>
                         </select>
                     </div>
                     <div class="form-group ">
@@ -106,13 +120,13 @@
                         <div class="col-md">
                             <div class="form-group ">
                                 <label class="">Dari</label>
-                                <input type="date" class="form-control" name="tanggal_mulai" id="tanggal_mulai" required>
+                                <input type="date" class="form-control" name="tgl_mulai" id="tgl_mulai" required>
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-group ">
                                 <label class="">Smpai</label>
-                                <input type="date" class="form-control" name="tanggal_selesai" id="tanggal_selesai" required>
+                                <input type="date" class="form-control" name="tgl_selesai" id="tgl_selesai" required>
                             </div>
                         </div>
                     </div>
@@ -129,8 +143,7 @@
 @endsection
 @section('scripts')
 <script>
-
-$("#tambah").click(function(){
+    $("#tambah").click(function(){
             $('#status').text('Tambah Data');
             $('#modal').modal('show');
         });

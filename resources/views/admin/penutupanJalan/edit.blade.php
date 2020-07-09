@@ -27,46 +27,51 @@
                         @csrf
                         @method('PUT')
                         <div class="form-group">
-                        <label for="">Haul</label>
-                        <select name="haul_sekumpul_id" id="haul_id" class="form-control" required>
-                            @foreach($haul as $h)
-                            <option value="aul{{$h->id}}">Periode
-                                {{\carbon\carbon::parse($h->tanggal_mulai)->translatedFormat('Y')}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="form-group ">
-                        <label class="">Nama Jalan</label>
-                        <input type="text" class="form-control" name="nama_jalan" id="nama_jalan" required>
-                    </div>
-                    <!-- kategori default Pengeluaran -->
-                    <div class="form-group ">
-                        <label class="">Status</label>
-                        <select name="status_jalan" id="status_jalan" class="form-control">
-                            <option value="Ditutup">Ditutup</option>
-                            <option value="Dibuka">Dibuka</option>
-                            <option value="Dialihkan">Dialihkan</option>
-                        </select>
-                    </div>
-                    <div class="form-group ">
-                        <label class="">Jalan Alternatif</label>
-                        <input type="text" class="form-control" name="jalan_alternatif" id="jalan_alternatif" required>
-                    </div>
-                    <div class="row">
-                        <div class="col-md">
-                            <div class="form-group ">
-                                <label class="">Dari</label>
-                                <input type="date" class="form-control" name="tanggal_mulai" id="tanggal_mulai" required>
+                            <label for="">Haul</label>
+                            <select name="haul_sekumpul_id" id="haul_id" class="form-control" required>
+                                @foreach($haul as $h)
+                                <option value="{{$h->id}}" {{$data->haul_sekumpul_id == $h->id ? 'selected' : ''}}>
+                                    Periode
+                                    {{\carbon\carbon::parse($h->tanggal_mulai)->translatedFormat('Y')}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group ">
+                            <label class="">Nama Jalan</label>
+                            <input type="text" class="form-control" value="{{$data->nama_jalan}}" name="nama_jalan"
+                                id="nama_jalan" required>
+                        </div>
+                        <!-- kategori default Pengeluaran -->
+                        <div class="form-group ">
+                            <label class="">Status</label>
+                            <select name="status" id="status_jalan" class="form-control">
+                                <option value="1" {{$data->status == '1' ? 'selected' : ''}}>Ditutup</option>
+                                <option value="2" {{$data->status == '1' ? 'selected' : ''}}>Dibuka</option>
+                                <option value="3" {{$data->status == '1' ? 'selected' : ''}}>Dialihkan</option>
+                            </select>
+                        </div>
+                        <div class="form-group ">
+                            <label class="">Jalan Alternatif</label>
+                            <input type="text" class="form-control" value="{{$data->jalan_alternatif}}"
+                                name="jalan_alternatif" id="jalan_alternatif" required>
+                        </div>
+                        <div class="row">
+                            <div class="col-md">
+                                <div class="form-group ">
+                                    <label class="">Dari</label>
+                                    <input type="date" class="form-control" value="{{$data->tgl_mulai}}"
+                                        name="tgl_mulai" id="tgl_mulai" required>
+                                </div>
+                            </div>
+                            <div class="col-md">
+                                <div class="form-group ">
+                                    <label class="">Smpai</label>
+                                    <input type="date" class="form-control" value="{{$data->tgl_selesai}}"
+                                        name="tgl_selesai" id="tgl_selesai" required>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md">
-                            <div class="form-group ">
-                                <label class="">Smpai</label>
-                                <input type="date" class="form-control" name="tanggal_selesai" id="tanggal_selesai" required>
-                            </div>
-                        </div>
-                    </div>
-            </div>
+                </div>
                 <div class="card-footer text-right">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
                     <button type="submit" class="btn btn-primary">Simpan</button>
