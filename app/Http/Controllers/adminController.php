@@ -15,6 +15,7 @@ use App\Penemuan_barang;
 use App\Penemuan_kendaraan;
 use App\Penemuan_orang;
 use App\Pengeluaran;
+use App\Penutupan_jalan;
 use App\Posko;
 use Illuminate\Http\Request;
 
@@ -66,7 +67,8 @@ class adminController extends Controller
     }
 
     public function penutupanJalanDepan(){
-        return view('penutupanJalanDepan');
+        $data = Penutupan_jalan::latest()->get();
+        return view('penutupanJalanDepan',compact('data'));
     }
 
     public function kehilanganBarangDepan(){

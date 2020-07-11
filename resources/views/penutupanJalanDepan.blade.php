@@ -52,7 +52,7 @@
 <div class="smoke">
     <div class="container" id="fh5co-pricing">
         <div class="card card-body">
-        <h2>Informasi Kehilangan Orang</h2>
+        <h2>Informasi Penutupan Jalan</h2>
         <hr>
         <div class="table-responsive">
         <table class="table table-bordered table-striped mb-0" id="datatable-default">
@@ -67,14 +67,27 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Perode Haul 2020</td>
-                                        <td>Jl.A.yani arah Banjarmasin</td>
-                                        <td>Ditutup</td>
-                                        <td>Lingkar utara dan Lingkar Selatan</td>
-                                        <td>2 Juli 2020- 3 Juli 2020</td>
-                                    </tr>
+                                @foreach($data as $d)
+                                <tr>
+                                    <td>{{$loop->iteration}}</td>
+                                    <td>{{carbon\carbon::parse($d->haul_sekumpul->created_at)->translatedFormat('Y')}}
+                                    </td>
+                                    <td>{{$d->nama_jalan}}</td>
+                                    <td>
+                                        @if($d->status == 1)
+                                        Ditutup
+                                        @elseif($d->status == 2)
+                                        Dibuka
+                                        @else
+                                        Dialihkan
+                                        @endif
+                                    </td>
+                                    <td>{{$d->jalan_alternatif}}</td>
+                                    <td>{{carbon\carbon::parse($d->tgl_mulai)->translatedFormat('d F Y')}} -
+                                        {{carbon\carbon::parse($d->tgl_selesai)->translatedFormat('d F Y')}}
+                                    </td>
+                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
