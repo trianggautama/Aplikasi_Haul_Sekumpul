@@ -92,7 +92,5 @@
             $('#status').text('Tambah Data');
             $('#modal').modal('show');
         });
-
-
 </script>
 @endsection
