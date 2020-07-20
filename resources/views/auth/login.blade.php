@@ -28,7 +28,7 @@
 
 
 	<!-- Head Libs -->
- 
+
 </head>
 
 <body>
@@ -47,17 +47,19 @@
 					<form method="POST" action="{{ route('login') }}">
 						@csrf
 						<div class="input-group mb-3">
-						<input id="username" type="text" class="form-control form-control-lg @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" autocomplete="username" autofocus>
+							<input id="username" type="text"
+								class="form-control form-control-lg @error('username') is-invalid @enderror"
+								name="username" value="{{ old('username') }}" autocomplete="username" autofocus>
 							@error('username')
-								<span class="invalid-feedback" role="alert">
-									<strong>{{ $message }}</strong>
-								</span>
+							<span class="invalid-feedback" role="alert">
+								<strong>{{ $message }}</strong>
+							</span>
 							@enderror
-						<div class="input-group-append">
-							<div class="input-group-text">
-							<span class="fas fa-user"></span>
+							<div class="input-group-append">
+								<div class="input-group-text">
+									<span class="fas fa-user"></span>
+								</div>
 							</div>
-						</div>
 						</div>
 						<div class="form-group mb-3">
 							<div class="clearfix">
@@ -65,16 +67,17 @@
 								<a href="pages-recover-password.html" class="float-right">Lost Password?</a>
 							</div>
 							<div class="input-group">
-								<input name="password" type="password" class="form-control form-control-lg @error('password') is-invalid @enderror" />
+								<input name="password" type="password"
+									class="form-control form-control-lg @error('password') is-invalid @enderror" />
 								<span class="input-group-append">
 									<span class="input-group-text">
 										<i class="fas fa-lock"></i>
 									</span>
 								</span>
 								@error('password')
-									<span class="invalid-feedback" role="alert">
-										<strong>{{ $message }}</strong>
-									</span>
+								<span class="invalid-feedback" role="alert">
+									<strong>{{ $message }}</strong>
+								</span>
 								@enderror
 							</div>
 						</div>
@@ -97,6 +100,7 @@
 	</section>
 	<!-- end: page -->
 	<!-- Sweetalert -->
+	@include('sweetalert::alert')
 	<script src="{{asset('vendor/sweetalert/sweetalert.all.js')}}"></script>
 	<!-- Vendor -->
 </body>
