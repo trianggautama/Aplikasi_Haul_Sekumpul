@@ -90,8 +90,9 @@
         </div>
         <div class="col-sm-5">
             <h3>CCTV Kabupaten Banjar</h3>
-            <p class="text-justify">Dalam rangka untuk menciptakan kondisi lalu lintas yang aman, tertib dan lancar, Pemda Kabupaten Banjar telah memasang kamera pengawas atau CCTV pada beberapa titik jalan.,selain itu Membantu masyarakat dalam pemantauan arus lalu lintas di kabupaten banjar lebih khususnya area sekumpul.</p>
-            <a  class="btn btn-success" href="https://banjarkab.go.id/cctv/" target="_blank" class="text-white">Klik CCTV</a>
+            <p class="text-justify">Dalam rangka untuk menciptakan kondisi lalu lintas yang aman, tertib dan lancar, Pemda Kabupaten Banjar dan Banjarbaru telah memasang kamera pengawas atau CCTV pada beberapa titik jalan.,selain itu Membantu masyarakat dalam pemantauan arus lalu lintas di kabupaten banjar lebih khususnya area sekumpul.</p>
+            <a  class="btn btn-success" href="https://banjarkab.go.id/cctv/" target="_blank" class="text-white">CCTV MARTAPURA</a></p>
+            <a  class="btn btn-success" href="https://cctv.banjarbarukota.go.id/grid/" target="_blank" class="text-white">CCTV BANJARBARU</a>
         </div>
     </div>
 </div>
@@ -100,7 +101,7 @@
     <div class="container" id="lokasi">
 
         <div class="heading animate-box"><h2><b>Lokasi</b></h2></div>
-        <div class="text-center animate-box"><h3>kubah Sekumpul</h3></div>
+        <div class="text-center animate-box"><h3>Kubah Sekumpul</h3></div>
         <br><br>
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4414.766011865244!2d114.85339486663894!3d-3.427675765891481!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2de681f01a4afa8b%3A0xbca32ee881a736f8!2sKubah%20Sekumpul!5e0!3m2!1sid!2sid!4v1592054713391!5m2!1sid!2sid" width="1150" height="400" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
     </div>
@@ -207,7 +208,7 @@
     <div class="container" id="fh5co-legal">
         <div class="row">
             <div class="col-sm-12 text-white text-center">
-                &copy; 2020 
+                &copy;  Ahmad Ridho Setiawan 2020
             </div>
         </div>
     </div>
