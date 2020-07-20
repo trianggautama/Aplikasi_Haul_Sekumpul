@@ -34,8 +34,8 @@ class penemuanOrangController extends Controller
 
     public function show($uuid)
     {
-        $data = Penemuan_orang::where('uuid',$uuid)->first();
-        return view('admin.penemuanOrang.show',compact('data'));
+        $data = Penemuan_orang::where('uuid', $uuid)->first();
+        return view('admin.penemuanOrang.show', compact('data'));
     }
 
     public function edit($uuid)

@@ -70,8 +70,8 @@
                         <div class="form-group ">
                             <label class="">Status</label>
                             <select name="status" id="" class="form-control">
-                                <option value="1">Belum ditemukan</option>
-                                <option value="2">Sudah ditemukan</option>
+                                <option value="1">Belum di Jemput</option>
+                                <option value="2">Sudah di Jemput</option>
                             </select>
                         </div>
                         <div class="card-footer text-right">
