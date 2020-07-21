@@ -230,19 +230,19 @@
                     </div>
                     <div class="form-group">
                         <label for="">Alamat </label>
-                        <textarea name="alamat" id="alamat" class="form-control"></textarea>
+                        <textarea name="alamat" id="alamat" class="form-control" required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="">No Hp</label>
-                        <input type="number" class="form-control" name="no_hp">
+                        <input type="number" class="form-control" name="no_hp" max="12" required>
                     </div>
                     <div class="form-group">
                         <label for="">Username</label>
-                        <input type="text" class="form-control" name="username" id="username" placeholder="username">
+                        <input type="text" class="form-control" name="username" id="username" placeholder="username" required>
                     </div>
                     <div class="form-group">
                         <label for="">Password</label>
-                        <input type="password" class="form-control" name="password" id="password">
+                        <input type="password" class="form-control" name="password" id="password" required>
                     </div>
                     <div class="form-group">
                         <label for="">foto</label>
@@ -277,7 +277,7 @@
                     </div>
                     <div class="form-group">
                         <label for="">Nomor Hp </label>
-                        <input type="text" name="no_hp" id="no_hp" class="form-control" required></input>
+                        <input type="text" name="no_hp" id="no_hp" class="form-control" max="12" required></input>
                     </div>
                     <div class="form-group">
                         <label for="">Jabatan </label>

@@ -105,19 +105,19 @@
                     </div>
                     <div class="form-group ">
                         <label class="">Nama Posko</label>
-                        <input type="text" class="form-control" name="nama_posko" id="nama_posko" placeholder="Nama Posko">
+                        <input type="text" class="form-control" name="nama_posko" id="nama_posko" placeholder="Nama Posko" required>
                     </div>
                     <div class="form-group">
                         <label for="">Alamat</label>
-                        <textarea name="alamat" id="alamat" class="form-control"></textarea>
+                        <textarea name="alamat" id="alamat" class="form-control" required></textarea>
                     </div>
                     <div class="form-group ">
                         <label class="">Nomor HP Posko</label>
-                        <input type="text" class="form-control" name="no_hp" id="no_hp" placeholder="Nomor Telepon">
+                        <input type="text" class="form-control" name="no_hp" id="no_hp" placeholder="Nomor Telepon" max="12" required>
                     </div>
                     <div class="form-group">
-                        <label for="">Jenis Posko</label>
-                        <select name="jenis_posko" id="jenis_posko" class="form-control">
+                    <label for="">Jenis Posko</label>
+                        <select name="jenis_posko" id="jenis_posko" class="form-control" required>
                             <option value="">-- Pilih Jenis --</option>
                             <option value="1">Posko Induk</option>
                             <option value="2">Posko Non Induk</option>
