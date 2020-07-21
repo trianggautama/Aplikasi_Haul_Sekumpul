@@ -125,7 +125,7 @@
                         </div>
                         <div class="col-md">
                             <div class="form-group ">
-                                <label class="">Smpai</label>
+                                <label class="">Sampai</label>
                                 <input type="date" class="form-control" name="tgl_selesai" id="tgl_selesai" required>
                             </div>
                         </div>

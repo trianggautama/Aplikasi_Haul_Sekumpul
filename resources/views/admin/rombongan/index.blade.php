@@ -112,20 +112,20 @@
                     <div class="form-group ">
                         <label class="">Asal Rombongan</label>
                         <input type="text" class="form-control" name="asal_rombongan" id="asal_rombongan"
-                            placeholder="Asal rombongan">
+                            placeholder="Asal rombongan" required>
                     </div>
                     <div class="form-group ">
                         <label class="">Ketua Rombongan</label>
                         <input type="text" class="form-control" name="nama_ketua_rombongan" id="nama_ketua_rombongan"
-                            placeholder="Ketua Rombongan">
+                            placeholder="Ketua Rombongan" required>
                     </div>
                     <div class="form-group ">
                         <label class="">No Hp</label>
-                        <input type="text" class="form-control" name="no_hp" id="no_hp" placeholder="Nomor Hp">
+                        <input type="text" class="form-control" name="no_hp" id="no_hp" placeholder="Nomor Hp" maxlength="12" required>
                     </div>
                     <div class="form-group ">
                         <label class="">Jumlah rombongan</label>
-                        <input type="number" class="form-control" name="jumlah_rombongan" id="jumlah_rombongan">
+                        <input type="number" class="form-control" name="jumlah_rombongan" id="jumlah_rombongan" required>
                     </div>
                     <!-- Nama pendata ngambil dari auth login -->
                     <div class="modal-footer">

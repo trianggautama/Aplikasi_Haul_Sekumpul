@@ -146,7 +146,7 @@
                     <div class="form-group ">
                         <label class="">No Hp Pelapor</label>
                         <input type="text" class="form-control" name="no_hp_pelapor" id="no_hp_pelapor"
-                            placeholder="Nomor HP Pelapor" max="12" required>
+                            placeholder="Nomor HP Pelapor" maxlength="12" required>
                     </div>
                     <div class="form-group ">
                         <label class="">Foto Kendaraan</label>

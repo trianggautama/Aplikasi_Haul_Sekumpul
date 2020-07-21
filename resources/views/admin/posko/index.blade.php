@@ -113,7 +113,7 @@
                     </div>
                     <div class="form-group ">
                         <label class="">Nomor HP Posko</label>
-                        <input type="text" class="form-control" name="no_hp" id="no_hp" placeholder="Nomor Telepon" max="12" required>
+                        <input type="text" class="form-control" name="no_hp" id="no_hp" placeholder="Nomor Telepon" maxlength="12" required>
                     </div>
                     <div class="form-group">
                     <label for="">Jenis Posko</label>

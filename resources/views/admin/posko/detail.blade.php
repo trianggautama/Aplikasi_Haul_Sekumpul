@@ -234,7 +234,7 @@
                     </div>
                     <div class="form-group">
                         <label for="">No Hp</label>
-                        <input type="number" class="form-control" name="no_hp" max="12" required>
+                        <input type="text" class="form-control" name="no_hp" maxlength="12" required>
                     </div>
                     <div class="form-group">
                         <label for="">Username</label>
@@ -277,7 +277,7 @@
                     </div>
                     <div class="form-group">
                         <label for="">Nomor Hp </label>
-                        <input type="text" name="no_hp" id="no_hp" class="form-control" max="12" required></input>
+                        <input type="text" name="no_hp" id="no_hp" class="form-control" maxlength="12" required></input>
                     </div>
                     <div class="form-group">
                         <label for="">Jabatan </label>

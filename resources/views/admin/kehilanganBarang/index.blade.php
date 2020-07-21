@@ -134,7 +134,7 @@
                     </div>
                     <div class="form-group ">
                         <label class="">Nomor Hp</label>
-                        <input type="text" class="form-control" name="no_hp" id="no_hp" placeholder="Nomor hp" required>
+                        <input type="text" class="form-control" name="no_hp" id="no_hp" placeholder="Nomor hp" maxlength="12" required>
                     </div>
                     <div class="form-group ">
                         <label class="">Deskripsi</label>
