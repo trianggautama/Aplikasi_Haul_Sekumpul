@@ -61,7 +61,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for=""> <b>Nomor Hp Pelapor :</b>  </label>
-                                    <p>{{$data->lokasi_parkir->no_hp_pelapor}}, </p>
+                                    <p>{{$data->no_hp_pelapor}}, </p>
                                 </div>
                             </div>
                         </div>
