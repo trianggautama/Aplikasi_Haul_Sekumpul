@@ -61,6 +61,7 @@ class penemuanKendaraanController extends Controller
             $img->move('images/penemuanKendaraan', $foto);
             $data->foto = $foto;
         }
+        $data->update();
 
         return redirect()->route('penemuanKendaraanIndex')->withSuccess('Data berhasil diubah');
     }
