@@ -60,7 +60,7 @@ class penemuanBarangController extends Controller
         if ($req->foto_penyerahan != null) {
             $img = $req->file('foto_penyerahan');
             $FotoExt = $img->getClientOriginalExtension();
-            $FotoName = 'Foto' . '-' . $data->id;
+            $FotoName = 'Penyerahan' . '-' . $data->id;
             $foto_penyerahan = $FotoName . '.' . $FotoExt;
             $img->move('images/penemuanBarang', $foto_penyerahan);
             $data->foto_penyerahan = $foto_penyerahan;
