@@ -39,7 +39,7 @@
      .header{
          margin-bottom: 0px;
          text-align: center;
-         height: 150px;
+         height: 50px;
          padding: 0px;
      }
      .pemko{
@@ -89,10 +89,10 @@
                 <p style="margin:0px;">Jl.Sekumpul Komplek ar-Raudhah Martapura 70614</p>
                 <p style="margin:0px;">website : http://www.arraudhah-sekumpul.com</p>
             </div>
-            <hr>
             <br>
     </div>
     <div class="container">
+    <hr>
         <div class="isi">
             <h2 style="text-align:center;">DATA KEHILANGAN ORANG</h2>
             <br>

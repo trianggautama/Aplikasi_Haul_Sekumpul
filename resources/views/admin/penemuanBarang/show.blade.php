@@ -55,7 +55,7 @@
                                 <div class="form-group">
                                     <label for=""> <b>Foto penyerahan :</b>  </label> <br>
                                     @if($data->foto_penyerahan)
-                                        <a href="" class="btn btn-secondary"><i class="fas fa-paperclip"></i> Foto Penyerahan</a>
+                                        <a href="{{asset('images/penemuanBarang/'.$data->foto_penyerahan)}}" class="btn btn-secondary" target="_blank"><i class="fas fa-paperclip"></i> Foto Penyerahan</a>
                                     @else
                                     -
                                     @endif
@@ -63,7 +63,7 @@
                                 <div class="form-group">
                                     <label for=""><b>KTP Penerima :</b> </label> <br>
                                     @if($data->ktp_penerima)
-                                        <a href="" class="btn btn-secondary"><i class="fas fa-paperclip"></i> Foto KTP</a>
+                                        <a href="{{asset('images/penemuanBarang/'.$data->ktp_penerima)}}" class="btn btn-secondary" target="_blank"><i class="fas fa-paperclip"></i> Foto KTP</a>
                                     @else
                                     -
                                     @endif
