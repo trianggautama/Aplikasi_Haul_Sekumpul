@@ -120,7 +120,11 @@
                         <select name="lokasi_parkir_id" id="" class="form-control" required>
                             <option value="">Pilih lokasi parkir</option>
                             @foreach ($lokasi_parkir as $d)
+                            @if(isset($d->posko))
                             <option value="{{$d->id}}">{{$d->alamat}}, Posko {{$d->posko->nama_posko}}</option>
+                            @else
+                            <option value="">Data lokasi parkir belum diinput</option>
+                            @endif
                             @endforeach
                         </select>
                     </div>
