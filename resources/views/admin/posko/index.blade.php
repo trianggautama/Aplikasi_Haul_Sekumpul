@@ -46,7 +46,7 @@
                                 @foreach($data as $d)
                                     <tr>
                                         <td>{{$loop->iteration}}</td>
-                                        <td>Periode Haul {{\carbon\carbon::parse($d->haul_sekumpul->created_at)->translatedFormat('Y')}}</td>
+                                        <td>Periode Haul {{\carbon\carbon::parse($d->haul_sekumpul->tanggal_mulai)->translatedFormat('Y')}}</td>
                                         <td>{{$d->nama_posko}}</td>
                                         <td>{{$d->alamat}} </td>
                                         <td>
@@ -99,7 +99,7 @@
                         <select name="haul_sekumpul_id" id="haul_id" class="form-control">
                             <option value="">-- Pilih Periode Haul --</option>
                             @foreach($haul as $h)
-                                <option value="{{$h->id}}">Periode {{\carbon\carbon::parse($h->tanggal_mulai)->translatedFormat('Y')}}</option>
+                                <option value="{{$h->id}}">Periode {{\carbon\carbon::parse($h->tanggal_mulai)->translatedFormat('Y')}}</option> 
                             @endforeach
                         </select>
                     </div>
