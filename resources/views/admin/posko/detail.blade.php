@@ -146,7 +146,7 @@
                                     <a href="{{Route('anggotaEdit',['uuid'=>$d->uuid])}}"
                                         class="btn btn-sm btn-primary m-1 text-white">
                                         <i class="fa fa-edit"></i></a>
-                                    <button class="btn btn-sm btn-danger" onclick="Hapus()"> <i
+                                    <button class="btn btn-sm btn-danger" onclick="HapusAnggota('{{$d->uuid}}')"> <i
                                             class="fa fa-trash"></i></button>
                                 </td>
                             </tr>
@@ -196,8 +196,8 @@
                                     <a href="{{Route('parkiranEdit',['uuid'=>$d->uuid])}}"
                                         class="btn btn-sm btn-primary m-1 text-white">
                                         <i class="fa fa-edit"></i></a>
-                                    <button class="btn btn-sm btn-danger" onclick="Hapus()"> <i
-                                            class="fa fa-trash"></i></button>
+                                    <button class="btn btn-sm btn-danger" onclick="HapusParkir('{{$d->uuid}}')"> <i
+                                            class="fa fa-trash"></i></button> 
                                 </td>
                             </tr>
                             @endforeach
@@ -362,5 +362,41 @@
         $("#tambahParkir").click(function(){
             $('#modalParkir').modal('show');
         });
+
+        function HapusParkir(uuid, ) {
+			Swal.fire({
+			title: 'Anda Yakin?',
+			text: " Menghapus Lokasi Parkir "  ,        
+			icon: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#3085d6',
+			cancelButtonColor: '#d33',
+			confirmButtonText: 'Hapus',
+			cancelButtonText: 'Batal'
+		}).then((result) => {
+			if (result.value) {
+				url = '{{route("parkiranDestroy",'')}}';
+				window.location.href =  url+'/'+uuid ;			
+			}
+		})
+        }
+
+        function HapusAnggota(uuid) {
+			Swal.fire({
+			title: 'Anda Yakin?',
+			text: " Menghapus Data Anggota " ,        
+			icon: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#3085d6',
+			cancelButtonColor: '#d33',
+			confirmButtonText: 'Hapus',
+			cancelButtonText: 'Batal'
+		}).then((result) => {
+			if (result.value) {
+				url = '{{route("anggotaDestroy",'')}}';
+				window.location.href =  url+'/'+uuid ;			
+			}
+		})
+        }
 </script>
 @endsection
