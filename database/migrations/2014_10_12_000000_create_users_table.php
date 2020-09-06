@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('uuid', 36);
             $table->unsignedbigInteger('posko_id')->nullable();
             $table->string('nama', 50);
-            $table->string('username', 50)->unique();
+            $table->string('username', 50);
             $table->string('password', 150);
             $table->string('no_hp', 13);
             $table->tinyInteger('role')->default(1);
