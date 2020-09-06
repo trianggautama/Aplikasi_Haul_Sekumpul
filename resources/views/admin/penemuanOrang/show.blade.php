@@ -23,7 +23,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-4">
-                            <img class="mb-3" src="{{asset('images/penemuanOrang/'. $data->foto_penyerahan )}}" alt=""
+                            <img class="mb-3" src="{{asset('images/penemuanOrang/'. $data->foto )}}" alt=""
                                 width="200px">
                             <div class="form-group">
                                 <label for=""> <b>Nama : </b></label>
