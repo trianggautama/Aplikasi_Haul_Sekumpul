@@ -54,7 +54,11 @@
                                     @else
                                     <td></td>
                                     @endif
+                                    @if(isset($d->anggota_posko))
                                     <td>{{$d->anggota_posko->nama}}</td>
+                                    @else
+                                    <td></td>
+                                    @endif
                                     <td>{{$d->jenis_parkir}}</td>
                                     <td>{{$d->luas_parkir}}</td>
                                     <td>Terisi {{$d->status}} %</td>
