@@ -22,49 +22,61 @@
                 <div class="card-header">
                     @if(Auth::user()->role == 2)
                     <div class="text-right">
-                        <a href="{{Route('parkiranFilter')}}" class="btn btn-sm btn-secondary"><i class="fa fa-filter"></i> Filter Data</a>
-                        <a href="{{Route('parkiranCetak')}}" class="btn btn-sm btn-secondary" target="_blank"><i class="fa fa-print"></i> Cetak Data</a>
+                        <a href="{{Route('parkiranFilter')}}" class="btn btn-sm btn-secondary"><i
+                                class="fa fa-filter"></i> Filter Data</a>
+                        <a href="{{Route('parkiranCetak')}}" class="btn btn-sm btn-secondary" target="_blank"><i
+                                class="fa fa-print"></i> Cetak Data</a>
                     </div>
                     @endif
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                    <table class="table table-bordered table-striped mb-0" id="datatable-default">
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Alamat</th>
-                                <th>Nama Posko</th>
-                                <th>Petugas</th>
-                                <th>Jenis Parkir</th>
-                                <th>Luas Parkir</th>
-                                <th>Status</th>
-                                <th>Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($data as $d)
-                            <tr>
-                                <td>{{$loop->iteration}}</td>
-                                <td>{{$d->alamat}}</td>
-                                <td>{{$d->posko->nama_posko}}</td>
-                                <td>{{$d->anggota_posko->nama}}</td>
-                                <td>{{$d->jenis_parkir}}</td>
-                                <td>{{$d->luas_parkir}}</td>
-                                <td>Terisi {{$d->status}} %</td>
-                                <td>
-                                @if(Auth::user()->role ==2 || Auth::user()->ketua_posko->posko->id == $d->posko->id)
-                                    <a href="{{Route('parkiranEdit',['uuid'=>$d->uuid])}}"
-                                        class="btn btn-sm btn-primary m-1 text-white">
-                                        <i class="fa fa-edit"></i></a>
-                                    <button class="btn btn-sm btn-danger" onclick="Hapus('{{$d->uuid}}','{{$d->alamat}}')"> <i
-                                            class="fa fa-trash"></i></button>
-                                @endif
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                        <table class="table table-bordered table-striped mb-0" id="datatable-default">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Alamat</th>
+                                    <th>Nama Posko</th>
+                                    <th>Petugas</th>
+                                    <th>Jenis Parkir</th>
+                                    <th>Luas Parkir</th>
+                                    <th>Status</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($data as $d)
+                                <tr>
+                                    <td>{{$loop->iteration}}</td>
+                                    <td>{{$d->alamat}}</td>
+                                    @if(isset($d->posko))
+                                    <td>{{$d->posko->nama_posko}}</td>
+                                    @else
+                                    <td></td>
+                                    @endif
+                                    @if(isset($d->anggota_posko))
+                                    <td>{{$d->anggota_posko->nama}}</td>
+                                    @else
+                                    <td></td>
+                                    @endif
+                                    <td>{{$d->jenis_parkir}}</td>
+                                    <td>{{$d->luas_parkir}}</td>
+                                    <td>Terisi {{$d->status}} %</td>
+                                    <td>
+                                        @if(Auth::user()->role ==2 || Auth::user()->ketua_posko->posko->id ==
+                                        $d->posko->id)
+                                        <a href="{{Route('parkiranEdit',['uuid'=>$d->uuid])}}"
+                                            class="btn btn-sm btn-primary m-1 text-white">
+                                            <i class="fa fa-edit"></i></a>
+                                        <button class="btn btn-sm btn-danger"
+                                            onclick="Hapus('{{$d->uuid}}','{{$d->alamat}}')"> <i
+                                                class="fa fa-trash"></i></button>
+                                        @endif
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -82,8 +94,8 @@
                 </button>
             </div>
             <div class="modal-body">
-            <form action="{{Route('pengeluaranStore')}}" method="post">
-            @csrf
+                <form action="{{Route('pengeluaranStore')}}" method="post">
+                    @csrf
                     <div class="form-group ">
                         <label class="">Judul</label>
                         <input type="text" class="form-control" name="nama_posko" id="nama_posko" placeholder="Judul">

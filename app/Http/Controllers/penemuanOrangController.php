@@ -50,6 +50,7 @@ class penemuanOrangController extends Controller
         $data = Penemuan_orang::where('uuid', $uuid)->first();
         $data->fill($req->all())->save();
         if ($req->foto != null) {
+            File::delete('images/penemuanOrang/', $data->foto);
             $img = $req->file('foto');
             $FotoExt = $img->getClientOriginalExtension();
             $FotoName = 'Foto' . '-' . $data->id;

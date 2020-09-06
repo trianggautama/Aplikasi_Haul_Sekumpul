@@ -7,11 +7,11 @@
         <div class="right-wrapper text-right">
             <ol class="breadcrumbs">
                 <li>
-                    <a href="index.html">
+                    <a href="#">
                         <i class="fas fa-home"></i>
                     </a>
                 </li>
-                <li><span>Data Penemuan Kendaraan</span></li>
+                <li><span>Data Penemuan Kendaraan </span></li>
             </ol>
             <a class="sidebar-right-toggle"><i class="fas fa-chevron-left"></i></a>
         </div>
@@ -105,7 +105,7 @@
                     @if(Auth::user()->role == 2)
                     <div class="form-group ">
                         <label class="">Posko Terdekat</label>
-                        <select name="posko_id" id="" class="form-control">
+                        <select name="posko_id" id="" class="form-control" required>
                             <option value="">Pilih posko</option>
                             @foreach ($posko as $d)
                             <option value="{{$d->id}}">{{$d->nama_posko}}</option>
@@ -120,13 +120,18 @@
                         <select name="lokasi_parkir_id" id="" class="form-control" required>
                             <option value="">Pilih lokasi parkir</option>
                             @foreach ($lokasi_parkir as $d)
+                            @if(isset($d->posko))
                             <option value="{{$d->id}}">{{$d->alamat}}, Posko {{$d->posko->nama_posko}}</option>
+                            @else
+                            <option value="">Data lokasi parkir belum diinput</option>
+                            @endif
                             @endforeach
                         </select>
                     </div>
                     <div class="form-group ">
                         <label class="">Nomor Polisi</label>
-                        <input type="text" class="form-control" name="plat_nomor" id="plat_nomor" placeholder="DA XXX" required>
+                        <input type="text" class="form-control" name="plat_nomor" id="plat_nomor" placeholder="DA XXX"
+                            required>
                     </div>
                     <div class="form-group ">
                         <label class="">Merk Kendaraan</label>
