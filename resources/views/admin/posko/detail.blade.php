@@ -129,6 +129,7 @@
                                 <th>Nama</th>
                                 <th>Bagian Tugas</th>
                                 <th>No Hp</th>
+                                <th>Username</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -139,6 +140,7 @@
                                 <td>{{$d->nama}}</td>
                                 <td>{{$d->tugas}}</td>
                                 <td>{{$d->no_hp}}</td>
+                                <td>-</td>
                                 <td>
                                     <a href="{{Route('anggotaShow',['uuid'=>$d->uuid])}}"
                                         class="btn btn-sm btn-warning m-1">
@@ -238,11 +240,11 @@
                     </div>
                     <div class="form-group">
                         <label for="">Username</label>
-                        <input type="text" class="form-control" name="username" id="username" placeholder="username" required>
+                        <input type="text" class="form-control" name="username"  placeholder="username" required>
                     </div>
                     <div class="form-group">
                         <label for="">Password</label>
-                        <input type="password" class="form-control" name="password" id="password" required>
+                        <input type="password" class="form-control" name="password"  required>
                     </div>
                     <div class="form-group">
                         <label for="">foto</label>
@@ -286,6 +288,14 @@
                     <div class="form-group">
                         <label for="">Tugas </label>
                         <input type="text" name="tugas" id="tugas" class="form-control" required></input>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Username</label>
+                        <input type="text" class="form-control" name="username"  placeholder="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Password</label>
+                        <input type="password" class="form-control" name="password"  required>
                     </div>
                     <div class="form-group">
                         <label for="">Foto</label>

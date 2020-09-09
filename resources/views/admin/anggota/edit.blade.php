@@ -48,12 +48,20 @@
                                 required></input>
                         </div>
                         <div class="form-group">
+                            <label for="">Username</label>
+                            <input type="text" class="form-control" name="username"  placeholder="username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Password</label>
+                            <input type="password" class="form-control" name="password"  >
+                            <p class="text-danger">isi jika ingin merubah password</p>
+                        </div>
+                        <div class="form-group">
                             <label for="">Foto</label>
                             <input type="file" name="foto" id="foto" class="form-control"></input>
                         </div>
                 </div>
                 <div class="card-footer text-right">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
                     <button type="submit" class="btn btn-primary">Simpan</button>
                 </div>
                 </form>

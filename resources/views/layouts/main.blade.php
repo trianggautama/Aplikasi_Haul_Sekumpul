@@ -350,6 +350,20 @@
 									</ul>
 								</li>
 								@endif
+								@if(Auth::user()->role == 2)
+								<li>
+									<a class="nav-link" href="#">
+										<i class="fas fa-home" aria-hidden="true"></i>
+										<span>Beranda</span>
+									</a>
+                                </li>
+                                <li>
+									<a class="nav-link" href="#">
+										<i class="fas fa-user" aria-hidden="true"></i>
+										<span>Profil Anggota</span>
+									</a>
+								</li>
+								@endif
 							</ul>
 						</nav>
 					</div>
