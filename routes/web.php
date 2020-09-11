@@ -207,6 +207,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('halaman/posko/index', 'adminController@poskoIndex')->name('halamanPoskoIndex');
     Route::get('profil/posko', 'poskoController@profil')->name('profilPosko');
 
-    Route::get('anggota/posko/index', 'adminController@anggotaIndex')->name('halamanAnggotaIndex');
+    Route::get('halaman/anggota/index', 'adminController@anggotaIndex')->name('halamanAnggotaIndex');
 
 });
