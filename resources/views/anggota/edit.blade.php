@@ -23,7 +23,7 @@
                     Edit Data Anggota Posko
                 </div>
                 <div class="card-body">
-                    <form action="" method="post" enctype="multipart/form-data">
+                    <form action="{{Route('anggotaUpdateProfil',['uuid'=>$data->uuid])}}" method="post" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <input type="hidden" name="aplikasi_id" value="">

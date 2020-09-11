@@ -208,5 +208,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('profil/posko', 'poskoController@profil')->name('profilPosko');
 
     Route::get('halaman/anggota/index', 'adminController@anggotaIndex')->name('halamanAnggotaIndex');
+    Route::get('/anggota/edit-profil/{uuid}', 'anggotaController@editProfil')->name('anggotaEditProfil');
+    Route::put('/anggota/edit-profil/{uuid}', 'anggotaController@updateProfil')->name('anggotaUpdateProfil');
 
 });

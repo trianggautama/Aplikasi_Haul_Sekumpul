@@ -350,17 +350,23 @@
 									</ul>
 								</li>
 								@endif
-								@if(Auth::user()->role == 2)
+								@if(Auth::user()->role == 3)
 								<li>
-									<a class="nav-link" href="#">
+									<a class="nav-link" href="{{Route('halamanAnggotaIndex')}}">
 										<i class="fas fa-home" aria-hidden="true"></i>
 										<span>Beranda</span>
 									</a>
                                 </li>
                                 <li>
-									<a class="nav-link" href="#">
+									<a class="nav-link" href="{{Route('anggotaShow',['uuid'=> Auth::user()->anggota->uuid])}}">
 										<i class="fas fa-user" aria-hidden="true"></i>
 										<span>Profil Anggota</span>
+									</a>
+								</li>
+								<li>
+									<a class="nav-link" href="{{Route('anggotaEditProfil',['uuid'=> Auth::user()->anggota->uuid])}}">
+										<i class="fas fa-user" aria-hidden="true"></i>
+										<span>Edit Profil</span>
 									</a>
 								</li>
 								@endif

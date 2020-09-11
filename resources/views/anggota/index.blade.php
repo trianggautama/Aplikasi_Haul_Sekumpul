@@ -21,127 +21,83 @@
 					</header>
 
 					<!-- start: page -->
-					<div class="row">
-					<div class="col-lg-5 col-xl-5">
-								<section class="card">
-									<header class="card-header bg-white">
-										<div class="card-header-icon bg-success mt-3">
-											<i class="fas fa-comment-dots"></i>
-										</div>
-									</header>
-									<div class="card-body">
-										<h3 class="mt-0 font-weight-semibold mt-0 text-center">Selamat Datang {{Auth::user()->nama}}</h3>
-										<p class="text-center">Nullam quiris risus eget urna mollis ornare vel eu leo. Soccis natoque penatibus et magnis dis parturient montes. Soccis natoque penatibus et magnis dis parturient montes.</p>
-									</div>
-								</section>
-							</div>
-						<div class="col-lg-7">
-							<div class="row mb-3">
-								<div class="col-xl-6">
-								<section class="card mb-4">
-											<div class="card-body bg-success">
-												<div class="widget-summary">
-													<div class="widget-summary-col widget-summary-col-icon">
-														<div class="summary-icon">
-															<i class="fas fa-calendar-alt"></i>
-														</div>
-													</div>
-													<div class="widget-summary-col">
-														<div class="summary">
-															<h4 class="title">Data Haul</h4>
-															<div class="info">
-																<strong class="amount">{{$haul->count()}} Data</strong>
-															</div>
-														</div>
-														<div class="summary-footer">
-															<a href="{{Route('haulIndex')}}" class="text-uppercase">(view all)</a>
-														</div>
-													</div>
-												</div>
-											</div>
-										</section>
-								</div>
-								<div class="col-xl-6">
-								<section class="card mb-4">
-											<div class="card-body bg-success">
-												<div class="widget-summary">
-													<div class="widget-summary-col widget-summary-col-icon">
-														<div class="summary-icon">
-															<i class="fas fa-home"></i>
-														</div>
-													</div>
-													<div class="widget-summary-col">
-														<div class="summary">
-															<h4 class="title">Posko Haul</h4>
-															<div class="info">
-																<strong class="amount">{{$posko->count()}} Posko</strong>
-															</div>
-														</div>
-														<div class="summary-footer">
-															<a href="{{Route('poskoIndex')}}" class="text-uppercase">(view all)</a>
-														</div>
-													</div>
-												</div>
-											</div>
-										</section>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-xl-6">
-								<section class="card card-horizontal mb-4">
-									<header class="card-header bg-success">
-										<div class="card-header-icon">
-											<i class="fas fa-users"></i>
-										</div>
-									</header>
-									<div class="card-body p-4">
-										<h5 class="font-weight-semibold mt-3"> Ketua Posko</h5>
-										<p>{{$ketua->count()}} Data</p>
-									</div>
-								</section>
-								</div>
-								<div class="col-xl-6">
-								<section class="card card-horizontal mb-4">
-									<header class="card-header bg-success">
-										<div class="card-header-icon">
-											<i class="fas fa-users"></i>
-										</div>
-									</header>
-									<div class="card-body p-4">
-										<h5 class="font-weight-semibold mt-3">Anggota Posko</h5>
-										<p>{{$anggota->count()}} Data</p>
-									</div>
-								</section>
-								</div>
-							</div>
+					<div class="card">
+						<div class="card-body">
+						<div class="alert alert-success">
+							<h3> Selamat Datang, {{Auth::user()->anggota->nama}}</h3>
 						</div>
+						<hr>
+						<h4>Data Posko:</h4>
+						<hr>
+						<div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for=""> <b>Nama Posko</b></label>
+                                <p>{{Auth::user()->anggota->posko->nama_posko}}</p>
+                            </div>
+                            <div class="form-group">
+                                <label for=""> <b> No Telepon Posko</b> </label>
+                                <p>{{Auth::user()->anggota->posko->no_hp}}</p>
+                            </div>
+
+                            <div class="form-group">
+                                <label for=""> <b>Periode Haul</b> </label>
+                                <p>Periode Haul
+                                    {{\carbon\carbon::parse(Auth::user()->anggota->posko->haul_sekumpul->created_at)->translatedFormat('Y')}}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for=""> <b>Jenis Posko</b> </label>
+                                @if(Auth::user()->anggota->posko->jenis_posko == 1)
+                                <p>Posko Induk</p>
+                                @elseif(Auth::user()->anggota->posko->jenis_posko == 2)
+                                <p>Posko Non Induk</p>
+                                @else
+                                <p>Posko Kesehatan</p>
+                                @endif
+                            </div>
+                            <div class="form-group">
+                                <table>
+                                    <tr>
+                                        <td>Nama</td>
+                                        <td class="pl-3">:
+                                            @if(isset(Auth::user()->anggota->posko->ketua_posko))
+                                            {{Auth::user()->anggota->posko->ketua_posko->user->nama}}
+                                            @else
+                                            Belum diisi
+                                            @endif
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nomor Telepon</td>
+                                        <td class="pl-3">:
+                                            @if(isset(Auth::user()->anggota->posko->ketua_posko))
+                                            {{Auth::user()->anggota->posko->ketua_posko->user->no_hp}}
+                                            @else
+                                            Belum diisi
+                                            @endif
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Alamat</td>
+                                        <td class="pl-3">:
+                                            @if(isset(Auth::user()->anggota->posko->ketua_posko))
+                                            {{Auth::user()->anggota->posko->ketua_posko->alamat}}
+                                            @else
+                                            Belum diisi
+                                            @endif
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <br>
+                        </div>
 					</div>
-					<div class="row mt-0 pt-0">
-						<div class="col-md-6">
-						<section class="card card-horizontal mb-4">
-									<header class="card-header bg-white">
-										<div class="card-header-icon bg-success ml-3">
-											<i class="fas fa-hand-holding-heart"></i>
-										</div>
-									</header>
-									<div class="card-body p-4">
-										<h3 class="font-weight-semibold mt-3">Data Donasi</h3>
-										<p>{{$donasi->count()}} Data Donasi</p>
-									</div>
-								</section>
-						</div>
-						<div class="col-md-6">
-							<section class="card card-horizontal mb-4">
-									<header class="card-header bg-white">
-										<div class="card-header-icon bg-success ml-3">
-											<i class="fas fa-shopping-cart"></i>
-										</div>
-									</header>
-									<div class="card-body p-4">
-										<h3 class="font-weight-semibold mt-3">Data Pengeluaran</h3>
-										<p>{{$pengeluaran->count()}} Data Pengeluaran</p>
-									</div>
-								</section>
+					<div class="text-right">
+						<a href="{{Route('detailAnggotaCetak',['uuid'=>Auth::user()->anggota->uuid])}}" class="btn btn-block btn-default ml-1" target="_blank"><i class="fa fa-print"></i> Cetak Kartu Nama</a>
+					</div>
 						</div>
 					</div>
 					<!-- end: page -->

@@ -48,7 +48,7 @@ class adminController extends Controller
 
     public function anggotaIndex()
     {
-        dd('Halaman anggota');
+        
         return view('anggota.index');
     }
 

@@ -17,6 +17,11 @@ class User extends Authenticatable
         return $this->hasOne('App\Ketua_posko');
     }
 
+    public function anggota()
+    {
+        return $this->hasOne('App\Anggota_posko');
+    }
+
     /**
      * The attributes that are mass assignable.
      *
