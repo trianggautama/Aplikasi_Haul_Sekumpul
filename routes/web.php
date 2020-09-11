@@ -68,7 +68,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/pemasukan/delete/{uuid}', 'pemasukanController@destroy')->name('pemasukanDestroy');
     Route::get('/pemasukan/filter', 'pemasukanController@filter')->name('pemasukanFilter');
 
-
     Route::get('/pengeluaran/index', 'pengeluaranController@index')->name('pengeluaranIndex');
     Route::post('/pengeluaran/index', 'pengeluaranController@store')->name('pengeluaranStore');
     Route::get('/pengeluaran/detail/{uuid}', 'pengeluaranController@show')->name('pengeluaranShow');
@@ -90,7 +89,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::put('/ketua/edit/{uuid}', 'ketuaController@update')->name('ketuaUpdate');
     Route::get('/ketua/delete/{uuid}', 'ketuaController@destroy')->name('ketuaDestroy');
     Route::get('/ketua/filter', 'ketuaController@filter')->name('ketuaPoskoFilter');
-
 
     Route::get('/anggota/index', 'anggotaController@index')->name('anggotaIndex');
     Route::post('/anggota/index', 'anggotaController@store')->name('anggotaStore');
@@ -205,10 +203,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('anggota/cetak/{uuid}', 'reportController@anggotaDetail')->name('detailAnggotaCetak');
     Route::post('/pemasukan/filter', 'reportController@pemasukanFilter')->name('pemasukanFilterCetak');
 
-
-
     //Login Sebagai Admin Posko
     Route::get('halaman/posko/index', 'adminController@poskoIndex')->name('halamanPoskoIndex');
     Route::get('profil/posko', 'poskoController@profil')->name('profilPosko');
+
+    Route::get('anggota/posko/index', 'adminController@anggotaIndex')->name('halamanAnggotaIndex');
 
 });

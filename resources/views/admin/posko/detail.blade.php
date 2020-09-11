@@ -140,7 +140,7 @@
                                 <td>{{$d->nama}}</td>
                                 <td>{{$d->tugas}}</td>
                                 <td>{{$d->no_hp}}</td>
-                                <td>-</td>
+                                <td>{{$d->user->username}}</td>
                                 <td>
                                     <a href="{{Route('anggotaShow',['uuid'=>$d->uuid])}}"
                                         class="btn btn-sm btn-warning m-1">
@@ -190,7 +190,11 @@
                             <tr>
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$d->alamat}}</td>
+                                @if(isset($d->anggota_posko))
                                 <td>{{$d->anggota_posko->nama}}</td>
+                                @else
+                                <td>-</td>
+                                @endif
                                 <td>{{$d->jenis_parkir}}</td>
                                 <td>{{$d->luas_parkir}}</td>
                                 <td>Terisi {{$d->status}} %</td>
@@ -199,7 +203,7 @@
                                         class="btn btn-sm btn-primary m-1 text-white">
                                         <i class="fa fa-edit"></i></a>
                                     <button class="btn btn-sm btn-danger" onclick="HapusParkir('{{$d->uuid}}')"> <i
-                                            class="fa fa-trash"></i></button> 
+                                            class="fa fa-trash"></i></button>
                                 </td>
                             </tr>
                             @endforeach
@@ -240,11 +244,11 @@
                     </div>
                     <div class="form-group">
                         <label for="">Username</label>
-                        <input type="text" class="form-control" name="username"  placeholder="username" required>
+                        <input type="text" class="form-control" name="username" placeholder="username" required>
                     </div>
                     <div class="form-group">
                         <label for="">Password</label>
-                        <input type="password" class="form-control" name="password"  required>
+                        <input type="password" class="form-control" name="password" required>
                     </div>
                     <div class="form-group">
                         <label for="">foto</label>
@@ -291,11 +295,11 @@
                     </div>
                     <div class="form-group">
                         <label for="">Username</label>
-                        <input type="text" class="form-control" name="username"  placeholder="username" required>
+                        <input type="text" class="form-control" name="username" placeholder="username" required>
                     </div>
                     <div class="form-group">
                         <label for="">Password</label>
-                        <input type="password" class="form-control" name="password"  required>
+                        <input type="password" class="form-control" name="password" required>
                     </div>
                     <div class="form-group">
                         <label for="">Foto</label>

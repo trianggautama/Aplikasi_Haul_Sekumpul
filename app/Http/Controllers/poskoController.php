@@ -81,8 +81,19 @@ class poskoController extends Controller
     {
         $id = Posko::where('uuid', $request->uuid)->first();
 
+        $user = new User;
+        $user->nama = $request->nama;
+        $user->username = $request->username;
+        $user->password = Hash::make($request->password);
+        $user->no_hp = $request->no_hp;
+        $user->role = 3;
+        $user->foto = 'default.jpg';
+
+        $user->save();
+
         $data = new Anggota_posko;
         $data->posko_id = $id->id;
+        $data->user_id = $user->id;
         $data->nama = $request->nama;
         $data->jabatan = $request->jabatan;
         $data->no_hp = $request->no_hp;

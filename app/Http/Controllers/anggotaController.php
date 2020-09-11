@@ -31,11 +31,13 @@ class anggotaController extends Controller
 
     public function update(Request $request, $uuid)
     {
+
         $data = Anggota_posko::where('uuid', $uuid)->first();
         $data->nama = $request->nama;
         $data->jabatan = $request->jabatan;
         $data->no_hp = $request->no_hp;
         $data->tugas = $request->tugas;
+
         if ($request->foto != null) {
             $img = $request->file('foto');
             $FotoExt = $img->getClientOriginalExtension();
@@ -48,6 +50,19 @@ class anggotaController extends Controller
         }
 
         $data->update();
+
+        $user = User::findOrFail($data->user->id);
+        $user->nama = $request->nama;
+        if (isset($request->username)) {
+            $user->username = $request->username;
+        }
+        if (isset($request->password)) {
+            $user->password = Hash::make($request->password);
+        }
+
+        $user->no_hp = $request->no_hp;
+
+        $user->update();
 
         return redirect()->route('poskoShow', ['uuid' => $data->posko->uuid])->with('success', 'Data Berhasil diubah');
 

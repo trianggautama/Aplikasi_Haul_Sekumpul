@@ -14,4 +14,9 @@ class Anggota_posko extends Model
     {
         return $this->belongsTo('App\Posko');
     }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }

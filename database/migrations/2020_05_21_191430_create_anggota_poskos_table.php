@@ -16,12 +16,14 @@ class CreateAnggotaPoskosTable extends Migration
         Schema::create('anggota_poskos', function (Blueprint $table) {
             $table->id();
             $table->string('uuid')->length(36);
+            $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('posko_id');
             $table->string('nama')->length(100);
             $table->string('jabatan', 35);
             $table->string('no_hp', 13);
             $table->text('tugas');
             $table->text('foto');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('posko_id')->references('id')->on('poskos')->onDelete('cascade');
             $table->timestamps();
         });
