@@ -49,7 +49,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for=""> <b>Nama Posko</b> </label>
+                                <label for=""> <b>jenis Posko</b> </label>
                                 @if(Auth::user()->anggota->posko->jenis_posko == 1)
                                 <p>Posko Induk</p>
                                 @elseif(Auth::user()->anggota->posko->jenis_posko == 2)
