@@ -50,12 +50,18 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for=""> <b>Nama Posko</b> </label>
-                                <p>{{Auth::user()->anggota->posko->nama_posko}}</p>
+                                @if(Auth::user()->anggota->posko->jenis_posko == 1)
+                                <p>Posko Induk</p>
+                                @elseif(Auth::user()->anggota->posko->jenis_posko == 2)
+                                <p>Posko Non Induk</p>
+                                @else
+                                <p>Posko Kesehatan</p> 
+                                @endif
                             </div>
                             <div class="form-group">
                                 <table>
                                     <tr>
-                                        <td>Nama</td>
+                                        <td>Nama Ketua Posko</td>
                                         <td class="pl-3">:
                                             @if(isset(Auth::user()->anggota->posko->ketua_posko))
                                             {{Auth::user()->anggota->posko->ketua_posko->user->nama}}
@@ -65,7 +71,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Nomor Telepon</td>
+                                        <td>Nomor Telepon Ketua Posko</td>
                                         <td class="pl-3">:
                                             @if(isset(Auth::user()->anggota->posko->ketua_posko))
                                             {{Auth::user()->anggota->posko->ketua_posko->user->no_hp}}
@@ -75,7 +81,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Alamat</td>
+                                        <td>Alamat Ketua Posko</td>
                                         <td class="pl-3">:
                                             @if(isset(Auth::user()->anggota->posko->ketua_posko))
                                             {{Auth::user()->anggota->posko->ketua_posko->alamat}}
