@@ -49,14 +49,8 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for=""> <b>Jenis Posko</b> </label>
-                                @if(Auth::user()->anggota->posko->jenis_posko == 1)
-                                <p>Posko Induk</p>
-                                @elseif(Auth::user()->anggota->posko->jenis_posko == 2)
-                                <p>Posko Non Induk</p>
-                                @else
-                                <p>Posko Kesehatan</p>
-                                @endif
+                                <label for=""> <b>Nama Posko</b> </label>
+                                <p>{{Auth::user()->anggota->posko->nama_posko}}</p>
                             </div>
                             <div class="form-group">
                                 <table>
