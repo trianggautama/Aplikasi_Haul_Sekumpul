@@ -7,6 +7,7 @@ use App\Posko;
 use App\User;
 use File;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class anggotaController extends Controller
 {
