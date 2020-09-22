@@ -94,7 +94,7 @@
     <div class="container">
         <div class="isi">
         <hr>
-            <h2 style="text-align:center; text-transform:uppercase;">DATA PENEMUAN ORANG PADA POSKO {{$posko->nama_posko}}</h2>
+            <h2 style="text-align:center; text-transform:uppercase;">LAPORAN PENEMUAN ORANG PADA POSKO {{$posko->nama_posko}}</h2>
             <br>
             <table class="table table-bordered table-striped mb-0" id="datatable-default">
                             <thead>

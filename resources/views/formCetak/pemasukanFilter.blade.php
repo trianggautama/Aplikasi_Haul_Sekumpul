@@ -96,7 +96,7 @@
     <div class="container">
     <hr>
         <div class="isi">
-            <h3 style="text-align:center;">DATA PEMASUKAN MUSHOLA AR-RAUDHAH Dari Tanggal {{\carbon\carbon::parse($tgl_mulai)->translatedFormat('d F Y')}} Sampai {{\carbon\carbon::parse($tgl_akhir)->translatedFormat('d F Y')}}</h3>
+            <h3 style="text-align:center;">LAPORAN PEMASUKAN MUSHOLA AR-RAUDHAH Dari Tanggal {{\carbon\carbon::parse($tgl_mulai)->translatedFormat('d F Y')}} Sampai {{\carbon\carbon::parse($tgl_akhir)->translatedFormat('d F Y')}}</h3>
             <br>
             <table class="table table-bordered table-striped mb-0" id="datatable-default">
                             <thead>

@@ -93,7 +93,7 @@
     </div>
     <div class="container">
         <div class="isi">
-            <h2 style="text-align:center;">DATA KEHILANGAN BARANG</h2>
+            <h2 style="text-align:center;">LAPORAN KEHILANGAN BARANG</h2>
             <br>
             <table class="table table-bordered table-striped mb-0" id="datatable-default">
                             <thead>

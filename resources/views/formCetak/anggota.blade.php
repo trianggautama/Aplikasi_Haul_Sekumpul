@@ -93,7 +93,7 @@
     <div class="container">
         <div class="isi">
         <hr>
-            <h2 style="text-align:center;">DATA ANGGOTA POSKO   </h2>
+            <h2 style="text-align:center;">LAPORAN ANGGOTA POSKO   </h2>
             <br>
             <table class="table table-bordered table-striped mb-0" id="datatable-default">
                             <thead>

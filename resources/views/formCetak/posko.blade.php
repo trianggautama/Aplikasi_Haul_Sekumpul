@@ -93,7 +93,7 @@
     </div>
     <div class="container">
         <div class="isi">
-            <h2 style="text-align:center;">DATA POSKO HAUL KESELURUHAN</h2>
+            <h2 style="text-align:center;">LAPORAN POSKO HAUL KESELURUHAN</h2>
             <br>
             <table class="table table-bordered table-striped mb-0" id="datatable-default">
                             <thead>

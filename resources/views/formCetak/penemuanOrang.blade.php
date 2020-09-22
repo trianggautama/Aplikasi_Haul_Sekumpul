@@ -97,7 +97,7 @@
     <div class="container">
     <hr>
         <div class="isi">
-            <h2 style="text-align:center;">DATA PENEMUAN ORANG</h2>
+            <h2 style="text-align:center;">LAPORAN PENEMUAN ORANG</h2>
             <br>
             <table class="table table-bordered table-striped mb-0" id="datatable-default">
                             <thead>

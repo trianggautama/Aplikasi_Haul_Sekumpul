@@ -93,7 +93,7 @@
     <div class="container">
         <div class="isi">
         <hr>
-            <h2 style="text-align:center;">DATA KETUA POSKO PERIODE HAUL {{\carbon\carbon::parse($haul->created_at)->format('Y')}}</h2>
+            <h2 style="text-align:center;">LAPORAN KETUA POSKO PERIODE HAUL {{\carbon\carbon::parse($haul->created_at)->format('Y')}}</h2>
             <br>
             <table class="table table-bordered table-striped mb-0" id="datatable-default">
                             <thead>
